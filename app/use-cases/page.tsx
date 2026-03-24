@@ -5,14 +5,11 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useLanguage } from "../components/i18n/language-context";
+import RotatingText from "../components/rotating-text";
 import {
   TextReveal,
-  ScrollSlide,
-  ScrollScale,
   GsapStagger,
-  TiltCard,
   MagneticHover,
-  ParallaxFloat,
   PageReveal,
 } from "../components/gsap-effects";
 
@@ -393,7 +390,7 @@ export default function UseCasesPage() {
               {s("usecasesPage.hero.label")}
             </span>
             <TextReveal tag="h1" className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-foreground leading-[1.05]">
-              {s("usecasesPage.hero.title")}
+              Works the way you <RotatingText words={["work", "think", "create", "learn"]} className="text-zinc-400" />
             </TextReveal>
             <TextReveal tag="p" className="mt-8 text-lg md:text-xl text-muted leading-relaxed max-w-2xl mx-auto">
               {s("usecasesPage.hero.subtitle")}

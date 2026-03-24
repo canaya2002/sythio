@@ -513,12 +513,12 @@ export default function TermsPage() {
             <p className="text-sm text-muted-light">
               &copy; {new Date().getFullYear()} Sythio. All rights reserved.
             </p>
-            <a
-              href="#"
+            <button
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               className="text-sm text-muted hover:text-foreground transition-colors"
             >
               Back to top
-            </a>
+            </button>
           </div>
         </div>
       </section>

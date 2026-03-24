@@ -1,24 +1,17 @@
-import type { Metadata } from "next";
+import { buildMetadata } from "../lib/metadata";
 
-export const metadata: Metadata = {
-  title: "Pricing",
+export const metadata = buildMetadata({
+  title: "Pricing — Free Plan Available | Start Today",
   description:
-    "Simple, transparent pricing for Sythio. Start free with our AI voice notes app and upgrade when you need more. No hidden fees. Compare plans for individuals and teams — including audio summarizer features, speaker detection, and unlimited exports.",
+    "Sythio pricing starts at $0. Free plan with 5 recordings. Pro $12/mo for unlimited. Premium $29/mo for teams. AI voice notes with speaker detection and 9 output formats.",
+  path: "/pricing",
   keywords: [
     "Sythio pricing",
     "AI voice notes app pricing",
     "audio summarizer plans",
     "free voice recorder AI",
   ],
-  openGraph: {
-    title: "Pricing | Sythio",
-    description:
-      "Simple, transparent pricing for Sythio. Start free, upgrade when you need more. No hidden fees. Plans for individuals and teams.",
-    url: "https://sythio.com/pricing",
-    siteName: "Sythio",
-    type: "website",
-  },
-};
+});
 
 export default function PricingLayout({
   children,

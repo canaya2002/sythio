@@ -49,11 +49,11 @@ export function IPhoneFrame({
       {/* Phone body */}
       <div className="relative bg-zinc-900 rounded-[3rem] md:rounded-[3.5rem] p-3 md:p-3.5 shadow-2xl">
         {/* Dynamic Island */}
-        <div className="absolute top-4 left-1/2 -translate-x-1/2 w-28 h-7 bg-black rounded-full z-20" />
+        <div className="absolute top-6 md:top-7 left-1/2 -translate-x-1/2 w-28 h-[26px] bg-black rounded-full z-20" />
         {/* Screen */}
         <div className="rounded-[2.25rem] md:rounded-[2.75rem] overflow-hidden bg-white relative">
-          {/* Status bar */}
-          <div className="h-14 bg-white flex items-end justify-between px-8 pb-1.5 relative z-10">
+          {/* Status bar — space for Dynamic Island */}
+          <div className="h-16 md:h-[70px] bg-white flex items-end justify-between px-8 pb-1 relative z-10">
             <span className="text-[11px] font-semibold text-foreground">9:41</span>
             <div className="flex items-center gap-1.5">
               <svg width="16" height="12" viewBox="0 0 16 12" fill="currentColor" className="text-foreground">

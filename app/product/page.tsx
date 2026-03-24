@@ -12,6 +12,7 @@ import {
   MagneticHover,
   ParallaxFloat,
 } from "../components/gsap-effects";
+import RotatingText from "../components/rotating-text";
 import {
   ActionPlanMockup,
   ChecklistMockup,
@@ -22,6 +23,7 @@ import {
   SpeakerBadges,
 } from "../components/mockups";
 import { MacBookFrame, IPhoneFrame, BrowserFrame } from "../components/devices";
+import { useLanguage } from "../components/i18n/language-context";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -29,6 +31,7 @@ if (typeof window !== "undefined") {
 
 /* ─── Output Modes Section ─── */
 function OutputModes() {
+  const { s } = useLanguage();
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -62,13 +65,12 @@ function OutputModes() {
     <section id="outputs" className="py-32 md:py-44 bg-white">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-24">
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-light mb-6 block">Output modes</span>
+          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-light mb-6 block">{s("product.outputModes.label")}</span>
           <TextReveal tag="h2" className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
             Nine ways to use every recording
           </TextReveal>
           <TextReveal tag="p" className="mt-6 text-lg md:text-xl text-muted max-w-xl mx-auto leading-relaxed">
-            Every audio input can produce any of these outputs. Pick what you need.
-            Switch formats anytime.
+            {s("product.outputModes.subtitle")}
           </TextReveal>
         </div>
 
@@ -93,6 +95,7 @@ function OutputModes() {
 
 /* ─── Speaker Detection Deep Dive ─── */
 function SpeakerDeepDive() {
+  const { s } = useLanguage();
   return (
     <section id="speakers" className="py-32 md:py-44 bg-background overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
@@ -112,21 +115,20 @@ function SpeakerDeepDive() {
           </ScrollSlide>
 
           <div>
-            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-light mb-6 block">Speaker intelligence</span>
+            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-light mb-6 block">{s("product.speaker.label")}</span>
             <TextReveal tag="h2" className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-[1.1]">
-              Every voice identified.
+              {s("product.speaker.title")}
             </TextReveal>
             <TextReveal tag="p" className="mt-7 text-lg md:text-xl text-muted leading-relaxed max-w-lg">
-              Sythio&apos;s speaker detection goes beyond labeling. It understands
-              conversation dynamics — who proposed, who agreed, who owns the next step.
+              {s("product.speaker.subtitle")}
             </TextReveal>
             <GsapStagger className="mt-10 space-y-4" stagger={0.1}>
               {[
-                "Automatic speaker identification across recordings",
-                "Rename speakers for personalized outputs",
-                "Speaker-aware summaries with clear attribution",
-                "Responsibility tracking — who committed to what",
-                "Meeting dynamics — speaking time and engagement",
+                s("product.speaker.f1"),
+                s("product.speaker.f2"),
+                s("product.speaker.f3"),
+                s("product.speaker.f4"),
+                s("product.speaker.f5"),
               ].map((item, i) => (
                 <div key={i} className="flex items-start gap-3">
                   <div className="mt-1 w-2 h-2 rounded-full bg-foreground shrink-0" />
@@ -143,19 +145,18 @@ function SpeakerDeepDive() {
 
 /* ─── Reuse Audio ─── */
 function ReuseAudio() {
+  const { s } = useLanguage();
   return (
     <section className="py-32 md:py-44 bg-white">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-28 items-center">
           <div>
-            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-light mb-6 block">One audio, infinite value</span>
+            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-light mb-6 block">{s("product.reuse.label")}</span>
             <TextReveal tag="h2" className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-[1.1]">
               Record once. Transform endlessly.
             </TextReveal>
             <TextReveal tag="p" className="mt-7 text-lg md:text-xl text-muted leading-relaxed max-w-lg">
-              Traditional tools give you one output per recording. Sythio lets you
-              generate completely new outputs from any audio — different format,
-              different focus, different perspective.
+              {s("product.reuse.subtitle")}
             </TextReveal>
           </div>
 
@@ -196,13 +197,14 @@ function ReuseAudio() {
 
 /* ─── Detailed Feature Cards with Device Frames ─── */
 function DetailedFeatures() {
+  const { s } = useLanguage();
   return (
     <section className="py-32 md:py-44 bg-background overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-24">
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-light mb-6 block">Built for real work</span>
+          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-light mb-6 block">{s("product.details.label")}</span>
           <TextReveal tag="h2" className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
-            Every detail considered
+            {s("product.details.title")}
           </TextReveal>
         </div>
 
@@ -237,25 +239,26 @@ function DetailedFeatures() {
 
 /* ─── Workflow ─── */
 function Workflow() {
+  const { s } = useLanguage();
   return (
     <section className="py-32 md:py-44 bg-white">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-24">
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-light mb-6 block">Workflow</span>
+          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-light mb-6 block">{s("product.workflow.label")}</span>
           <TextReveal tag="h2" className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
-            Minimal interface. Maximum clarity.
+            {s("product.workflow.title")}
           </TextReveal>
           <TextReveal tag="p" className="mt-6 text-lg md:text-xl text-muted max-w-xl mx-auto leading-relaxed">
-            No feature bloat. No configuration menus. Just record, choose your output, and go.
+            {s("product.workflow.subtitle")}
           </TextReveal>
         </div>
 
         <GsapStagger className="grid md:grid-cols-2 lg:grid-cols-4 gap-6" stagger={0.1}>
           {[
-            { title: "Fast processing", desc: "Audio analyzed and transformed in seconds.", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
-            { title: "Clean exports", desc: "Copy, share, or export in any format.", icon: "M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" },
-            { title: "Audio library", desc: "All recordings organized and searchable.", icon: "M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" },
-            { title: "Elegant UX", desc: "Every interaction feels intentional and calm.", icon: "M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" },
+            { title: s("product.workflow.fast"), desc: s("product.workflow.fastDesc"), icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+            { title: s("product.workflow.exports"), desc: s("product.workflow.exportsDesc"), icon: "M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" },
+            { title: s("product.workflow.library"), desc: s("product.workflow.libraryDesc"), icon: "M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" },
+            { title: s("product.workflow.ux"), desc: s("product.workflow.uxDesc"), icon: "M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" },
           ].map((item) => (
             <ScrollScale key={item.title}>
               <div className="group p-8 rounded-3xl bg-background border border-border-light hover:border-border hover:shadow-[0_4px_16px_rgba(0,0,0,0.04),0_16px_48px_rgba(0,0,0,0.06)] transition-all duration-500">
@@ -313,17 +316,17 @@ function Workflow() {
 
 /* ─── Product CTA ─── */
 function ProductCTA() {
+  const { s } = useLanguage();
   return (
     <section className="py-32 md:py-44 bg-background relative overflow-hidden">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-indigo-50/40 via-violet-50/30 to-purple-50/20 rounded-full blur-3xl pointer-events-none" />
       <div className="max-w-7xl mx-auto px-6 relative">
         <div className="text-center max-w-3xl mx-auto">
           <TextReveal tag="h2" className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
-            Ready to transform how you work with audio?
+            {s("product.cta")}
           </TextReveal>
           <TextReveal tag="p" className="mt-7 text-lg md:text-xl text-muted max-w-xl mx-auto leading-relaxed">
-            Get early access to Sythio and start turning every conversation
-            into structured, actionable output.
+            {s("product.ctaSub")}
           </TextReveal>
           <div className="mt-14">
             <MagneticHover>
@@ -343,15 +346,16 @@ function ProductCTA() {
 
 /* ─── Product Page ─── */
 export default function ProductPage() {
+  const { s } = useLanguage();
   return (
     <>
       <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-white relative overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-gradient-to-b from-indigo-50/40 via-violet-50/20 to-transparent rounded-full blur-3xl pointer-events-none" />
         <div className="max-w-7xl mx-auto px-6 relative">
           <div className="text-center max-w-4xl mx-auto">
-            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-light mb-6 block">Product</span>
+            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-light mb-6 block">{s("product.hero.label")}</span>
             <TextReveal tag="h1" className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-foreground leading-[1.05]">
-              Everything your audio becomes
+              Everything your audio <RotatingText words={["becomes", "creates", "unlocks", "reveals"]} className="text-zinc-400" />
             </TextReveal>
             <TextReveal tag="p" className="mt-8 text-lg md:text-xl text-muted leading-relaxed max-w-2xl mx-auto">
               Sythio transforms voice into structure. Record once, and get

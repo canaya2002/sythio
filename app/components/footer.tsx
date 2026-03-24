@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useLanguage } from "./i18n/language-context";
 
 export default function Footer() {
@@ -13,9 +14,13 @@ export default function Footer() {
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
             <Link href="/" className="flex items-center gap-2 mb-4">
-              <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-foreground to-accent-muted flex items-center justify-center">
-                <span className="text-white text-xs font-bold tracking-tight">S</span>
-              </div>
+              <Image
+                src="/logo.png"
+                alt="Sythio logo"
+                width={28}
+                height={28}
+                className="w-7 h-7"
+              />
               <span className="text-lg font-semibold tracking-tight text-foreground">
                 Sythio
               </span>

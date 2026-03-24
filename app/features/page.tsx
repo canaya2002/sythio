@@ -5,6 +5,7 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useLanguage } from "../components/i18n/language-context";
+import RotatingText from "../components/rotating-text";
 import {
   TextReveal,
   ScrollSlide,
@@ -30,90 +31,92 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-/* ─── Feature definitions ─── */
-const features = [
-  {
-    title: "Summaries",
-    desc: "Concise overview of what was discussed. Key points, context, and takeaways in one clear read.",
-    icon: "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z",
-    color: "from-blue-50 to-indigo-50",
-    accent: "#6366f1",
-  },
-  {
-    title: "Tasks",
-    desc: "Automatically extract action items with owners. Every commitment captured, every deadline noted.",
-    icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4",
-    color: "from-emerald-50 to-green-50",
-    accent: "#22c55e",
-  },
-  {
-    title: "Action Plans",
-    desc: "Structured step-by-step plans derived from conversations. Who does what, by when, toward what goal.",
-    icon: "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z",
-    color: "from-violet-50 to-purple-50",
-    accent: "#8b5cf6",
-  },
-  {
-    title: "Speaker Detection",
-    desc: "Know who said what. Multi-speaker conversations understood, attributed, and organized by person.",
-    icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z",
-    color: "from-amber-50 to-yellow-50",
-    accent: "#f59e0b",
-  },
-  {
-    title: "Clean Text",
-    desc: "Polished, readable text from raw audio. Filler words removed, grammar corrected, structure added.",
-    icon: "M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z",
-    color: "from-sky-50 to-cyan-50",
-    accent: "#0ea5e9",
-  },
-  {
-    title: "Executive Reports",
-    desc: "Formal, presentation-ready documents. Decisions, risks, and next steps in professional format.",
-    icon: "M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V9a2 2 0 012-2h2a2 2 0 012 2v9a2 2 0 01-2 2h-2z",
-    color: "from-rose-50 to-pink-50",
-    accent: "#f43f5e",
-  },
-  {
-    title: "Messages",
-    desc: "Draft follow-up emails and messages directly from conversations. Ready to copy, paste, and send.",
-    icon: "M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z",
-    color: "from-teal-50 to-emerald-50",
-    accent: "#14b8a6",
-  },
-  {
-    title: "Study Notes",
-    desc: "Organized by topic with key concepts highlighted. Perfect for lectures, workshops, and learning sessions.",
-    icon: "M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253",
-    color: "from-orange-50 to-amber-50",
-    accent: "#f97316",
-  },
-  {
-    title: "Ideas",
-    desc: "Capture and categorize brainstorming output. Grouped by theme, ranked by potential, ready to act on.",
-    icon: "M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z",
-    color: "from-fuchsia-50 to-pink-50",
-    accent: "#d946ef",
-  },
-  {
-    title: "Exports",
-    desc: "Copy, share, or export in any format. PDF, text, clipboard, or direct integrations with your tools.",
-    icon: "M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4",
-    color: "from-indigo-50 to-blue-50",
-    accent: "#6366f1",
-  },
-  {
-    title: "Searchable History",
-    desc: "All recordings organized and searchable. Find any conversation, any insight, at any time.",
-    icon: "M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z",
-    color: "from-zinc-50 to-gray-100",
-    accent: "#71717a",
-  },
-];
+/* ─── Feature definitions (populated in FeatureGrid with i18n) ─── */
 
 /* ─── Feature Grid with staggered animation ─── */
 function FeatureGrid() {
+  const { s } = useLanguage();
   const ref = useRef<HTMLDivElement>(null);
+
+  const features = [
+    {
+      title: s("features.summaries"),
+      desc: s("features.summariesDesc"),
+      icon: "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z",
+      color: "from-blue-50 to-indigo-50",
+      accent: "#6366f1",
+    },
+    {
+      title: s("features.tasks"),
+      desc: s("features.tasksDesc"),
+      icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4",
+      color: "from-emerald-50 to-green-50",
+      accent: "#22c55e",
+    },
+    {
+      title: s("features.actionPlans"),
+      desc: s("features.actionPlansDesc"),
+      icon: "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z",
+      color: "from-violet-50 to-purple-50",
+      accent: "#8b5cf6",
+    },
+    {
+      title: s("features.speakerDetection"),
+      desc: s("features.speakerDetectionDesc"),
+      icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z",
+      color: "from-amber-50 to-yellow-50",
+      accent: "#f59e0b",
+    },
+    {
+      title: s("features.cleanText"),
+      desc: s("features.cleanTextDesc"),
+      icon: "M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z",
+      color: "from-sky-50 to-cyan-50",
+      accent: "#0ea5e9",
+    },
+    {
+      title: s("features.executiveReports"),
+      desc: s("features.executiveReportsDesc"),
+      icon: "M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V9a2 2 0 012-2h2a2 2 0 012 2v9a2 2 0 01-2 2h-2z",
+      color: "from-rose-50 to-pink-50",
+      accent: "#f43f5e",
+    },
+    {
+      title: s("features.messages"),
+      desc: s("features.messagesDesc"),
+      icon: "M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z",
+      color: "from-teal-50 to-emerald-50",
+      accent: "#14b8a6",
+    },
+    {
+      title: s("features.studyNotes"),
+      desc: s("features.studyNotesDesc"),
+      icon: "M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253",
+      color: "from-orange-50 to-amber-50",
+      accent: "#f97316",
+    },
+    {
+      title: s("features.ideas"),
+      desc: s("features.ideasDesc"),
+      icon: "M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z",
+      color: "from-fuchsia-50 to-pink-50",
+      accent: "#d946ef",
+    },
+    {
+      title: s("features.exports"),
+      desc: s("features.exportsDesc"),
+      icon: "M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4",
+      color: "from-indigo-50 to-blue-50",
+      accent: "#6366f1",
+    },
+    {
+      title: s("features.searchableHistory"),
+      desc: s("features.searchableHistoryDesc"),
+      icon: "M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z",
+      color: "from-zinc-50 to-gray-100",
+      accent: "#71717a",
+    },
+  ];
 
   useEffect(() => {
     const el = ref.current;
@@ -170,6 +173,7 @@ function FeatureGrid() {
 
 /* ─── Speaker Detection Highlight ─── */
 function SpeakerHighlight() {
+  const { s } = useLanguage();
   return (
     <section className="py-32 md:py-44 bg-background overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
@@ -192,21 +196,20 @@ function SpeakerHighlight() {
 
           <div>
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-light mb-6 block">
-              Speaker intelligence
+              {s("features.speakerSection")}
             </span>
             <TextReveal tag="h2" className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-[1.1]">
-              Every voice identified.
+              {s("features.speakerTitle")}
             </TextReveal>
             <TextReveal tag="p" className="mt-7 text-lg md:text-xl text-muted leading-relaxed max-w-lg">
-              Sythio&apos;s speaker detection goes beyond labeling. It understands
-              conversation dynamics — who proposed, who agreed, who owns the next step.
+              {s("features.speakerSubtitle")}
             </TextReveal>
             <GsapStagger className="mt-10 space-y-4" stagger={0.1}>
               {[
-                "Automatic speaker identification across recordings",
-                "Rename speakers for personalized outputs",
-                "Speaker-aware summaries with clear attribution",
-                "Responsibility tracking — who committed to what",
+                s("features.speakerF1"),
+                s("features.speakerF2"),
+                s("features.speakerF3"),
+                s("features.speakerF4"),
               ].map((item, i) => (
                 <div key={i} className="flex items-start gap-3">
                   <div className="mt-1.5 w-2 h-2 rounded-full bg-foreground shrink-0" />
@@ -223,18 +226,19 @@ function SpeakerHighlight() {
 
 /* ─── Output Showcase with Mockups ─── */
 function OutputShowcase() {
+  const { s } = useLanguage();
   return (
     <section className="py-32 md:py-44 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-24">
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-light mb-6 block">
-            Output formats
+            {s("features.outputSection")}
           </span>
           <TextReveal tag="h2" className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
-            See what Sythio produces
+            {s("features.outputTitle")}
           </TextReveal>
           <TextReveal tag="p" className="mt-6 text-lg md:text-xl text-muted max-w-xl mx-auto leading-relaxed">
-            Every output is ready to use. Copy, export, or share — instantly.
+            {s("features.outputSubtitle")}
           </TextReveal>
         </div>
 
@@ -275,16 +279,17 @@ function OutputShowcase() {
 
 /* ─── Mobile Experience ─── */
 function MobileExperience() {
+  const { s } = useLanguage();
   return (
     <section className="py-32 md:py-44 bg-background overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-28 items-center">
           <div>
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-light mb-6 block">
-              Works everywhere
+              {s("features.mobileSection")}
             </span>
             <TextReveal tag="h2" className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-[1.1]">
-              Capture on the go.
+              {s("features.mobileTitle")}
             </TextReveal>
             <TextReveal tag="p" className="mt-7 text-lg md:text-xl text-muted leading-relaxed max-w-lg">
               Record on your phone, process in seconds, and get structured outputs
@@ -402,7 +407,7 @@ export default function FeaturesPage() {
               {s("features.hero.label")}
             </span>
             <TextReveal tag="h1" className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-foreground leading-[1.05]">
-              {s("features.hero.title")}
+              A complete audio <RotatingText words={["intelligence", "transformation", "clarity", "productivity"]} className="text-zinc-400" /> platform
             </TextReveal>
             <TextReveal tag="p" className="mt-8 text-lg md:text-xl text-muted leading-relaxed max-w-2xl mx-auto">
               {s("features.hero.subtitle")}

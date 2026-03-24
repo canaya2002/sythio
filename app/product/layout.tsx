@@ -1,9 +1,10 @@
-import type { Metadata } from "next";
+import { buildMetadata } from "../lib/metadata";
 
-export const metadata: Metadata = {
-  title: "Product",
+export const metadata = buildMetadata({
+  title: "Product — AI Voice Notes & Audio Intelligence",
   description:
-    "Explore how Sythio transforms audio into summaries, tasks, action plans, reports, and more. Our AI voice notes app features speaker detection, multiple output modes, elegant exports, and intelligent audio processing that turns every recording into structured, actionable content.",
+    "See how Sythio transforms audio recordings into summaries, tasks, action plans, and reports. AI voice notes app with multi-speaker detection and 9 output formats.",
+  path: "/product",
   keywords: [
     "AI voice notes app",
     "audio to structured output",
@@ -11,15 +12,7 @@ export const metadata: Metadata = {
     "speaker detection app",
     "one audio multiple outcomes",
   ],
-  openGraph: {
-    title: "Product | Sythio",
-    description:
-      "Explore how Sythio transforms audio into summaries, tasks, action plans, reports, and more. AI voice notes app with speaker detection and multiple output modes.",
-    url: "https://sythio.com/product",
-    siteName: "Sythio",
-    type: "website",
-  },
-};
+});
 
 export default function ProductLayout({
   children,

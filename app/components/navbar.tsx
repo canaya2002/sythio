@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "./i18n/language-context";
@@ -28,9 +29,14 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-white/80 border-b border-border-light">
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 group">
-          <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-foreground to-accent-muted flex items-center justify-center">
-            <span className="text-white text-xs font-bold tracking-tight">S</span>
-          </div>
+          <Image
+            src="/logo.png"
+            alt="Sythio logo"
+            width={28}
+            height={28}
+            className="w-7 h-7"
+            priority
+          />
           <span className="text-lg font-semibold tracking-tight text-foreground">
             Sythio
           </span>

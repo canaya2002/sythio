@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useLanguage } from "../components/i18n/language-context";
+import RotatingText from "../components/rotating-text";
 import {
   TextReveal,
   ScrollScale,
@@ -65,7 +66,7 @@ export default function AboutPage() {
               tag="h1"
               className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-foreground leading-[1.05]"
             >
-              {s("about.hero.title")}
+              Why Sythio <RotatingText words={["exists", "matters", "works", "transforms"]} className="text-zinc-400" />
             </TextReveal>
             <TextReveal
               tag="p"

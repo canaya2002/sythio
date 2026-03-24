@@ -4,67 +4,15 @@ import { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "../components/i18n/language-context";
+import RotatingText from "../components/rotating-text";
 import {
   TextReveal,
-  ScrollScale,
   GsapStagger,
   MagneticHover,
   PageReveal,
 } from "../components/gsap-effects";
 
 /* ─── FAQ Data ─── */
-const faqItems = [
-  {
-    question: "What exactly is Sythio?",
-    answer:
-      "Sythio is an audio intelligence platform that transforms your recordings into structured, actionable output. Unlike simple transcription tools, Sythio understands context, detects speakers, and generates multiple output formats from a single recording — summaries, tasks, action plans, reports, messages, study notes, and more.",
-  },
-  {
-    question: "How does speaker detection work?",
-    answer:
-      "Sythio automatically identifies when different people are speaking in a recording. It separates voices, attributes statements to the correct speaker, and uses that context to create smarter outputs — like assigning tasks to the person who volunteered, or noting who made a specific decision. You can also rename detected speakers with real names for even clearer results.",
-  },
-  {
-    question: "What output modes are available?",
-    answer:
-      "Sythio offers 9 output modes: Summary (concise overview), Key Points (essential facts), Tasks (action items with owners), Action Plan (step-by-step next steps), Clean Text (polished transcription), Executive Report (presentation-ready document), Ready-to-Send Message (follow-up drafts), Study Notes (organized by topic), and Ideas (categorized brainstorming output). You can generate any or all of these from the same recording.",
-  },
-  {
-    question: "How is Sythio different from transcription services?",
-    answer:
-      "Transcription gives you a wall of text — essentially a written version of what was said. Sythio goes far beyond that. It understands the meaning of conversations and transforms them into useful formats. Instead of reading through 45 minutes of transcript, you get a structured summary, a task list, and a follow-up message — all generated automatically from the same audio.",
-  },
-  {
-    question: "Is my audio data private and secure?",
-    answer:
-      "Absolutely. Privacy is a core principle at Sythio. Your audio is processed to help you, never to train models or share with third parties. Audio data is encrypted in transit and at rest. We follow strict data protection practices, and you maintain full ownership of everything you record and generate.",
-  },
-  {
-    question: "What audio formats does Sythio support?",
-    answer:
-      "Sythio supports all common audio formats including MP3, WAV, M4A, AAC, OGG, FLAC, and WebM. You can also record directly within the app, which automatically uses an optimal format. There is no need to convert files before uploading.",
-  },
-  {
-    question: "Can Sythio handle long recordings?",
-    answer:
-      "Yes. Sythio is designed to handle recordings of any practical length — from 30-second voice memos to multi-hour meetings and lectures. Processing time scales with recording length, but Pro and Premium plans include priority processing for faster results on longer files.",
-  },
-  {
-    question: "What are the best use cases for Sythio?",
-    answer:
-      "Sythio works beautifully for team meetings (summaries + tasks), client calls (documentation + follow-ups), brainstorming sessions (idea capture + organization), lectures and workshops (study notes), voice memos (clean text + task extraction), and any situation where spoken information needs to become structured, shareable output.",
-  },
-  {
-    question: "Can I export and share my outputs?",
-    answer:
-      "Yes. All outputs can be copied, exported as text, PDF, or Markdown, and shared directly. Pro and Premium plans unlock all export formats. Whether you need to paste a summary into Slack, email a report, or save tasks to your project management tool — Sythio makes it seamless.",
-  },
-  {
-    question: "How does pricing work?",
-    answer:
-      "Sythio offers three plans: Free ($0/month) with 5 recordings and 3 output formats, Pro ($12/month) with unlimited recordings and all features, and Premium ($29/month) with team workspace, custom templates, and API access. You can start free with no credit card required and upgrade at any time.",
-  },
-];
 
 /* ─── Accordion Item ─── */
 function AccordionItem({
@@ -138,10 +86,23 @@ export default function FAQPage() {
   const { s } = useLanguage();
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
+  const faqItems = [
+    { question: s("faq.q1"), answer: s("faq.a1") },
+    { question: s("faq.q2"), answer: s("faq.a2") },
+    { question: s("faq.q3"), answer: s("faq.a3") },
+    { question: s("faq.q4"), answer: s("faq.a4") },
+    { question: s("faq.q5"), answer: s("faq.a5") },
+    { question: s("faq.q6"), answer: s("faq.a6") },
+    { question: s("faq.q7"), answer: s("faq.a7") },
+    { question: s("faq.q8"), answer: s("faq.a8") },
+    { question: s("faq.q9"), answer: s("faq.a9") },
+    { question: s("faq.q10"), answer: s("faq.a10") },
+  ];
+
   const relatedLinks = [
-    { href: "/product", label: "Explore the Product" },
-    { href: "/features", label: "See All Features" },
-    { href: "/pricing", label: "View Pricing" },
+    { href: "/product", label: s("faq.explore") },
+    { href: "/features", label: s("faq.seeFeatures") },
+    { href: "/pricing", label: s("faq.viewPricing") },
   ];
 
   return (
@@ -158,7 +119,7 @@ export default function FAQPage() {
               tag="h1"
               className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-foreground leading-[1.05]"
             >
-              {s("faq.hero.title")}
+              Frequently asked <RotatingText words={["questions", "topics", "answers", "insights"]} className="text-zinc-400" />
             </TextReveal>
             <TextReveal
               tag="p"
@@ -196,7 +157,7 @@ export default function FAQPage() {
               tag="h2"
               className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground"
             >
-              Want to learn more?
+              {s("faq.learnMore")}
             </TextReveal>
           </div>
           <GsapStagger
@@ -254,7 +215,7 @@ export default function FAQPage() {
             <div className="mt-12">
               <MagneticHover>
                 <Link
-                  href="#"
+                  href="/pricing"
                   className="h-14 px-10 inline-flex items-center justify-center rounded-full bg-foreground text-white text-base font-medium hover:bg-accent-muted transition-all duration-300 shadow-[0_1px_2px_rgba(0,0,0,0.1),0_4px_12px_rgba(0,0,0,0.1)] hover:shadow-[0_2px_4px_rgba(0,0,0,0.1),0_12px_32px_rgba(0,0,0,0.15)] hover:-translate-y-0.5"
                 >
                   {s("cta.button")}

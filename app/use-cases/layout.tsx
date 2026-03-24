@@ -1,9 +1,10 @@
-import type { Metadata } from "next";
+import { buildMetadata } from "../lib/metadata";
 
-export const metadata: Metadata = {
-  title: "Use Cases",
+export const metadata = buildMetadata({
+  title: "Use Cases — Meetings, Voice Notes, Study & More",
   description:
-    "Discover how professionals, students, and teams use Sythio for AI meeting notes, client call transcription, brainstorming audio capture, voice notes for studying, follow-up tracking, and more. See real-world scenarios where Sythio turns audio into structured outcomes.",
+    "Discover how professionals use Sythio for meeting notes, voice memos, brainstorming, client calls, study sessions, and follow-ups. Turn any audio into structured output.",
+  path: "/use-cases",
   keywords: [
     "AI meeting notes",
     "voice notes for students",
@@ -11,15 +12,7 @@ export const metadata: Metadata = {
     "brainstorming audio app",
     "voice notes for professionals",
   ],
-  openGraph: {
-    title: "Use Cases | Sythio",
-    description:
-      "Discover how Sythio works for meetings, voice notes, brainstorming, client calls, studying, follow-ups, and more.",
-    url: "https://sythio.com/use-cases",
-    siteName: "Sythio",
-    type: "website",
-  },
-};
+});
 
 export default function UseCasesLayout({
   children,

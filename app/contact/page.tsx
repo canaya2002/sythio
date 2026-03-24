@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "../components/i18n/language-context";
+import RotatingText from "../components/rotating-text";
 import {
   TextReveal,
   ScrollScale,
@@ -213,7 +214,7 @@ export default function ContactPage() {
               {s("contact.hero.label")}
             </span>
             <TextReveal tag="h1" className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-foreground leading-[1.05]">
-              {s("contact.hero.title")}
+              Get in <RotatingText words={["touch", "contact", "sync", "conversation"]} className="text-zinc-400" />
             </TextReveal>
             <TextReveal tag="p" className="mt-8 text-lg md:text-xl text-muted leading-relaxed max-w-2xl mx-auto">
               {s("contact.hero.subtitle")}

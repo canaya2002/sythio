@@ -1,9 +1,10 @@
-import type { Metadata } from "next";
+import { buildMetadata } from "../lib/metadata";
 
-export const metadata: Metadata = {
-  title: "Features",
+export const metadata = buildMetadata({
+  title: "Features — AI Audio Summarizer & Speaker Detection",
   description:
-    "Explore Sythio's complete audio intelligence platform. From AI-powered summaries and task extraction to speaker detection transcription, action plans, clean text, executive reports, and voice memo organization — discover every feature that makes Sythio the smartest way to process audio.",
+    "Explore Sythio's features: AI-powered summaries, task extraction, action plans, speaker detection, clean text, executive reports, study notes, and more.",
+  path: "/features",
   keywords: [
     "AI audio features",
     "voice note summarizer features",
@@ -13,15 +14,7 @@ export const metadata: Metadata = {
     "meeting notes AI",
     "voice memo organizer",
   ],
-  openGraph: {
-    title: "Features | Sythio",
-    description:
-      "Explore Sythio's complete audio intelligence platform. Summaries, tasks, action plans, speaker detection, clean text, executive reports, and more.",
-    url: "https://sythio.com/features",
-    siteName: "Sythio",
-    type: "website",
-  },
-};
+});
 
 export default function FeaturesLayout({
   children,

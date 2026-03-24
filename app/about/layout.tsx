@@ -1,24 +1,17 @@
-import type { Metadata } from "next";
+import { buildMetadata } from "../lib/metadata";
 
-export const metadata: Metadata = {
-  title: "About",
+export const metadata = buildMetadata({
+  title: "About — Our Mission to Transform Audio",
   description:
-    "Why Sythio exists. We believe every spoken word has potential. Learn about the AI audio company behind Sythio, our mission to transform voice notes into clarity, action, and structure, and the team building the future of audio intelligence.",
+    "Sythio exists because audio deserves better than transcription. Learn why we built an AI platform that turns voice recordings into clarity, structure, and actionable outcomes.",
+  path: "/about",
   keywords: [
     "about Sythio",
     "AI audio company",
     "voice notes mission",
     "audio intelligence",
   ],
-  openGraph: {
-    title: "About | Sythio",
-    description:
-      "Why Sythio exists. We believe every spoken word has potential. Learn about our mission to transform audio into clarity, action, and structure.",
-    url: "https://sythio.com/about",
-    siteName: "Sythio",
-    type: "website",
-  },
-};
+});
 
 export default function AboutLayout({
   children,

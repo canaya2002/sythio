@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "../components/i18n/language-context";
+import RotatingText from "../components/rotating-text";
 import {
   TextReveal,
   ScrollScale,
@@ -197,7 +198,7 @@ function PricingCard({
 
       <MagneticHover strength={0.15}>
         <Link
-          href="#"
+          href="/contact"
           className={`block w-full text-center py-3.5 rounded-full text-sm font-medium transition-all duration-300 ${
             isPopular
               ? "bg-white text-foreground hover:bg-white/90 shadow-sm"
@@ -260,26 +261,11 @@ export default function PricingPage() {
   ];
 
   const faqs = [
-    {
-      q: "Can I switch plans at any time?",
-      a: "Yes, you can upgrade or downgrade your plan at any time. When upgrading, you get immediate access to new features. When downgrading, you keep your current features until the end of the billing cycle.",
-    },
-    {
-      q: "Is there a free trial for Pro or Premium?",
-      a: "The Free plan lets you experience Sythio with no time limit. When you're ready for more, upgrading is instant and you can cancel anytime during the first 14 days for a full refund.",
-    },
-    {
-      q: "What payment methods do you accept?",
-      a: "We accept all major credit and debit cards, including Visa, Mastercard, and American Express. For Premium annual plans, we also support invoicing for teams.",
-    },
-    {
-      q: "Do unused recordings roll over?",
-      a: "On the Free plan, the 5 recording limit resets each month. Pro and Premium plans have unlimited recordings, so there is nothing to roll over.",
-    },
-    {
-      q: "What happens to my data if I downgrade?",
-      a: "Your recordings and outputs are always yours. If you downgrade, existing outputs remain accessible but new processing will be limited to your new plan's features.",
-    },
+    { q: s("pricing.faq.q1"), a: s("pricing.faq.a1") },
+    { q: s("pricing.faq.q2"), a: s("pricing.faq.a2") },
+    { q: s("pricing.faq.q3"), a: s("pricing.faq.a3") },
+    { q: s("pricing.faq.q4"), a: s("pricing.faq.a4") },
+    { q: s("pricing.faq.q5"), a: s("pricing.faq.a5") },
   ];
 
   return (
@@ -296,7 +282,7 @@ export default function PricingPage() {
               tag="h1"
               className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-foreground leading-[1.05]"
             >
-              {s("pricing.hero.title")}
+              Simple, <RotatingText words={["transparent", "honest", "fair", "clear"]} className="text-zinc-400" /> pricing
             </TextReveal>
             <TextReveal
               tag="p"
@@ -339,7 +325,7 @@ export default function PricingPage() {
               tag="h2"
               className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-foreground"
             >
-              Common questions
+              {s("pricing.faq.title")}
             </TextReveal>
           </div>
           <ScrollScale>
@@ -380,7 +366,7 @@ export default function PricingPage() {
             <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
               <MagneticHover>
                 <Link
-                  href="#"
+                  href="/contact"
                   className="h-14 px-10 inline-flex items-center justify-center rounded-full bg-foreground text-white text-base font-medium hover:bg-accent-muted transition-all duration-300 shadow-[0_1px_2px_rgba(0,0,0,0.1),0_4px_12px_rgba(0,0,0,0.1)] hover:shadow-[0_2px_4px_rgba(0,0,0,0.1),0_12px_32px_rgba(0,0,0,0.15)] hover:-translate-y-0.5"
                 >
                   {s("cta.button")}
