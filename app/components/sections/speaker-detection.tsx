@@ -103,7 +103,7 @@ export default function SpeakerDetection() {
               Speaker detection
             </span>
             <TextReveal tag="h2" className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-[1.1]">
-              Know who said <RotatingText words={["what", "when", "which", "everything"]} className="text-zinc-400" />.
+              Know who said <RotatingText words={["what", "when", "which", "everything"]} className="text-zinc-400" />
             </TextReveal>
             <TextReveal tag="p" className="mt-7 text-lg md:text-xl text-muted leading-relaxed max-w-lg">
               Multi-speaker conversations are common. Sythio understands them.

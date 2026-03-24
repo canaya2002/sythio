@@ -5,7 +5,7 @@ import RotatingText from "../rotating-text";
 
 export default function Problem() {
   return (
-    <section className="py-32 md:py-44 bg-white">
+    <section className="py-32 md:py-44 bg-white section-float-bg overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-28 items-center">
           {/* Text */}
@@ -14,7 +14,7 @@ export default function Problem() {
               The problem
             </span>
             <TextReveal tag="h2" className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-[1.1]">
-              Your voice notes are going <RotatingText words={["nowhere", "unheard", "forgotten", "wasted"]} className="text-zinc-400" />.
+              Your voice notes are going <RotatingText words={["nowhere", "unheard", "forgotten", "wasted"]} className="text-zinc-400" />
             </TextReveal>
             <TextReveal tag="p" className="mt-7 text-lg md:text-xl text-muted leading-relaxed max-w-lg">
               You record a meeting. You capture an idea. You leave yourself a reminder.

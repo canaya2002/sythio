@@ -70,7 +70,7 @@ export default function ProductExperience() {
               The experience
             </span>
             <TextReveal tag="h2" className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-[1.1]">
-              Designed to feel <RotatingText words={["effortless", "natural", "seamless", "intuitive"]} className="text-zinc-400" />.
+              Designed to feel <RotatingText words={["effortless", "natural", "seamless", "intuitive"]} className="text-zinc-400" />
             </TextReveal>
             <TextReveal tag="p" className="mt-7 text-lg md:text-xl text-muted leading-relaxed max-w-lg">
               Sythio isn&apos;t built to impress with complexity. It&apos;s built to

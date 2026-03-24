@@ -271,31 +271,64 @@ export default function PricingPage() {
   return (
     <PageReveal>
       {/* Hero */}
-      <section className="pt-32 pb-16 md:pt-40 md:pb-24 bg-white relative overflow-hidden">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-gradient-to-b from-indigo-50/30 via-violet-50/15 to-transparent rounded-full blur-3xl pointer-events-none" />
-        <div className="max-w-7xl mx-auto px-6 relative">
-          <div className="text-center max-w-3xl mx-auto">
-            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-light mb-6 block">
-              {s("pricing.hero.label")}
-            </span>
-            <TextReveal
-              tag="h1"
-              className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-foreground leading-[1.05]"
+      <section className="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-white via-white to-background pointer-events-none" />
+        <div className="hero-glow-animated absolute top-[-10%] left-1/2 -translate-x-1/2 w-[900px] h-[700px] bg-gradient-to-b from-indigo-50/50 via-violet-50/30 to-transparent rounded-full blur-3xl pointer-events-none" />
+
+        <div className="relative max-w-7xl mx-auto px-6">
+          <div className="text-center max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-foreground/5 border border-border-light mb-10">
+                <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                <span className="text-xs font-medium text-muted">{s("pricing.hero.label")}</span>
+              </div>
+            </motion.div>
+
+            <motion.h1
+              initial={{ opacity: 0, y: 32 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              className="text-5xl sm:text-6xl md:text-7xl font-bold leading-[1.05] tracking-tight text-foreground"
             >
               Simple, <RotatingText words={["transparent", "honest", "fair", "clear"]} className="text-zinc-400" /> pricing
-            </TextReveal>
-            <TextReveal
-              tag="p"
-              className="mt-8 text-lg md:text-xl text-muted leading-relaxed max-w-xl mx-auto"
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="mt-8 text-lg md:text-xl text-muted leading-relaxed max-w-2xl mx-auto"
             >
               {s("pricing.hero.subtitle")}
-            </TextReveal>
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.45 }}
+              className="mt-12 flex flex-col sm:flex-row gap-4 justify-center"
+            >
+              <MagneticHover>
+                <Link href="/contact" className="h-14 px-10 inline-flex items-center justify-center rounded-full bg-foreground text-white text-base font-medium hover:bg-accent-muted transition-all duration-300 shadow-[0_1px_2px_rgba(0,0,0,0.1),0_4px_12px_rgba(0,0,0,0.1)] hover:shadow-[0_2px_4px_rgba(0,0,0,0.1),0_12px_32px_rgba(0,0,0,0.15)] hover:-translate-y-0.5">
+                  Start Free
+                </Link>
+              </MagneticHover>
+              <MagneticHover>
+                <Link href="/features" className="h-14 px-10 inline-flex items-center justify-center rounded-full border border-border text-base font-medium text-foreground hover:bg-white hover:border-muted-light hover:shadow-md transition-all duration-300">
+                  See Features
+                </Link>
+              </MagneticHover>
+            </motion.div>
           </div>
         </div>
       </section>
 
       {/* Pricing Cards */}
-      <section className="pb-32 md:pb-44 bg-white">
+      <section className="pb-32 md:pb-44 bg-white section-float-bg">
         <div className="max-w-5xl mx-auto px-6">
           <GsapStagger
             className="grid md:grid-cols-3 gap-6 lg:gap-8 items-start"
@@ -318,7 +351,7 @@ export default function PricingPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-32 md:py-44 bg-background">
+      <section className="py-32 md:py-44 bg-background animated-gradient-bg">
         <div className="max-w-3xl mx-auto px-6">
           <div className="text-center mb-16">
             <TextReveal

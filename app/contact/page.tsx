@@ -206,25 +206,46 @@ export default function ContactPage() {
   return (
     <PageReveal>
       {/* Hero */}
-      <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-white relative overflow-hidden">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-gradient-to-b from-indigo-50/40 via-violet-50/20 to-transparent rounded-full blur-3xl pointer-events-none" />
-        <div className="max-w-7xl mx-auto px-6 relative">
-          <div className="text-center max-w-3xl mx-auto">
-            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-light mb-6 block">
-              {s("contact.hero.label")}
-            </span>
-            <TextReveal tag="h1" className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-foreground leading-[1.05]">
+      <section className="relative pt-28 pb-20 md:pt-36 md:pb-28 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-white via-white to-background pointer-events-none" />
+        <div className="hero-glow-animated absolute top-[-10%] left-1/2 -translate-x-1/2 w-[900px] h-[700px] bg-gradient-to-b from-indigo-50/50 via-violet-50/30 to-transparent rounded-full blur-3xl pointer-events-none" />
+
+        <div className="relative max-w-7xl mx-auto px-6">
+          <div className="text-center max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-foreground/5 border border-border-light mb-10">
+                <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                <span className="text-xs font-medium text-muted">{s("contact.hero.label")}</span>
+              </div>
+            </motion.div>
+
+            <motion.h1
+              initial={{ opacity: 0, y: 32 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              className="text-5xl sm:text-6xl md:text-7xl font-bold leading-[1.05] tracking-tight text-foreground"
+            >
               Get in <RotatingText words={["touch", "contact", "sync", "conversation"]} className="text-zinc-400" />
-            </TextReveal>
-            <TextReveal tag="p" className="mt-8 text-lg md:text-xl text-muted leading-relaxed max-w-2xl mx-auto">
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="mt-8 text-lg md:text-xl text-muted leading-relaxed max-w-2xl mx-auto"
+            >
               {s("contact.hero.subtitle")}
-            </TextReveal>
+            </motion.p>
           </div>
         </div>
       </section>
 
       {/* Category Cards */}
-      <section className="py-20 md:py-28 bg-background">
+      <section className="py-20 md:py-28 bg-background animated-gradient-bg">
         <div className="max-w-7xl mx-auto px-6">
           <GsapStagger className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5" stagger={0.08}>
             {categories.map((cat) => (
@@ -250,7 +271,7 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Form */}
-      <section className="py-20 md:py-32 bg-white">
+      <section className="py-20 md:py-32 bg-white section-float-bg">
         <div className="max-w-2xl mx-auto px-6">
           <div className="text-center mb-14">
             <TextReveal tag="h2" className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-foreground">

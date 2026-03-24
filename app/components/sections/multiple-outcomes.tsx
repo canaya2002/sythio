@@ -227,14 +227,14 @@ export default function MultipleOutcomes() {
   };
 
   return (
-    <section className="py-32 md:py-44 bg-white">
+    <section className="py-32 md:py-44 bg-white section-float-bg-warm overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-24">
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-light mb-6 block">
             One audio, multiple outcomes
           </span>
           <TextReveal tag="h2" className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
-            Record once. <RotatingText words={["Use", "Share", "Transform", "Apply"]} className="text-zinc-400" /> it everywhere.
+            Record once. <RotatingText words={["Use", "Share", "Transform", "Apply"]} className="text-zinc-400" /> it everywhere
           </TextReveal>
           <TextReveal tag="p" className="mt-6 text-lg md:text-xl text-muted max-w-xl mx-auto leading-relaxed">
             The same recording becomes whatever you need it to be. No re-recording.

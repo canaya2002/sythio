@@ -6,6 +6,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useLanguage } from "../components/i18n/language-context";
 import RotatingText from "../components/rotating-text";
+import { motion } from "framer-motion";
 import {
   TextReveal,
   ScrollSlide,
@@ -175,7 +176,7 @@ function FeatureGrid() {
 function SpeakerHighlight() {
   const { s } = useLanguage();
   return (
-    <section className="py-32 md:py-44 bg-background overflow-hidden">
+    <section className="py-32 md:py-44 bg-background animated-gradient-bg overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-28 items-center">
           <ScrollSlide direction="left" distance={100}>
@@ -228,7 +229,7 @@ function SpeakerHighlight() {
 function OutputShowcase() {
   const { s } = useLanguage();
   return (
-    <section className="py-32 md:py-44 bg-white overflow-hidden">
+    <section className="py-32 md:py-44 bg-white section-float-bg overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-24">
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-light mb-6 block">
@@ -281,7 +282,7 @@ function OutputShowcase() {
 function MobileExperience() {
   const { s } = useLanguage();
   return (
-    <section className="py-32 md:py-44 bg-background overflow-hidden">
+    <section className="py-32 md:py-44 bg-background animated-gradient-bg overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-28 items-center">
           <div>
@@ -399,25 +400,116 @@ export default function FeaturesPage() {
   return (
     <PageReveal>
       {/* Hero */}
-      <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-white relative overflow-hidden">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-gradient-to-b from-indigo-50/40 via-violet-50/20 to-transparent rounded-full blur-3xl pointer-events-none" />
-        <div className="max-w-7xl mx-auto px-6 relative">
+      <section className="relative pt-28 pb-20 md:pt-36 md:pb-28 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-white via-white to-background pointer-events-none" />
+        <div className="hero-glow-animated absolute top-[-10%] left-1/2 -translate-x-1/2 w-[900px] h-[700px] bg-gradient-to-b from-indigo-50/50 via-violet-50/30 to-transparent rounded-full blur-3xl pointer-events-none" />
+
+        <div className="relative max-w-7xl mx-auto px-6">
           <div className="text-center max-w-4xl mx-auto">
-            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-light mb-6 block">
-              {s("features.hero.label")}
-            </span>
-            <TextReveal tag="h1" className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-foreground leading-[1.05]">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-foreground/5 border border-border-light mb-10">
+                <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                <span className="text-xs font-medium text-muted">{s("features.hero.label")}</span>
+              </div>
+            </motion.div>
+
+            <motion.h1
+              initial={{ opacity: 0, y: 32 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              className="text-5xl sm:text-6xl md:text-7xl font-bold leading-[1.05] tracking-tight text-foreground"
+            >
               A complete audio <RotatingText words={["intelligence", "transformation", "clarity", "productivity"]} className="text-zinc-400" /> platform
-            </TextReveal>
-            <TextReveal tag="p" className="mt-8 text-lg md:text-xl text-muted leading-relaxed max-w-2xl mx-auto">
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="mt-8 text-lg md:text-xl text-muted leading-relaxed max-w-2xl mx-auto"
+            >
               {s("features.hero.subtitle")}
-            </TextReveal>
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.45 }}
+              className="mt-12 flex flex-col sm:flex-row gap-4 justify-center"
+            >
+              <MagneticHover>
+                <Link href="/pricing" className="h-14 px-10 inline-flex items-center justify-center rounded-full bg-foreground text-white text-base font-medium hover:bg-accent-muted transition-all duration-300 shadow-[0_1px_2px_rgba(0,0,0,0.1),0_4px_12px_rgba(0,0,0,0.1)] hover:shadow-[0_2px_4px_rgba(0,0,0,0.1),0_12px_32px_rgba(0,0,0,0.15)] hover:-translate-y-0.5">
+                  Get Started
+                </Link>
+              </MagneticHover>
+              <MagneticHover>
+                <Link href="/pricing" className="h-14 px-10 inline-flex items-center justify-center rounded-full border border-border text-base font-medium text-foreground hover:bg-white hover:border-muted-light hover:shadow-md transition-all duration-300">
+                  View Pricing
+                </Link>
+              </MagneticHover>
+            </motion.div>
           </div>
+
+          {/* Hero visual — mockup grid */}
+          <motion.div
+            initial={{ opacity: 0, y: 60, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 1, delay: 0.6 }}
+            className="mt-20 relative max-w-5xl mx-auto"
+          >
+            <div className="grid lg:grid-cols-2 gap-6">
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.8, duration: 0.6 }}
+              >
+                <BrowserFrame url="app.sythio.com/transcript">
+                  <TranscriptMockup />
+                </BrowserFrame>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 1.0, duration: 0.6 }}
+                className="hidden lg:block"
+              >
+                <BrowserFrame url="app.sythio.com/summary">
+                  <SummaryMockup />
+                </BrowserFrame>
+              </motion.div>
+            </div>
+
+            {/* Floating badge — speaker detection */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 1.3, duration: 0.5 }}
+              className="absolute -bottom-4 left-1/2 -translate-x-1/2 z-10"
+            >
+              <div className="flex items-center gap-3 bg-white rounded-full border border-border-light shadow-xl px-5 py-3">
+                <div className="flex -space-x-2">
+                  {["#6366f1", "#8b5cf6", "#a78bfa"].map((c) => (
+                    <div key={c} className="w-7 h-7 rounded-full border-2 border-white flex items-center justify-center text-[9px] font-bold text-white" style={{ background: c }}>
+                      {c === "#6366f1" ? "A" : c === "#8b5cf6" ? "M" : "J"}
+                    </div>
+                  ))}
+                </div>
+                <div>
+                  <p className="text-xs font-semibold text-foreground">3 speakers detected</p>
+                  <p className="text-[10px] text-muted">98.4% accuracy</p>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
       {/* Feature Grid */}
-      <section className="py-24 md:py-32 bg-background">
+      <section className="py-24 md:py-32 bg-background animated-gradient-bg">
         <div className="max-w-7xl mx-auto px-6">
           <FeatureGrid />
         </div>

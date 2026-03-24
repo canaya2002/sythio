@@ -33,8 +33,8 @@ export const t: Translations = {
 
     // Hero
     "hero.badge": "Now available worldwide",
-    "hero.title1": "Speak once.",
-    "hero.title2": "Get everything.",
+    "hero.title1": "Speak once",
+    "hero.title2": "Get everything",
     "hero.subtitle": "Sythio transforms your audio into summaries, tasks, action plans, and structured outputs — so nothing you say is ever lost.",
     "hero.cta1": "Start Using Sythio",
     "hero.cta2": "See How It Works",
@@ -137,8 +137,8 @@ export const t: Translations = {
     "exp.stat4": "Export & share",
 
     // CTA
-    "cta.title1": "Stop collecting voice notes.",
-    "cta.title2": "Start turning them into progress.",
+    "cta.title1": "Stop collecting voice notes",
+    "cta.title2": "Start turning them into progress",
     "cta.subtitle": "Join thousands of professionals already using Sythio to transform audio into action.",
     "cta.button": "Start Using Sythio",
     "cta.button2": "Explore the Product",
@@ -367,8 +367,8 @@ export const t: Translations = {
     "nav.tryFree": "Probar gratis",
 
     "hero.badge": "Disponible en todo el mundo",
-    "hero.title1": "Habla una vez.",
-    "hero.title2": "Obtén todo.",
+    "hero.title1": "Habla una vez",
+    "hero.title2": "Obtén todo",
     "hero.subtitle": "Sythio transforma tu audio en resúmenes, tareas, planes de acción y resultados estructurados — para que nada de lo que digas se pierda.",
     "hero.cta1": "Empezar a usar Sythio",
     "hero.cta2": "Ver cómo funciona",
@@ -463,8 +463,8 @@ export const t: Translations = {
     "exp.stat3": "Hablantes soportados",
     "exp.stat4": "Exportar y compartir",
 
-    "cta.title1": "Deja de acumular notas de voz.",
-    "cta.title2": "Empieza a convertirlas en progreso.",
+    "cta.title1": "Deja de acumular notas de voz",
+    "cta.title2": "Empieza a convertirlas en progreso",
     "cta.subtitle": "Únete a miles de profesionales que ya usan Sythio para transformar audio en acción.",
     "cta.button": "Empezar a usar Sythio",
     "cta.button2": "Explorar el producto",
@@ -685,8 +685,8 @@ export const t: Translations = {
     "nav.tryFree": "Essai gratuit",
 
     "hero.badge": "Disponible dans le monde entier",
-    "hero.title1": "Parlez une fois.",
-    "hero.title2": "Obtenez tout.",
+    "hero.title1": "Parlez une fois",
+    "hero.title2": "Obtenez tout",
     "hero.subtitle": "Sythio transforme votre audio en résumés, tâches, plans d'action et résultats structurés — pour que rien de ce que vous dites ne soit perdu.",
     "hero.cta1": "Commencer avec Sythio",
     "hero.cta2": "Voir comment ça marche",
@@ -781,8 +781,8 @@ export const t: Translations = {
     "exp.stat3": "Intervenants supportés",
     "exp.stat4": "Exporter et partager",
 
-    "cta.title1": "Arrêtez de collecter des notes vocales.",
-    "cta.title2": "Commencez à les transformer en progrès.",
+    "cta.title1": "Arrêtez de collecter des notes vocales",
+    "cta.title2": "Commencez à les transformer en progrès",
     "cta.subtitle": "Rejoignez des milliers de professionnels qui utilisent déjà Sythio.",
     "cta.button": "Commencer avec Sythio",
     "cta.button2": "Explorer le produit",
@@ -1003,8 +1003,8 @@ export const t: Translations = {
     "nav.tryFree": "Testar grátis",
 
     "hero.badge": "Disponível mundialmente",
-    "hero.title1": "Fale uma vez.",
-    "hero.title2": "Obtenha tudo.",
+    "hero.title1": "Fale uma vez",
+    "hero.title2": "Obtenha tudo",
     "hero.subtitle": "Sythio transforma seu áudio em resumos, tarefas, planos de ação e resultados estruturados.",
     "hero.cta1": "Começar a usar Sythio",
     "hero.cta2": "Veja como funciona",
@@ -1099,8 +1099,8 @@ export const t: Translations = {
     "exp.stat3": "Falantes suportados",
     "exp.stat4": "Exportar e compartilhar",
 
-    "cta.title1": "Pare de acumular notas de voz.",
-    "cta.title2": "Comece a transformá-las em progresso.",
+    "cta.title1": "Pare de acumular notas de voz",
+    "cta.title2": "Comece a transformá-las em progresso",
     "cta.subtitle": "Junte-se a milhares de profissionais já usando Sythio.",
     "cta.button": "Começar a usar Sythio",
     "cta.button2": "Explorar o produto",
@@ -1321,8 +1321,8 @@ export const t: Translations = {
     "nav.tryFree": "Prova gratis",
 
     "hero.badge": "Disponibile in tutto il mondo",
-    "hero.title1": "Parla una volta.",
-    "hero.title2": "Ottieni tutto.",
+    "hero.title1": "Parla una volta",
+    "hero.title2": "Ottieni tutto",
     "hero.subtitle": "Sythio trasforma il tuo audio in riassunti, attività, piani d'azione e risultati strutturati.",
     "hero.cta1": "Inizia a usare Sythio",
     "hero.cta2": "Scopri come funziona",
@@ -1417,8 +1417,8 @@ export const t: Translations = {
     "exp.stat3": "Speaker supportati",
     "exp.stat4": "Esporta e condividi",
 
-    "cta.title1": "Smetti di accumulare note vocali.",
-    "cta.title2": "Inizia a trasformarle in progresso.",
+    "cta.title1": "Smetti di accumulare note vocali",
+    "cta.title2": "Inizia a trasformarle in progresso",
     "cta.subtitle": "Unisciti a migliaia di professionisti che già usano Sythio.",
     "cta.button": "Inizia a usare Sythio",
     "cta.button2": "Esplora il prodotto",

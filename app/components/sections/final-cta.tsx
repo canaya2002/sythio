@@ -36,7 +36,7 @@ export default function FinalCTA() {
             {s("cta.title1")}
           </TextReveal>
           <TextReveal tag="h2" className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] mt-2 bg-gradient-to-r from-foreground via-zinc-500 to-zinc-400 bg-clip-text text-transparent">
-            Start turning them into <RotatingText words={["progress", "action", "clarity", "results"]} className="text-zinc-400" />.
+            Start turning them into <RotatingText words={["progress", "action", "clarity", "results"]} className="text-zinc-400" />
           </TextReveal>
           <TextReveal tag="p" className="mt-8 text-lg md:text-xl text-muted max-w-xl mx-auto leading-relaxed">
             {s("cta.subtitle")}

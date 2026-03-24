@@ -22,7 +22,18 @@ export default function RotatingText({
   }, [words.length, interval]);
 
   return (
-    <span className={`relative inline-block ${className}`}>
+    <span className={`relative inline-grid items-center ${className}`}>
+      {/* Invisible words stacked in same grid cell to reserve width of longest word */}
+      {words.map((word) => (
+        <span
+          key={`measure-${word}`}
+          className="invisible [grid-area:1/1] pointer-events-none"
+          aria-hidden="true"
+        >
+          {word}
+        </span>
+      ))}
+      {/* Animated visible word in same grid cell */}
       <AnimatePresence mode="wait">
         <motion.span
           key={words[index]}
@@ -30,7 +41,7 @@ export default function RotatingText({
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           exit={{ opacity: 0, y: -20, filter: "blur(4px)" }}
           transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
-          className="inline-block"
+          className="[grid-area:1/1]"
         >
           {words[index]}
         </motion.span>
