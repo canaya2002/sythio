@@ -19,11 +19,7 @@ export function OrganizationSchema() {
     description:
       "Sythio transforms your audio into summaries, tasks, action plans, and structured outputs. AI-powered voice notes with speaker detection.",
     foundingDate: "2024-01-01",
-    sameAs: [
-      "https://twitter.com/sythioapp",
-      "https://www.linkedin.com/company/sythio",
-      "https://www.instagram.com/sythioapp",
-    ],
+    /* sameAs: add real social URLs here when available */
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "customer support",
@@ -100,18 +96,11 @@ export function SoftwareAppSchema() {
       "AI voice notes app that transforms audio into summaries, tasks, action plans, and structured outputs with speaker detection.",
     url: SITE_URL,
     author: { "@id": `${SITE_URL}/#organization` },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.8",
-      ratingCount: "1240",
-      bestRating: "5",
-      worstRating: "1",
-    },
     offers: {
       "@type": "AggregateOffer",
       priceCurrency: "USD",
       lowPrice: "0",
-      highPrice: "29",
+      highPrice: "12",
       offerCount: "3",
       offers: [
         {
@@ -124,21 +113,19 @@ export function SoftwareAppSchema() {
         },
         {
           "@type": "Offer",
-          name: "Pro",
+          name: "Premium",
           price: "12",
           priceCurrency: "USD",
           availability: "https://schema.org/InStock",
           billingIncrement: "P1M",
-          description: "Unlimited recordings, all 9 output formats, advanced speaker detection",
+          description: "Unlimited recordings, all 9 output formats, advanced speaker detection, searchable library",
         },
         {
           "@type": "Offer",
-          name: "Premium",
-          price: "29",
+          name: "Enterprise",
           priceCurrency: "USD",
           availability: "https://schema.org/InStock",
-          billingIncrement: "P1M",
-          description: "Everything in Pro plus team workspace, API access, custom templates",
+          description: "Custom pricing. Team workspace, API access, custom templates, dedicated support.",
         },
       ],
     },

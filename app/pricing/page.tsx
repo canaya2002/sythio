@@ -14,7 +14,7 @@ import {
 } from "../components/gsap-effects";
 
 /* ─── Checkmark Icon ─── */
-function Check() {
+function Check({ className = "text-emerald-500" }: { className?: string }) {
   return (
     <svg
       width="16"
@@ -25,7 +25,7 @@ function Check() {
       strokeWidth="2.5"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="text-emerald-500 shrink-0 mt-0.5"
+      className={`${className} shrink-0 mt-0.5`}
     >
       <polyline points="20 6 9 17 4 12" />
     </svg>
@@ -92,173 +92,10 @@ function FAQItem({
   );
 }
 
-/* ─── Pricing Card ─── */
-function PricingCard({
-  name,
-  price,
-  description,
-  features,
-  isPopular,
-  ctaLabel,
-  popularLabel,
-}: {
-  name: string;
-  price: string;
-  description: string;
-  features: string[];
-  isPopular: boolean;
-  ctaLabel: string;
-  popularLabel: string;
-}) {
-  const { s } = useLanguage();
-
-  return (
-    <motion.div
-      whileHover={{ y: -6 }}
-      transition={{ duration: 0.3, ease: "easeOut" }}
-      className={`relative flex flex-col rounded-3xl p-8 lg:p-10 transition-all duration-500 ${
-        isPopular
-          ? "bg-foreground text-white shadow-[0_8px_32px_rgba(0,0,0,0.12),0_32px_80px_rgba(0,0,0,0.16)] scale-[1.02] lg:scale-105"
-          : "bg-white border border-border-light hover:border-border hover:shadow-[0_4px_16px_rgba(0,0,0,0.04),0_16px_48px_rgba(0,0,0,0.06)]"
-      }`}
-    >
-      {isPopular && (
-        <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-          <span className="inline-block px-5 py-1.5 rounded-full bg-white text-foreground text-xs font-semibold tracking-wide shadow-sm">
-            {popularLabel}
-          </span>
-        </div>
-      )}
-
-      <div className="mb-8">
-        <h3
-          className={`text-lg font-semibold mb-2 ${
-            isPopular ? "text-white/90" : "text-foreground"
-          }`}
-        >
-          {name}
-        </h3>
-        <p
-          className={`text-sm mb-6 ${
-            isPopular ? "text-white/60" : "text-muted"
-          }`}
-        >
-          {description}
-        </p>
-        <div className="flex items-baseline gap-1">
-          <span
-            className={`text-5xl font-bold tracking-tight ${
-              isPopular ? "text-white" : "text-foreground"
-            }`}
-          >
-            {price}
-          </span>
-          {price !== "$0" && (
-            <span
-              className={`text-sm ${
-                isPopular ? "text-white/50" : "text-muted"
-              }`}
-            >
-              {s("pricing.month")}
-            </span>
-          )}
-        </div>
-      </div>
-
-      <ul className="space-y-3.5 mb-10 flex-1">
-        {features.map((feature) => (
-          <li key={feature} className="flex items-start gap-3">
-            {isPopular ? (
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="text-emerald-400 shrink-0 mt-0.5"
-              >
-                <polyline points="20 6 9 17 4 12" />
-              </svg>
-            ) : (
-              <Check />
-            )}
-            <span
-              className={`text-sm leading-relaxed ${
-                isPopular ? "text-white/80" : "text-muted"
-              }`}
-            >
-              {feature}
-            </span>
-          </li>
-        ))}
-      </ul>
-
-      <MagneticHover strength={0.15}>
-        <Link
-          href="/contact"
-          className={`block w-full text-center py-3.5 rounded-full text-sm font-medium transition-all duration-300 ${
-            isPopular
-              ? "bg-white text-foreground hover:bg-white/90 shadow-sm"
-              : "bg-foreground text-white hover:bg-accent-muted shadow-[0_1px_2px_rgba(0,0,0,0.05)]"
-          }`}
-        >
-          {ctaLabel}
-        </Link>
-      </MagneticHover>
-    </motion.div>
-  );
-}
-
 /* ─── Pricing Page ─── */
 export default function PricingPage() {
   const { s } = useLanguage();
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
-
-  const tiers = [
-    {
-      name: s("pricing.free"),
-      price: s("pricing.free.price"),
-      description: s("pricing.free.desc"),
-      features: [
-        s("pricing.free.f1"),
-        s("pricing.free.f2"),
-        s("pricing.free.f3"),
-        s("pricing.free.f4"),
-      ],
-      isPopular: false,
-    },
-    {
-      name: s("pricing.pro"),
-      price: s("pricing.pro.price"),
-      description: s("pricing.pro.desc"),
-      features: [
-        s("pricing.pro.f1"),
-        s("pricing.pro.f2"),
-        s("pricing.pro.f3"),
-        s("pricing.pro.f4"),
-        s("pricing.pro.f5"),
-        s("pricing.pro.f6"),
-      ],
-      isPopular: true,
-    },
-    {
-      name: s("pricing.premium"),
-      price: s("pricing.premium.price"),
-      description: s("pricing.premium.desc"),
-      features: [
-        s("pricing.premium.f1"),
-        s("pricing.premium.f2"),
-        s("pricing.premium.f3"),
-        s("pricing.premium.f4"),
-        s("pricing.premium.f5"),
-        s("pricing.premium.f6"),
-      ],
-      isPopular: false,
-    },
-  ];
 
   const faqs = [
     { q: s("pricing.faq.q1"), a: s("pricing.faq.a1") },
@@ -305,118 +142,187 @@ export default function PricingPage() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="mt-8 text-lg md:text-xl text-muted leading-relaxed max-w-2xl mx-auto"
             >
-              {s("pricing.hero.subtitle")}
+              Start free, upgrade when you need more. Enterprise plans available for teams.
             </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.45 }}
-              className="mt-12 flex flex-col sm:flex-row gap-4 justify-center"
-            >
-              <MagneticHover>
-                <Link href="/contact" className="h-14 px-10 inline-flex items-center justify-center rounded-full bg-foreground text-white text-base font-medium hover:bg-accent-muted transition-all duration-300 shadow-[0_1px_2px_rgba(0,0,0,0.1),0_4px_12px_rgba(0,0,0,0.1)] hover:shadow-[0_2px_4px_rgba(0,0,0,0.1),0_12px_32px_rgba(0,0,0,0.15)] hover:-translate-y-0.5">
-                  Start Free
-                </Link>
-              </MagneticHover>
-              <MagneticHover>
-                <Link href="/features" className="h-14 px-10 inline-flex items-center justify-center rounded-full border border-border text-base font-medium text-foreground hover:bg-white hover:border-muted-light hover:shadow-md transition-all duration-300">
-                  See Features
-                </Link>
-              </MagneticHover>
-            </motion.div>
           </div>
-
-          {/* Hero visual — floating pricing preview cards */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="mt-16 flex justify-center items-end gap-4 md:gap-6"
-          >
-            {/* Free tier mini */}
-            <motion.div
-              animate={{ y: [0, -8, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="w-36 md:w-44 bg-white rounded-2xl border border-border-light shadow-[0_2px_8px_rgba(0,0,0,0.04),0_8px_24px_rgba(0,0,0,0.06)] p-5"
-            >
-              <div className="w-8 h-8 rounded-xl bg-background border border-border-light flex items-center justify-center mb-3">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#a3a3a3" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" /><circle cx="12" cy="7" r="4" /></svg>
-              </div>
-              <p className="text-xs font-semibold text-foreground">Free</p>
-              <p className="text-lg font-bold text-foreground mt-1">$0</p>
-              <div className="mt-3 space-y-1.5">
-                <div className="h-1.5 w-full rounded bg-background" />
-                <div className="h-1.5 w-3/4 rounded bg-background" />
-              </div>
-            </motion.div>
-
-            {/* Pro tier mini (taller, prominent) */}
-            <motion.div
-              animate={{ y: [0, -12, 0] }}
-              transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
-              className="w-40 md:w-48 bg-foreground rounded-2xl shadow-[0_4px_16px_rgba(0,0,0,0.12),0_16px_48px_rgba(0,0,0,0.16)] p-5 relative"
-            >
-              <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full bg-white text-[10px] font-semibold text-foreground shadow-sm">
-                Popular
-              </div>
-              <div className="w-8 h-8 rounded-xl bg-white/10 flex items-center justify-center mb-3">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
-              </div>
-              <p className="text-xs font-semibold text-white/70">Pro</p>
-              <p className="text-lg font-bold text-white mt-1">$12</p>
-              <div className="mt-3 space-y-1.5">
-                <div className="h-1.5 w-full rounded bg-white/10" />
-                <div className="h-1.5 w-4/5 rounded bg-white/10" />
-                <div className="h-1.5 w-3/5 rounded bg-white/10" />
-              </div>
-            </motion.div>
-
-            {/* Premium tier mini */}
-            <motion.div
-              animate={{ y: [0, -8, 0] }}
-              transition={{ duration: 4.2, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
-              className="w-36 md:w-44 bg-white rounded-2xl border border-border-light shadow-[0_2px_8px_rgba(0,0,0,0.04),0_8px_24px_rgba(0,0,0,0.06)] p-5"
-            >
-              <div className="w-8 h-8 rounded-xl bg-background border border-border-light flex items-center justify-center mb-3">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#a3a3a3" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
-              </div>
-              <p className="text-xs font-semibold text-foreground">Premium</p>
-              <p className="text-lg font-bold text-foreground mt-1">Custom</p>
-              <div className="mt-3 space-y-1.5">
-                <div className="h-1.5 w-full rounded bg-background" />
-                <div className="h-1.5 w-2/3 rounded bg-background" />
-              </div>
-            </motion.div>
-          </motion.div>
         </div>
       </section>
 
       {/* Pricing Cards */}
       <section className="pb-32 md:pb-44 bg-white section-float-bg">
-        <div className="max-w-5xl mx-auto px-6">
+        <div className="max-w-6xl mx-auto px-6">
           <GsapStagger
             className="grid md:grid-cols-3 gap-6 lg:gap-8 items-start"
             stagger={0.12}
           >
-            {tiers.map((tier) => (
-              <PricingCard
-                key={tier.name}
-                name={tier.name}
-                price={tier.price}
-                description={tier.description}
-                features={tier.features}
-                isPopular={tier.isPopular}
-                ctaLabel={s("pricing.getStarted")}
-                popularLabel={s("pricing.popular")}
-              />
+            {/* ─── Free ─── */}
+            <motion.div
+              whileHover={{ y: -6 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+              className="relative flex flex-col rounded-3xl p-8 lg:p-10 bg-white border border-border-light hover:border-border hover:shadow-[0_4px_16px_rgba(0,0,0,0.04),0_16px_48px_rgba(0,0,0,0.06)] transition-all duration-500"
+            >
+              <div className="mb-8">
+                <h3 className="text-lg font-semibold text-foreground mb-2">Free</h3>
+                <p className="text-sm text-muted mb-6">Para empezar a explorar</p>
+                <div className="flex items-baseline gap-1">
+                  <span className="text-5xl font-bold tracking-tight text-foreground">$0</span>
+                </div>
+              </div>
+              <ul className="space-y-3.5 mb-10 flex-1">
+                {[
+                  "5 recordings per month",
+                  "3 output formats",
+                  "Basic speaker detection",
+                  "Text export",
+                ].map((f) => (
+                  <li key={f} className="flex items-start gap-3">
+                    <Check />
+                    <span className="text-sm text-muted leading-relaxed">{f}</span>
+                  </li>
+                ))}
+              </ul>
+              <MagneticHover strength={0.15}>
+                <Link
+                  href="/contact"
+                  className="block w-full text-center py-3.5 rounded-full text-sm font-medium bg-foreground text-white hover:bg-accent-muted transition-all duration-300 shadow-[0_1px_2px_rgba(0,0,0,0.05)]"
+                >
+                  Get Started Free
+                </Link>
+              </MagneticHover>
+            </motion.div>
+
+            {/* ─── Premium (highlighted) ─── */}
+            <motion.div
+              whileHover={{ y: -6 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+              className="relative flex flex-col rounded-3xl p-8 lg:p-10 bg-foreground text-white shadow-[0_8px_32px_rgba(0,0,0,0.12),0_32px_80px_rgba(0,0,0,0.16)] scale-[1.02] lg:scale-105 transition-all duration-500"
+            >
+              <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+                <span className="inline-block px-5 py-1.5 rounded-full bg-white text-foreground text-xs font-semibold tracking-wide shadow-sm">
+                  Most Popular
+                </span>
+              </div>
+
+              <div className="mb-8">
+                <h3 className="text-lg font-semibold text-white/90 mb-2">Premium</h3>
+                <p className="text-sm text-white/60 mb-6">For professionals who need more</p>
+                <div className="flex items-baseline gap-1">
+                  <span className="text-5xl font-bold tracking-tight text-white">$12</span>
+                  <span className="text-sm text-white/50">/month</span>
+                </div>
+              </div>
+              <ul className="space-y-3.5 mb-10 flex-1">
+                {[
+                  "Unlimited recordings",
+                  "All 9 output formats",
+                  "Advanced speaker detection",
+                  "All export formats (PDF, text, more)",
+                  "Searchable audio library",
+                  "Priority processing",
+                ].map((f) => (
+                  <li key={f} className="flex items-start gap-3">
+                    <Check className="text-emerald-400" />
+                    <span className="text-sm text-white/80 leading-relaxed">{f}</span>
+                  </li>
+                ))}
+              </ul>
+              <MagneticHover strength={0.15}>
+                <Link
+                  href="/contact"
+                  className="block w-full text-center py-3.5 rounded-full text-sm font-medium bg-white text-foreground hover:bg-white/90 transition-all duration-300 shadow-sm"
+                >
+                  Get Premium
+                </Link>
+              </MagneticHover>
+            </motion.div>
+
+            {/* ─── Enterprise ─── */}
+            <motion.div
+              whileHover={{ y: -6 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+              className="relative flex flex-col rounded-3xl p-8 lg:p-10 bg-white border border-border-light hover:border-border hover:shadow-[0_4px_16px_rgba(0,0,0,0.04),0_16px_48px_rgba(0,0,0,0.06)] transition-all duration-500"
+            >
+              <div className="mb-8">
+                <h3 className="text-lg font-semibold text-foreground mb-2">Enterprise</h3>
+                <p className="text-sm text-muted mb-6">For teams and organizations</p>
+                <div className="flex items-baseline gap-1">
+                  <span className="text-4xl font-bold tracking-tight text-foreground">Custom</span>
+                </div>
+              </div>
+              <ul className="space-y-3.5 mb-10 flex-1">
+                {[
+                  "Everything in Premium",
+                  "Team workspace & collaboration",
+                  "Custom output templates",
+                  "API access & integrations",
+                  "Dedicated account manager",
+                  "Advanced analytics & reporting",
+                  "SSO & enterprise security",
+                  "Custom onboarding",
+                ].map((f) => (
+                  <li key={f} className="flex items-start gap-3">
+                    <Check />
+                    <span className="text-sm text-muted leading-relaxed">{f}</span>
+                  </li>
+                ))}
+              </ul>
+              <MagneticHover strength={0.15}>
+                <Link
+                  href="/contact"
+                  className="block w-full text-center py-3.5 rounded-full text-sm font-medium bg-foreground text-white hover:bg-accent-muted transition-all duration-300 shadow-[0_1px_2px_rgba(0,0,0,0.05)]"
+                >
+                  Contact Sales
+                </Link>
+              </MagneticHover>
+            </motion.div>
+          </GsapStagger>
+
+          {/* Comparison note */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="text-center text-sm text-muted mt-12"
+          >
+            All plans include secure processing, data privacy, and unlimited exports.{" "}
+            <Link href="/contact" className="underline underline-offset-4 hover:text-foreground transition-colors">
+              Questions? Contact us
+            </Link>
+          </motion.p>
+        </div>
+      </section>
+
+      {/* What you get */}
+      <section className="py-24 md:py-32 bg-background animated-gradient-bg">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <TextReveal tag="h2" className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-foreground">
+              What every plan includes
+            </TextReveal>
+            <TextReveal tag="p" className="mt-6 text-lg text-muted max-w-xl mx-auto leading-relaxed">
+              Every Sythio plan gives you access to the core audio intelligence engine.
+            </TextReveal>
+          </div>
+          <GsapStagger className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6" stagger={0.08}>
+            {[
+              { title: "AI-Powered Processing", desc: "Advanced language models analyze your audio for context, meaning, and structure." },
+              { title: "Speaker Detection", desc: "Automatic identification of who said what in every recording." },
+              { title: "Multiple Output Formats", desc: "Summaries, tasks, action plans, reports, messages, study notes, and more." },
+              { title: "Secure & Private", desc: "Your audio is processed securely and never shared. Delete your data anytime." },
+            ].map((item) => (
+              <ScrollScale key={item.title}>
+                <div className="p-6 rounded-2xl bg-white border border-border-light hover:shadow-[0_4px_16px_rgba(0,0,0,0.06)] transition-shadow">
+                  <h3 className="text-base font-semibold text-foreground mb-2">{item.title}</h3>
+                  <p className="text-sm text-muted leading-relaxed">{item.desc}</p>
+                </div>
+              </ScrollScale>
             ))}
           </GsapStagger>
         </div>
       </section>
 
       {/* FAQ Section */}
-      <section className="py-32 md:py-44 bg-background animated-gradient-bg">
+      <section className="py-32 md:py-44 bg-white">
         <div className="max-w-3xl mx-auto px-6">
           <div className="text-center mb-16">
             <TextReveal
@@ -427,7 +333,7 @@ export default function PricingPage() {
             </TextReveal>
           </div>
           <ScrollScale>
-            <div className="bg-white rounded-3xl border border-border-light p-8 lg:p-10">
+            <div className="bg-background rounded-3xl border border-border-light p-8 lg:p-10">
               {faqs.map((faq, i) => (
                 <FAQItem
                   key={i}
@@ -443,7 +349,7 @@ export default function PricingPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-32 md:py-44 bg-white relative overflow-hidden">
+      <section className="py-32 md:py-44 bg-background relative overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-indigo-50/40 via-violet-50/30 to-purple-50/20 rounded-full blur-3xl pointer-events-none" />
         <div className="max-w-7xl mx-auto px-6 relative">
           <div className="text-center max-w-3xl mx-auto">
@@ -451,15 +357,13 @@ export default function PricingPage() {
               tag="h2"
               className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground"
             >
-              {s("cta.title1")}
-              <br />
-              {s("cta.title2")}
+              Ready to transform how you work with audio?
             </TextReveal>
             <TextReveal
               tag="p"
               className="mt-7 text-lg md:text-xl text-muted max-w-xl mx-auto leading-relaxed"
             >
-              {s("cta.subtitle")}
+              Start free today. No credit card required.
             </TextReveal>
             <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
               <MagneticHover>
@@ -467,7 +371,7 @@ export default function PricingPage() {
                   href="/contact"
                   className="h-14 px-10 inline-flex items-center justify-center rounded-full bg-foreground text-white text-base font-medium hover:bg-accent-muted transition-all duration-300 shadow-[0_1px_2px_rgba(0,0,0,0.1),0_4px_12px_rgba(0,0,0,0.1)] hover:shadow-[0_2px_4px_rgba(0,0,0,0.1),0_12px_32px_rgba(0,0,0,0.15)] hover:-translate-y-0.5"
                 >
-                  {s("cta.button")}
+                  Start Using Sythio
                 </Link>
               </MagneticHover>
               <MagneticHover>
@@ -475,11 +379,11 @@ export default function PricingPage() {
                   href="/product"
                   className="h-14 px-10 inline-flex items-center justify-center rounded-full border border-border text-foreground text-base font-medium hover:bg-foreground hover:text-white transition-all duration-300"
                 >
-                  {s("cta.button2")}
+                  Explore the Product
                 </Link>
               </MagneticHover>
             </div>
-            <p className="mt-6 text-sm text-muted">{s("cta.free")}</p>
+            <p className="mt-6 text-sm text-muted">Free plan available. No credit card required.</p>
           </div>
         </div>
       </section>
