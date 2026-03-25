@@ -108,9 +108,11 @@ export default function FAQPage() {
   return (
     <PageReveal>
       {/* Hero */}
-      <section className="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-white via-white to-background pointer-events-none" />
-        <div className="hero-glow-animated absolute top-[-10%] left-1/2 -translate-x-1/2 w-[900px] h-[700px] bg-gradient-to-b from-indigo-50/50 via-violet-50/30 to-transparent rounded-full blur-3xl pointer-events-none" />
+      <section className="relative pt-28 pb-16 md:pt-36 md:pb-24 hero-animated-bg">
+        <div className="hero-orb hero-orb-1" />
+        <div className="hero-orb hero-orb-2" />
+        <div className="hero-orb hero-orb-3" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/60 to-background pointer-events-none" />
 
         <div className="relative max-w-7xl mx-auto px-6">
           <div className="text-center max-w-4xl mx-auto">
@@ -161,6 +163,66 @@ export default function FAQPage() {
               </MagneticHover>
             </motion.div>
           </div>
+
+          {/* Hero visual — floating Q&A preview cards */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="mt-14 flex justify-center gap-4 md:gap-6"
+          >
+            <motion.div
+              animate={{ y: [0, -8, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              className="w-52 md:w-60 bg-white rounded-2xl border border-border-light shadow-[0_2px_8px_rgba(0,0,0,0.04),0_8px_24px_rgba(0,0,0,0.06)] p-5"
+            >
+              <div className="flex items-center gap-2 mb-3">
+                <div className="w-6 h-6 rounded-full bg-indigo-50 flex items-center justify-center">
+                  <span className="text-[10px] font-bold text-indigo-500">Q</span>
+                </div>
+                <div className="h-2 flex-1 rounded bg-foreground/8" />
+              </div>
+              <div className="space-y-1.5">
+                <div className="h-1.5 w-full rounded bg-foreground/5" />
+                <div className="h-1.5 w-3/4 rounded bg-foreground/5" />
+              </div>
+            </motion.div>
+
+            <motion.div
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.4 }}
+              className="w-52 md:w-60 bg-white rounded-2xl border border-border-light shadow-[0_2px_8px_rgba(0,0,0,0.04),0_8px_24px_rgba(0,0,0,0.06)] p-5 hidden sm:block"
+            >
+              <div className="flex items-center gap-2 mb-3">
+                <div className="w-6 h-6 rounded-full bg-emerald-50 flex items-center justify-center">
+                  <span className="text-[10px] font-bold text-emerald-500">A</span>
+                </div>
+                <div className="h-2 flex-1 rounded bg-foreground/8" />
+              </div>
+              <div className="space-y-1.5">
+                <div className="h-1.5 w-full rounded bg-foreground/5" />
+                <div className="h-1.5 w-4/5 rounded bg-foreground/5" />
+                <div className="h-1.5 w-2/3 rounded bg-foreground/5" />
+              </div>
+            </motion.div>
+
+            <motion.div
+              animate={{ y: [0, -7, 0] }}
+              transition={{ duration: 3.8, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
+              className="w-52 md:w-60 bg-white rounded-2xl border border-border-light shadow-[0_2px_8px_rgba(0,0,0,0.04),0_8px_24px_rgba(0,0,0,0.06)] p-5 hidden md:block"
+            >
+              <div className="flex items-center gap-2 mb-3">
+                <div className="w-6 h-6 rounded-full bg-violet-50 flex items-center justify-center">
+                  <span className="text-[10px] font-bold text-violet-500">Q</span>
+                </div>
+                <div className="h-2 flex-1 rounded bg-foreground/8" />
+              </div>
+              <div className="space-y-1.5">
+                <div className="h-1.5 w-full rounded bg-foreground/5" />
+                <div className="h-1.5 w-1/2 rounded bg-foreground/5" />
+              </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 

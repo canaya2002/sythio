@@ -24,6 +24,9 @@ export function OrganizationSchema() {
       "voice notes",
       "audio summarization",
       "meeting notes automation",
+      "audio intelligence",
+      "voice to text",
+      "audio to structured output",
     ],
   };
 
@@ -43,6 +46,14 @@ export function WebSiteSchema() {
     url: SITE_URL,
     description:
       "Turn voice into clarity, action, and structure. AI-powered audio intelligence.",
+    potentialAction: {
+      "@type": "SearchAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: `${SITE_URL}/faq?q={search_term_string}`,
+      },
+      "query-input": "required name=search_term_string",
+    },
   };
 
   return (
@@ -69,7 +80,42 @@ export function SoftwareAppSchema() {
       lowPrice: "0",
       highPrice: "29",
       offerCount: "3",
+      offers: [
+        {
+          "@type": "Offer",
+          name: "Free",
+          price: "0",
+          priceCurrency: "USD",
+          description: "5 recordings per month, 3 output formats, basic speaker detection",
+        },
+        {
+          "@type": "Offer",
+          name: "Pro",
+          price: "12",
+          priceCurrency: "USD",
+          billingIncrement: "P1M",
+          description: "Unlimited recordings, all 9 output formats, advanced speaker detection",
+        },
+        {
+          "@type": "Offer",
+          name: "Premium",
+          price: "29",
+          priceCurrency: "USD",
+          billingIncrement: "P1M",
+          description: "Everything in Pro plus team workspace, API access, custom templates",
+        },
+      ],
     },
+    featureList: [
+      "AI-powered audio summaries",
+      "Task extraction from conversations",
+      "Action plan generation",
+      "Speaker detection and attribution",
+      "9 structured output formats",
+      "Multi-language support",
+      "Clean text from audio",
+      "Executive report generation",
+    ],
   };
 
   return (
@@ -106,3 +152,26 @@ export function FAQSchema({
   );
 }
 
+export function BreadcrumbSchema({
+  items,
+}: {
+  items: { name: string; href: string }[];
+}) {
+  const data = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: `${SITE_URL}${item.href}`,
+    })),
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
+  );
+}

@@ -56,9 +56,11 @@ export default function AboutPage() {
   return (
     <PageReveal>
       {/* Hero */}
-      <section className="relative pt-28 pb-20 md:pt-36 md:pb-28 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-white via-white to-background pointer-events-none" />
-        <div className="hero-glow-animated absolute top-[-10%] left-1/2 -translate-x-1/2 w-[900px] h-[700px] bg-gradient-to-b from-indigo-50/50 via-violet-50/30 to-transparent rounded-full blur-3xl pointer-events-none" />
+      <section className="relative pt-28 pb-20 md:pt-36 md:pb-28 hero-animated-bg">
+        <div className="hero-orb hero-orb-1" />
+        <div className="hero-orb hero-orb-2" />
+        <div className="hero-orb hero-orb-3" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/60 to-background pointer-events-none" />
 
         <div className="relative max-w-7xl mx-auto px-6">
           <div className="text-center max-w-4xl mx-auto">
@@ -109,6 +111,66 @@ export default function AboutPage() {
               </MagneticHover>
             </motion.div>
           </div>
+
+          {/* Hero visual — audio to structure transformation */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="mt-16 flex items-center justify-center gap-6 md:gap-10"
+          >
+            {/* Audio waveform abstraction */}
+            <motion.div
+              animate={{ y: [0, -6, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              className="flex items-center gap-[3px] p-5 rounded-2xl bg-white border border-border-light shadow-[0_2px_8px_rgba(0,0,0,0.04),0_8px_24px_rgba(0,0,0,0.06)]"
+            >
+              {[8,12,18,24,20,28,22,16,24,30,26,18,12,16,22,26,18,10].map((h, i) => (
+                <motion.div
+                  key={i}
+                  className="w-[3px] rounded-full bg-gradient-to-t from-indigo-300 to-violet-300"
+                  animate={{ height: [h, h * 1.4, h] }}
+                  transition={{ duration: 1.5 + i * 0.08, repeat: Infinity, ease: "easeInOut", delay: i * 0.05 }}
+                  style={{ height: h }}
+                />
+              ))}
+            </motion.div>
+
+            {/* Arrow */}
+            <motion.div
+              animate={{ x: [0, 4, 0] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#a3a3a3" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
+            </motion.div>
+
+            {/* Structured output abstraction */}
+            <motion.div
+              animate={{ y: [0, -6, 0] }}
+              transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+              className="p-5 rounded-2xl bg-white border border-border-light shadow-[0_2px_8px_rgba(0,0,0,0.04),0_8px_24px_rgba(0,0,0,0.06)] space-y-2.5 w-48 md:w-56"
+            >
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-indigo-400" />
+                <div className="h-2 flex-1 rounded bg-foreground/10" />
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-violet-400" />
+                <div className="h-2 w-4/5 rounded bg-foreground/7" />
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-emerald-400" />
+                <div className="h-2 w-3/5 rounded bg-foreground/5" />
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-amber-400" />
+                <div className="h-2 w-4/5 rounded bg-foreground/7" />
+              </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 

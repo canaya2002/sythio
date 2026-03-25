@@ -237,3 +237,45 @@ body {
   background-image: radial-gradient(circle, rgba(0,0,0,0.04) 1px, transparent 1px);
   background-size: 24px 24px;
 }
+
+/* ── Multi-orb animated hero background ── */
+.hero-animated-bg {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-animated-bg .hero-orb {
+  position: absolute;
+  border-radius: 9999px;
+  pointer-events: none;
+}
+
+.hero-animated-bg .hero-orb-1 {
+  width: 700px;
+  height: 700px;
+  top: -20%;
+  left: 0%;
+  background: radial-gradient(circle, rgba(99,102,241,0.10) 0%, rgba(139,92,246,0.05) 40%, transparent 70%);
+  filter: blur(60px);
+  animation: orb-drift-a 18s ease-in-out infinite;
+}
+
+.hero-animated-bg .hero-orb-2 {
+  width: 550px;
+  height: 550px;
+  top: -10%;
+  right: -5%;
+  background: radial-gradient(circle, rgba(139,92,246,0.08) 0%, rgba(168,85,247,0.04) 40%, transparent 70%);
+  filter: blur(60px);
+  animation: orb-drift-b 22s ease-in-out infinite;
+}
+
+.hero-animated-bg .hero-orb-3 {
+  width: 450px;
+  height: 450px;
+  bottom: -5%;
+  left: 25%;
+  background: radial-gradient(circle, rgba(99,102,241,0.06) 0%, rgba(59,130,246,0.03) 40%, transparent 70%);
+  filter: blur(50px);
+  animation: orb-drift-c 20s ease-in-out infinite;
+}

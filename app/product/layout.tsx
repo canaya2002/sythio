@@ -1,9 +1,10 @@
 import { buildMetadata } from "../lib/metadata";
+import { BreadcrumbSchema } from "../components/json-ld";
 
 export const metadata = buildMetadata({
-  title: "Product — AI Voice Notes & Audio Intelligence",
+  title: "AI Voice Notes App — One Recording, Nine Outputs",
   description:
-    "See how Sythio transforms audio recordings into summaries, tasks, action plans, and reports. AI voice notes app with multi-speaker detection and 9 output formats.",
+    "Sythio transforms audio into summaries, tasks, action plans, reports, study notes, and more. Record once, get structured output with multi-speaker detection. Not transcription — transformation.",
   path: "/product",
   keywords: [
     "AI voice notes app",
@@ -11,6 +12,9 @@ export const metadata = buildMetadata({
     "voice recorder with AI summaries",
     "speaker detection app",
     "one audio multiple outcomes",
+    "audio intelligence platform",
+    "voice to structure",
+    "AI meeting notes tool",
   ],
 });
 
@@ -19,5 +23,15 @@ export default function ProductLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return children;
+  return (
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", href: "/" },
+          { name: "Product", href: "/product" },
+        ]}
+      />
+      {children}
+    </>
+  );
 }

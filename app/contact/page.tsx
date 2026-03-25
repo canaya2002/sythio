@@ -206,9 +206,11 @@ export default function ContactPage() {
   return (
     <PageReveal>
       {/* Hero */}
-      <section className="relative pt-28 pb-20 md:pt-36 md:pb-28 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-white via-white to-background pointer-events-none" />
-        <div className="hero-glow-animated absolute top-[-10%] left-1/2 -translate-x-1/2 w-[900px] h-[700px] bg-gradient-to-b from-indigo-50/50 via-violet-50/30 to-transparent rounded-full blur-3xl pointer-events-none" />
+      <section className="relative pt-28 pb-20 md:pt-36 md:pb-28 hero-animated-bg">
+        <div className="hero-orb hero-orb-1" />
+        <div className="hero-orb hero-orb-2" />
+        <div className="hero-orb hero-orb-3" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/60 to-background pointer-events-none" />
 
         <div className="relative max-w-7xl mx-auto px-6">
           <div className="text-center max-w-4xl mx-auto">
@@ -241,6 +243,36 @@ export default function ContactPage() {
               {s("contact.hero.subtitle")}
             </motion.p>
           </div>
+
+          {/* Hero visual — floating contact method cards */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="mt-14 flex justify-center gap-4"
+          >
+            {[
+              { label: "hello@sythio.com", icon: "M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z", color: "#6366f1", delay: 0 },
+              { label: "support@sythio.com", icon: "M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z", color: "#22c55e", delay: 0.3 },
+              { label: "partners@sythio.com", icon: "M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2M9 7a4 4 0 100-8 4 4 0 000 8zm13 14v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75", color: "#8b5cf6", delay: 0.6 },
+            ].map((item, i) => (
+              <motion.div
+                key={item.label}
+                animate={{ y: [0, -8, 0] }}
+                transition={{ duration: 4 + i * 0.5, repeat: Infinity, ease: "easeInOut", delay: item.delay }}
+                className="bg-white rounded-2xl border border-border-light shadow-[0_2px_8px_rgba(0,0,0,0.04),0_8px_24px_rgba(0,0,0,0.06)] p-4 md:p-5 hidden sm:block first:block"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-xl flex items-center justify-center" style={{ background: `${item.color}10` }}>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={item.color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                      <path d={item.icon} />
+                    </svg>
+                  </div>
+                  <span className="text-xs font-medium text-muted">{item.label}</span>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </section>
 

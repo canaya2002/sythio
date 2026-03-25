@@ -335,7 +335,7 @@ function ProductCTA() {
                 href="/pricing"
                 className="h-14 px-10 inline-flex items-center justify-center rounded-full bg-foreground text-white text-base font-medium hover:bg-accent-muted transition-all duration-300 shadow-[0_1px_2px_rgba(0,0,0,0.1),0_4px_12px_rgba(0,0,0,0.1)] hover:shadow-[0_2px_4px_rgba(0,0,0,0.1),0_12px_32px_rgba(0,0,0,0.15)] hover:-translate-y-0.5"
               >
-                Join the Waitlist
+                Start Using Sythio
               </Link>
             </MagneticHover>
           </div>
@@ -350,9 +350,11 @@ export default function ProductPage() {
   const { s } = useLanguage();
   return (
     <>
-      <section className="relative pt-28 pb-20 md:pt-36 md:pb-28 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-white via-white to-background pointer-events-none" />
-        <div className="hero-glow-animated absolute top-[-10%] left-1/2 -translate-x-1/2 w-[900px] h-[700px] bg-gradient-to-b from-indigo-50/50 via-violet-50/30 to-transparent rounded-full blur-3xl pointer-events-none" />
+      <section className="relative pt-28 pb-20 md:pt-36 md:pb-28 hero-animated-bg">
+        <div className="hero-orb hero-orb-1" />
+        <div className="hero-orb hero-orb-2" />
+        <div className="hero-orb hero-orb-3" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/60 to-background pointer-events-none" />
 
         <div className="relative max-w-7xl mx-auto px-6">
           <div className="text-center max-w-4xl mx-auto">

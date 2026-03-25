@@ -1,11 +1,17 @@
 import { buildMetadata } from "../lib/metadata";
+import { BreadcrumbSchema } from "../components/json-ld";
 
 export const metadata = buildMetadata({
-  title: "Contact — Support & Inquiries",
+  title: "Contact Sythio — Support, Partnerships & Inquiries",
   description:
-    "Get in touch with Sythio. Support, partnerships, press inquiries, and general questions. We typically respond within 24 hours.",
+    "Get in touch with the Sythio team. Support, partnerships, press, and general inquiries. We typically respond within 24 hours.",
   path: "/contact",
-  keywords: ["contact Sythio", "Sythio support", "AI voice notes help"],
+  keywords: [
+    "contact Sythio",
+    "Sythio support",
+    "Sythio partnerships",
+    "AI voice notes help",
+  ],
 });
 
 export default function ContactLayout({
@@ -13,5 +19,15 @@ export default function ContactLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return children;
+  return (
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", href: "/" },
+          { name: "Contact", href: "/contact" },
+        ]}
+      />
+      {children}
+    </>
+  );
 }

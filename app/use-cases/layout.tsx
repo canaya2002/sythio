@@ -1,16 +1,18 @@
 import { buildMetadata } from "../lib/metadata";
+import { BreadcrumbSchema } from "../components/json-ld";
 
 export const metadata = buildMetadata({
-  title: "Use Cases — Meetings, Voice Notes, Study & More",
+  title: "Use Cases — AI Notes for Meetings, Voice Memos, Lectures & More",
   description:
-    "Discover how professionals use Sythio for meeting notes, voice memos, brainstorming, client calls, study sessions, and follow-ups. Turn any audio into structured output.",
+    "Discover how Sythio transforms audio into structured output for meetings, voice notes, brainstorming, client calls, lectures, and follow-ups. Real use cases with real outputs.",
   path: "/use-cases",
   keywords: [
-    "AI meeting notes",
-    "voice notes for students",
-    "client call transcription",
-    "brainstorming audio app",
+    "AI meeting notes use cases",
     "voice notes for professionals",
+    "client call transcription AI",
+    "brainstorming audio capture",
+    "lecture notes AI",
+    "audio to action items",
   ],
 });
 
@@ -19,5 +21,15 @@ export default function UseCasesLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return children;
+  return (
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", href: "/" },
+          { name: "Use Cases", href: "/use-cases" },
+        ]}
+      />
+      {children}
+    </>
+  );
 }

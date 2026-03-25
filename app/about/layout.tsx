@@ -1,15 +1,16 @@
 import { buildMetadata } from "../lib/metadata";
+import { BreadcrumbSchema } from "../components/json-ld";
 
 export const metadata = buildMetadata({
-  title: "About — Our Mission to Transform Audio",
+  title: "About Sythio — Audio Deserves Better Than Transcription",
   description:
-    "Sythio exists because audio deserves better than transcription. Learn why we built an AI platform that turns voice recordings into clarity, structure, and actionable outcomes.",
+    "Sythio was built on a simple belief: audio deserves transformation, not just transcription. Learn about our mission to turn every spoken word into clarity, structure, and action.",
   path: "/about",
   keywords: [
     "about Sythio",
-    "AI audio company",
-    "voice notes mission",
-    "audio intelligence",
+    "AI audio intelligence company",
+    "voice to structure mission",
+    "audio transformation platform",
   ],
 });
 
@@ -18,5 +19,15 @@ export default function AboutLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return children;
+  return (
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", href: "/" },
+          { name: "About", href: "/about" },
+        ]}
+      />
+      {children}
+    </>
+  );
 }

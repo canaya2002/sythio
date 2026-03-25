@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
+import { cookies } from "next/headers";
 import { Geist, Geist_Mono } from "next/font/google";
 import ClientProviders from "./components/client-providers";
+import AnalyticsProvider from "./components/analytics-provider";
 import {
   OrganizationSchema,
   WebSiteSchema,
@@ -60,6 +63,14 @@ export const metadata: Metadata = {
   applicationName: "Sythio",
   alternates: {
     canonical: "https://sythio.com",
+    languages: {
+      "en": "https://sythio.com",
+      "es": "https://sythio.com/es",
+      "fr": "https://sythio.com/fr",
+      "pt": "https://sythio.com/pt",
+      "it": "https://sythio.com/it",
+      "x-default": "https://sythio.com",
+    },
   },
   openGraph: {
     title: "Sythio — Turn Voice into Clarity, Action, and Structure",
@@ -95,21 +106,48 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const cookieStore = await cookies();
+  const locale = cookieStore.get("NEXT_LOCALE")?.value || "en";
+
   return (
     <html
-      lang="en"
+      lang={locale}
       suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
+      <head>
+        {/* Google Tag Manager */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TL52VWSG');`,
+          }}
+        />
+      </head>
       <body className="min-h-full flex flex-col bg-background text-foreground">
+        {/* Google Tag Manager (noscript) */}
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-TL52VWSG"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
         <OrganizationSchema />
         <WebSiteSchema />
         <SoftwareAppSchema />
+        <Suspense fallback={null}>
+          <AnalyticsProvider />
+        </Suspense>
         <ClientProviders>{children}</ClientProviders>
       </body>
     </html>

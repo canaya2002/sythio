@@ -271,9 +271,11 @@ export default function PricingPage() {
   return (
     <PageReveal>
       {/* Hero */}
-      <section className="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-white via-white to-background pointer-events-none" />
-        <div className="hero-glow-animated absolute top-[-10%] left-1/2 -translate-x-1/2 w-[900px] h-[700px] bg-gradient-to-b from-indigo-50/50 via-violet-50/30 to-transparent rounded-full blur-3xl pointer-events-none" />
+      <section className="relative pt-28 pb-16 md:pt-36 md:pb-24 hero-animated-bg">
+        <div className="hero-orb hero-orb-1" />
+        <div className="hero-orb hero-orb-2" />
+        <div className="hero-orb hero-orb-3" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/60 to-background pointer-events-none" />
 
         <div className="relative max-w-7xl mx-auto px-6">
           <div className="text-center max-w-4xl mx-auto">
@@ -324,6 +326,69 @@ export default function PricingPage() {
               </MagneticHover>
             </motion.div>
           </div>
+
+          {/* Hero visual — floating pricing preview cards */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="mt-16 flex justify-center items-end gap-4 md:gap-6"
+          >
+            {/* Free tier mini */}
+            <motion.div
+              animate={{ y: [0, -8, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              className="w-36 md:w-44 bg-white rounded-2xl border border-border-light shadow-[0_2px_8px_rgba(0,0,0,0.04),0_8px_24px_rgba(0,0,0,0.06)] p-5"
+            >
+              <div className="w-8 h-8 rounded-xl bg-background border border-border-light flex items-center justify-center mb-3">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#a3a3a3" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" /><circle cx="12" cy="7" r="4" /></svg>
+              </div>
+              <p className="text-xs font-semibold text-foreground">Free</p>
+              <p className="text-lg font-bold text-foreground mt-1">$0</p>
+              <div className="mt-3 space-y-1.5">
+                <div className="h-1.5 w-full rounded bg-background" />
+                <div className="h-1.5 w-3/4 rounded bg-background" />
+              </div>
+            </motion.div>
+
+            {/* Pro tier mini (taller, prominent) */}
+            <motion.div
+              animate={{ y: [0, -12, 0] }}
+              transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
+              className="w-40 md:w-48 bg-foreground rounded-2xl shadow-[0_4px_16px_rgba(0,0,0,0.12),0_16px_48px_rgba(0,0,0,0.16)] p-5 relative"
+            >
+              <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full bg-white text-[10px] font-semibold text-foreground shadow-sm">
+                Popular
+              </div>
+              <div className="w-8 h-8 rounded-xl bg-white/10 flex items-center justify-center mb-3">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+              </div>
+              <p className="text-xs font-semibold text-white/70">Pro</p>
+              <p className="text-lg font-bold text-white mt-1">$12</p>
+              <div className="mt-3 space-y-1.5">
+                <div className="h-1.5 w-full rounded bg-white/10" />
+                <div className="h-1.5 w-4/5 rounded bg-white/10" />
+                <div className="h-1.5 w-3/5 rounded bg-white/10" />
+              </div>
+            </motion.div>
+
+            {/* Premium tier mini */}
+            <motion.div
+              animate={{ y: [0, -8, 0] }}
+              transition={{ duration: 4.2, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
+              className="w-36 md:w-44 bg-white rounded-2xl border border-border-light shadow-[0_2px_8px_rgba(0,0,0,0.04),0_8px_24px_rgba(0,0,0,0.06)] p-5"
+            >
+              <div className="w-8 h-8 rounded-xl bg-background border border-border-light flex items-center justify-center mb-3">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#a3a3a3" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
+              </div>
+              <p className="text-xs font-semibold text-foreground">Premium</p>
+              <p className="text-lg font-bold text-foreground mt-1">Custom</p>
+              <div className="mt-3 space-y-1.5">
+                <div className="h-1.5 w-full rounded bg-background" />
+                <div className="h-1.5 w-2/3 rounded bg-background" />
+              </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 

@@ -1,16 +1,17 @@
 import { buildMetadata } from "../lib/metadata";
-import { FAQSchema } from "../components/json-ld";
+import { BreadcrumbSchema, FAQSchema } from "../components/json-ld";
 
 export const metadata = buildMetadata({
-  title: "FAQ — Common Questions About Sythio",
+  title: "FAQ — Everything About Sythio's AI Voice Notes",
   description:
-    "Get answers about Sythio's AI audio features, speaker detection, output modes, supported formats, privacy, pricing, and more.",
+    "Answers to common questions about Sythio: how it works, speaker detection, output formats, audio privacy, pricing, supported formats, and more.",
   path: "/faq",
   keywords: [
     "Sythio FAQ",
     "AI voice notes questions",
     "speaker detection FAQ",
     "audio summarizer help",
+    "voice notes app questions",
   ],
 });
 
@@ -74,6 +75,12 @@ export default function FAQLayout({
 }) {
   return (
     <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", href: "/" },
+          { name: "FAQ", href: "/faq" },
+        ]}
+      />
       <FAQSchema items={faqItems} />
       {children}
     </>
