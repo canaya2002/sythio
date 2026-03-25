@@ -1,5 +1,5 @@
 import { buildMetadata } from "../../lib/metadata";
-import { BreadcrumbSchema } from "../../components/json-ld";
+import { BreadcrumbSchema, HowToSchema } from "../../components/json-ld";
 
 export const metadata = buildMetadata({
   title: "AI Audio Summaries — Clear Overviews from Any Recording",
@@ -26,6 +26,11 @@ export default function AISummariesLayout({ children }: { children: React.ReactN
           { name: "AI Summaries", href: "/features/ai-summaries" },
         ]}
       />
+      <HowToSchema name="How to Get AI Summaries from Audio" description="Get concise, structured summaries from any audio recording with Sythio." steps={[
+        { name: "Record or Upload", text: "Capture audio directly in Sythio or upload an existing recording. Meetings, voice notes, lectures — any audio works." },
+        { name: "Sythio Analyzes", text: "The audio is processed in seconds. Sythio identifies speakers, understands context, separates topics, and determines what is most important." },
+        { name: "Get Your Summary", text: "Receive a structured summary with key points, decisions, and context. Share it, export it, or use it as a starting point for action items." },
+      ]} />
       {children}
     </>
   );

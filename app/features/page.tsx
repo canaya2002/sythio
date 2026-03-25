@@ -43,6 +43,7 @@ function FeatureGrid() {
     {
       title: s("features.summaries"),
       desc: s("features.summariesDesc"),
+      href: "/features/ai-summaries",
       icon: "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z",
       color: "from-blue-50 to-indigo-50",
       accent: "#6366f1",
@@ -50,6 +51,7 @@ function FeatureGrid() {
     {
       title: s("features.tasks"),
       desc: s("features.tasksDesc"),
+      href: "/features/task-extraction",
       icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4",
       color: "from-emerald-50 to-green-50",
       accent: "#22c55e",
@@ -57,6 +59,7 @@ function FeatureGrid() {
     {
       title: s("features.actionPlans"),
       desc: s("features.actionPlansDesc"),
+      href: "/features/action-plans",
       icon: "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z",
       color: "from-violet-50 to-purple-50",
       accent: "#8b5cf6",
@@ -64,6 +67,7 @@ function FeatureGrid() {
     {
       title: s("features.speakerDetection"),
       desc: s("features.speakerDetectionDesc"),
+      href: "/features/speaker-detection",
       icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z",
       color: "from-amber-50 to-yellow-50",
       accent: "#f59e0b",
@@ -71,13 +75,15 @@ function FeatureGrid() {
     {
       title: s("features.cleanText"),
       desc: s("features.cleanTextDesc"),
+      href: "/features/clean-text",
       icon: "M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z",
       color: "from-sky-50 to-cyan-50",
       accent: "#0ea5e9",
     },
     {
-      title: s("features.executiveReports"),
-      desc: s("features.executiveReportsDesc"),
+      title: s("features.reports"),
+      desc: s("features.reportsDesc"),
+      href: "/features/reports",
       icon: "M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V9a2 2 0 012-2h2a2 2 0 012 2v9a2 2 0 01-2 2h-2z",
       color: "from-rose-50 to-pink-50",
       accent: "#f43f5e",
@@ -85,6 +91,7 @@ function FeatureGrid() {
     {
       title: s("features.messages"),
       desc: s("features.messagesDesc"),
+      href: "/features/messages",
       icon: "M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z",
       color: "from-teal-50 to-emerald-50",
       accent: "#14b8a6",
@@ -92,6 +99,7 @@ function FeatureGrid() {
     {
       title: s("features.studyNotes"),
       desc: s("features.studyNotesDesc"),
+      href: "/features/study-notes",
       icon: "M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253",
       color: "from-orange-50 to-amber-50",
       accent: "#f97316",
@@ -99,20 +107,31 @@ function FeatureGrid() {
     {
       title: s("features.ideas"),
       desc: s("features.ideasDesc"),
+      href: "/features/ideas",
       icon: "M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z",
       color: "from-fuchsia-50 to-pink-50",
       accent: "#d946ef",
     },
     {
+      title: s("features.keyPoints"),
+      desc: s("features.keyPointsDesc"),
+      href: "/features/key-points",
+      icon: "M5 13l4 4L19 7",
+      color: "from-lime-50 to-green-50",
+      accent: "#84cc16",
+    },
+    {
       title: s("features.exports"),
       desc: s("features.exportsDesc"),
+      href: null,
       icon: "M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4",
       color: "from-indigo-50 to-blue-50",
       accent: "#6366f1",
     },
     {
-      title: s("features.searchableHistory"),
-      desc: s("features.searchableHistoryDesc"),
+      title: s("features.history"),
+      desc: s("features.historyDesc"),
+      href: null,
       icon: "M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z",
       color: "from-zinc-50 to-gray-100",
       accent: "#71717a",
@@ -140,34 +159,44 @@ function FeatureGrid() {
 
   return (
     <div ref={ref} className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-      {features.map((feat) => (
-        <div
-          key={feat.title}
-          className="feat-card group p-7 rounded-2xl bg-white border border-border-light hover:border-border hover:shadow-[0_4px_16px_rgba(0,0,0,0.04),0_16px_48px_rgba(0,0,0,0.06)] transition-all duration-500"
-        >
-          <div
-            className="w-12 h-12 rounded-2xl flex items-center justify-center mb-5 transition-all duration-300 group-hover:shadow-sm"
-            style={{ background: `linear-gradient(135deg, var(--tw-gradient-from), var(--tw-gradient-to))` }}
-          >
-            <div className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${feat.color} flex items-center justify-center`}>
-              <svg
-                width="22"
-                height="22"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke={feat.accent}
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d={feat.icon} />
-              </svg>
+      {features.map((feat) => {
+        const cardClass = "feat-card group block p-7 rounded-2xl bg-white border border-border-light hover:border-border hover:shadow-[0_4px_16px_rgba(0,0,0,0.04),0_16px_48px_rgba(0,0,0,0.06)] transition-all duration-500";
+        const inner = (
+          <>
+            <div
+              className="w-12 h-12 rounded-2xl flex items-center justify-center mb-5 transition-all duration-300 group-hover:shadow-sm"
+              style={{ background: `linear-gradient(135deg, var(--tw-gradient-from), var(--tw-gradient-to))` }}
+            >
+              <div className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${feat.color} flex items-center justify-center`}>
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke={feat.accent}
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d={feat.icon} />
+                </svg>
+              </div>
             </div>
+            <h3 className="text-base font-semibold text-foreground mb-2 group-hover:text-accent-muted transition-colors">{feat.title}</h3>
+            <p className="text-sm text-muted leading-relaxed">{feat.desc}</p>
+          </>
+        );
+
+        return feat.href ? (
+          <Link key={feat.title} href={feat.href} className={cardClass}>
+            {inner}
+          </Link>
+        ) : (
+          <div key={feat.title} className={cardClass}>
+            {inner}
           </div>
-          <h3 className="text-base font-semibold text-foreground mb-2">{feat.title}</h3>
-          <p className="text-sm text-muted leading-relaxed">{feat.desc}</p>
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 }

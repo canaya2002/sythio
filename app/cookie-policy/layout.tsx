@@ -1,4 +1,5 @@
 import { buildMetadata } from "../lib/metadata";
+import { BreadcrumbSchema } from "../components/json-ld";
 
 export const metadata = buildMetadata({
   title: "Cookie Policy",
@@ -12,5 +13,15 @@ export default function CookiePolicyLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return children;
+  return (
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", href: "/" },
+          { name: "Cookie Policy", href: "/cookie-policy" },
+        ]}
+      />
+      {children}
+    </>
+  );
 }

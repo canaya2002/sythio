@@ -23,6 +23,7 @@ const useCases = [
   {
     titleKey: "usecases.meetings",
     descKey: "usecases.meetingsDesc",
+    href: "/use-cases/meetings",
     icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z",
     color: "#6366f1",
     bgColor: "from-indigo-50 to-violet-50",
@@ -41,6 +42,7 @@ const useCases = [
   {
     titleKey: "usecases.voiceNotes",
     descKey: "usecases.voiceNotesDesc",
+    href: "/use-cases/voice-notes",
     icon: "M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z",
     color: "#8b5cf6",
     bgColor: "from-violet-50 to-purple-50",
@@ -58,6 +60,7 @@ const useCases = [
   {
     titleKey: "usecases.brainstorming",
     descKey: "usecases.brainstormingDesc",
+    href: "/use-cases/brainstorming",
     icon: "M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z",
     color: "#f59e0b",
     bgColor: "from-amber-50 to-yellow-50",
@@ -77,6 +80,7 @@ const useCases = [
   {
     titleKey: "usecases.study",
     descKey: "usecases.studyDesc",
+    href: "/use-cases/lectures",
     icon: "M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253",
     color: "#f97316",
     bgColor: "from-orange-50 to-amber-50",
@@ -95,6 +99,7 @@ const useCases = [
   {
     titleKey: "usecases.clientCalls",
     descKey: "usecases.clientCallsDesc",
+    href: "/use-cases/client-calls",
     icon: "M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z",
     color: "#22c55e",
     bgColor: "from-emerald-50 to-green-50",
@@ -264,11 +269,8 @@ function UseCaseGrid() {
         const title = uc.titleKey ? s(uc.titleKey) : uc.title;
         const desc = uc.descKey ? s(uc.descKey) : uc.desc;
 
-        return (
-          <div
-            key={index}
-            className="uc-card group rounded-3xl bg-white border border-border-light hover:border-border hover:shadow-[0_4px_16px_rgba(0,0,0,0.04),0_16px_48px_rgba(0,0,0,0.06)] transition-all duration-500 overflow-hidden"
-          >
+        const cardClass = "uc-card group block rounded-3xl bg-white border border-border-light hover:border-border hover:shadow-[0_4px_16px_rgba(0,0,0,0.04),0_16px_48px_rgba(0,0,0,0.06)] transition-all duration-500 overflow-hidden";
+        const cardContent = (
             <div className={`grid lg:grid-cols-2 gap-0 ${isReversed ? "lg:direction-rtl" : ""}`}>
               {/* Text side */}
               <div className={`p-8 md:p-12 flex flex-col justify-center ${isReversed ? "lg:order-2" : ""}`}>
@@ -304,6 +306,15 @@ function UseCaseGrid() {
                 </div>
               </div>
             </div>
+        );
+
+        return uc.href ? (
+          <Link key={index} href={uc.href} className={cardClass}>
+            {cardContent}
+          </Link>
+        ) : (
+          <div key={index} className={cardClass}>
+            {cardContent}
           </div>
         );
       })}

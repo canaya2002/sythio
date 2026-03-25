@@ -1,5 +1,5 @@
 import { buildMetadata } from "../../lib/metadata";
-import { BreadcrumbSchema } from "../../components/json-ld";
+import { BreadcrumbSchema, HowToSchema } from "../../components/json-ld";
 
 export const metadata = buildMetadata({
   title: "AI Action Plans — Structured Plans from Conversations",
@@ -25,6 +25,11 @@ export default function ActionPlansLayout({ children }: { children: React.ReactN
           { name: "Action Plans", href: "/features/action-plans" },
         ]}
       />
+      <HowToSchema name="How to Generate Action Plans from Audio" description="Transform conversations into structured step-by-step plans with priorities and ownership." steps={[
+        { name: "Record or Upload", text: "Capture a strategy session, planning meeting, or any conversation where next steps are discussed." },
+        { name: "Sythio Structures", text: "The audio is analyzed for goals, steps, dependencies, and ownership. A structured plan emerges from the conversation." },
+        { name: "Get Your Action Plan", text: "Receive a phased, prioritized action plan with owners, deadlines, and dependencies. Ready to execute immediately." },
+      ]} />
       {children}
     </>
   );

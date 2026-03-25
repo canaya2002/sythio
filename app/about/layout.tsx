@@ -8,6 +8,9 @@ export const metadata = buildMetadata({
   path: "/about",
   keywords: [
     "about Sythio",
+    "AI audio company",
+    "voice notes startup",
+    "audio intelligence company",
     "AI audio intelligence company",
     "voice to structure mission",
     "audio transformation platform",

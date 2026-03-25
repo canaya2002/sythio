@@ -9,6 +9,7 @@ import {
   WebSiteSchema,
   SoftwareAppSchema,
 } from "./components/json-ld";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -148,7 +149,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <Suspense fallback={null}>
           <AnalyticsProvider />
         </Suspense>
-        <ClientProviders>{children}</ClientProviders>
+        <main className="flex-1">
+          <ClientProviders>{children}</ClientProviders>
+        </main>
+        <Analytics />
       </body>
     </html>
   );

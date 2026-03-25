@@ -1,5 +1,5 @@
 import { buildMetadata } from "../../lib/metadata";
-import { BreadcrumbSchema } from "../../components/json-ld";
+import { BreadcrumbSchema, HowToSchema } from "../../components/json-ld";
 
 export const metadata = buildMetadata({
   title: "AI Task Extraction — Action Items Automatically from Conversations",
@@ -26,6 +26,11 @@ export default function TaskExtractionLayout({ children }: { children: React.Rea
           { name: "Task Extraction", href: "/features/task-extraction" },
         ]}
       />
+      <HowToSchema name="How to Extract Tasks from Audio" description="Automatically pull action items with owners and deadlines from conversations." steps={[
+        { name: "Record or Upload", text: "Capture any conversation — meeting, call, brainstorm — or upload an existing recording." },
+        { name: "Sythio Identifies Tasks", text: "The audio is analyzed for commitments, assignments, and deadlines. Every action item is identified with its owner." },
+        { name: "Get Your Task List", text: "Receive a structured task list with clear ownership and timelines. Export to your project management tool or share with your team." },
+      ]} />
       {children}
     </>
   );

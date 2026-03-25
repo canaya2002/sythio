@@ -1,10 +1,10 @@
 import { buildMetadata } from "../lib/metadata";
-import { BreadcrumbSchema } from "../components/json-ld";
+import { BreadcrumbSchema, FAQSchema } from "../components/json-ld";
 
 export const metadata = buildMetadata({
   title: "Pricing — Free Plan, Pro $12/mo, Premium $29/mo",
   description:
-    "Sythio pricing: Free with 5 recordings/month, Pro at $12/month for unlimited recordings and all 9 output formats, Premium at $29/month for teams with API access. Start free, no credit card required.",
+    "Sythio pricing: Free with 5 recordings/month. Pro at $12/month for unlimited recordings and all 9 formats. Premium at $29/month for teams. No credit card required.",
   path: "/pricing",
   keywords: [
     "Sythio pricing",
@@ -13,6 +13,8 @@ export const metadata = buildMetadata({
     "free voice recorder AI",
     "meeting notes app cost",
     "AI transcription pricing",
+    "best AI voice notes app price",
+    "free AI meeting notes",
   ],
 });
 
@@ -27,6 +29,30 @@ export default function PricingLayout({
         items={[
           { name: "Home", href: "/" },
           { name: "Pricing", href: "/pricing" },
+        ]}
+      />
+      <FAQSchema
+        items={[
+          {
+            question: "Can I switch plans at any time?",
+            answer: "Yes. You can upgrade, downgrade, or cancel your plan at any time. Changes take effect at the start of your next billing cycle.",
+          },
+          {
+            question: "Is there a free trial for Pro?",
+            answer: "The free tier lets you experience Sythio with 5 recordings per month. No trial needed — upgrade when you're ready.",
+          },
+          {
+            question: "What payment methods do you accept?",
+            answer: "We accept all major credit cards, debit cards, and digital payment methods.",
+          },
+          {
+            question: "Do unused recordings roll over?",
+            answer: "On the free plan, unused recordings do not roll over. Pro and Premium plans have unlimited recordings.",
+          },
+          {
+            question: "What happens if I downgrade?",
+            answer: "Your existing recordings and outputs remain accessible. You'll lose access to premium features at the end of your billing period.",
+          },
         ]}
       />
       {children}
