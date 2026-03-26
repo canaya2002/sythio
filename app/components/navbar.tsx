@@ -12,6 +12,7 @@ const navLinks = [
   { key: "nav.features", href: "/features" },
   { key: "nav.useCases", href: "/use-cases" },
   { key: "nav.pricing", href: "/pricing" },
+  { key: "nav.blog", href: "/blog" },
 ];
 
 export default function Navbar() {

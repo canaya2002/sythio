@@ -6,10 +6,13 @@ import SpeakerDetection from "./components/sections/speaker-detection";
 import UseCases from "./components/sections/use-cases";
 import ProductExperience from "./components/sections/product-experience";
 import FinalCTA from "./components/sections/final-cta";
+import { HomeSEOContent } from "./components/seo-content";
 
 export default function Home() {
   return (
     <>
+      {/* Server-rendered SEO content — visible to crawlers, hidden visually */}
+      <HomeSEOContent />
       <Hero />
       <Problem />
       <HowItWorks />

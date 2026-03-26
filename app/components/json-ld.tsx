@@ -19,7 +19,7 @@ export function OrganizationSchema() {
     description:
       "Sythio transforms your audio into summaries, tasks, action plans, and structured outputs. AI-powered voice notes with speaker detection.",
     foundingDate: "2024-01-01",
-    /* sameAs: add real social URLs here when available */
+    /* sameAs: add social profile URLs when available */
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "customer support",
@@ -156,7 +156,7 @@ export function SoftwareAppSchema() {
 }
 
 export function FAQSchema({
-  items,
+  items, 
 }: {
   items: { question: string; answer: string }[];
 }) {

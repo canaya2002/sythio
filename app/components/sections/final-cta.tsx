@@ -1,12 +1,12 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { TextReveal, MagneticHover } from "../gsap-effects";
+import { TextReveal } from "../gsap-effects";
 import { useLanguage } from "../i18n/language-context";
 import RotatingText from "../rotating-text";
+import Waitlist from "../waitlist";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -41,27 +41,9 @@ export default function FinalCTA() {
           <TextReveal tag="p" className="mt-8 text-lg md:text-xl text-muted max-w-xl mx-auto leading-relaxed">
             {s("cta.subtitle")}
           </TextReveal>
-          <div className="mt-14 flex flex-col sm:flex-row gap-4 justify-center">
-            <MagneticHover>
-              <Link
-                href="/pricing"
-                className="h-14 px-10 inline-flex items-center justify-center rounded-full bg-foreground text-white text-base font-medium hover:bg-accent-muted transition-all duration-300 shadow-[0_1px_2px_rgba(0,0,0,0.1),0_4px_12px_rgba(0,0,0,0.1)] hover:shadow-[0_2px_4px_rgba(0,0,0,0.1),0_12px_32px_rgba(0,0,0,0.15)] hover:-translate-y-0.5"
-              >
-                {s("cta.button")}
-              </Link>
-            </MagneticHover>
-            <MagneticHover>
-              <Link
-                href="/product"
-                className="h-14 px-10 inline-flex items-center justify-center rounded-full border border-border text-base font-medium text-foreground hover:bg-background hover:border-muted-light hover:shadow-md transition-all duration-300"
-              >
-                {s("cta.button2")}
-              </Link>
-            </MagneticHover>
+          <div className="mt-14 max-w-md mx-auto">
+            <Waitlist variant="hero" />
           </div>
-          <p className="mt-8 text-sm text-muted-light">
-            {s("cta.free")}
-          </p>
         </div>
       </div>
     </section>

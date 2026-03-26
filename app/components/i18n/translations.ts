@@ -28,6 +28,7 @@ export const t: Translations = {
     "nav.about": "About",
     "nav.faq": "FAQ",
     "nav.contact": "Contact",
+    "nav.blog": "Blog",
     "nav.getStarted": "Get Started",
     "nav.tryFree": "Try Free",
 
@@ -365,6 +366,7 @@ export const t: Translations = {
     "nav.about": "Acerca de",
     "nav.faq": "FAQ",
     "nav.contact": "Contacto",
+    "nav.blog": "Blog",
     "nav.getStarted": "Empezar",
     "nav.tryFree": "Probar gratis",
 
@@ -685,6 +687,7 @@ export const t: Translations = {
     "nav.about": "À propos",
     "nav.faq": "FAQ",
     "nav.contact": "Contact",
+    "nav.blog": "Blog",
     "nav.getStarted": "Commencer",
     "nav.tryFree": "Essai gratuit",
 
@@ -1005,6 +1008,7 @@ export const t: Translations = {
     "nav.about": "Sobre",
     "nav.faq": "FAQ",
     "nav.contact": "Contato",
+    "nav.blog": "Blog",
     "nav.getStarted": "Começar",
     "nav.tryFree": "Testar grátis",
 
@@ -1325,6 +1329,7 @@ export const t: Translations = {
     "nav.about": "Chi siamo",
     "nav.faq": "FAQ",
     "nav.contact": "Contatto",
+    "nav.blog": "Blog",
     "nav.getStarted": "Inizia",
     "nav.tryFree": "Prova gratis",
 

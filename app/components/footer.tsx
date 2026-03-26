@@ -66,6 +66,9 @@ export default function Footer() {
               <Link href="/contact" className="text-sm text-muted hover:text-foreground transition-colors">
                 {s("footer.contact")}
               </Link>
+              <Link href="/blog" className="text-sm text-muted hover:text-foreground transition-colors">
+                {s("nav.blog")}
+              </Link>
             </div>
           </div>
 

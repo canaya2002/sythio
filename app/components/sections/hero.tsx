@@ -1,14 +1,13 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { TranscriptMockup } from "../mockups";
 import { MacBookFrame, IPhoneFrame } from "../devices";
-import { MagneticHover } from "../gsap-effects";
 import { useLanguage } from "../i18n/language-context";
 import RotatingText from "../rotating-text";
+import Waitlist from "../waitlist";
 
 function IPhoneAppScreen() {
   return (
@@ -118,6 +117,7 @@ export default function Hero() {
             </div>
           </motion.div>
 
+          {/* Server-rendered H1 for SEO — rotating text is visual enhancement */}
           <motion.h1
             initial={{ opacity: 0, y: 32 }}
             animate={{ opacity: 1, y: 0 }}
@@ -138,6 +138,10 @@ export default function Hero() {
               {s("hero.title2")}
             </span>
           </motion.h1>
+          {/* Hidden server-rendered text for crawlers */}
+          <span className="sr-only">
+            Speak once, get everything. Sythio transforms your audio into summaries, tasks, action plans, and structured outputs.
+          </span>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -152,24 +156,9 @@ export default function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.45 }}
-            className="mt-12 flex flex-col sm:flex-row gap-4 justify-center"
+            className="mt-12"
           >
-            <MagneticHover>
-              <Link
-                href="/pricing"
-                className="h-14 px-10 inline-flex items-center justify-center rounded-full bg-foreground text-white text-base font-medium hover:bg-accent-muted transition-all duration-300 shadow-[0_1px_2px_rgba(0,0,0,0.1),0_4px_12px_rgba(0,0,0,0.1)] hover:shadow-[0_2px_4px_rgba(0,0,0,0.1),0_12px_32px_rgba(0,0,0,0.15)] hover:-translate-y-0.5"
-              >
-                {s("hero.cta1")}
-              </Link>
-            </MagneticHover>
-            <MagneticHover>
-              <Link
-                href="/product"
-                className="h-14 px-10 inline-flex items-center justify-center rounded-full border border-border text-base font-medium text-foreground hover:bg-white hover:border-muted-light hover:shadow-md transition-all duration-300"
-              >
-                {s("hero.cta2")}
-              </Link>
-            </MagneticHover>
+            <Waitlist variant="hero" />
           </motion.div>
         </div>
 

@@ -28,6 +28,24 @@ const comparisons = [
     icon: "M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z",
     color: "#8b5cf6",
   },
+  {
+    name: "AudioPen",
+    href: "/compare/audiopen",
+    tagline: "Voice-to-text vs multi-output transformation",
+    description:
+      "AudioPen turns voice memos into clean text notes. Sythio transforms any audio into 9 structured outputs — summaries, tasks, action plans, reports, and more — far beyond a single note.",
+    icon: "M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m-4 0h8M12 4a3 3 0 00-3 3v4a3 3 0 006 0V7a3 3 0 00-3-3z",
+    color: "#ec4899",
+  },
+  {
+    name: "Notta.ai",
+    href: "/compare/notta",
+    tagline: "Multilingual transcription vs multi-output transformation",
+    description:
+      "Notta.ai focuses on multilingual transcription across 58+ languages. Sythio focuses on transforming audio into 9 structured outputs that are ready to use, share, and act on.",
+    icon: "M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129",
+    color: "#14b8a6",
+  },
 ];
 
 const differentiators = [
@@ -158,7 +176,7 @@ export default function ComparePage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {comparisons.map((tool) => (
               <Link
                 key={tool.name}

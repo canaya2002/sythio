@@ -163,7 +163,7 @@ export default function PricingPage() {
             >
               <div className="mb-8">
                 <h3 className="text-lg font-semibold text-foreground mb-2">Free</h3>
-                <p className="text-sm text-muted mb-6">Para empezar a explorar</p>
+                <p className="text-sm text-muted mb-6">Get started for free</p>
                 <div className="flex items-baseline gap-1">
                   <span className="text-5xl font-bold tracking-tight text-foreground">$0</span>
                 </div>
