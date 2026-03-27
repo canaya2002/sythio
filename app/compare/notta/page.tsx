@@ -246,13 +246,13 @@ export default function NottaComparePage() {
       <section className="py-32 md:py-44 bg-white"><div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-20"><p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-light mb-6">{c.twoApproaches}</p><TextReveal><h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-foreground">{c.coreDifference}</h2></TextReveal></div>
         <GsapStagger stagger={0.08}><div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          <ScrollScale><div className="p-8 rounded-2xl bg-background border border-border-light">
+          <ScrollScale><div className="h-full p-8 rounded-2xl bg-background border border-border-light">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-light mb-4">{c.competitorApproach}</p>
             <h3 className="text-xl font-semibold text-foreground mb-4">{c.competitorTitle}</h3>
             <p className="text-sm text-muted leading-relaxed mb-6">{c.competitorDesc}</p>
             <ul className="space-y-3">{[c.competitorItem1, c.competitorItem2, c.competitorItem3, c.competitorItem4].map((item) => (<li key={item} className="flex items-start gap-3"><div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-muted-light shrink-0" /><span className="text-sm text-muted">{item}</span></li>))}</ul>
           </div></ScrollScale>
-          <ScrollScale><div className="p-8 rounded-2xl bg-foreground text-white">
+          <ScrollScale><div className="h-full p-8 rounded-2xl bg-foreground text-white">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/50 mb-4">{c.sythioApproach}</p>
             <h3 className="text-xl font-semibold text-white mb-4">{c.sythioTitle}</h3>
             <p className="text-sm text-white/70 leading-relaxed mb-6">{c.sythioDesc}</p>

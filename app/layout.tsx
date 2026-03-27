@@ -160,9 +160,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <Suspense fallback={null}>
           <AnalyticsProvider />
         </Suspense>
-        <main className="flex-1">
-          <ClientProviders>{children}</ClientProviders>
-        </main>
+        <ClientProviders>{children}</ClientProviders>
         <Analytics />
       </body>
     </html>

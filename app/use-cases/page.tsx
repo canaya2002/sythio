@@ -271,7 +271,7 @@ function UseCaseGrid() {
 
         const cardClass = "uc-card group block rounded-3xl bg-white border border-border-light hover:border-border hover:shadow-[0_4px_16px_rgba(0,0,0,0.04),0_16px_48px_rgba(0,0,0,0.06)] transition-all duration-500 overflow-hidden";
         const cardContent = (
-            <div className={`grid lg:grid-cols-2 gap-0 ${isReversed ? "lg:direction-rtl" : ""}`}>
+            <div className="grid lg:grid-cols-2 gap-0">
               {/* Text side */}
               <div className={`p-8 md:p-12 flex flex-col justify-center ${isReversed ? "lg:order-2" : ""}`}>
                 <div

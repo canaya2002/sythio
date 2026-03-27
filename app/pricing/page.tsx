@@ -195,7 +195,7 @@ export default function PricingPage() {
             <motion.div
               whileHover={{ y: -6 }}
               transition={{ duration: 0.3, ease: "easeOut" }}
-              className="relative flex flex-col rounded-3xl p-8 lg:p-10 bg-foreground text-white shadow-[0_8px_32px_rgba(0,0,0,0.12),0_32px_80px_rgba(0,0,0,0.16)] scale-[1.02] lg:scale-105 transition-all duration-500"
+              className="relative flex flex-col rounded-3xl p-8 lg:p-10 bg-foreground text-white shadow-[0_8px_32px_rgba(0,0,0,0.12),0_32px_80px_rgba(0,0,0,0.16)] scale-[1.02] transition-all duration-500"
             >
               <div className="absolute -top-4 left-1/2 -translate-x-1/2">
                 <span className="inline-block px-5 py-1.5 rounded-full bg-white text-foreground text-xs font-semibold tracking-wide shadow-sm">

@@ -454,7 +454,7 @@ export default function TldvComparePage() {
           </div>
           <GsapStagger stagger={0.08}>
             <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-              <ScrollScale><div className="p-8 rounded-2xl bg-background border border-border-light">
+              <ScrollScale><div className="h-full p-8 rounded-2xl bg-background border border-border-light">
                 <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-light mb-4">{c.competitorApproach}</p>
                 <h3 className="text-xl font-semibold text-foreground mb-4">{c.competitorTitle}</h3>
                 <p className="text-sm text-muted leading-relaxed mb-6">{c.competitorDesc}</p>
@@ -467,7 +467,7 @@ export default function TldvComparePage() {
                   ))}
                 </ul>
               </div></ScrollScale>
-              <ScrollScale><div className="p-8 rounded-2xl bg-foreground text-white">
+              <ScrollScale><div className="h-full p-8 rounded-2xl bg-foreground text-white">
                 <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/50 mb-4">{c.sythioApproach}</p>
                 <h3 className="text-xl font-semibold text-white mb-4">{c.sythioTitle}</h3>
                 <p className="text-sm text-white/70 leading-relaxed mb-6">{c.sythioDesc}</p>

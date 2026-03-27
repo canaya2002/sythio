@@ -568,7 +568,7 @@ export default function OtterComparePage() {
           <GsapStagger stagger={0.08}>
             <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
               <ScrollScale>
-                <div className="p-8 rounded-2xl bg-background border border-border-light">
+                <div className="h-full p-7 rounded-2xl bg-background border border-border-light">
                   <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-light mb-4">
                     {c.otterApproach}
                   </p>
@@ -590,7 +590,7 @@ export default function OtterComparePage() {
               </ScrollScale>
 
               <ScrollScale>
-                <div className="p-8 rounded-2xl bg-foreground text-white">
+                <div className="h-full p-7 rounded-2xl bg-foreground text-white">
                   <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/50 mb-4">
                     {c.sythioApproach}
                   </p>

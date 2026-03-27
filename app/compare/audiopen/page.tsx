@@ -247,7 +247,7 @@ export default function AudioPenComparePage() {
             <TextReveal><h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-foreground">{c.coreDifference}</h2></TextReveal>
           </div>
           <GsapStagger stagger={0.08}><div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <ScrollScale><div className="p-8 rounded-2xl bg-background border border-border-light">
+            <ScrollScale><div className="h-full p-8 rounded-2xl bg-background border border-border-light">
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-light mb-4">{c.competitorApproach}</p>
               <h3 className="text-xl font-semibold text-foreground mb-4">{c.competitorTitle}</h3>
               <p className="text-sm text-muted leading-relaxed mb-6">{c.competitorDesc}</p>
@@ -257,7 +257,7 @@ export default function AudioPenComparePage() {
                 ))}
               </ul>
             </div></ScrollScale>
-            <ScrollScale><div className="p-8 rounded-2xl bg-foreground text-white">
+            <ScrollScale><div className="h-full p-8 rounded-2xl bg-foreground text-white">
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/50 mb-4">{c.sythioApproach}</p>
               <h3 className="text-xl font-semibold text-white mb-4">{c.sythioTitle}</h3>
               <p className="text-sm text-white/70 leading-relaxed mb-6">{c.sythioDesc}</p>
@@ -278,7 +278,7 @@ export default function AudioPenComparePage() {
             <p className="mt-4 text-lg text-muted max-w-xl mx-auto">{c.comparisonSubtitle}</p>
           </div>
           <div className="max-w-4xl mx-auto">
-            <ScrollScale><div className="bg-white rounded-2xl border border-border-light overflow-hidden">
+            <ScrollScale><div className="h-full bg-white rounded-2xl border border-border-light overflow-hidden">
               <table className="w-full">
                 <thead><tr className="border-b border-border-light"><th className="text-left p-4 text-sm font-semibold text-foreground">{c.thFeature}</th><th className="text-center p-4 text-sm font-semibold text-foreground">Sythio</th><th className="text-center p-4 text-sm font-semibold text-muted">AudioPen</th></tr></thead>
                 <tbody>

@@ -397,25 +397,25 @@ export default function LecturesPage() {
           <TextReveal tag="h2" className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground mb-10">{s("common.related")}</TextReveal>
           <GsapStagger stagger={0.08} className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             <ScrollScale>
-              <Link href="/use-cases/voice-notes" className="group block bg-white rounded-2xl border border-border-light p-6 hover:border-border hover:shadow-[0_4px_16px_rgba(0,0,0,0.06)] transition-all">
+              <Link href="/use-cases/voice-notes" className="h-full group block bg-white rounded-2xl border border-border-light p-6 hover:border-border hover:shadow-[0_4px_16px_rgba(0,0,0,0.06)] transition-all">
                 <p className="text-xs font-semibold uppercase tracking-[0.15em] text-muted-light mb-2">{s("common.useCase")}</p>
                 <p className="text-base font-semibold text-foreground group-hover:text-accent-muted transition-colors">{c.relatedVoiceNotes}</p>
               </Link>
             </ScrollScale>
             <ScrollScale>
-              <Link href="/for/students" className="group block bg-white rounded-2xl border border-border-light p-6 hover:border-border hover:shadow-[0_4px_16px_rgba(0,0,0,0.06)] transition-all">
+              <Link href="/for/students" className="h-full group block bg-white rounded-2xl border border-border-light p-6 hover:border-border hover:shadow-[0_4px_16px_rgba(0,0,0,0.06)] transition-all">
                 <p className="text-xs font-semibold uppercase tracking-[0.15em] text-muted-light mb-2">{c.relatedAudience}</p>
                 <p className="text-base font-semibold text-foreground group-hover:text-accent-muted transition-colors">{c.relatedStudents}</p>
               </Link>
             </ScrollScale>
             <ScrollScale>
-              <Link href="/features/study-notes" className="group block bg-white rounded-2xl border border-border-light p-6 hover:border-border hover:shadow-[0_4px_16px_rgba(0,0,0,0.06)] transition-all">
+              <Link href="/features/study-notes" className="h-full group block bg-white rounded-2xl border border-border-light p-6 hover:border-border hover:shadow-[0_4px_16px_rgba(0,0,0,0.06)] transition-all">
                 <p className="text-xs font-semibold uppercase tracking-[0.15em] text-muted-light mb-2">{s("common.feature")}</p>
                 <p className="text-base font-semibold text-foreground group-hover:text-accent-muted transition-colors">{c.relatedStudyNotes}</p>
               </Link>
             </ScrollScale>
             <ScrollScale>
-              <Link href="/features/key-points" className="group block bg-white rounded-2xl border border-border-light p-6 hover:border-border hover:shadow-[0_4px_16px_rgba(0,0,0,0.06)] transition-all">
+              <Link href="/features/key-points" className="h-full group block bg-white rounded-2xl border border-border-light p-6 hover:border-border hover:shadow-[0_4px_16px_rgba(0,0,0,0.06)] transition-all">
                 <p className="text-xs font-semibold uppercase tracking-[0.15em] text-muted-light mb-2">{s("common.feature")}</p>
                 <p className="text-base font-semibold text-foreground group-hover:text-accent-muted transition-colors">{c.relatedKeyPoints}</p>
               </Link>
