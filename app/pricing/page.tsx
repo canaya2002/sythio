@@ -133,7 +133,7 @@ export default function PricingPage() {
               transition={{ duration: 0.8, delay: 0.1 }}
               className="text-5xl sm:text-6xl md:text-7xl font-bold leading-[1.05] tracking-tight text-foreground"
             >
-              Simple, <RotatingText words={["transparent", "honest", "fair", "clear"]} className="text-zinc-400" /> pricing
+              {s("pricing.hero.titlePrefix")} <RotatingText words={[s("pricing.hero.rotate.transparent"), s("pricing.hero.rotate.honest"), s("pricing.hero.rotate.fair"), s("pricing.hero.rotate.clear")]} className="text-zinc-400" /> {s("pricing.hero.titleSuffix")}
             </motion.h1>
 
             <motion.p
@@ -142,7 +142,7 @@ export default function PricingPage() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="mt-8 text-lg md:text-xl text-muted leading-relaxed max-w-2xl mx-auto"
             >
-              Start free, upgrade when you need more. Enterprise plans available for teams.
+              {s("pricing.hero.subtitleFull")}
             </motion.p>
           </div>
         </div>
@@ -162,18 +162,18 @@ export default function PricingPage() {
               className="relative flex flex-col rounded-3xl p-8 lg:p-10 bg-white border border-border-light hover:border-border hover:shadow-[0_4px_16px_rgba(0,0,0,0.04),0_16px_48px_rgba(0,0,0,0.06)] transition-all duration-500"
             >
               <div className="mb-8">
-                <h3 className="text-lg font-semibold text-foreground mb-2">Free</h3>
-                <p className="text-sm text-muted mb-6">Get started for free</p>
+                <h3 className="text-lg font-semibold text-foreground mb-2">{s("pricing.free.title")}</h3>
+                <p className="text-sm text-muted mb-6">{s("pricing.free.subtitleCard")}</p>
                 <div className="flex items-baseline gap-1">
-                  <span className="text-5xl font-bold tracking-tight text-foreground">$0</span>
+                  <span className="text-5xl font-bold tracking-tight text-foreground">{s("pricing.free.price")}</span>
                 </div>
               </div>
               <ul className="space-y-3.5 mb-10 flex-1">
                 {[
-                  "5 recordings per month",
-                  "3 output formats",
-                  "Basic speaker detection",
-                  "Text export",
+                  s("pricing.free.f1"),
+                  s("pricing.free.f2"),
+                  s("pricing.free.f3"),
+                  s("pricing.free.f4"),
                 ].map((f) => (
                   <li key={f} className="flex items-start gap-3">
                     <Check />
@@ -186,7 +186,7 @@ export default function PricingPage() {
                   href="/contact"
                   className="block w-full text-center py-3.5 rounded-full text-sm font-medium bg-foreground text-white hover:bg-accent-muted transition-all duration-300 shadow-[0_1px_2px_rgba(0,0,0,0.05)]"
                 >
-                  Get Started Free
+                  {s("common.getStartedFree")}
                 </Link>
               </MagneticHover>
             </motion.div>
@@ -199,26 +199,26 @@ export default function PricingPage() {
             >
               <div className="absolute -top-4 left-1/2 -translate-x-1/2">
                 <span className="inline-block px-5 py-1.5 rounded-full bg-white text-foreground text-xs font-semibold tracking-wide shadow-sm">
-                  Most Popular
+                  {s("pricing.popular")}
                 </span>
               </div>
 
               <div className="mb-8">
-                <h3 className="text-lg font-semibold text-white/90 mb-2">Premium</h3>
-                <p className="text-sm text-white/60 mb-6">For professionals who need more</p>
+                <h3 className="text-lg font-semibold text-white/90 mb-2">{s("pricing.premium.title")}</h3>
+                <p className="text-sm text-white/60 mb-6">{s("pricing.premium.subtitleCard")}</p>
                 <div className="flex items-baseline gap-1">
-                  <span className="text-5xl font-bold tracking-tight text-white">$12</span>
-                  <span className="text-sm text-white/50">/month</span>
+                  <span className="text-5xl font-bold tracking-tight text-white">{s("pricing.premium.priceValue")}</span>
+                  <span className="text-sm text-white/50">{s("pricing.premium.per")}</span>
                 </div>
               </div>
               <ul className="space-y-3.5 mb-10 flex-1">
                 {[
-                  "Unlimited recordings",
-                  "All 9 output formats",
-                  "Advanced speaker detection",
-                  "All export formats (PDF, text, more)",
-                  "Searchable audio library",
-                  "Priority processing",
+                  s("pricing.premium.feat1"),
+                  s("pricing.premium.feat2"),
+                  s("pricing.premium.feat3"),
+                  s("pricing.premium.feat4"),
+                  s("pricing.premium.feat5"),
+                  s("pricing.premium.feat6"),
                 ].map((f) => (
                   <li key={f} className="flex items-start gap-3">
                     <Check className="text-emerald-400" />
@@ -231,7 +231,7 @@ export default function PricingPage() {
                   href="/contact"
                   className="block w-full text-center py-3.5 rounded-full text-sm font-medium bg-white text-foreground hover:bg-white/90 transition-all duration-300 shadow-sm"
                 >
-                  Get Premium
+                  {s("common.getPremium")}
                 </Link>
               </MagneticHover>
             </motion.div>
@@ -243,22 +243,22 @@ export default function PricingPage() {
               className="relative flex flex-col rounded-3xl p-8 lg:p-10 bg-white border border-border-light hover:border-border hover:shadow-[0_4px_16px_rgba(0,0,0,0.04),0_16px_48px_rgba(0,0,0,0.06)] transition-all duration-500"
             >
               <div className="mb-8">
-                <h3 className="text-lg font-semibold text-foreground mb-2">Enterprise</h3>
-                <p className="text-sm text-muted mb-6">For teams and organizations</p>
+                <h3 className="text-lg font-semibold text-foreground mb-2">{s("pricing.enterprise")}</h3>
+                <p className="text-sm text-muted mb-6">{s("pricing.enterprise.subtitle")}</p>
                 <div className="flex items-baseline gap-1">
-                  <span className="text-4xl font-bold tracking-tight text-foreground">Custom</span>
+                  <span className="text-4xl font-bold tracking-tight text-foreground">{s("pricing.enterprise.price")}</span>
                 </div>
               </div>
               <ul className="space-y-3.5 mb-10 flex-1">
                 {[
-                  "Everything in Premium",
-                  "Team workspace & collaboration",
-                  "Custom output templates",
-                  "API access & integrations",
-                  "Dedicated account manager",
-                  "Advanced analytics & reporting",
-                  "SSO & enterprise security",
-                  "Custom onboarding",
+                  s("pricing.enterprise.f1"),
+                  s("pricing.enterprise.f2"),
+                  s("pricing.enterprise.f3"),
+                  s("pricing.enterprise.f4"),
+                  s("pricing.enterprise.f5"),
+                  s("pricing.enterprise.f6"),
+                  s("pricing.enterprise.f7"),
+                  s("pricing.enterprise.f8"),
                 ].map((f) => (
                   <li key={f} className="flex items-start gap-3">
                     <Check />
@@ -271,7 +271,7 @@ export default function PricingPage() {
                   href="/contact"
                   className="block w-full text-center py-3.5 rounded-full text-sm font-medium bg-foreground text-white hover:bg-accent-muted transition-all duration-300 shadow-[0_1px_2px_rgba(0,0,0,0.05)]"
                 >
-                  Contact Sales
+                  {s("common.contactSales")}
                 </Link>
               </MagneticHover>
             </motion.div>
@@ -284,9 +284,9 @@ export default function PricingPage() {
             viewport={{ once: true }}
             className="text-center text-sm text-muted mt-12"
           >
-            All plans include secure processing, data privacy, and unlimited exports.{" "}
+            {s("pricing.allPlansNote")}{" "}
             <Link href="/contact" className="underline underline-offset-4 hover:text-foreground transition-colors">
-              Questions? Contact us
+              {s("pricing.questionsContact")}
             </Link>
           </motion.p>
         </div>
@@ -297,18 +297,18 @@ export default function PricingPage() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <TextReveal tag="h2" className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-foreground">
-              What every plan includes
+              {s("pricing.whatEveryPlan")}
             </TextReveal>
             <TextReveal tag="p" className="mt-6 text-lg text-muted max-w-xl mx-auto leading-relaxed">
-              Every Sythio plan gives you access to the core audio intelligence engine.
+              {s("pricing.whatEveryPlanDesc")}
             </TextReveal>
           </div>
           <GsapStagger className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6" stagger={0.08}>
             {[
-              { title: "AI-Powered Processing", desc: "Advanced language models analyze your audio for context, meaning, and structure." },
-              { title: "Speaker Detection", desc: "Automatic identification of who said what in every recording." },
-              { title: "Multiple Output Formats", desc: "Summaries, tasks, action plans, reports, messages, study notes, and more." },
-              { title: "Secure & Private", desc: "Your audio is processed securely and never shared. Delete your data anytime." },
+              { title: s("pricing.feat.aiProcessing"), desc: s("pricing.feat.aiProcessingDesc") },
+              { title: s("pricing.feat.speakerDetection"), desc: s("pricing.feat.speakerDetectionDesc") },
+              { title: s("pricing.feat.multipleOutputs"), desc: s("pricing.feat.multipleOutputsDesc") },
+              { title: s("pricing.feat.securePrivate"), desc: s("pricing.feat.securePrivateDesc") },
             ].map((item) => (
               <ScrollScale key={item.title}>
                 <div className="p-6 rounded-2xl bg-white border border-border-light hover:shadow-[0_4px_16px_rgba(0,0,0,0.06)] transition-shadow">
@@ -357,13 +357,13 @@ export default function PricingPage() {
               tag="h2"
               className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground"
             >
-              Ready to transform how you work with audio?
+              {s("pricing.cta.title")}
             </TextReveal>
             <TextReveal
               tag="p"
               className="mt-7 text-lg md:text-xl text-muted max-w-xl mx-auto leading-relaxed"
             >
-              Start free today. No credit card required.
+              {s("pricing.cta.subtitle")}
             </TextReveal>
             <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
               <MagneticHover>
@@ -371,7 +371,7 @@ export default function PricingPage() {
                   href="/contact"
                   className="h-14 px-10 inline-flex items-center justify-center rounded-full bg-foreground text-white text-base font-medium hover:bg-accent-muted transition-all duration-300 shadow-[0_1px_2px_rgba(0,0,0,0.1),0_4px_12px_rgba(0,0,0,0.1)] hover:shadow-[0_2px_4px_rgba(0,0,0,0.1),0_12px_32px_rgba(0,0,0,0.15)] hover:-translate-y-0.5"
                 >
-                  Start Using Sythio
+                  {s("common.startUsingSythio")}
                 </Link>
               </MagneticHover>
               <MagneticHover>
@@ -379,11 +379,11 @@ export default function PricingPage() {
                   href="/product"
                   className="h-14 px-10 inline-flex items-center justify-center rounded-full border border-border text-foreground text-base font-medium hover:bg-foreground hover:text-white transition-all duration-300"
                 >
-                  Explore the Product
+                  {s("common.exploreProduct")}
                 </Link>
               </MagneticHover>
             </div>
-            <p className="mt-6 text-sm text-muted">Free plan available. No credit card required.</p>
+            <p className="mt-6 text-sm text-muted">{s("common.freePlan")}</p>
           </div>
         </div>
       </section>

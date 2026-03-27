@@ -134,8 +134,8 @@ const useCases = [
     },
   },
   {
-    title: "Founder Brain Dumps",
-    desc: "Record your stream of consciousness. Sythio structures your thoughts into organized ideas, priorities, and next steps.",
+    titleKey: "usecases.brainDumps",
+    descKey: "usecases.brainDumpsDesc",
     icon: "M13 10V3L4 14h7v7l9-11h-7z",
     color: "#d946ef",
     bgColor: "from-fuchsia-50 to-pink-50",
@@ -153,8 +153,8 @@ const useCases = [
     },
   },
   {
-    title: "Capturing Decisions",
-    desc: "Never lose a decision again. Sythio identifies agreements, commitments, and conclusions from any conversation.",
+    titleKey: "usecases.decisions",
+    descKey: "usecases.decisionsDesc",
     icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z",
     color: "#f43f5e",
     bgColor: "from-rose-50 to-pink-50",
@@ -266,8 +266,8 @@ function UseCaseGrid() {
     <div ref={ref} className="space-y-8">
       {useCases.map((uc, index) => {
         const isReversed = index % 2 !== 0;
-        const title = uc.titleKey ? s(uc.titleKey) : uc.title;
-        const desc = uc.descKey ? s(uc.descKey) : uc.desc;
+        const title = uc.titleKey ? s(uc.titleKey) : (uc as Record<string, unknown>).title as string;
+        const desc = uc.descKey ? s(uc.descKey) : (uc as Record<string, unknown>).desc as string;
 
         const cardClass = "uc-card group block rounded-3xl bg-white border border-border-light hover:border-border hover:shadow-[0_4px_16px_rgba(0,0,0,0.04),0_16px_48px_rgba(0,0,0,0.06)] transition-all duration-500 overflow-hidden";
         const cardContent = (
@@ -324,15 +324,16 @@ function UseCaseGrid() {
 
 /* ─── Stats ─── */
 function StatsBar() {
+  const { s } = useLanguage();
   return (
     <section className="py-20 md:py-28 bg-background animated-gradient-bg">
       <div className="max-w-7xl mx-auto px-6">
         <GsapStagger className="grid grid-cols-2 lg:grid-cols-4 gap-6" stagger={0.08}>
           {[
-            { value: "9", label: "Output formats", suffix: "" },
-            { value: "30", label: "Seconds average processing", suffix: "s" },
-            { value: "10", label: "Speakers supported", suffix: "+" },
-            { value: "5", label: "Languages available", suffix: "" },
+            { value: "9", label: s("exp.stat2"), suffix: "" },
+            { value: "30", label: s("exp.stat1"), suffix: "s" },
+            { value: "10", label: s("exp.stat3"), suffix: "+" },
+            { value: "5", label: s("exp.stat4"), suffix: "" },
           ].map((stat) => (
             <div key={stat.label} className="text-center p-6 rounded-2xl bg-white border border-border-light">
               <p className="text-3xl md:text-4xl font-bold text-foreground tracking-tight">
@@ -419,7 +420,7 @@ export default function UseCasesPage() {
               transition={{ duration: 0.8, delay: 0.1 }}
               className="text-5xl sm:text-6xl md:text-7xl font-bold leading-[1.05] tracking-tight text-foreground"
             >
-              Works the way you <RotatingText words={["work", "think", "create", "learn"]} className="text-zinc-400" />
+              {s("usecasesPage.hero.title")} <RotatingText words={[s("usecases.heroRotate1"), s("usecases.heroRotate2"), s("usecases.heroRotate3"), s("usecases.heroRotate4")]} className="text-zinc-400" />
             </motion.h1>
 
             <motion.p
@@ -439,12 +440,12 @@ export default function UseCasesPage() {
             >
               <MagneticHover>
                 <Link href="/pricing" className="h-14 px-10 inline-flex items-center justify-center rounded-full bg-foreground text-white text-base font-medium hover:bg-accent-muted transition-all duration-300 shadow-[0_1px_2px_rgba(0,0,0,0.1),0_4px_12px_rgba(0,0,0,0.1)] hover:shadow-[0_2px_4px_rgba(0,0,0,0.1),0_12px_32px_rgba(0,0,0,0.15)] hover:-translate-y-0.5">
-                  Get Started
+                  {s("common.getStarted")}
                 </Link>
               </MagneticHover>
               <MagneticHover>
                 <Link href="/features" className="h-14 px-10 inline-flex items-center justify-center rounded-full border border-border text-base font-medium text-foreground hover:bg-white hover:border-muted-light hover:shadow-md transition-all duration-300">
-                  See Features
+                  {s("common.exploreFeatures")}
                 </Link>
               </MagneticHover>
             </motion.div>
@@ -458,14 +459,14 @@ export default function UseCasesPage() {
             className="mt-16 flex flex-wrap justify-center gap-3 max-w-2xl mx-auto"
           >
             {[
-              { label: "Meetings", icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z", color: "#6366f1" },
-              { label: "Voice Notes", icon: "M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z", color: "#8b5cf6" },
-              { label: "Brainstorming", icon: "M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z", color: "#f59e0b" },
-              { label: "Study Sessions", icon: "M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253", color: "#f97316" },
-              { label: "Client Calls", icon: "M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z", color: "#22c55e" },
-              { label: "Follow-ups", icon: "M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z", color: "#0ea5e9" },
-              { label: "Brain Dumps", icon: "M13 10V3L4 14h7v7l9-11h-7z", color: "#d946ef" },
-              { label: "Decisions", icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z", color: "#f43f5e" },
+              { label: s("usecases.meetings"), icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z", color: "#6366f1" },
+              { label: s("usecases.voiceNotes"), icon: "M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z", color: "#8b5cf6" },
+              { label: s("usecases.brainstorming"), icon: "M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z", color: "#f59e0b" },
+              { label: s("usecases.study"), icon: "M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253", color: "#f97316" },
+              { label: s("usecases.clientCalls"), icon: "M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z", color: "#22c55e" },
+              { label: s("usecases.followUps"), icon: "M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z", color: "#0ea5e9" },
+              { label: s("usecases.brainDumps"), icon: "M13 10V3L4 14h7v7l9-11h-7z", color: "#d946ef" },
+              { label: s("usecases.decisions"), icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z", color: "#f43f5e" },
             ].map((item, i) => (
               <motion.div
                 key={item.label}

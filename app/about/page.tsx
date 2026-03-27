@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useLanguage } from "../components/i18n/language-context";
+import type { Locale } from "../components/i18n/translations";
 import RotatingText from "../components/rotating-text";
 import {
   TextReveal,
@@ -26,9 +27,26 @@ const valueIcons: Record<string, string> = {
     "M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z",
 };
 
+/* ─── Inline translations for rotating text & h1 prefix ─── */
+const heroPrefix: Record<Locale, string> = {
+  en: "Why Sythio",
+  es: "Por qué Sythio",
+  fr: "Pourquoi Sythio",
+  pt: "Por que Sythio",
+  it: "Perché Sythio",
+};
+
+const rotatingWords: Record<Locale, string[]> = {
+  en: ["exists", "matters", "works", "transforms"],
+  es: ["existe", "importa", "funciona", "transforma"],
+  fr: ["existe", "compte", "fonctionne", "transforme"],
+  pt: ["existe", "importa", "funciona", "transforma"],
+  it: ["esiste", "conta", "funziona", "trasforma"],
+};
+
 /* ─── About Page ─── */
 export default function AboutPage() {
-  const { s } = useLanguage();
+  const { s, locale } = useLanguage();
 
   const values = [
     {
@@ -81,7 +99,7 @@ export default function AboutPage() {
               transition={{ duration: 0.8, delay: 0.1 }}
               className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.05] tracking-tight text-foreground"
             >
-              Why Sythio <RotatingText words={["exists", "matters", "works", "transforms"]} className="text-zinc-400" />
+              {heroPrefix[locale]}{" "}<RotatingText words={rotatingWords[locale]} className="text-zinc-400" />
             </motion.h1>
 
             <motion.p
@@ -101,12 +119,12 @@ export default function AboutPage() {
             >
               <MagneticHover>
                 <Link href="/product" className="h-14 px-10 inline-flex items-center justify-center rounded-full bg-foreground text-white text-base font-medium hover:bg-accent-muted transition-all duration-300 shadow-[0_1px_2px_rgba(0,0,0,0.1),0_4px_12px_rgba(0,0,0,0.1)] hover:shadow-[0_2px_4px_rgba(0,0,0,0.1),0_12px_32px_rgba(0,0,0,0.15)] hover:-translate-y-0.5">
-                  Explore the Product
+                  {s("common.exploreProduct")}
                 </Link>
               </MagneticHover>
               <MagneticHover>
                 <Link href="/pricing" className="h-14 px-10 inline-flex items-center justify-center rounded-full border border-border text-base font-medium text-foreground hover:bg-white hover:border-muted-light hover:shadow-md transition-all duration-300">
-                  View Pricing
+                  {s("common.viewPricing")}
                 </Link>
               </MagneticHover>
             </motion.div>
@@ -228,7 +246,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-24">
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-light mb-6 block">
-              Our principles
+              {s("about.values.label")}
             </span>
             <TextReveal
               tag="h2"
@@ -281,12 +299,11 @@ export default function AboutPage() {
                 tag="p"
                 className="text-2xl sm:text-3xl md:text-4xl font-medium text-foreground leading-snug tracking-tight"
               >
-                &ldquo;We built Sythio because we believe audio deserves better.
-                Not just transcription &mdash; transformation.&rdquo;
+                &ldquo;{s("about.quote")}&rdquo;
               </TextReveal>
               <div className="mt-8 flex items-center justify-center gap-3">
                 <div className="w-8 h-px bg-border" />
-                <span className="text-sm text-muted">The Sythio Team</span>
+                <span className="text-sm text-muted">{s("about.quoteAttribution")}</span>
                 <div className="w-8 h-px bg-border" />
               </div>
             </blockquote>

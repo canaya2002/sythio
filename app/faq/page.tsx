@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "../components/i18n/language-context";
+import type { Locale } from "../components/i18n/translations";
 import RotatingText from "../components/rotating-text";
 import {
   TextReveal,
@@ -81,9 +82,26 @@ function AccordionItem({
   );
 }
 
+/* ─── Inline translations for FAQ hero ─── */
+const heroPrefix: Record<Locale, string> = {
+  en: "Frequently asked",
+  es: "Preguntas",
+  fr: "Questions",
+  pt: "Perguntas",
+  it: "Domande",
+};
+
+const rotatingWords: Record<Locale, string[]> = {
+  en: ["questions", "topics", "answers", "insights"],
+  es: ["frecuentes", "comunes", "importantes", "clave"],
+  fr: ["fréquentes", "courantes", "essentielles", "clés"],
+  pt: ["frequentes", "comuns", "importantes", "essenciais"],
+  it: ["frequenti", "comuni", "importanti", "chiave"],
+};
+
 /* ─── FAQ Page ─── */
 export default function FAQPage() {
-  const { s } = useLanguage();
+  const { s, locale } = useLanguage();
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const faqItems = [
@@ -133,7 +151,7 @@ export default function FAQPage() {
               transition={{ duration: 0.8, delay: 0.1 }}
               className="text-5xl sm:text-6xl md:text-7xl font-bold leading-[1.05] tracking-tight text-foreground"
             >
-              Frequently asked <RotatingText words={["questions", "topics", "answers", "insights"]} className="text-zinc-400" />
+              {heroPrefix[locale]}{" "}<RotatingText words={rotatingWords[locale]} className="text-zinc-400" />
             </motion.h1>
 
             <motion.p
@@ -153,12 +171,12 @@ export default function FAQPage() {
             >
               <MagneticHover>
                 <Link href="/pricing" className="h-14 px-10 inline-flex items-center justify-center rounded-full bg-foreground text-white text-base font-medium hover:bg-accent-muted transition-all duration-300 shadow-[0_1px_2px_rgba(0,0,0,0.1),0_4px_12px_rgba(0,0,0,0.1)] hover:shadow-[0_2px_4px_rgba(0,0,0,0.1),0_12px_32px_rgba(0,0,0,0.15)] hover:-translate-y-0.5">
-                  Get Started
+                  {s("common.getStarted")}
                 </Link>
               </MagneticHover>
               <MagneticHover>
                 <Link href="/product" className="h-14 px-10 inline-flex items-center justify-center rounded-full border border-border text-base font-medium text-foreground hover:bg-white hover:border-muted-light hover:shadow-md transition-all duration-300">
-                  Explore Product
+                  {s("common.exploreProduct")}
                 </Link>
               </MagneticHover>
             </motion.div>

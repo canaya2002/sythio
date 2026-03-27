@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "../components/i18n/language-context";
+import type { Locale } from "../components/i18n/translations";
 import RotatingText from "../components/rotating-text";
 import {
   TextReveal,
@@ -109,7 +110,7 @@ function ContactForm() {
                   onClick={() => setSent(false)}
                   className="mt-8 text-sm font-medium text-muted hover:text-foreground transition-colors underline underline-offset-4"
                 >
-                  Send another message
+                  {s("common.sendAnother")}
                 </button>
               </motion.div>
             ) : (
@@ -131,7 +132,7 @@ function ContactForm() {
                       type="text"
                       required
                       className="w-full h-12 px-4 rounded-xl bg-background border border-border-light text-foreground text-sm placeholder:text-muted-light focus:outline-none focus:ring-2 focus:ring-foreground/10 focus:border-border transition-all duration-200"
-                      placeholder="John Doe"
+                      placeholder={s("contact.form.namePlaceholder")}
                     />
                   </div>
                   <div>
@@ -142,7 +143,7 @@ function ContactForm() {
                       type="email"
                       required
                       className="w-full h-12 px-4 rounded-xl bg-background border border-border-light text-foreground text-sm placeholder:text-muted-light focus:outline-none focus:ring-2 focus:ring-foreground/10 focus:border-border transition-all duration-200"
-                      placeholder="john@example.com"
+                      placeholder={s("contact.form.emailPlaceholder")}
                     />
                   </div>
                 </div>
@@ -155,7 +156,7 @@ function ContactForm() {
                     type="text"
                     required
                     className="w-full h-12 px-4 rounded-xl bg-background border border-border-light text-foreground text-sm placeholder:text-muted-light focus:outline-none focus:ring-2 focus:ring-foreground/10 focus:border-border transition-all duration-200"
-                    placeholder="How can we help?"
+                    placeholder={s("contact.form.subjectPlaceholder")}
                   />
                 </div>
 
@@ -167,7 +168,7 @@ function ContactForm() {
                     required
                     rows={5}
                     className="w-full px-4 py-3 rounded-xl bg-background border border-border-light text-foreground text-sm placeholder:text-muted-light focus:outline-none focus:ring-2 focus:ring-foreground/10 focus:border-border transition-all duration-200 resize-none"
-                    placeholder="Tell us what you need..."
+                    placeholder={s("contact.form.messagePlaceholder")}
                   />
                 </div>
 
@@ -199,9 +200,26 @@ function ContactForm() {
   );
 }
 
+/* ─── Inline translations for hero ─── */
+const heroPrefix: Record<Locale, string> = {
+  en: "Get in",
+  es: "Ponte en",
+  fr: "Entrez en",
+  pt: "Entre em",
+  it: "Mettiti in",
+};
+
+const rotatingWords: Record<Locale, string[]> = {
+  en: ["touch", "contact", "sync", "conversation"],
+  es: ["contacto", "sintonía", "comunicación", "conexión"],
+  fr: ["contact", "relation", "communication", "connexion"],
+  pt: ["contato", "sintonia", "comunicação", "conexão"],
+  it: ["contatto", "sintonia", "comunicazione", "connessione"],
+};
+
 /* ─── Contact Page ─── */
 export default function ContactPage() {
-  const { s } = useLanguage();
+  const { s, locale } = useLanguage();
 
   return (
     <PageReveal>
@@ -231,7 +249,7 @@ export default function ContactPage() {
               transition={{ duration: 0.8, delay: 0.1 }}
               className="text-5xl sm:text-6xl md:text-7xl font-bold leading-[1.05] tracking-tight text-foreground"
             >
-              Get in <RotatingText words={["touch", "contact", "sync", "conversation"]} className="text-zinc-400" />
+              {heroPrefix[locale]}{" "}<RotatingText words={rotatingWords[locale]} className="text-zinc-400" />
             </motion.h1>
 
             <motion.p

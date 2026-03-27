@@ -51,15 +51,15 @@ function OutputModes() {
   }, []);
 
   const modes = [
-    { title: "Summary", desc: "Get a concise, clear overview of what was discussed — key points, context, and takeaways in one read." },
-    { title: "Key Points", desc: "Extract the essential information — no fluff, no filler. Just the facts that matter." },
-    { title: "Tasks", desc: "Automatically generate a checklist of action items, complete with owners when speakers are detected." },
-    { title: "Action Plan", desc: "A structured, step-by-step plan derived from the conversation — who does what, by when." },
-    { title: "Clean Text", desc: "Polished, readable text from raw audio. Filler words removed, grammar corrected, structure added." },
-    { title: "Executive Report", desc: "Formal, presentation-ready document summarizing decisions, risks, and next steps." },
-    { title: "Ready-to-Send Message", desc: "Draft follow-up emails or messages directly from conversations — ready to copy and send." },
-    { title: "Study Notes", desc: "Organized by topic with key concepts highlighted — perfect for lectures, workshops, and learning." },
-    { title: "Ideas", desc: "Capture and categorize brainstorming output — grouped by theme, ranked by potential." },
+    { title: s("product.mode.summary"), desc: s("product.mode.summaryDesc") },
+    { title: s("product.mode.keyPoints"), desc: s("product.mode.keyPointsDesc") },
+    { title: s("product.mode.tasks"), desc: s("product.mode.tasksDesc") },
+    { title: s("product.mode.actionPlan"), desc: s("product.mode.actionPlanDesc") },
+    { title: s("product.mode.cleanText"), desc: s("product.mode.cleanTextDesc") },
+    { title: s("product.mode.report"), desc: s("product.mode.reportDesc") },
+    { title: s("product.mode.message"), desc: s("product.mode.messageDesc") },
+    { title: s("product.mode.studyNotes"), desc: s("product.mode.studyNotesDesc") },
+    { title: s("product.mode.ideas"), desc: s("product.mode.ideasDesc") },
   ];
 
   return (
@@ -68,7 +68,7 @@ function OutputModes() {
         <div className="text-center mb-24">
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-light mb-6 block">{s("product.outputModes.label")}</span>
           <TextReveal tag="h2" className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
-            Nine ways to use every recording
+            {s("product.outputModes.title")}
           </TextReveal>
           <TextReveal tag="p" className="mt-6 text-lg md:text-xl text-muted max-w-xl mx-auto leading-relaxed">
             {s("product.outputModes.subtitle")}
@@ -154,7 +154,7 @@ function ReuseAudio() {
           <div>
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-light mb-6 block">{s("product.reuse.label")}</span>
             <TextReveal tag="h2" className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-[1.1]">
-              Record once. Transform endlessly.
+              {s("product.reuse.title")}
             </TextReveal>
             <TextReveal tag="p" className="mt-7 text-lg md:text-xl text-muted leading-relaxed max-w-lg">
               {s("product.reuse.subtitle")}
@@ -172,9 +172,9 @@ function ReuseAudio() {
                         <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
                       </svg>
                     </div>
-                    <span className="text-sm font-semibold text-foreground">Tasks</span>
+                    <span className="text-sm font-semibold text-foreground">{s("product.mockup.tasks")}</span>
                   </div>
-                  <p className="text-xs text-muted">4 items extracted</p>
+                  <p className="text-xs text-muted">{s("product.mockup.tasksCount")}</p>
                 </div>
                 <div className="bg-white rounded-2xl border border-border shadow-[0_2px_8px_rgba(0,0,0,0.04),0_12px_32px_rgba(0,0,0,0.06)] p-5 hover:shadow-xl transition-shadow duration-300">
                   <div className="flex items-center gap-2 mb-2">
@@ -183,9 +183,9 @@ function ReuseAudio() {
                         <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                       </svg>
                     </div>
-                    <span className="text-sm font-semibold text-foreground">Message</span>
+                    <span className="text-sm font-semibold text-foreground">{s("product.mockup.message")}</span>
                   </div>
-                  <p className="text-xs text-muted">Draft ready</p>
+                  <p className="text-xs text-muted">{s("product.mockup.draftReady")}</p>
                 </div>
               </div>
             </div>
@@ -287,11 +287,11 @@ function Workflow() {
                     </div>
                     <div>
                       <p className="text-[11px] font-semibold text-foreground">Sythio</p>
-                      <p className="text-[9px] text-muted">Your audio workspace</p>
+                      <p className="text-[9px] text-muted">{s("product.mockup.workspace")}</p>
                     </div>
                   </div>
                   <div className="flex gap-2">
-                    {["Record", "Upload", "Library"].map((label) => (
+                    {[s("product.mockup.record"), s("product.mockup.upload"), s("product.mockup.library")].map((label) => (
                       <div key={label} className="flex-1 py-2 rounded-lg bg-background border border-border-light text-[9px] font-medium text-center text-muted">
                         {label}
                       </div>
@@ -299,7 +299,7 @@ function Workflow() {
                   </div>
                 </div>
                 <div className="space-y-2">
-                  {["Client Call — 12:30", "Quick Note — 0:45", "Team Sync — 23:10"].map((item) => (
+                  {[s("product.mockup.clientCall"), s("product.mockup.quickNote"), s("product.mockup.teamSync")].map((item) => (
                     <div key={item} className="flex items-center gap-2 px-3 py-2 rounded-lg bg-white border border-border-light">
                       <div className="w-2 h-2 rounded-full bg-indigo-400" />
                       <span className="text-[10px] text-foreground font-medium">{item}</span>
@@ -335,7 +335,7 @@ function ProductCTA() {
                 href="/pricing"
                 className="h-14 px-10 inline-flex items-center justify-center rounded-full bg-foreground text-white text-base font-medium hover:bg-accent-muted transition-all duration-300 shadow-[0_1px_2px_rgba(0,0,0,0.1),0_4px_12px_rgba(0,0,0,0.1)] hover:shadow-[0_2px_4px_rgba(0,0,0,0.1),0_12px_32px_rgba(0,0,0,0.15)] hover:-translate-y-0.5"
               >
-                Start Using Sythio
+                {s("common.startUsingSythio")}
               </Link>
             </MagneticHover>
           </div>
@@ -375,7 +375,7 @@ export default function ProductPage() {
               transition={{ duration: 0.8, delay: 0.1 }}
               className="text-5xl sm:text-6xl md:text-7xl font-bold leading-[1.05] tracking-tight text-foreground"
             >
-              Everything your audio <RotatingText words={["becomes", "creates", "unlocks", "reveals"]} className="text-zinc-400" />
+              {s("product.hero.titleMain")} <RotatingText words={[s("product.hero.rotate.becomes"), s("product.hero.rotate.creates"), s("product.hero.rotate.unlocks"), s("product.hero.rotate.reveals")]} className="text-zinc-400" />
             </motion.h1>
 
             <motion.p
@@ -384,9 +384,7 @@ export default function ProductPage() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="mt-8 text-lg md:text-xl text-muted leading-relaxed max-w-2xl mx-auto"
             >
-              Sythio transforms voice into structure. Record once, and get
-              summaries, tasks, action plans, reports, and more — all from
-              the same recording.
+              {s("product.hero.subtitle")}
             </motion.p>
 
             <motion.div
@@ -397,12 +395,12 @@ export default function ProductPage() {
             >
               <MagneticHover>
                 <Link href="/pricing" className="h-14 px-10 inline-flex items-center justify-center rounded-full bg-foreground text-white text-base font-medium hover:bg-accent-muted transition-all duration-300 shadow-[0_1px_2px_rgba(0,0,0,0.1),0_4px_12px_rgba(0,0,0,0.1)] hover:shadow-[0_2px_4px_rgba(0,0,0,0.1),0_12px_32px_rgba(0,0,0,0.15)] hover:-translate-y-0.5">
-                  Start Using Sythio
+                  {s("common.startUsingSythio")}
                 </Link>
               </MagneticHover>
               <MagneticHover>
                 <Link href="/features" className="h-14 px-10 inline-flex items-center justify-center rounded-full border border-border text-base font-medium text-foreground hover:bg-white hover:border-muted-light hover:shadow-md transition-all duration-300">
-                  Explore Features
+                  {s("common.exploreFeatures")}
                 </Link>
               </MagneticHover>
             </motion.div>
@@ -435,8 +433,8 @@ export default function ProductPage() {
                   </svg>
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-foreground">9 output formats</p>
-                  <p className="text-[10px] text-muted">From a single recording</p>
+                  <p className="text-xs font-semibold text-foreground">{s("product.pill.outputFormats")}</p>
+                  <p className="text-[10px] text-muted">{s("product.pill.fromRecording")}</p>
                 </div>
               </div>
             </motion.div>
@@ -454,8 +452,8 @@ export default function ProductPage() {
                   </svg>
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-foreground">Processing complete</p>
-                  <p className="text-[10px] text-muted">&lt; 30s average</p>
+                  <p className="text-xs font-semibold text-foreground">{s("product.pill.processingComplete")}</p>
+                  <p className="text-[10px] text-muted">{s("product.pill.avgTime")}</p>
                 </div>
               </div>
             </motion.div>

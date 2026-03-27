@@ -1,6 +1,19 @@
+"use client";
+
 import Link from "next/link";
 import { posts, getCategoryColor, formatDate } from "./lib/posts";
 import { ExploreAll } from "../components/internal-links";
+import { useLanguage } from "../components/i18n/language-context";
+import type { Locale } from "../components/i18n/translations";
+
+/* ─── Inline translations for article count ─── */
+const articlesLabel: Record<Locale, (count: number) => string> = {
+  en: (n) => `${n} articles`,
+  es: (n) => `${n} artículos`,
+  fr: (n) => `${n} articles`,
+  pt: (n) => `${n} artigos`,
+  it: (n) => `${n} articoli`,
+};
 
 function CategoryBadge({ name }: { name: string }) {
   const color = getCategoryColor(name);
@@ -34,6 +47,7 @@ function ArrowIcon() {
 }
 
 export default function BlogPage() {
+  const { s, locale } = useLanguage();
   const featured = posts.find((p) => p.featured);
   const rest = posts.filter((p) => p.slug !== featured?.slug);
 
@@ -49,14 +63,13 @@ export default function BlogPage() {
         <div className="relative max-w-7xl mx-auto px-6">
           <div className="max-w-3xl">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-light mb-6">
-              Blog
+              {s("blog.label")}
             </p>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
-              Insights on audio, AI, and productivity
+              {s("blog.title")}
             </h1>
             <p className="mt-6 text-lg md:text-xl text-muted leading-relaxed max-w-2xl">
-              Guides, deep dives, and comparisons for anyone who works with
-              voice recordings, meetings, or spoken content.
+              {s("blog.subtitle")}
             </p>
           </div>
         </div>
@@ -82,7 +95,7 @@ export default function BlogPage() {
                   >
                     {featured.category}
                   </span>
-                  <span className="text-xs text-white/40">Featured</span>
+                  <span className="text-xs text-white/40">{s("blog.featured")}</span>
                 </div>
 
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-[1.1] mb-5 group-hover:text-white/90 transition-colors">
@@ -100,7 +113,7 @@ export default function BlogPage() {
                     <span>{featured.readingTime}</span>
                   </div>
                   <span className="inline-flex items-center gap-2 text-sm font-medium text-white/70 group-hover:text-white transition-colors">
-                    Read article <ArrowIcon />
+                    {s("blog.readArticle")} <ArrowIcon />
                   </span>
                 </div>
               </div>
@@ -114,10 +127,10 @@ export default function BlogPage() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between mb-12">
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
-              All Articles
+              {s("blog.allArticles")}
             </h2>
             <span className="text-sm text-muted">
-              {posts.length} articles
+              {articlesLabel[locale](posts.length)}
             </span>
           </div>
 

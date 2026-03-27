@@ -232,14 +232,14 @@ function SpeakerHighlight() {
               {s("features.speakerTitle")}
             </TextReveal>
             <TextReveal tag="p" className="mt-7 text-lg md:text-xl text-muted leading-relaxed max-w-lg">
-              {s("features.speakerSubtitle")}
+              {s("speaker.subtitle")}
             </TextReveal>
             <GsapStagger className="mt-10 space-y-4" stagger={0.1}>
               {[
-                s("features.speakerF1"),
-                s("features.speakerF2"),
-                s("features.speakerF3"),
-                s("features.speakerF4"),
+                s("speaker.feat1") + ": " + s("speaker.feat1Desc"),
+                s("speaker.feat2") + ": " + s("speaker.feat2Desc"),
+                s("speaker.feat3") + ": " + s("speaker.feat3Desc"),
+                s("speaker.feat4") + ": " + s("speaker.feat4Desc"),
               ].map((item, i) => (
                 <div key={i} className="flex items-start gap-3">
                   <div className="mt-1.5 w-2 h-2 rounded-full bg-foreground shrink-0" />
@@ -322,15 +322,14 @@ function MobileExperience() {
               {s("features.mobileTitle")}
             </TextReveal>
             <TextReveal tag="p" className="mt-7 text-lg md:text-xl text-muted leading-relaxed max-w-lg">
-              Record on your phone, process in seconds, and get structured outputs
-              wherever you are. The full Sythio experience, in your pocket.
+              {s("features.mobileDesc")}
             </TextReveal>
             <GsapStagger className="mt-10 grid grid-cols-2 gap-4" stagger={0.08}>
               {[
-                { label: "Fast processing", desc: "Seconds, not minutes" },
-                { label: "All outputs", desc: "9 format options" },
-                { label: "Offline recording", desc: "Process when connected" },
-                { label: "Clean exports", desc: "Share from anywhere" },
+                { label: s("features.mobileFast"), desc: s("features.mobileFastDesc") },
+                { label: s("features.mobileAll"), desc: s("features.mobileAllDesc") },
+                { label: s("features.mobileOffline"), desc: s("features.mobileOfflineDesc") },
+                { label: s("features.mobileExports"), desc: s("features.mobileExportsDesc") },
               ].map((item) => (
                 <div key={item.label} className="p-4 rounded-xl bg-white border border-border-light">
                   <p className="text-sm font-semibold text-foreground">{item.label}</p>
@@ -352,11 +351,11 @@ function MobileExperience() {
                         </div>
                         <div>
                           <p className="text-[11px] font-semibold text-foreground">Sythio</p>
-                          <p className="text-[9px] text-muted">Your audio workspace</p>
+                          <p className="text-[9px] text-muted">{s("product.mockup.workspace")}</p>
                         </div>
                       </div>
                       <div className="flex gap-2">
-                        {["Record", "Upload", "Library"].map((label) => (
+                        {[s("product.mockup.record"), s("product.mockup.upload"), s("product.mockup.library")].map((label) => (
                           <div key={label} className="flex-1 py-2 rounded-lg bg-background border border-border-light text-[9px] font-medium text-center text-muted">
                             {label}
                           </div>
@@ -364,7 +363,7 @@ function MobileExperience() {
                       </div>
                     </div>
                     <div className="space-y-2">
-                      {["Team Standup — 8:23", "Client Review — 31:05", "Quick Note — 0:45"].map((item) => (
+                      {[s("features.mobileItem1"), s("features.mobileItem2"), s("features.mobileItem3")].map((item) => (
                         <div key={item} className="flex items-center gap-2 px-3 py-2 rounded-lg bg-white border border-border-light">
                           <div className="w-2 h-2 rounded-full bg-indigo-400" />
                           <span className="text-[10px] text-foreground font-medium">{item}</span>

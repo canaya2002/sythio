@@ -1,4 +1,37 @@
+"use client";
+
 import Link from "next/link";
+import { useLanguage } from "../components/i18n/language-context";
+import type { Locale } from "../components/i18n/translations";
+
+/* ─── Inline translations for glossary-specific related links ─── */
+const relatedLinks: Record<Locale, { href: string; label: string }[]> = {
+  en: [
+    { href: "/product", label: "Explore the Product" },
+    { href: "/features", label: "See All Features" },
+    { href: "/faq", label: "Read the FAQ" },
+  ],
+  es: [
+    { href: "/product", label: "Explorar el producto" },
+    { href: "/features", label: "Ver todas las funciones" },
+    { href: "/faq", label: "Leer las preguntas frecuentes" },
+  ],
+  fr: [
+    { href: "/product", label: "Explorer le produit" },
+    { href: "/features", label: "Voir toutes les fonctionnalités" },
+    { href: "/faq", label: "Lire la FAQ" },
+  ],
+  pt: [
+    { href: "/product", label: "Explorar o produto" },
+    { href: "/features", label: "Ver todas as funcionalidades" },
+    { href: "/faq", label: "Ler as perguntas frequentes" },
+  ],
+  it: [
+    { href: "/product", label: "Esplora il prodotto" },
+    { href: "/features", label: "Vedi tutte le funzionalità" },
+    { href: "/faq", label: "Leggi le FAQ" },
+  ],
+};
 
 /* ─── Glossary Terms ─── */
 
@@ -182,8 +215,10 @@ const alphabet = Array.from(
   new Set(glossaryTerms.map((t) => t.term[0].toUpperCase()))
 ).sort();
 
-/* ─── Glossary Page (Server Component) ─── */
+/* ─── Glossary Page ─── */
 export default function GlossaryPage() {
+  const { s, locale } = useLanguage();
+
   return (
     <>
       {/* Hero */}
@@ -198,18 +233,16 @@ export default function GlossaryPage() {
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-foreground/5 border border-border-light mb-10">
               <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
               <span className="text-xs font-medium text-muted">
-                Reference Guide
+                {s("glossary.label")}
               </span>
             </div>
 
             <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold leading-[1.05] tracking-tight text-foreground">
-              Audio Intelligence Glossary
+              {s("glossary.title")}
             </h1>
 
             <p className="mt-8 text-lg md:text-xl text-muted leading-relaxed max-w-2xl mx-auto">
-              Key terms and concepts in audio AI, transcription, and voice
-              intelligence — explained clearly so you can understand the
-              technology behind smarter audio.
+              {s("glossary.subtitle")}
             </p>
 
             <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
@@ -217,13 +250,13 @@ export default function GlossaryPage() {
                 href="/product"
                 className="h-14 px-10 inline-flex items-center justify-center rounded-full bg-foreground text-white text-base font-medium hover:bg-accent-muted transition-all duration-300 shadow-[0_1px_2px_rgba(0,0,0,0.1),0_4px_12px_rgba(0,0,0,0.1)] hover:shadow-[0_2px_4px_rgba(0,0,0,0.1),0_12px_32px_rgba(0,0,0,0.15)] hover:-translate-y-0.5"
               >
-                Explore the Product
+                {s("common.exploreProduct")}
               </Link>
               <Link
                 href="/features"
                 className="h-14 px-10 inline-flex items-center justify-center rounded-full border border-border text-base font-medium text-foreground hover:bg-white hover:border-muted-light hover:shadow-md transition-all duration-300"
               >
-                See All Features
+                {s("common.allFeatures")}
               </Link>
             </div>
           </div>
@@ -321,25 +354,25 @@ export default function GlossaryPage() {
               <div className="text-3xl font-bold text-foreground tracking-tight">
                 {glossaryTerms.length}
               </div>
-              <div className="text-sm text-muted mt-1">Terms Defined</div>
+              <div className="text-sm text-muted mt-1">{s("glossary.termsDefined")}</div>
             </div>
             <div>
               <div className="text-3xl font-bold text-foreground tracking-tight">
                 {alphabet.length}
               </div>
-              <div className="text-sm text-muted mt-1">Categories</div>
+              <div className="text-sm text-muted mt-1">{s("glossary.categories")}</div>
             </div>
             <div>
               <div className="text-3xl font-bold text-foreground tracking-tight">
                 9+
               </div>
-              <div className="text-sm text-muted mt-1">Output Formats</div>
+              <div className="text-sm text-muted mt-1">{s("glossary.outputFormats")}</div>
             </div>
             <div>
               <div className="text-3xl font-bold text-foreground tracking-tight">
                 5+
               </div>
-              <div className="text-sm text-muted mt-1">Languages</div>
+              <div className="text-sm text-muted mt-1">{s("glossary.languages")}</div>
             </div>
           </div>
         </div>
@@ -350,15 +383,11 @@ export default function GlossaryPage() {
         <div className="max-w-3xl mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
-              Learn more about Sythio
+              {s("glossary.learnMore")}
             </h2>
           </div>
           <div className="grid sm:grid-cols-3 gap-4">
-            {[
-              { href: "/product", label: "Explore the Product" },
-              { href: "/features", label: "See All Features" },
-              { href: "/faq", label: "Read the FAQ" },
-            ].map((link) => (
+            {relatedLinks[locale].map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
@@ -393,30 +422,27 @@ export default function GlossaryPage() {
         <div className="max-w-7xl mx-auto px-6 relative">
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
-              Ready to experience
-              <br />
-              audio intelligence?
+              {s("glossary.ctaTitle")}
             </h2>
             <p className="mt-7 text-lg md:text-xl text-muted max-w-xl mx-auto leading-relaxed">
-              Transform your audio into structured, actionable output. Start
-              free — no credit card required.
+              {s("glossary.ctaSubtitle")}
             </p>
             <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href="/pricing"
                 className="h-14 px-10 inline-flex items-center justify-center rounded-full bg-foreground text-white text-base font-medium hover:bg-accent-muted transition-all duration-300 shadow-[0_1px_2px_rgba(0,0,0,0.1),0_4px_12px_rgba(0,0,0,0.1)] hover:shadow-[0_2px_4px_rgba(0,0,0,0.1),0_12px_32px_rgba(0,0,0,0.15)] hover:-translate-y-0.5"
               >
-                Get Started Free
+                {s("common.getStartedFree")}
               </Link>
               <Link
                 href="/product"
                 className="h-14 px-10 inline-flex items-center justify-center rounded-full border border-border text-foreground text-base font-medium hover:bg-foreground hover:text-white transition-all duration-300"
               >
-                Explore Product
+                {s("common.exploreProduct")}
               </Link>
             </div>
             <p className="mt-6 text-sm text-muted">
-              Free plan available. No credit card required.
+              {s("common.freePlan")}
             </p>
           </div>
         </div>
