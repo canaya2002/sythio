@@ -8,8 +8,13 @@ import {
   formatDate,
 } from "../lib/posts";
 import Waitlist from "../../components/waitlist";
-import { BreadcrumbSchema } from "../../components/json-ld";
 import { ArticleSchema } from "../../components/json-ld-blog";
+import {
+  BackToArticles,
+  SythioTeamLabel,
+  KeepReadingHeading,
+  TranslatedBreadcrumb,
+} from "./blog-post-i18n";
 
 /* ── Content imports ── */
 import BestAIVoiceNotesApps from "../content/best-ai-voice-notes-apps";
@@ -22,6 +27,16 @@ import AudioToActionPlan from "../content/audio-to-action-plan";
 import AILectureNotesStudents from "../content/ai-lecture-notes-students";
 import MeetingRecordingsUnlistened from "../content/meeting-recordings-unlistened";
 import OtterVsFireflies from "../content/otter-vs-fireflies";
+import BestAIVoiceNoteAppsComparison2026 from "../content/best-ai-voice-note-apps-comparison-2026";
+import SpeechToTextVsTranscription from "../content/speech-to-text-vs-transcription";
+import RecordMeetingsZoomTeamsMeet from "../content/record-meetings-zoom-teams-meet";
+import TooManyVoiceMemos from "../content/too-many-voice-memos";
+import InterviewTranscriptionTools from "../content/interview-transcription-tools";
+import PodcastTranscriptionAutomation from "../content/podcast-transcription-automation";
+import AIForSalesCalls from "../content/ai-for-sales-calls";
+import SpeakerDiarizationExplained from "../content/speaker-diarization-explained";
+import AudioDataSecurityPrivacy from "../content/audio-data-security-privacy";
+import MeetingNotesVsRecordings from "../content/meeting-notes-vs-recordings";
 
 const contentMap: Record<string, React.ComponentType> = {
   "best-ai-voice-notes-apps": BestAIVoiceNotesApps,
@@ -34,6 +49,16 @@ const contentMap: Record<string, React.ComponentType> = {
   "ai-lecture-notes-students": AILectureNotesStudents,
   "meeting-recordings-unlistened": MeetingRecordingsUnlistened,
   "otter-vs-fireflies": OtterVsFireflies,
+  "best-ai-voice-note-apps-comparison-2026": BestAIVoiceNoteAppsComparison2026,
+  "speech-to-text-vs-transcription": SpeechToTextVsTranscription,
+  "record-meetings-zoom-teams-meet": RecordMeetingsZoomTeamsMeet,
+  "too-many-voice-memos": TooManyVoiceMemos,
+  "interview-transcription-tools": InterviewTranscriptionTools,
+  "podcast-transcription-automation": PodcastTranscriptionAutomation,
+  "ai-for-sales-calls": AIForSalesCalls,
+  "speaker-diarization-explained": SpeakerDiarizationExplained,
+  "audio-data-security-privacy": AudioDataSecurityPrivacy,
+  "meeting-notes-vs-recordings": MeetingNotesVsRecordings,
 };
 
 export function generateStaticParams() {
@@ -75,13 +100,7 @@ export default async function BlogPostPage({
 
   return (
     <>
-      <BreadcrumbSchema
-        items={[
-          { name: "Home", href: "/" },
-          { name: "Blog", href: "/blog" },
-          { name: post.title, href: `/blog/${post.slug}` },
-        ]}
-      />
+      <TranslatedBreadcrumb postTitle={post.title} postSlug={post.slug} />
       <ArticleSchema
         title={post.title}
         description={post.description}
@@ -102,7 +121,7 @@ export default async function BlogPostPage({
             href="/blog"
             className="inline-flex items-center gap-2 text-sm text-muted hover:text-foreground transition-colors mb-8"
           >
-            <ArrowLeft /> Back to all articles
+            <ArrowLeft /> <BackToArticles />
           </Link>
 
           <div className="mb-6">
@@ -127,7 +146,7 @@ export default async function BlogPostPage({
               <div className="w-8 h-8 rounded-full bg-foreground flex items-center justify-center">
                 <span className="text-xs font-bold text-white">S</span>
               </div>
-              <span className="font-medium text-foreground">Sythio Team</span>
+              <span className="font-medium text-foreground"><SythioTeamLabel /></span>
             </div>
             <span className="w-1 h-1 rounded-full bg-border" />
             <span>{formatDate(post.date)}</span>
@@ -158,7 +177,7 @@ export default async function BlogPostPage({
         <section className="py-20 md:py-28 bg-white border-t border-border-light">
           <div className="max-w-7xl mx-auto px-6">
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground mb-12">
-              Keep reading
+              <KeepReadingHeading />
             </h2>
 
             <div className="grid md:grid-cols-3 gap-6 lg:gap-8">

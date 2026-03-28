@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import { generateOGImage, ogSize, ogContentType } from "./lib/og-image";
 
 export const size = ogSize;

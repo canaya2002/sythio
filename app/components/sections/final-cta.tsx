@@ -5,6 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { TextReveal } from "../gsap-effects";
 import { useLanguage } from "../i18n/language-context";
+import type { Locale } from "../i18n/translations";
 import RotatingText from "../rotating-text";
 import Waitlist from "../waitlist";
 
@@ -12,9 +13,36 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
+const content: Record<Locale, {
+  title2Prefix: string;
+  rotatingWords: string[];
+}> = {
+  en: {
+    title2Prefix: "Start turning them into ",
+    rotatingWords: ["progress", "action", "clarity", "results"],
+  },
+  es: {
+    title2Prefix: "Empieza a convertirlas en ",
+    rotatingWords: ["progreso", "acción", "claridad", "resultados"],
+  },
+  fr: {
+    title2Prefix: "Commencez à les transformer en ",
+    rotatingWords: ["progrès", "action", "clarté", "résultats"],
+  },
+  pt: {
+    title2Prefix: "Comece a transformá-las em ",
+    rotatingWords: ["progresso", "ação", "clareza", "resultados"],
+  },
+  it: {
+    title2Prefix: "Inizia a trasformarle in ",
+    rotatingWords: ["progresso", "azione", "chiarezza", "risultati"],
+  },
+};
+
 export default function FinalCTA() {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const { s } = useLanguage();
+  const { s, locale } = useLanguage();
+  const c = content[locale] || content.en;
 
   useEffect(() => {
     const el = sectionRef.current;
@@ -36,7 +64,7 @@ export default function FinalCTA() {
             {s("cta.title1")}
           </TextReveal>
           <TextReveal tag="h2" className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] mt-2 bg-gradient-to-r from-foreground via-zinc-500 to-zinc-400 bg-clip-text text-transparent">
-            Start turning them into <RotatingText words={["progress", "action", "clarity", "results"]} className="text-zinc-400" />
+            {c.title2Prefix}<RotatingText words={c.rotatingWords} className="text-zinc-400" />
           </TextReveal>
           <TextReveal tag="p" className="mt-8 text-lg md:text-xl text-muted max-w-xl mx-auto leading-relaxed">
             {s("cta.subtitle")}

@@ -2,7 +2,7 @@ import { buildMetadata } from "../lib/metadata";
 import { BreadcrumbSchema, FAQSchema } from "../components/json-ld";
 
 export const metadata = buildMetadata({
-  title: "FAQ — Everything About Sythio's AI Voice Notes",
+  title: "FAQ | AI Voice Notes Questions Answered",
   description:
     "Answers to common questions about Sythio: how it works, speaker detection, output formats, audio privacy, pricing, supported formats, and more.",
   path: "/faq",

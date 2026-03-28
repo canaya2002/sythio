@@ -1,10 +1,10 @@
 import { buildMetadata } from "../lib/metadata";
-import { BreadcrumbSchema } from "../components/json-ld";
+import { BreadcrumbSchema, FAQSchema } from "../components/json-ld";
 
 export const metadata = buildMetadata({
-  title: "Audio to Messages — Convert Recordings into Follow-Up Messages",
+  title: "Audio to Messages | AI Follow-Up Drafts",
   description:
-    "Turn any audio recording into ready-to-send follow-up messages. Sythio drafts professional emails and messages based on your conversation — with context, action items, and the right tone.",
+    "Turn recordings into ready-to-send follow-up emails and messages with AI. Sythio drafts professional messages with context and action items. Try free.",
   path: "/audio-to-messages",
   keywords: [
     "audio to messages",
@@ -26,6 +26,11 @@ export default function AudioToMessagesLayout({ children }: { children: React.Re
           { name: "Audio to Messages", href: "/audio-to-messages" },
         ]}
       />
+      <FAQSchema items={[
+        { question: "What kind of messages does Sythio draft from audio?", answer: "Sythio generates professional follow-up emails and messages that include key decisions, action items, and next steps from your recording. The tone is polished and ready to send or customize." },
+        { question: "Can Sythio draft follow-up emails from a meeting recording?", answer: "Yes. Record or upload your meeting and Sythio will draft a follow-up message summarizing what was discussed, who is responsible for what, and what happens next. Just review and send." },
+        { question: "Does Sythio include action items in the drafted messages?", answer: "Yes. Sythio identifies commitments and tasks from the conversation and includes them in the follow-up draft, attributed to the right person when speaker detection is enabled." },
+      ]} />
       {children}
     </>
   );

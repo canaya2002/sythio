@@ -258,7 +258,7 @@ function SpeakerHighlight() {
 function OutputShowcase() {
   const { s } = useLanguage();
   return (
-    <section className="py-32 md:py-44 bg-white section-float-bg overflow-hidden">
+    <section className="py-32 md:py-44 bg-white section-float-bg">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-24">
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-light mb-6 block">
@@ -453,7 +453,7 @@ export default function FeaturesPage() {
               transition={{ duration: 0.8, delay: 0.1 }}
               className="text-5xl sm:text-6xl md:text-7xl font-bold leading-[1.05] tracking-tight text-foreground"
             >
-              A complete audio <RotatingText words={["intelligence", "transformation", "clarity", "productivity"]} className="text-zinc-400" /> platform
+              {s("features.hero.h1Prefix")} <RotatingText words={[s("features.hero.rotate1"), s("features.hero.rotate2"), s("features.hero.rotate3"), s("features.hero.rotate4")]} className="text-zinc-400" /> {s("features.hero.h1Suffix")}
             </motion.h1>
 
             <motion.p
@@ -473,12 +473,12 @@ export default function FeaturesPage() {
             >
               <MagneticHover>
                 <Link href="/pricing" className="h-14 px-10 inline-flex items-center justify-center rounded-full bg-foreground text-white text-base font-medium hover:bg-accent-muted transition-all duration-300 shadow-[0_1px_2px_rgba(0,0,0,0.1),0_4px_12px_rgba(0,0,0,0.1)] hover:shadow-[0_2px_4px_rgba(0,0,0,0.1),0_12px_32px_rgba(0,0,0,0.15)] hover:-translate-y-0.5">
-                  Get Started
+                  {s("features.hero.getStarted")}
                 </Link>
               </MagneticHover>
               <MagneticHover>
                 <Link href="/pricing" className="h-14 px-10 inline-flex items-center justify-center rounded-full border border-border text-base font-medium text-foreground hover:bg-white hover:border-muted-light hover:shadow-md transition-all duration-300">
-                  View Pricing
+                  {s("features.hero.viewPricing")}
                 </Link>
               </MagneticHover>
             </motion.div>
@@ -529,8 +529,8 @@ export default function FeaturesPage() {
                   ))}
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-foreground">3 speakers detected</p>
-                  <p className="text-[10px] text-muted">98.4% accuracy</p>
+                  <p className="text-xs font-semibold text-foreground">{s("features.hero.speakersDetected")}</p>
+                  <p className="text-[10px] text-muted">{s("features.hero.accuracy")}</p>
                 </div>
               </div>
             </motion.div>

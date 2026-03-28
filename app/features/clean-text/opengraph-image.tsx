@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import { generateOGImage, ogSize, ogContentType } from "../../lib/og-image";
 
 export const size = ogSize;
@@ -7,6 +8,6 @@ export default function Image() {
   return generateOGImage({
     badge: "Feature",
     title: "Clean Text from Audio",
-    subtitle: "Polished, readable text from voice. Filler removed, grammar corrected, structure added.",
+    subtitle: "Polished, readable text. Filler removed, grammar corrected, structure added.",
   });
 }

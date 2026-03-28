@@ -2,6 +2,94 @@
 
 import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLanguage } from "./i18n/language-context";
+import type { Locale } from "./i18n/translations";
+
+const content: Record<Locale, {
+  successTitle: string;
+  successDesc: string;
+  placeholder: string;
+  join: string;
+  joining: string;
+  earlyAccess: string;
+  earlyAccessHeading: string;
+  earlyAccessDesc: string;
+  joinWaitlist: string;
+  freeInline: string;
+  errorMsg: string;
+  freeHero: string;
+}> = {
+  en: {
+    successTitle: "You are on the list",
+    successDesc: "We will notify you when Sythio launches.",
+    placeholder: "Enter your email",
+    join: "Join",
+    joining: "Joining...",
+    earlyAccess: "Early access",
+    earlyAccessHeading: "Get early access to Sythio",
+    earlyAccessDesc: "Join the waitlist and be the first to transform your audio into structured, actionable output.",
+    joinWaitlist: "Join the Waitlist",
+    freeInline: "Free to join. No spam. Unsubscribe anytime.",
+    errorMsg: "Something went wrong. Please try again.",
+    freeHero: "Free to join. Be the first to try Sythio.",
+  },
+  es: {
+    successTitle: "Estás en la lista",
+    successDesc: "Te notificaremos cuando Sythio se lance.",
+    placeholder: "Introduce tu email",
+    join: "Unirse",
+    joining: "Uniéndose...",
+    earlyAccess: "Acceso anticipado",
+    earlyAccessHeading: "Obtén acceso anticipado a Sythio",
+    earlyAccessDesc: "Únete a la lista de espera y sé el primero en transformar tu audio en resultados estructurados y accionables.",
+    joinWaitlist: "Unirse a la lista",
+    freeInline: "Gratis. Sin spam. Cancela cuando quieras.",
+    errorMsg: "Algo salió mal. Inténtalo de nuevo.",
+    freeHero: "Gratis. Sé el primero en probar Sythio.",
+  },
+  fr: {
+    successTitle: "Vous êtes sur la liste",
+    successDesc: "Nous vous notifierons au lancement de Sythio.",
+    placeholder: "Entrez votre email",
+    join: "Rejoindre",
+    joining: "En cours...",
+    earlyAccess: "Accès anticipé",
+    earlyAccessHeading: "Obtenez un accès anticipé à Sythio",
+    earlyAccessDesc: "Rejoignez la liste d'attente et soyez le premier à transformer votre audio en résultats structurés et exploitables.",
+    joinWaitlist: "Rejoindre la liste",
+    freeInline: "Gratuit. Pas de spam. Désabonnement à tout moment.",
+    errorMsg: "Une erreur est survenue. Veuillez réessayer.",
+    freeHero: "Gratuit. Soyez le premier à essayer Sythio.",
+  },
+  pt: {
+    successTitle: "Você está na lista",
+    successDesc: "Vamos notificá-lo quando o Sythio for lançado.",
+    placeholder: "Digite seu email",
+    join: "Entrar",
+    joining: "Entrando...",
+    earlyAccess: "Acesso antecipado",
+    earlyAccessHeading: "Obtenha acesso antecipado ao Sythio",
+    earlyAccessDesc: "Entre na lista de espera e seja o primeiro a transformar seu áudio em resultados estruturados e acionáveis.",
+    joinWaitlist: "Entrar na lista",
+    freeInline: "Gratuito. Sem spam. Cancele quando quiser.",
+    errorMsg: "Algo deu errado. Tente novamente.",
+    freeHero: "Gratuito. Seja o primeiro a experimentar o Sythio.",
+  },
+  it: {
+    successTitle: "Sei nella lista",
+    successDesc: "Ti avviseremo quando Sythio sarà disponibile.",
+    placeholder: "Inserisci la tua email",
+    join: "Iscriviti",
+    joining: "Iscrizione...",
+    earlyAccess: "Accesso anticipato",
+    earlyAccessHeading: "Ottieni l'accesso anticipato a Sythio",
+    earlyAccessDesc: "Unisciti alla lista d'attesa e sii il primo a trasformare il tuo audio in risultati strutturati e utilizzabili.",
+    joinWaitlist: "Unisciti alla lista",
+    freeInline: "Gratuito. Niente spam. Cancellati quando vuoi.",
+    errorMsg: "Qualcosa è andato storto. Riprova.",
+    freeHero: "Gratuito. Sii il primo a provare Sythio.",
+  },
+};
 
 type WaitlistProps = {
   variant?: "hero" | "inline" | "compact";
@@ -12,6 +100,8 @@ export default function Waitlist({ variant = "hero", className = "" }: WaitlistP
   const [email, setEmail] = useState("");
   const [state, setState] = useState<"idle" | "loading" | "success" | "error">("idle");
   const inputRef = useRef<HTMLInputElement>(null);
+  const { locale } = useLanguage();
+  const c = content[locale] || content.en;
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -46,8 +136,8 @@ export default function Waitlist({ variant = "hero", className = "" }: WaitlistP
             </svg>
           </div>
           <div className="text-left">
-            <p className="text-sm font-semibold text-emerald-900">You are on the list</p>
-            <p className="text-xs text-emerald-700">We will notify you when Sythio launches.</p>
+            <p className="text-sm font-semibold text-emerald-900">{c.successTitle}</p>
+            <p className="text-xs text-emerald-700">{c.successDesc}</p>
           </div>
         </div>
       </motion.div>
@@ -62,7 +152,7 @@ export default function Waitlist({ variant = "hero", className = "" }: WaitlistP
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          placeholder="Enter your email"
+          placeholder={c.placeholder}
           required
           className="flex-1 h-11 px-4 rounded-xl bg-white border border-border-light text-sm text-foreground placeholder:text-muted-light focus:outline-none focus:border-foreground/20 focus:ring-2 focus:ring-foreground/5 transition-all"
         />
@@ -79,7 +169,7 @@ export default function Waitlist({ variant = "hero", className = "" }: WaitlistP
               </svg>
             </span>
           ) : (
-            "Join"
+            c.join
           )}
         </button>
       </form>
@@ -92,13 +182,13 @@ export default function Waitlist({ variant = "hero", className = "" }: WaitlistP
         <div className="max-w-lg mx-auto text-center">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/10 mb-5">
             <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-            <span className="text-xs font-medium text-white/70">Early access</span>
+            <span className="text-xs font-medium text-white/70">{c.earlyAccess}</span>
           </div>
           <h3 className="text-xl md:text-2xl font-bold text-white mb-3">
-            Get early access to Sythio
+            {c.earlyAccessHeading}
           </h3>
           <p className="text-sm text-white/60 mb-6 leading-relaxed">
-            Join the waitlist and be the first to transform your audio into structured, actionable output.
+            {c.earlyAccessDesc}
           </p>
           <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
             <input
@@ -121,14 +211,14 @@ export default function Waitlist({ variant = "hero", className = "" }: WaitlistP
                     <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="3" className="opacity-20" />
                     <path d="M12 2a10 10 0 019.95 9" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
                   </svg>
-                  Joining...
+                  {c.joining}
                 </span>
               ) : (
-                "Join the Waitlist"
+                c.joinWaitlist
               )}
             </button>
           </form>
-          <p className="mt-4 text-xs text-white/40">Free to join. No spam. Unsubscribe anytime.</p>
+          <p className="mt-4 text-xs text-white/40">{c.freeInline}</p>
         </div>
       </div>
     );
@@ -158,10 +248,10 @@ export default function Waitlist({ variant = "hero", className = "" }: WaitlistP
                 <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="3" className="opacity-20" />
                 <path d="M12 2a10 10 0 019.95 9" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
               </svg>
-              Joining...
+              {c.joining}
             </span>
           ) : (
-            "Join the Waitlist"
+            c.joinWaitlist
           )}
         </button>
       </form>
@@ -173,12 +263,12 @@ export default function Waitlist({ variant = "hero", className = "" }: WaitlistP
             exit={{ opacity: 0 }}
             className="text-center text-sm text-red-500 mt-3"
           >
-            Something went wrong. Please try again.
+            {c.errorMsg}
           </motion.p>
         )}
       </AnimatePresence>
       <p className="text-center text-sm text-muted mt-4">
-        Free to join. Be the first to try Sythio.
+        {c.freeHero}
       </p>
     </div>
   );

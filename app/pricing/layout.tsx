@@ -15,6 +15,9 @@ export const metadata = buildMetadata({
     "AI transcription pricing",
     "best AI voice notes app price",
     "free AI meeting notes",
+    "free AI voice notes",
+    "voice notes app free plan",
+    "AI meeting notes price",
   ],
 });
 

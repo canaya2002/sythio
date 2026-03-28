@@ -2,7 +2,7 @@ import { buildMetadata } from "../lib/metadata";
 import { BreadcrumbSchema } from "../components/json-ld";
 
 export const metadata = buildMetadata({
-  title: "Blog — Audio Intelligence, Productivity & AI Voice Notes",
+  title: "Blog | Audio Intelligence & AI Voice Notes",
   description:
     "Insights on audio intelligence, AI voice notes, meeting productivity, and the future of how we work with spoken content. Guides, comparisons, and deep dives.",
   path: "/blog",

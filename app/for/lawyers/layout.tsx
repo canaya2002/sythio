@@ -1,10 +1,10 @@
 import { buildMetadata } from "../../lib/metadata";
-import { BreadcrumbSchema } from "../../components/json-ld";
+import { BreadcrumbSchema, FAQSchema } from "../../components/json-ld";
 
 export const metadata = buildMetadata({
-  title: "Sythio for Legal Professionals — Case Notes, Key Points & Clean Records",
+  title: "AI for Lawyers | Case Notes & Transcripts",
   description:
-    "Stop spending billable hours transcribing consultations and depositions. Sythio turns legal conversations into structured case notes, key points, and clean records — automatically.",
+    "Stop transcribing consultations manually. Sythio turns legal conversations into structured case notes, key points, and clean records.",
   path: "/for/lawyers",
   keywords: [
     "AI for lawyers",
@@ -27,6 +27,11 @@ export default function LawyersLayout({ children }: { children: React.ReactNode 
           { name: "For Lawyers", href: "/for/lawyers" },
         ]}
       />
+      <FAQSchema items={[
+        { question: "How can lawyers use Sythio for client consultations?", answer: "Record client consultations and Sythio generates structured case notes, key points, and clean text records. This replaces manual transcription and ensures every detail from the conversation is captured accurately." },
+        { question: "Is Sythio secure enough for legal audio?", answer: "Yes. Sythio uses end-to-end encryption and follows strict data privacy practices. Audio data can be deleted at any time, giving legal professionals full control over sensitive client recordings." },
+        { question: "Can Sythio help with deposition and interview notes?", answer: "Yes. Upload deposition or interview recordings and Sythio will extract key points, produce clean text, and generate structured summaries. Speaker detection attributes statements to specific individuals." },
+      ]} />
       {children}
     </>
   );

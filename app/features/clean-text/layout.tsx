@@ -1,10 +1,10 @@
 import { buildMetadata } from "../../lib/metadata";
-import { BreadcrumbSchema, HowToSchema } from "../../components/json-ld";
+import { BreadcrumbSchema, HowToSchema, FAQSchema } from "../../components/json-ld";
 
 export const metadata = buildMetadata({
-  title: "Clean Text from Audio — Polished, Readable Output from Voice",
+  title: "Clean Text from Audio | Polished Output",
   description:
-    "Turn messy audio into polished, readable text. Sythio removes filler words, corrects grammar, adds structure, and delivers clean text you can publish, share, or archive.",
+    "Turn messy audio into polished, readable text. Sythio removes filler words, corrects grammar, and delivers text you can publish or share.",
   path: "/features/clean-text",
   keywords: [
     "audio to clean text",
@@ -30,6 +30,11 @@ export default function CleanTextLayout({ children }: { children: React.ReactNod
         { name: "Record or Upload", text: "Capture your thoughts, dictate a memo, record a conversation, or upload any existing audio file." },
         { name: "Sythio Processes", text: "The audio is transcribed, then refined. Filler is removed, grammar is corrected, and the text is reorganized into a clean format." },
         { name: "Get Clean Text", text: "Receive polished text you can copy, export, or share. Use it as-is or as a starting point for longer documents." },
+      ]} />
+      <FAQSchema items={[
+        { question: "Does Sythio remove filler words from audio?", answer: "Yes. Sythio removes ums, uhs, likes, repeated words, and false starts. The output is polished, grammatically correct text that preserves the original meaning without the verbal clutter." },
+        { question: "Is clean text the same as a transcript?", answer: "No. A transcript is a verbatim record. Clean text is an edited, polished version that reads like written prose. Grammar is corrected, filler is removed, and the structure is improved for readability." },
+        { question: "What can I do with Sythio's clean text output?", answer: "Use it as a starting draft for blog posts, emails, documentation, reports, or social media content. Many users dictate ideas and let Sythio turn them into publishable text." },
       ]} />
       {children}
     </>

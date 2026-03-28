@@ -127,7 +127,8 @@ body {
 /* Indigo / Violet floating orbs */
 .section-float-bg {
   position: relative;
-  overflow: hidden;
+  overflow-x: clip;
+  overflow-y: visible;
 }
 
 .section-float-bg::before {
@@ -163,7 +164,8 @@ body {
 /* Warm amber / orange floating orbs */
 .section-float-bg-warm {
   position: relative;
-  overflow: hidden;
+  overflow-x: clip;
+  overflow-y: visible;
 }
 
 .section-float-bg-warm::before {
@@ -199,7 +201,8 @@ body {
 /* Emerald / teal floating orbs */
 .section-float-bg-green {
   position: relative;
-  overflow: hidden;
+  overflow-x: clip;
+  overflow-y: visible;
 }
 
 .section-float-bg-green::before {
@@ -241,7 +244,8 @@ body {
 /* ── Multi-orb animated hero background ── */
 .hero-animated-bg {
   position: relative;
-  overflow: hidden;
+  overflow-x: clip;
+  overflow-y: visible;
 }
 
 .hero-animated-bg .hero-orb {

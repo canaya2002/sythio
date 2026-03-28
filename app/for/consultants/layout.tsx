@@ -1,10 +1,10 @@
 import { buildMetadata } from "../../lib/metadata";
-import { BreadcrumbSchema } from "../../components/json-ld";
+import { BreadcrumbSchema, FAQSchema } from "../../components/json-ld";
 
 export const metadata = buildMetadata({
-  title: "Sythio for Consultants — Meeting Reports, Action Plans & Documentation",
+  title: "AI for Consultants | Reports & Plans",
   description:
-    "Stop spending billable hours on documentation. Sythio turns client meetings, workshops, and strategy sessions into executive reports, action plans, and clean documentation — automatically.",
+    "Stop spending billable hours on documentation. Sythio turns client meetings into executive reports and action plans automatically.",
   path: "/for/consultants",
   keywords: [
     "AI for consultants",
@@ -27,6 +27,11 @@ export default function ConsultantsLayout({ children }: { children: React.ReactN
           { name: "For Consultants", href: "/for/consultants" },
         ]}
       />
+      <FAQSchema items={[
+        { question: "How does Sythio help consultants save time on documentation?", answer: "Sythio automatically turns client meetings into executive reports, action plans, and follow-up messages. Consultants spend less time writing deliverables and more time on billable, high-value work." },
+        { question: "Can Sythio generate client-ready reports from meetings?", answer: "Yes. Sythio produces structured executive reports with key findings, decisions, recommendations, and next steps. The output is professional and ready to share with clients or internal stakeholders." },
+        { question: "Does Sythio work for in-person consulting sessions?", answer: "Yes. Record the session directly in Sythio on your phone or laptop. It processes any audio — in-person, over the phone, or virtual — and generates the same structured outputs." },
+      ]} />
       {children}
     </>
   );

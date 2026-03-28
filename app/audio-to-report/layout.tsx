@@ -1,10 +1,10 @@
 import { buildMetadata } from "../lib/metadata";
-import { BreadcrumbSchema } from "../components/json-ld";
+import { BreadcrumbSchema, FAQSchema } from "../components/json-ld";
 
 export const metadata = buildMetadata({
-  title: "Audio to Report — Convert Any Recording into an Executive Report",
+  title: "Audio to Report | AI Executive Reports",
   description:
-    "Turn any audio recording into a polished executive report. Sythio analyzes your conversation, identifies key findings, and delivers a structured report with context, recommendations, and outcomes.",
+    "Transform any recording into a polished executive report with key findings, recommendations, and next steps. Try Sythio free — no credit card required.",
   path: "/audio-to-report",
   keywords: [
     "audio to report",
@@ -26,6 +26,11 @@ export default function AudioToReportLayout({ children }: { children: React.Reac
           { name: "Audio to Report", href: "/audio-to-report" },
         ]}
       />
+      <FAQSchema items={[
+        { question: "What kind of reports does Sythio generate from audio?", answer: "Sythio generates executive-style reports with sections for key findings, decisions, discussion highlights, recommendations, and next steps. The format is professional and stakeholder-ready." },
+        { question: "Can I generate a report from a meeting recording?", answer: "Yes. Upload or record any meeting, client call, or presentation and Sythio will produce a structured report you can share with leadership, clients, or your team." },
+        { question: "Can I export Sythio reports as PDF?", answer: "Yes. Sythio lets you export generated reports as PDF or text files, making it easy to share via email, attach to project documentation, or archive for future reference." },
+      ]} />
       {children}
     </>
   );

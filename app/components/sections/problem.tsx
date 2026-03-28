@@ -2,27 +2,147 @@
 
 import { ScrollSlide, TextReveal, GsapStagger } from "../gsap-effects";
 import RotatingText from "../rotating-text";
+import { useLanguage } from "../i18n/language-context";
+
+const content: Record<string, {
+  sectionLabel: string;
+  heading: string;
+  rotatingWords: string[];
+  paragraph1: string;
+  paragraph2: string;
+  withoutTitle: string;
+  withoutItems: string[];
+  withTitle: string;
+  withItems: string[];
+}> = {
+  en: {
+    sectionLabel: "The problem",
+    heading: "Your voice notes are going ",
+    rotatingWords: ["nowhere", "unheard", "forgotten", "wasted"],
+    paragraph1: "You record a meeting. You capture an idea. You leave yourself a reminder. Then it sits there — unlistened, unstructured, forgotten.",
+    paragraph2: "Sythio changes that. Every word you speak becomes something you can actually use.",
+    withoutTitle: "Without Sythio",
+    withoutItems: [
+      "47 unplayed recordings",
+      "No idea what was discussed",
+      "Action items forgotten",
+      "Key decisions lost forever",
+    ],
+    withTitle: "With Sythio",
+    withItems: [
+      "Clear summaries of every conversation",
+      "Tasks assigned with owners",
+      "Decisions documented automatically",
+      "Ready-to-share reports and follow-ups",
+    ],
+  },
+  es: {
+    sectionLabel: "El problema",
+    heading: "Tus notas de voz van ",
+    rotatingWords: ["a ninguna parte", "sin escuchar", "al olvido", "desperdiciadas"],
+    paragraph1: "Grabas una reunión. Capturas una idea. Te dejas un recordatorio. Y ahí se queda — sin escuchar, sin estructura, olvidado.",
+    paragraph2: "Sythio cambia eso. Cada palabra que dices se convierte en algo que realmente puedes usar.",
+    withoutTitle: "Sin Sythio",
+    withoutItems: [
+      "47 grabaciones sin reproducir",
+      "Sin idea de lo que se habló",
+      "Tareas pendientes olvidadas",
+      "Decisiones clave perdidas para siempre",
+    ],
+    withTitle: "Con Sythio",
+    withItems: [
+      "Resúmenes claros de cada conversación",
+      "Tareas asignadas con responsables",
+      "Decisiones documentadas automáticamente",
+      "Informes y seguimientos listos para compartir",
+    ],
+  },
+  fr: {
+    sectionLabel: "Le problème",
+    heading: "Vos notes vocales finissent ",
+    rotatingWords: ["nulle part", "ignorées", "oubliées", "gaspillées"],
+    paragraph1: "Vous enregistrez une réunion. Vous capturez une idée. Vous vous laissez un rappel. Puis tout reste là — non écouté, non structuré, oublié.",
+    paragraph2: "Sythio change la donne. Chaque mot que vous prononcez devient quelque chose de réellement exploitable.",
+    withoutTitle: "Sans Sythio",
+    withoutItems: [
+      "47 enregistrements jamais écoutés",
+      "Aucune idée de ce qui a été dit",
+      "Actions à mener oubliées",
+      "Décisions clés perdues à jamais",
+    ],
+    withTitle: "Avec Sythio",
+    withItems: [
+      "Des résumés clairs de chaque conversation",
+      "Des tâches attribuées avec leurs responsables",
+      "Des décisions documentées automatiquement",
+      "Des rapports et suivis prêts à partager",
+    ],
+  },
+  pt: {
+    sectionLabel: "O problema",
+    heading: "Suas notas de voz estão indo ",
+    rotatingWords: ["a lugar nenhum", "sem ouvir", "ao esquecimento", "desperdiçadas"],
+    paragraph1: "Você grava uma reunião. Captura uma ideia. Deixa um lembrete para si mesmo. E tudo fica ali — sem ouvir, sem estrutura, esquecido.",
+    paragraph2: "Sythio muda isso. Cada palavra que você fala se transforma em algo que você realmente pode usar.",
+    withoutTitle: "Sem Sythio",
+    withoutItems: [
+      "47 gravações nunca reproduzidas",
+      "Sem ideia do que foi discutido",
+      "Tarefas pendentes esquecidas",
+      "Decisões importantes perdidas para sempre",
+    ],
+    withTitle: "Com Sythio",
+    withItems: [
+      "Resumos claros de cada conversa",
+      "Tarefas atribuídas com responsáveis",
+      "Decisões documentadas automaticamente",
+      "Relatórios e acompanhamentos prontos para compartilhar",
+    ],
+  },
+  it: {
+    sectionLabel: "Il problema",
+    heading: "Le tue note vocali finiscono ",
+    rotatingWords: ["nel nulla", "inascoltate", "dimenticate", "sprecate"],
+    paragraph1: "Registri una riunione. Catturi un'idea. Ti lasci un promemoria. Poi resta tutto lì — mai riascoltato, non strutturato, dimenticato.",
+    paragraph2: "Sythio cambia tutto questo. Ogni parola che pronunci diventa qualcosa che puoi davvero utilizzare.",
+    withoutTitle: "Senza Sythio",
+    withoutItems: [
+      "47 registrazioni mai ascoltate",
+      "Nessuna idea di cosa sia stato discusso",
+      "Azioni da completare dimenticate",
+      "Decisioni chiave perse per sempre",
+    ],
+    withTitle: "Con Sythio",
+    withItems: [
+      "Riassunti chiari di ogni conversazione",
+      "Attività assegnate con responsabili",
+      "Decisioni documentate automaticamente",
+      "Report e follow-up pronti da condividere",
+    ],
+  },
+};
 
 export default function Problem() {
+  const { locale } = useLanguage();
+  const c = content[locale] || content.en;
+
   return (
-    <section className="py-32 md:py-44 bg-white section-float-bg overflow-hidden">
+    <section className="py-32 md:py-44 bg-white section-float-bg">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-28 items-center">
           {/* Text */}
           <div>
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-light mb-6 block">
-              The problem
+              {c.sectionLabel}
             </span>
             <TextReveal tag="h2" className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-[1.1]">
-              Your voice notes are going <RotatingText words={["nowhere", "unheard", "forgotten", "wasted"]} className="text-zinc-400" />
+              {c.heading}<RotatingText words={c.rotatingWords} className="text-zinc-400" />
             </TextReveal>
             <TextReveal tag="p" className="mt-7 text-lg md:text-xl text-muted leading-relaxed max-w-lg">
-              You record a meeting. You capture an idea. You leave yourself a reminder.
-              Then it sits there — unlistened, unstructured, forgotten.
+              {c.paragraph1}
             </TextReveal>
             <TextReveal tag="p" className="mt-4 text-lg md:text-xl text-muted leading-relaxed max-w-lg">
-              Sythio changes that. Every word you speak becomes something you can
-              actually use.
+              {c.paragraph2}
             </TextReveal>
           </div>
 
@@ -38,10 +158,10 @@ export default function Problem() {
                       <path d="M15 9l-6 6M9 9l6 6" />
                     </svg>
                   </div>
-                  <span className="text-base font-semibold text-foreground">Without Sythio</span>
+                  <span className="text-base font-semibold text-foreground">{c.withoutTitle}</span>
                 </div>
                 <GsapStagger stagger={0.08}>
-                  {["47 unplayed recordings", "No idea what was discussed", "Action items forgotten", "Key decisions lost forever"].map((item, i) => (
+                  {c.withoutItems.map((item, i) => (
                     <div key={i} className="flex items-center gap-3 py-1.5 text-sm text-muted">
                       <span className="w-1.5 h-1.5 rounded-full bg-red-300 shrink-0" />
                       {item}
@@ -58,10 +178,10 @@ export default function Problem() {
                       <path d="M20 6L9 17l-5-5" />
                     </svg>
                   </div>
-                  <span className="text-base font-semibold text-white">With Sythio</span>
+                  <span className="text-base font-semibold text-white">{c.withTitle}</span>
                 </div>
                 <GsapStagger stagger={0.08}>
-                  {["Clear summaries of every conversation", "Tasks assigned with owners", "Decisions documented automatically", "Ready-to-share reports and follow-ups"].map((item, i) => (
+                  {c.withItems.map((item, i) => (
                     <div key={i} className="flex items-center gap-3 py-1.5 text-sm text-zinc-300">
                       <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0" />
                       {item}

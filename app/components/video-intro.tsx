@@ -2,13 +2,25 @@
 
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLanguage } from "./i18n/language-context";
+import type { Locale } from "./i18n/translations";
 
 const VIDEO_SRC = "/video/intro_sythio.mp4";
+
+const content: Record<Locale, { skipIntro: string }> = {
+  en: { skipIntro: "Skip Intro" },
+  es: { skipIntro: "Saltar intro" },
+  fr: { skipIntro: "Passer l'intro" },
+  pt: { skipIntro: "Pular intro" },
+  it: { skipIntro: "Salta intro" },
+};
 
 export default function VideoIntro() {
   const [visible, setVisible] = useState(false);
   const [fadeOut, setFadeOut] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const { locale } = useLanguage();
+  const c = content[locale] || content.en;
 
   useEffect(() => {
     // Check if the video file actually exists before showing anything
@@ -65,7 +77,7 @@ export default function VideoIntro() {
             onClick={handleSkip}
             className="absolute bottom-8 right-8 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-sm font-medium hover:bg-white/20 transition-all duration-200 cursor-pointer"
           >
-            Skip Intro
+            {c.skipIntro}
           </button>
 
           <div className="absolute top-8 left-8 flex items-center gap-2 opacity-60">

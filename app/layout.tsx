@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Suspense } from "react";
 import { cookies } from "next/headers";
 import { Geist, Geist_Mono } from "next/font/google";
@@ -22,10 +22,17 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: "#fafafa",
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://sythio.com"),
   title: {
-    default: "Sythio — Turn Voice into Clarity, Action, and Structure",
+    default: "AI Voice Notes App | 9 Outputs from Audio",
     template: "%s | Sythio",
   },
   description:
@@ -71,6 +78,14 @@ export const metadata: Metadata = {
     "audio summarizer free",
     "Otter alternative",
     "Fireflies alternative",
+    "best AI voice notes app 2026",
+    "speech to text app",
+    "meeting recorder app",
+    "free voice notes app",
+    "podcast transcription",
+    "interview transcription",
+    "voice memo organizer",
+    "audio to text free",
   ],
   authors: [{ name: "Sythio" }],
   creator: "Sythio",
@@ -81,11 +96,15 @@ export const metadata: Metadata = {
     canonical: "https://sythio.com",
     languages: {
       "en": "https://sythio.com",
+      "es": "https://sythio.com/es",
+      "fr": "https://sythio.com/fr",
+      "pt": "https://sythio.com/pt",
+      "it": "https://sythio.com/it",
       "x-default": "https://sythio.com",
     },
   },
   openGraph: {
-    title: "Sythio — Turn Voice into Clarity, Action, and Structure",
+    title: "AI Voice Notes App | 9 Outputs from Audio",
     description:
       "Transform audio into summaries, tasks, action plans, and more. AI-powered voice notes with speaker detection.",
     type: "website",
@@ -107,7 +126,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sythio — Turn Voice into Clarity, Action, and Structure",
+    title: "AI Voice Notes App | 9 Outputs from Audio",
     description:
       "Transform audio into summaries, tasks, action plans, and more.",
     images: ["https://sythio.com/og-image.png"],

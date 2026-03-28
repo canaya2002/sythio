@@ -6,6 +6,7 @@ export const metadata = buildMetadata({
   description:
     "Understand how Sythio uses cookies and similar technologies. Learn about the types of cookies we use and how to manage your preferences.",
   path: "/cookie-policy",
+  noIndex: true,
 });
 
 export default function CookiePolicyLayout({

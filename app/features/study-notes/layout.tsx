@@ -1,10 +1,10 @@
 import { buildMetadata } from "../../lib/metadata";
-import { BreadcrumbSchema, HowToSchema } from "../../components/json-ld";
+import { BreadcrumbSchema, HowToSchema, FAQSchema } from "../../components/json-ld";
 
 export const metadata = buildMetadata({
-  title: "AI Study Notes from Audio — Notes from Lectures",
+  title: "AI Study Notes from Lectures & Audio",
   description:
-    "Turn lectures, classes, and study recordings into organized notes with key concepts, definitions, and takeaways. Sythio creates study-ready notes that help you learn faster.",
+    "Turn lectures and recordings into organized notes with key concepts, definitions, and takeaways. Sythio helps you learn faster. Try free.",
   path: "/features/study-notes",
   keywords: [
     "AI study notes",
@@ -30,6 +30,11 @@ export default function StudyNotesLayout({ children }: { children: React.ReactNo
         { name: "Record Your Lecture", text: "Record directly in Sythio during class, or upload a recording afterward. Works with any lecture or study session." },
         { name: "Sythio Understands", text: "The audio is analyzed for educational content. Topics are identified, concepts are extracted, and material is organized." },
         { name: "Get Your Notes", text: "Receive organized study notes you can review immediately. Export them or combine with your own notes." },
+      ]} />
+      <FAQSchema items={[
+        { question: "Can Sythio take notes from a recorded lecture?", answer: "Yes. Record your lecture directly in Sythio or upload a recording afterward. Sythio identifies key concepts, definitions, examples, and conclusions, then organizes everything into structured study notes." },
+        { question: "Are Sythio study notes good for exam preparation?", answer: "Yes. Sythio extracts key concepts, terms, and takeaways in a format designed for review. Students use them as a study guide, a revision checklist, or a supplement to their own handwritten notes." },
+        { question: "Does Sythio work with any subject or language?", answer: "Sythio supports lectures in multiple languages including English, Spanish, French, Portuguese, and Italian. It works across any subject — from STEM to humanities — as long as the content is spoken audio." },
       ]} />
       {children}
     </>

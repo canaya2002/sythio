@@ -34,6 +34,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/use-cases/brainstorming", priority: 0.8, frequency: "weekly" },
     { path: "/use-cases/lectures", priority: 0.8, frequency: "weekly" },
     { path: "/use-cases/client-calls", priority: 0.8, frequency: "weekly" },
+    { path: "/use-cases/podcasts", priority: 0.8, frequency: "weekly" },
+    { path: "/use-cases/interviews", priority: 0.8, frequency: "weekly" },
 
     /* ─── Outcome / Transformation Pages ─── */
     { path: "/audio-to-summary", priority: 0.7, frequency: "weekly" },
@@ -45,6 +47,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/audio-to-key-points", priority: 0.7, frequency: "weekly" },
     { path: "/audio-to-ideas", priority: 0.7, frequency: "weekly" },
     { path: "/audio-to-messages", priority: 0.7, frequency: "weekly" },
+    { path: "/audio-to-transcript", priority: 0.8, frequency: "weekly" },
 
     /* ─── Comparison Pages ─── */
     { path: "/compare", priority: 0.7, frequency: "monthly" },
@@ -74,6 +77,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/faq", priority: 0.7, frequency: "monthly" },
     { path: "/about", priority: 0.6, frequency: "monthly" },
     { path: "/contact", priority: 0.6, frequency: "monthly" },
+    { path: "/security", priority: 0.7, frequency: "monthly" },
+    { path: "/integrations", priority: 0.7, frequency: "monthly" },
+    { path: "/enterprise", priority: 0.8, frequency: "monthly" },
+    { path: "/case-studies", priority: 0.7, frequency: "monthly" },
 
     /* ─── Blog ─── */
     { path: "/blog", priority: 0.8, frequency: "weekly" },
@@ -101,6 +108,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     alternates: {
       languages: {
         "en": `${base}${p.path}`,
+        "es": `${base}/es${p.path}`,
+        "fr": `${base}/fr${p.path}`,
+        "pt": `${base}/pt${p.path}`,
+        "it": `${base}/it${p.path}`,
         "x-default": `${base}${p.path}`,
       },
     },

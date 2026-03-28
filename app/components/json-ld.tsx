@@ -16,6 +16,11 @@ export function OrganizationSchema() {
       height: 512,
     },
     image: `${SITE_URL}/og-image.png`,
+    sameAs: [
+      "https://twitter.com/sabordetiburon",
+      "https://www.linkedin.com/company/sythio",
+      "https://github.com/sythio",
+    ],
     description:
       "Sythio transforms your audio into summaries, tasks, action plans, and structured outputs. AI-powered voice notes with speaker detection.",
     foundingDate: "2024-01-01",
@@ -145,6 +150,13 @@ export function SoftwareAppSchema() {
       "Searchable audio library",
       "Export in PDF, text, and more",
     ],
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      ratingCount: "312",
+      bestRating: "5",
+      worstRating: "1",
+    },
   };
 
   return (
@@ -205,6 +217,35 @@ export function BreadcrumbSchema({
   );
 }
 
+export function ProductSchema() {
+  const data = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "@id": `${SITE_URL}/#product`,
+    name: "Sythio",
+    description: "AI-powered audio intelligence platform that transforms recordings into summaries, tasks, action plans, reports, and 5 more structured outputs with speaker detection.",
+    url: `${SITE_URL}/product`,
+    brand: { "@id": `${SITE_URL}/#organization` },
+    image: `${SITE_URL}/og-image.png`,
+    category: "Software > Productivity",
+    offers: {
+      "@type": "AggregateOffer",
+      priceCurrency: "USD",
+      lowPrice: "0",
+      highPrice: "12",
+      offerCount: "3",
+      availability: "https://schema.org/InStock",
+    },
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
+  );
+}
+
 export function HowToSchema({
   name,
   description,
@@ -225,6 +266,41 @@ export function HowToSchema({
       name: step.name,
       text: step.text,
     })),
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
+  );
+}
+
+export function VideoSchema({
+  name,
+  description,
+  thumbnailUrl,
+  uploadDate,
+  duration,
+  contentUrl,
+}: {
+  name: string;
+  description: string;
+  thumbnailUrl: string;
+  uploadDate: string;
+  duration?: string;
+  contentUrl?: string;
+}) {
+  const data = {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    name,
+    description,
+    thumbnailUrl,
+    uploadDate,
+    ...(duration ? { duration } : {}),
+    ...(contentUrl ? { contentUrl } : {}),
+    publisher: { "@id": `${SITE_URL}/#organization` },
   };
 
   return (

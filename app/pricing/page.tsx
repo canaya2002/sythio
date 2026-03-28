@@ -149,10 +149,10 @@ export default function PricingPage() {
       </section>
 
       {/* Pricing Cards */}
-      <section className="pb-32 md:pb-44 bg-white section-float-bg">
+      <section className="pt-10 pb-32 md:pb-44 bg-white section-float-bg">
         <div className="max-w-6xl mx-auto px-6">
           <GsapStagger
-            className="grid md:grid-cols-3 gap-6 lg:gap-8 items-start"
+            className="grid md:grid-cols-3 gap-6 lg:gap-8 items-stretch"
             stagger={0.12}
           >
             {/* ─── Free ─── */}

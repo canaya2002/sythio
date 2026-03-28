@@ -2,9 +2,9 @@ import { buildMetadata } from "../lib/metadata";
 import { BreadcrumbSchema, FAQSchema } from "../components/json-ld";
 
 export const metadata = buildMetadata({
-  title: "Audio Intelligence Glossary — Key Terms Explained",
+  title: "Audio Intelligence Glossary | Key Terms",
   description:
-    "Audio intelligence glossary covering transcription terms, speaker diarization definition, voice activity detection, and 20+ key concepts in audio AI and voice intelligence.",
+    "Audio intelligence glossary: transcription, speaker diarization, voice activity detection, and 20+ key concepts in audio AI explained.",
   path: "/glossary",
   keywords: [
     "audio intelligence glossary",

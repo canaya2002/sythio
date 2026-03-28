@@ -30,6 +30,10 @@ const securityHeaders = [
 const nextConfig: NextConfig = {
   poweredByHeader: false,
   trailingSlash: false,
+  experimental: {
+    workerThreads: false,
+    cpus: 4,
+  },
   images: {
     formats: ["image/avif", "image/webp"],
   },

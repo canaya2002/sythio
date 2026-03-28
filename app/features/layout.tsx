@@ -2,9 +2,9 @@ import { buildMetadata } from "../lib/metadata";
 import { BreadcrumbSchema } from "../components/json-ld";
 
 export const metadata = buildMetadata({
-  title: "Features — AI Summaries, Tasks, Speaker Detection & More",
+  title: "AI Audio Features | Summaries, Tasks & More",
   description:
-    "Explore all Sythio features: AI-powered summaries, task extraction, action plans, speaker detection, clean text, executive reports, study notes, messages, and ideas. 9 output formats from a single recording.",
+    "Explore Sythio's 9 AI output formats: summaries, tasks, action plans, reports, study notes, and more — all from a single recording. Try free.",
   path: "/features",
   keywords: [
     "AI audio summarizer",

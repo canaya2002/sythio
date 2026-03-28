@@ -6,6 +6,7 @@ export const metadata = buildMetadata({
   description:
     "Learn how Sythio collects, uses, and protects your personal information. Our privacy policy covers audio data, transcripts, cookies, and your rights.",
   path: "/privacy-policy",
+  noIndex: true,
 });
 
 export default function PrivacyPolicyLayout({

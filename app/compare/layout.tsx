@@ -2,7 +2,7 @@ import { buildMetadata } from "../lib/metadata";
 import { BreadcrumbSchema } from "../components/json-ld";
 
 export const metadata = buildMetadata({
-  title: "Compare Sythio — How We Differ from Other Voice & Meeting Tools",
+  title: "Compare Sythio vs Otter, Fireflies & More",
   description:
     "See how Sythio compares to Otter, Fireflies, tl;dv, and other tools. Sythio turns audio into 9 structured outputs — not just transcription.",
   path: "/compare",

@@ -2,9 +2,9 @@ import { buildMetadata } from "../lib/metadata";
 import { BreadcrumbSchema } from "../components/json-ld";
 
 export const metadata = buildMetadata({
-  title: "Contact Sythio — Support, Partnerships & Inquiries",
+  title: "Contact Us | Support & Partnerships",
   description:
-    "Get in touch with the Sythio team for support, partnerships, press, and general inquiries. Whether you need help with the audio app or want to explore partnerships, we typically respond within 24 hours.",
+    "Contact the Sythio team for support, partnerships, or press inquiries. We typically respond within 24 hours.",
   path: "/contact",
   keywords: [
     "contact Sythio",

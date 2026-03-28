@@ -2,9 +2,9 @@ import { buildMetadata } from "../lib/metadata";
 import { BreadcrumbSchema } from "../components/json-ld";
 
 export const metadata = buildMetadata({
-  title: "Use Cases — AI Notes for Meetings, Voice Memos, Lectures & More",
+  title: "Use Cases | AI Notes for Meetings & More",
   description:
-    "Discover how Sythio transforms audio into structured output for meetings, voice notes, brainstorming, client calls, lectures, and follow-ups. Real use cases with real outputs.",
+    "See how Sythio transforms audio into structured output for meetings, voice notes, client calls, and lectures. Real use cases, real outputs.",
   path: "/use-cases",
   keywords: [
     "AI meeting notes use cases",

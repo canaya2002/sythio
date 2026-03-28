@@ -1,10 +1,10 @@
 import { buildMetadata } from "../lib/metadata";
-import { BreadcrumbSchema } from "../components/json-ld";
+import { BreadcrumbSchema, FAQSchema } from "../components/json-ld";
 
 export const metadata = buildMetadata({
-  title: "Audio to Study Notes — Convert Lectures and Recordings into Study Notes",
+  title: "Audio to Study Notes | AI Lecture Notes",
   description:
-    "Turn any audio recording into organized study notes. Sythio analyzes lectures, workshops, and educational content, then delivers structured notes with key concepts, definitions, and takeaways.",
+    "Turn lectures and recordings into structured study notes with key concepts and takeaways. Sythio delivers organized notes instantly. Try free.",
   path: "/audio-to-study-notes",
   keywords: [
     "audio to study notes",
@@ -26,6 +26,11 @@ export default function AudioToStudyNotesLayout({ children }: { children: React.
           { name: "Audio to Study Notes", href: "/audio-to-study-notes" },
         ]}
       />
+      <FAQSchema items={[
+        { question: "Can Sythio create study notes from a recorded lecture?", answer: "Yes. Record your lecture directly in Sythio or upload an existing recording. Sythio identifies key concepts, definitions, examples, and takeaways, then organizes them into structured study notes." },
+        { question: "How are Sythio study notes organized?", answer: "Study notes are organized by topic and concept, with key terms highlighted and supporting details grouped logically. The structure follows the flow of the lecture while making review efficient." },
+        { question: "Can I combine Sythio notes with my own handwritten notes?", answer: "Yes. Export your Sythio study notes as text and merge them with your own notes. Many students use Sythio as a backup to fill in gaps they missed during class." },
+      ]} />
       {children}
     </>
   );

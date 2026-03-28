@@ -10,12 +10,24 @@ import RotatingText from "../rotating-text";
 import Waitlist from "../waitlist";
 
 function IPhoneAppScreen() {
+  const { locale } = useLanguage();
+
+  const content: Record<string, { recordingsToday: string; sprintPlanning: string; sprintMeta: string; outputModes: string[]; quickIdea: string; quickIdeaMeta: string; clientCall: string; clientCallMeta: string }> = {
+    en: { recordingsToday: "3 recordings today", sprintPlanning: "Sprint Planning", sprintMeta: "3:42 · 2 speakers", outputModes: ["Summary", "Tasks", "Action Plan", "Message"], quickIdea: "Quick idea — app redesign", quickIdeaMeta: "1:15 · 1 speaker", clientCall: "Client call — Acme Corp", clientCallMeta: "23:10 · 3 speakers" },
+    es: { recordingsToday: "3 grabaciones hoy", sprintPlanning: "Sprint Planning", sprintMeta: "3:42 · 2 hablantes", outputModes: ["Resumen", "Tareas", "Plan de acción", "Mensaje"], quickIdea: "Idea rápida — rediseño de app", quickIdeaMeta: "1:15 · 1 hablante", clientCall: "Llamada con cliente — Acme Corp", clientCallMeta: "23:10 · 3 hablantes" },
+    fr: { recordingsToday: "3 enregistrements aujourd'hui", sprintPlanning: "Sprint Planning", sprintMeta: "3:42 · 2 intervenants", outputModes: ["Résumé", "Tâches", "Plan d'action", "Message"], quickIdea: "Idée rapide — refonte de l'app", quickIdeaMeta: "1:15 · 1 intervenant", clientCall: "Appel client — Acme Corp", clientCallMeta: "23:10 · 3 intervenants" },
+    pt: { recordingsToday: "3 gravações hoje", sprintPlanning: "Sprint Planning", sprintMeta: "3:42 · 2 falantes", outputModes: ["Resumo", "Tarefas", "Plano de ação", "Mensagem"], quickIdea: "Ideia rápida — redesign do app", quickIdeaMeta: "1:15 · 1 falante", clientCall: "Ligação com cliente — Acme Corp", clientCallMeta: "23:10 · 3 falantes" },
+    it: { recordingsToday: "3 registrazioni oggi", sprintPlanning: "Sprint Planning", sprintMeta: "3:42 · 2 parlanti", outputModes: ["Riepilogo", "Attività", "Piano d'azione", "Messaggio"], quickIdea: "Idea veloce — redesign dell'app", quickIdeaMeta: "1:15 · 1 parlante", clientCall: "Chiamata cliente — Acme Corp", clientCallMeta: "23:10 · 3 parlanti" },
+  };
+
+  const c = content[locale] || content.en;
+
   return (
     <div className="bg-background p-5 min-h-[580px] md:min-h-[680px]">
       <div className="flex items-center justify-between mb-6 mt-2">
         <div>
           <h3 className="text-base font-semibold text-foreground">Sythio</h3>
-          <p className="text-xs text-muted">3 recordings today</p>
+          <p className="text-xs text-muted">{c.recordingsToday}</p>
         </div>
         <div className="w-10 h-10 rounded-full bg-foreground flex items-center justify-center">
           <span className="text-xs font-bold text-white">CA</span>
@@ -30,8 +42,8 @@ function IPhoneAppScreen() {
             </svg>
           </div>
           <div className="flex-1">
-            <p className="text-sm font-semibold text-foreground">Sprint Planning</p>
-            <p className="text-xs text-muted">3:42 · 2 speakers</p>
+            <p className="text-sm font-semibold text-foreground">{c.sprintPlanning}</p>
+            <p className="text-xs text-muted">{c.sprintMeta}</p>
           </div>
           <div className="w-8 h-8 rounded-full bg-emerald-50 flex items-center justify-center">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#059669" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -46,7 +58,7 @@ function IPhoneAppScreen() {
         </div>
       </div>
       <div className="flex flex-wrap gap-2 mb-4">
-        {["Summary", "Tasks", "Action Plan", "Message"].map((label) => (
+        {c.outputModes.map((label) => (
           <div key={label} className="px-3 py-1.5 rounded-full bg-white border border-border-light text-xs font-medium text-muted">
             {label}
           </div>
@@ -60,8 +72,8 @@ function IPhoneAppScreen() {
             </svg>
           </div>
           <div className="flex-1">
-            <p className="text-sm font-semibold text-foreground">Quick idea — app redesign</p>
-            <p className="text-xs text-muted">1:15 · 1 speaker</p>
+            <p className="text-sm font-semibold text-foreground">{c.quickIdea}</p>
+            <p className="text-xs text-muted">{c.quickIdeaMeta}</p>
           </div>
         </div>
       </div>
@@ -73,8 +85,8 @@ function IPhoneAppScreen() {
             </svg>
           </div>
           <div className="flex-1">
-            <p className="text-sm font-semibold text-foreground">Client call — Acme Corp</p>
-            <p className="text-xs text-muted">23:10 · 3 speakers</p>
+            <p className="text-sm font-semibold text-foreground">{c.clientCall}</p>
+            <p className="text-xs text-muted">{c.clientCallMeta}</p>
           </div>
         </div>
       </div>
@@ -140,7 +152,7 @@ export default function Hero() {
           </motion.h1>
           {/* Hidden server-rendered text for crawlers */}
           <span className="sr-only">
-            Speak once, get everything. Sythio transforms your audio into summaries, tasks, action plans, and structured outputs.
+            {s("hero.srOnly")}
           </span>
 
           <motion.p
@@ -201,8 +213,8 @@ export default function Hero() {
                 </svg>
               </div>
               <div>
-                <p className="text-xs font-semibold text-foreground">Processing complete</p>
-                <p className="text-[10px] text-muted">5 outputs generated</p>
+                <p className="text-xs font-semibold text-foreground">{s("hero.processingComplete")}</p>
+                <p className="text-[10px] text-muted">{s("hero.outputsGenerated")}</p>
               </div>
             </div>
           </motion.div>

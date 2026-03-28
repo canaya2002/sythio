@@ -6,6 +6,7 @@ export const metadata = buildMetadata({
   description:
     "Read the terms and conditions governing your use of Sythio. Covers subscriptions, acceptable use, AI-generated outputs, intellectual property, and more.",
   path: "/terms",
+  noIndex: true,
 });
 
 export default function TermsLayout({
