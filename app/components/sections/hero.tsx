@@ -5,6 +5,7 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { TranscriptMockup } from "../mockups";
 import { MacBookFrame, IPhoneFrame } from "../devices";
+import { SoundWave } from "../gsap-effects";
 import { useLanguage } from "../i18n/language-context";
 import RotatingText from "../rotating-text";
 import Waitlist from "../waitlist";
@@ -215,6 +216,26 @@ export default function Hero() {
               <div>
                 <p className="text-xs font-semibold text-foreground">{s("hero.processingComplete")}</p>
                 <p className="text-[10px] text-muted">{s("hero.outputsGenerated")}</p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Sound wave floating badge */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.8, duration: 0.6 }}
+            className="absolute -bottom-4 right-8 md:right-16 lg:right-28 bg-white rounded-xl border border-border-light shadow-xl px-4 py-3 z-10 hidden md:block float-y-slow"
+          >
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 rounded-lg bg-indigo-50 flex items-center justify-center">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6366f1" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M9 18V5l12-2v13" /><circle cx="6" cy="18" r="3" /><circle cx="18" cy="16" r="3" />
+                </svg>
+              </div>
+              <div>
+                <p className="text-[10px] font-semibold text-foreground">Audio analyzed</p>
+                <SoundWave bars={16} className="mt-1" color="#6366f1" />
               </div>
             </div>
           </motion.div>

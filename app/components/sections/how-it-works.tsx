@@ -1,6 +1,6 @@
 "use client";
 
-import { TextReveal, GsapStagger, ScrollScale } from "../gsap-effects";
+import { TextReveal, GsapStagger, ScrollScale, FloatingBadge, SoundWave } from "../gsap-effects";
 import RotatingText from "../rotating-text";
 import { useLanguage } from "../i18n/language-context";
 
@@ -119,7 +119,7 @@ export default function HowItWorks() {
   ];
 
   return (
-    <section className="py-32 md:py-44 bg-background animated-gradient-bg">
+    <section className="py-32 md:py-44 bg-background animated-gradient-bg section-float-bg-blue">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-24">
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-light mb-6 block">
@@ -131,6 +131,23 @@ export default function HowItWorks() {
           <TextReveal tag="p" className="mt-6 text-lg md:text-xl text-muted max-w-lg mx-auto leading-relaxed">
             {c.subtitle}
           </TextReveal>
+        </div>
+
+        <div className="relative">
+          {/* Floating waveform decoration between steps */}
+          <FloatingBadge delay={0.3} className="absolute -top-10 right-8 z-10 hidden lg:block float-y-slow">
+            <div className="bg-white rounded-xl border border-border-light shadow-lg px-4 py-2.5 flex items-center gap-3">
+              <div className="w-7 h-7 rounded-lg bg-violet-50 flex items-center justify-center">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <div>
+                <p className="text-[10px] font-semibold text-foreground">AI Processing</p>
+                <SoundWave bars={14} className="mt-1" color="#8b5cf6" />
+              </div>
+            </div>
+          </FloatingBadge>
         </div>
 
         <GsapStagger className="grid md:grid-cols-3 gap-8" stagger={0.15}>

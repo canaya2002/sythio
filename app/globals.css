@@ -235,10 +235,144 @@ body {
   z-index: 0;
 }
 
+/* Rose / pink floating orbs */
+.section-float-bg-rose {
+  position: relative;
+  overflow-x: clip;
+  overflow-y: visible;
+}
+
+.section-float-bg-rose::before {
+  content: '';
+  position: absolute;
+  width: 650px;
+  height: 650px;
+  top: -6%;
+  right: -8%;
+  border-radius: 9999px;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(244,63,94,0.08) 0%, rgba(236,72,153,0.04) 40%, transparent 70%);
+  filter: blur(50px);
+  animation: orb-drift-c 21s ease-in-out infinite;
+  z-index: 0;
+}
+
+.section-float-bg-rose::after {
+  content: '';
+  position: absolute;
+  width: 550px;
+  height: 550px;
+  bottom: -6%;
+  left: -8%;
+  border-radius: 9999px;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(236,72,153,0.07) 0%, rgba(244,63,94,0.03) 40%, transparent 70%);
+  filter: blur(50px);
+  animation: orb-drift-a 26s ease-in-out infinite;
+  z-index: 0;
+}
+
+/* Blue / cyan floating orbs */
+.section-float-bg-blue {
+  position: relative;
+  overflow-x: clip;
+  overflow-y: visible;
+}
+
+.section-float-bg-blue::before {
+  content: '';
+  position: absolute;
+  width: 700px;
+  height: 700px;
+  top: -8%;
+  left: -10%;
+  border-radius: 9999px;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(59,130,246,0.10) 0%, rgba(6,182,212,0.04) 40%, transparent 70%);
+  filter: blur(50px);
+  animation: orb-drift-b 19s ease-in-out infinite;
+  z-index: 0;
+}
+
+.section-float-bg-blue::after {
+  content: '';
+  position: absolute;
+  width: 550px;
+  height: 550px;
+  bottom: -8%;
+  right: -8%;
+  border-radius: 9999px;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(99,102,241,0.08) 0%, rgba(59,130,246,0.03) 40%, transparent 70%);
+  filter: blur(50px);
+  animation: orb-drift-c 23s ease-in-out infinite;
+  z-index: 0;
+}
+
+/* Cool gradient animation (blue/cyan) */
+.animated-gradient-bg-cool {
+  background: linear-gradient(135deg, rgba(59,130,246,0.03) 0%, rgba(6,182,212,0.04) 25%, rgba(99,102,241,0.03) 50%, rgba(59,130,246,0.02) 75%);
+  background-size: 400% 400%;
+  animation: gradient-shift 16s ease infinite;
+}
+
+/* Noise grain texture overlay */
+.noise-overlay {
+  position: relative;
+}
+
+.noise-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.025;
+  z-index: 1;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+
 /* Subtle dot grid overlay for sections */
 .dot-grid-bg {
   background-image: radial-gradient(circle, rgba(0,0,0,0.04) 1px, transparent 1px);
   background-size: 24px 24px;
+}
+
+/* ── Sound wave animation ── */
+@keyframes sound-wave {
+  0%, 100% { transform: scaleY(0.3); }
+  50% { transform: scaleY(1); }
+}
+
+@keyframes sound-wave-2 {
+  0%, 100% { transform: scaleY(0.5); }
+  40% { transform: scaleY(0.2); }
+  80% { transform: scaleY(1); }
+}
+
+@keyframes sound-wave-3 {
+  0%, 100% { transform: scaleY(0.4); }
+  30% { transform: scaleY(1); }
+  70% { transform: scaleY(0.2); }
+}
+
+/* ── Floating badge bounce ── */
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+.float-y-slow {
+  animation: float-y 4s ease-in-out infinite;
+}
+
+.float-y-medium {
+  animation: float-y 3s ease-in-out infinite;
+}
+
+.float-y-fast {
+  animation: float-y 2.5s ease-in-out infinite;
 }
 
 /* ── Multi-orb animated hero background ── */

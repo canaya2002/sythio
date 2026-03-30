@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { TextReveal } from "../gsap-effects";
+import { TextReveal, FloatingBadge, SoundWave } from "../gsap-effects";
 import RotatingText from "../rotating-text";
 import { useLanguage } from "../i18n/language-context";
 
@@ -138,7 +138,7 @@ export default function UseCases() {
   }, []);
 
   return (
-    <section className="py-32 md:py-44 bg-white animated-gradient-bg-warm">
+    <section className="py-32 md:py-44 bg-white animated-gradient-bg-warm section-float-bg-warm">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-24">
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-light mb-6 block">
@@ -150,6 +150,17 @@ export default function UseCases() {
           <TextReveal tag="p" className="mt-6 text-lg md:text-xl text-muted max-w-xl mx-auto leading-relaxed">
             {c.subtitle}
           </TextReveal>
+        </div>
+
+        <div className="relative mb-4">
+          <FloatingBadge delay={0.2} className="absolute -top-8 left-1/2 -translate-x-1/2 z-10 hidden md:block float-y-slow">
+            <div className="bg-white/90 backdrop-blur-sm rounded-xl border border-border-light shadow-lg px-4 py-2 flex items-center gap-3">
+              <div className="w-7 h-7 rounded-lg bg-amber-50 flex items-center justify-center">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>
+              </div>
+              <SoundWave bars={16} color="#f59e0b" />
+            </div>
+          </FloatingBadge>
         </div>
 
         <div ref={gridRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">

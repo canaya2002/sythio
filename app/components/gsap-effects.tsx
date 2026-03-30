@@ -12,11 +12,13 @@ if (typeof window !== "undefined") {
 export function MagneticHover({
   children,
   className = "",
-  strength = 0.3,
+  strength = 0.15,
+  maxDistance = 12,
 }: {
   children: ReactNode;
   className?: string;
   strength?: number;
+  maxDistance?: number;
 }) {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -24,24 +26,38 @@ export function MagneticHover({
     const el = ref.current;
     if (!el) return;
 
+    let rafId: number | null = null;
+
+    function clamp(val: number, max: number) {
+      return Math.max(-max, Math.min(max, val));
+    }
+
     function onMove(e: MouseEvent) {
-      const rect = el!.getBoundingClientRect();
-      const x = (e.clientX - rect.left - rect.width / 2) * strength;
-      const y = (e.clientY - rect.top - rect.height / 2) * strength;
-      gsap.to(el, { x, y, duration: 0.4, ease: "power2.out" });
+      if (rafId) return;
+      rafId = requestAnimationFrame(() => {
+        rafId = null;
+        const rect = el!.getBoundingClientRect();
+        const rawX = (e.clientX - rect.left - rect.width / 2) * strength;
+        const rawY = (e.clientY - rect.top - rect.height / 2) * strength;
+        const x = clamp(rawX, maxDistance);
+        const y = clamp(rawY, maxDistance);
+        gsap.to(el, { x, y, duration: 0.4, ease: "power2.out" });
+      });
     }
 
     function onLeave() {
-      gsap.to(el, { x: 0, y: 0, duration: 0.6, ease: "elastic.out(1, 0.4)" });
+      if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+      gsap.to(el, { x: 0, y: 0, duration: 0.5, ease: "power3.out" });
     }
 
     el.addEventListener("mousemove", onMove);
     el.addEventListener("mouseleave", onLeave);
     return () => {
+      if (rafId) cancelAnimationFrame(rafId);
       el.removeEventListener("mousemove", onMove);
       el.removeEventListener("mouseleave", onLeave);
     };
-  }, [strength]);
+  }, [strength, maxDistance]);
 
   return (
     <div ref={ref} className={className}>
@@ -268,31 +284,39 @@ export function TiltCard({
     const el = ref.current;
     if (!el) return;
 
+    let rafId: number | null = null;
+
     function onMove(e: MouseEvent) {
-      const rect = el!.getBoundingClientRect();
-      const x = ((e.clientX - rect.left) / rect.width - 0.5) * 10;
-      const y = ((e.clientY - rect.top) / rect.height - 0.5) * -10;
-      gsap.to(el, {
-        rotateY: x,
-        rotateX: y,
-        duration: 0.5,
-        ease: "power2.out",
-        transformPerspective: 800,
+      if (rafId) return;
+      rafId = requestAnimationFrame(() => {
+        rafId = null;
+        const rect = el!.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width - 0.5) * 5;
+        const y = ((e.clientY - rect.top) / rect.height - 0.5) * -5;
+        gsap.to(el, {
+          rotateY: x,
+          rotateX: y,
+          duration: 0.5,
+          ease: "power2.out",
+          transformPerspective: 800,
+        });
       });
     }
 
     function onLeave() {
+      if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
       gsap.to(el, {
         rotateY: 0,
         rotateX: 0,
-        duration: 0.8,
-        ease: "elastic.out(1, 0.5)",
+        duration: 0.6,
+        ease: "power3.out",
       });
     }
 
     el.addEventListener("mousemove", onMove);
     el.addEventListener("mouseleave", onLeave);
     return () => {
+      if (rafId) cancelAnimationFrame(rafId);
       el.removeEventListener("mousemove", onMove);
       el.removeEventListener("mouseleave", onLeave);
     };
@@ -340,6 +364,98 @@ export function AnimatedCounter({
   }, [value, suffix, prefix]);
 
   return <span ref={ref} className={className}>{prefix}0{suffix}</span>;
+}
+
+/* ─── Sound wave equalizer bars ─── */
+export function SoundWave({
+  bars = 24,
+  className = "",
+  color = "currentColor",
+}: {
+  bars?: number;
+  className?: string;
+  color?: string;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    const barEls = el.querySelectorAll(".sw-bar");
+    barEls.forEach((bar, i) => {
+      const delay = i * 0.07;
+      const duration = 0.6 + Math.random() * 0.6;
+      gsap.to(bar, {
+        scaleY: 0.15 + Math.random() * 0.85,
+        duration,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+        delay,
+      });
+    });
+  }, [bars]);
+
+  return (
+    <div ref={ref} className={`flex items-end gap-[2px] ${className}`}>
+      {Array.from({ length: bars }).map((_, i) => (
+        <div
+          key={i}
+          className="sw-bar rounded-full origin-bottom"
+          style={{
+            width: 3,
+            height: 28,
+            backgroundColor: color,
+            opacity: 0.6,
+            transform: `scaleY(${0.2 + Math.random() * 0.5})`,
+          }}
+        />
+      ))}
+    </div>
+  );
+}
+
+/* ─── Floating badge that animates in on scroll ─── */
+export function FloatingBadge({
+  children,
+  className = "",
+  delay = 0,
+}: {
+  children: ReactNode;
+  className?: string;
+  delay?: number;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    gsap.fromTo(
+      el,
+      { opacity: 0, y: 20, scale: 0.9 },
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 0.7,
+        ease: "power2.out",
+        delay,
+        scrollTrigger: {
+          trigger: el,
+          start: "top 90%",
+          once: true,
+        },
+      }
+    );
+  }, [delay]);
+
+  return (
+    <div ref={ref} className={className} style={{ opacity: 0 }}>
+      {children}
+    </div>
+  );
 }
 
 /* ─── Smooth appear from bottom (page-level) ─── */

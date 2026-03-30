@@ -24,7 +24,10 @@ export function OrganizationSchema() {
     description:
       "Sythio transforms your audio into summaries, tasks, action plans, and structured outputs. AI-powered voice notes with speaker detection.",
     foundingDate: "2024-01-01",
-    /* sameAs: add social profile URLs when available */
+    founder: {
+      "@type": "Person",
+      name: "Carlos Anaya Ruiz",
+    },
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "customer support",
@@ -276,37 +279,3 @@ export function HowToSchema({
   );
 }
 
-export function VideoSchema({
-  name,
-  description,
-  thumbnailUrl,
-  uploadDate,
-  duration,
-  contentUrl,
-}: {
-  name: string;
-  description: string;
-  thumbnailUrl: string;
-  uploadDate: string;
-  duration?: string;
-  contentUrl?: string;
-}) {
-  const data = {
-    "@context": "https://schema.org",
-    "@type": "VideoObject",
-    name,
-    description,
-    thumbnailUrl,
-    uploadDate,
-    ...(duration ? { duration } : {}),
-    ...(contentUrl ? { contentUrl } : {}),
-    publisher: { "@id": `${SITE_URL}/#organization` },
-  };
-
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
-    />
-  );
-}

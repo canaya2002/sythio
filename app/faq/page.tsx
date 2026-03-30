@@ -38,6 +38,7 @@ function AccordionItem({
     >
       <button
         onClick={onToggle}
+        aria-label={isOpen ? "Collapse answer" : "Expand answer"}
         className="w-full flex items-center justify-between py-7 text-left group"
       >
         <span className="text-base md:text-lg font-medium text-foreground group-hover:text-accent-muted transition-colors pr-8 leading-snug">

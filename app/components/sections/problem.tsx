@@ -1,6 +1,6 @@
 "use client";
 
-import { ScrollSlide, TextReveal, GsapStagger } from "../gsap-effects";
+import { ScrollSlide, TextReveal, GsapStagger, FloatingBadge, SoundWave } from "../gsap-effects";
 import RotatingText from "../rotating-text";
 import { useLanguage } from "../i18n/language-context";
 
@@ -127,7 +127,7 @@ export default function Problem() {
   const c = content[locale] || content.en;
 
   return (
-    <section className="py-32 md:py-44 bg-white section-float-bg">
+    <section className="py-32 md:py-44 bg-white section-float-bg noise-overlay">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-28 items-center">
           {/* Text */}
@@ -148,7 +148,19 @@ export default function Problem() {
 
           {/* Visual — before/after */}
           <ScrollSlide direction="right" distance={100}>
-            <div className="space-y-5">
+            <div className="space-y-5 relative">
+              {/* Floating sound wave badge */}
+              <FloatingBadge delay={0.6} className="absolute -right-6 -top-6 z-10 hidden lg:block float-y-medium">
+                <div className="bg-white rounded-xl border border-border-light shadow-lg px-3 py-2">
+                  <div className="flex items-center gap-2">
+                    <div className="w-6 h-6 rounded-md bg-red-50 flex items-center justify-center">
+                      <div className="w-2 h-2 rounded-full bg-red-400 animate-pulse" />
+                    </div>
+                    <span className="text-[10px] font-semibold text-muted">Recording...</span>
+                  </div>
+                  <SoundWave bars={20} className="mt-1.5" color="#f87171" />
+                </div>
+              </FloatingBadge>
               {/* Before */}
               <div className="relative p-7 rounded-2xl bg-background border border-border-light hover:shadow-lg transition-shadow duration-500">
                 <div className="flex items-center gap-3 mb-5">

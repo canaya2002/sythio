@@ -1070,6 +1070,7 @@ export default function TermsPage() {
               &copy; {new Date().getFullYear()} Sythio. {t.allRights}
             </p>
             <button
+              aria-label="Back to top"
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               className="text-sm text-muted hover:text-foreground transition-colors"
             >

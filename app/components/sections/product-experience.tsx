@@ -1,6 +1,6 @@
 "use client";
 
-import { TextReveal, ScrollSlide, AnimatedCounter, ScrollScale } from "../gsap-effects";
+import { TextReveal, ScrollSlide, AnimatedCounter, ScrollScale, FloatingBadge, SoundWave } from "../gsap-effects";
 import { MacBookFrame, IPhoneFrame } from "../devices";
 import { ActionPlanMockup, SummaryMockup } from "../mockups";
 import RotatingText from "../rotating-text";
@@ -174,7 +174,7 @@ export default function ProductExperience() {
   const c = content[locale] || content.en;
 
   return (
-    <section className="py-32 md:py-44 bg-background overflow-hidden animated-gradient-bg">
+    <section className="py-32 md:py-44 bg-background overflow-hidden animated-gradient-bg section-float-bg-green">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-28 items-center mb-28">
           {/* Text */}
@@ -209,10 +209,27 @@ export default function ProductExperience() {
 
           {/* iPhone visual */}
           <ScrollSlide direction="right" distance={80}>
-            <div className="flex justify-center">
+            <div className="flex justify-center relative">
                 <IPhoneFrame>
                   <MobileOutputScreen c={c} />
                 </IPhoneFrame>
+                {/* Floating output badge */}
+                <FloatingBadge delay={0.5} className="absolute -left-4 top-16 z-10 hidden lg:block float-y-medium">
+                  <div className="bg-white rounded-xl border border-border-light shadow-lg px-3 py-2">
+                    <div className="flex items-center gap-2">
+                      <div className="w-6 h-6 rounded-md bg-emerald-50 flex items-center justify-center">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#059669" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6L9 17l-5-5" /></svg>
+                      </div>
+                      <span className="text-[10px] font-semibold text-foreground">8 outputs ready</span>
+                    </div>
+                  </div>
+                </FloatingBadge>
+                {/* Floating wave */}
+                <FloatingBadge delay={0.8} className="absolute -right-4 bottom-24 z-10 hidden lg:block float-y-slow">
+                  <div className="bg-white rounded-lg border border-border-light shadow-lg px-3 py-2">
+                    <SoundWave bars={10} color="#0a0a0a" />
+                  </div>
+                </FloatingBadge>
             </div>
           </ScrollSlide>
         </div>

@@ -26,9 +26,8 @@ export function ArticleSchema({
     datePublished,
     dateModified: dateModified ?? datePublished,
     author: {
-      "@type": "Organization",
-      "@id": `${SITE_URL}/#organization`,
-      name: "Sythio",
+      "@type": "Person",
+      name: "Carlos Anaya Ruiz",
       url: SITE_URL,
     },
     publisher: {

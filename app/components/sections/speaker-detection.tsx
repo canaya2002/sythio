@@ -1,6 +1,6 @@
 "use client";
 
-import { TextReveal, ScrollSlide, ScrollScale, ParallaxFloat } from "../gsap-effects";
+import { TextReveal, ScrollSlide, ScrollScale, ParallaxFloat, FloatingBadge, SoundWave } from "../gsap-effects";
 import RotatingText from "../rotating-text";
 import { SpeakerBadges } from "../mockups";
 import { IPhoneFrame } from "../devices";
@@ -222,11 +222,25 @@ export default function SpeakerDetection() {
               </div>
 
               {/* Floating stat card */}
-              <div className="absolute -left-4 bottom-20 md:left-0 bg-white rounded-xl border border-border-light shadow-xl px-4 py-3">
-                <p className="text-[10px] text-muted-light font-semibold uppercase tracking-wider mb-1">{t.accuracy}</p>
-                <p className="text-2xl font-bold text-foreground tracking-tight">{t.accuracyValue}</p>
-                <p className="text-[10px] text-emerald-600 font-medium">{t.speakerIdentification}</p>
-              </div>
+              <FloatingBadge delay={0.4} className="absolute -left-4 bottom-20 md:left-0 float-y-slow">
+                <div className="bg-white rounded-xl border border-border-light shadow-xl px-4 py-3">
+                  <p className="text-[10px] text-muted-light font-semibold uppercase tracking-wider mb-1">{t.accuracy}</p>
+                  <p className="text-2xl font-bold text-foreground tracking-tight">{t.accuracyValue}</p>
+                  <p className="text-[10px] text-emerald-600 font-medium">{t.speakerIdentification}</p>
+                </div>
+              </FloatingBadge>
+
+              {/* Sound wave decoration */}
+              <FloatingBadge delay={0.7} className="absolute -left-4 top-10 md:-left-2 z-10 hidden lg:block float-y-medium">
+                <div className="bg-white rounded-lg border border-border-light shadow-lg px-3 py-2">
+                  <div className="flex items-center gap-2">
+                    <div className="w-5 h-5 rounded-full bg-indigo-100 flex items-center justify-center">
+                      <div className="w-1.5 h-1.5 rounded-full bg-indigo-500" />
+                    </div>
+                    <SoundWave bars={12} className="" color="#6366f1" />
+                  </div>
+                </div>
+              </FloatingBadge>
             </div>
           </ScrollSlide>
 

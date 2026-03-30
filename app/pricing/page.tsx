@@ -48,6 +48,7 @@ function FAQItem({
     <div className="border-b border-border-light last:border-0">
       <button
         onClick={onToggle}
+        aria-label={isOpen ? "Collapse answer" : "Expand answer"}
         className="w-full flex items-center justify-between py-6 text-left group"
       >
         <span className="text-base font-medium text-foreground group-hover:text-accent-muted transition-colors pr-8">

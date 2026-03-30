@@ -19,7 +19,17 @@ export async function generateMetadata({
     title: post.title,
     description: post.description,
     keywords: post.keywords,
-    alternates: { canonical: url },
+    alternates: {
+      canonical: url,
+      languages: {
+        "en": `${SITE_URL}/blog/${post.slug}`,
+        "es": `${SITE_URL}/es/blog/${post.slug}`,
+        "fr": `${SITE_URL}/fr/blog/${post.slug}`,
+        "pt": `${SITE_URL}/pt/blog/${post.slug}`,
+        "it": `${SITE_URL}/it/blog/${post.slug}`,
+        "x-default": `${SITE_URL}/blog/${post.slug}`,
+      },
+    },
     openGraph: {
       title: `${post.title} | Sythio Blog`,
       description: post.description,

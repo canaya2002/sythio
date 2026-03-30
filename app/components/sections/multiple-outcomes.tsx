@@ -624,6 +624,7 @@ export default function MultipleOutcomes() {
                     </div>
                   </div>
                   <button
+                    aria-label="Close"
                     onClick={(e) => {
                       e.stopPropagation();
                       setActiveIndex(null);

@@ -26,6 +26,14 @@ export function buildMetadata({
     ...(keywords && keywords.length > 0 ? { keywords } : {}),
     alternates: {
       canonical: url,
+      languages: {
+        "en": `${SITE_URL}${path}`,
+        "es": `${SITE_URL}/es${path}`,
+        "fr": `${SITE_URL}/fr${path}`,
+        "pt": `${SITE_URL}/pt${path}`,
+        "it": `${SITE_URL}/it${path}`,
+        "x-default": `${SITE_URL}${path}`,
+      },
     },
     openGraph: {
       title: `${title} | ${SITE_NAME}`,

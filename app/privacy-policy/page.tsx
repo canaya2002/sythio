@@ -1472,6 +1472,7 @@ export default function PrivacyPolicyPage() {
               &copy; {new Date().getFullYear()} Sythio. {c.allRights}
             </p>
             <button
+              aria-label="Back to top"
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               className="text-sm text-muted hover:text-foreground transition-colors"
             >

@@ -178,6 +178,7 @@ function ContactForm() {
                     <button
                       type="submit"
                       disabled={sending}
+                      aria-label="Submit"
                       className="h-12 px-8 rounded-full bg-foreground text-white text-sm font-medium hover:bg-accent-muted transition-all duration-300 shadow-[0_1px_2px_rgba(0,0,0,0.1),0_4px_12px_rgba(0,0,0,0.1)] hover:shadow-[0_2px_4px_rgba(0,0,0,0.1),0_12px_32px_rgba(0,0,0,0.15)] hover:-translate-y-0.5 disabled:opacity-60 disabled:cursor-not-allowed flex items-center gap-2"
                     >
                       {sending ? (
