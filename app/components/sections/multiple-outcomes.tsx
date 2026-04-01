@@ -95,6 +95,11 @@ const content: Record<string, {
         desc: "Captured organized thoughts",
         expandedDesc: "Capture brainstorming sessions and turn them into categorized, organized concepts. Group by theme, rank by potential, never lose a creative thought.",
       },
+      {
+        title: "Outline",
+        desc: "Hierarchical content structure",
+        expandedDesc: "Turn any conversation into a clear, nested outline. Topics, subtopics, and key points organized hierarchically — perfect for structuring presentations, documents, or project scopes.",
+      },
     ],
     cleanTextTitle: "Clean Text",
     cleanTextP1: "The team agreed to prioritize the onboarding flow this sprint. The current drop-off rate after signup is too high and needs immediate attention.",
@@ -154,6 +159,11 @@ const content: Record<string, {
         title: "Ideas",
         desc: "Pensamientos capturados y organizados",
         expandedDesc: "Captura sesiones de lluvia de ideas y conviértelas en conceptos categorizados y organizados. Agrupa por tema, clasifica por potencial, nunca pierdas un pensamiento creativo.",
+      },
+      {
+        title: "Outline",
+        desc: "Estructura jerárquica del contenido",
+        expandedDesc: "Convierte cualquier conversación en un esquema claro y anidado. Temas, subtemas y puntos clave organizados jerárquicamente — perfecto para estructurar presentaciones, documentos o alcances de proyecto.",
       },
     ],
     cleanTextTitle: "Texto limpio",
@@ -215,6 +225,11 @@ const content: Record<string, {
         desc: "Pensées capturées et organisées",
         expandedDesc: "Capturez les sessions de brainstorming et transformez-les en concepts catégorisés et organisés. Regroupez par thème, classez par potentiel, ne perdez jamais une pensée créative.",
       },
+      {
+        title: "Outline",
+        desc: "Structure hiérarchique du contenu",
+        expandedDesc: "Transformez n'importe quelle conversation en un plan clair et hiérarchique. Thèmes, sous-thèmes et points clés organisés — parfait pour structurer présentations, documents ou portées de projet.",
+      },
     ],
     cleanTextTitle: "Texte propre",
     cleanTextP1: "L'équipe a convenu de prioriser le flux d'intégration pour ce sprint. Le taux d'abandon actuel après l'inscription est trop élevé et nécessite une attention immédiate.",
@@ -275,6 +290,11 @@ const content: Record<string, {
         desc: "Pensamentos capturados e organizados",
         expandedDesc: "Capture sessões de brainstorming e transforme-as em conceitos categorizados e organizados. Agrupe por tema, classifique por potencial, nunca perca um pensamento criativo.",
       },
+      {
+        title: "Outline",
+        desc: "Estrutura hierárquica do conteúdo",
+        expandedDesc: "Transforme qualquer conversa em um esquema claro e aninhado. Temas, subtemas e pontos-chave organizados hierarquicamente — perfeito para estruturar apresentações, documentos ou escopos de projeto.",
+      },
     ],
     cleanTextTitle: "Texto limpo",
     cleanTextP1: "A equipe concordou em priorizar o fluxo de integração neste sprint. A taxa de abandono atual após o cadastro está muito alta e precisa de atenção imediata.",
@@ -334,6 +354,11 @@ const content: Record<string, {
         title: "Idee",
         desc: "Pensieri catturati e organizzati",
         expandedDesc: "Cattura le sessioni di brainstorming e trasformale in concetti categorizzati e organizzati. Raggruppa per tema, classifica per potenziale, non perdere mai un pensiero creativo.",
+      },
+      {
+        title: "Outline",
+        desc: "Struttura gerarchica del contenuto",
+        expandedDesc: "Trasforma qualsiasi conversazione in uno schema chiaro e annidato. Argomenti, sottoargomenti e punti chiave organizzati gerarchicamente — perfetto per strutturare presentazioni, documenti o ambiti di progetto.",
       },
     ],
     cleanTextTitle: "Testo pulito",
@@ -400,6 +425,12 @@ const outcomeMeta = [
     icon: "M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z",
     mockupType: "card" as const,
     mockup: "ideas",
+  },
+  {
+    gradient: "from-cyan-600 to-cyan-700",
+    icon: "M4 6h16M4 10h16M4 14h10M4 18h6",
+    mockupType: "browser" as const,
+    mockup: "summary",
   },
 ];
 

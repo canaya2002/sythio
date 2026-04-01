@@ -34,7 +34,7 @@ const content: Record<string, {
     exportBtn: "Export",
     stats: [
       { value: 30, suffix: "s", prefix: "< ", label: "Processing time" },
-      { value: 8, suffix: "+", prefix: "", label: "Output formats" },
+      { value: 9, suffix: "", prefix: "", label: "Output formats" },
       { value: 6, suffix: "", prefix: "", label: "Speakers supported" },
       { value: 1, suffix: "-click", prefix: "", label: "Export & share" },
     ],
@@ -53,7 +53,7 @@ const content: Record<string, {
     exportBtn: "Exportar",
     stats: [
       { value: 30, suffix: "s", prefix: "< ", label: "Tiempo de procesamiento" },
-      { value: 8, suffix: "+", prefix: "", label: "Formatos de salida" },
+      { value: 9, suffix: "", prefix: "", label: "Formatos de salida" },
       { value: 6, suffix: "", prefix: "", label: "Hablantes soportados" },
       { value: 1, suffix: " clic", prefix: "", label: "Exportar y compartir" },
     ],
@@ -72,7 +72,7 @@ const content: Record<string, {
     exportBtn: "Exporter",
     stats: [
       { value: 30, suffix: "s", prefix: "< ", label: "Temps de traitement" },
-      { value: 8, suffix: "+", prefix: "", label: "Formats de sortie" },
+      { value: 9, suffix: "", prefix: "", label: "Formats de sortie" },
       { value: 6, suffix: "", prefix: "", label: "Locuteurs pris en charge" },
       { value: 1, suffix: " clic", prefix: "", label: "Exporter et partager" },
     ],
@@ -91,7 +91,7 @@ const content: Record<string, {
     exportBtn: "Exportar",
     stats: [
       { value: 30, suffix: "s", prefix: "< ", label: "Tempo de processamento" },
-      { value: 8, suffix: "+", prefix: "", label: "Formatos de sa\u00edda" },
+      { value: 9, suffix: "", prefix: "", label: "Formatos de sa\u00edda" },
       { value: 6, suffix: "", prefix: "", label: "Falantes suportados" },
       { value: 1, suffix: " clique", prefix: "", label: "Exportar e compartilhar" },
     ],
@@ -110,7 +110,7 @@ const content: Record<string, {
     exportBtn: "Esporta",
     stats: [
       { value: 30, suffix: "s", prefix: "< ", label: "Tempo di elaborazione" },
-      { value: 8, suffix: "+", prefix: "", label: "Formati di output" },
+      { value: 9, suffix: "", prefix: "", label: "Formati di output" },
       { value: 6, suffix: "", prefix: "", label: "Speaker supportati" },
       { value: 1, suffix: " clic", prefix: "", label: "Esporta e condividi" },
     ],
@@ -220,7 +220,7 @@ export default function ProductExperience() {
                       <div className="w-6 h-6 rounded-md bg-emerald-50 flex items-center justify-center">
                         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#059669" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6L9 17l-5-5" /></svg>
                       </div>
-                      <span className="text-[10px] font-semibold text-foreground">8 outputs ready</span>
+                      <span className="text-[10px] font-semibold text-foreground">9 outputs ready</span>
                     </div>
                   </div>
                 </FloatingBadge>

@@ -8,7 +8,8 @@ import { MacBookFrame, IPhoneFrame } from "../devices";
 import { SoundWave } from "../gsap-effects";
 import { useLanguage } from "../i18n/language-context";
 import RotatingText from "../rotating-text";
-import Waitlist from "../waitlist";
+import Link from "next/link";
+import { MagneticHover } from "../gsap-effects";
 
 function IPhoneAppScreen() {
   const { locale } = useLanguage();
@@ -169,10 +170,33 @@ export default function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.45 }}
-            className="mt-12"
+            className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4"
           >
-            <Waitlist variant="hero" />
+            <MagneticHover>
+              <Link
+                href="https://sythio-web.vercel.app/"
+                className="h-14 px-10 inline-flex items-center justify-center rounded-full bg-foreground text-white text-base font-medium hover:bg-accent-muted transition-all duration-300 shadow-[0_1px_2px_rgba(0,0,0,0.1),0_4px_12px_rgba(0,0,0,0.1)] hover:shadow-[0_2px_4px_rgba(0,0,0,0.1),0_12px_32px_rgba(0,0,0,0.15)] hover:-translate-y-0.5"
+              >
+                {s("hero.cta1")}
+              </Link>
+            </MagneticHover>
+            <MagneticHover>
+              <Link
+                href="/product"
+                className="h-14 px-10 inline-flex items-center justify-center rounded-full border border-border text-foreground text-base font-medium hover:bg-foreground hover:text-white transition-all duration-300"
+              >
+                {s("hero.cta2")}
+              </Link>
+            </MagneticHover>
           </motion.div>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.4, delay: 0.6 }}
+            className="mt-5 text-center text-sm text-muted"
+          >
+            {s("common.freePlan")}
+          </motion.p>
         </div>
 
         <div className="relative max-w-6xl mx-auto">

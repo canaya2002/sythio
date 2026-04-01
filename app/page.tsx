@@ -3,6 +3,10 @@ import Problem from "./components/sections/problem";
 import HowItWorks from "./components/sections/how-it-works";
 import MultipleOutcomes from "./components/sections/multiple-outcomes";
 import SpeakerDetection from "./components/sections/speaker-detection";
+import Integrations from "./components/sections/integrations";
+import Collaboration from "./components/sections/collaboration";
+import ExportFeatures from "./components/sections/export-features";
+import Security from "./components/sections/security";
 import UseCases from "./components/sections/use-cases";
 import ProductExperience from "./components/sections/product-experience";
 import FinalCTA from "./components/sections/final-cta";
@@ -18,6 +22,10 @@ export default function Home() {
       <HowItWorks />
       <MultipleOutcomes />
       <SpeakerDetection />
+      <Integrations />
+      <Collaboration />
+      <ExportFeatures />
+      <Security />
       <UseCases />
       <ProductExperience />
       <FinalCTA />

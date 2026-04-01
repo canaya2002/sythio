@@ -7,7 +7,7 @@ import {
   getRelatedPosts,
   formatDate,
 } from "../lib/posts";
-import Waitlist from "../../components/waitlist";
+import BlogCTA from "../../components/blog-cta";
 import { ArticleSchema } from "../../components/json-ld-blog";
 import {
   BackToArticles,
@@ -165,10 +165,10 @@ export default async function BlogPostPage({
         </div>
       </article>
 
-      {/* ── Inline Waitlist CTA ── */}
+      {/* ── Inline CTA ── */}
       <section className="pb-20 md:pb-28 bg-background">
         <div className="max-w-3xl mx-auto px-6">
-          <Waitlist variant="inline" />
+          <BlogCTA />
         </div>
       </section>
 

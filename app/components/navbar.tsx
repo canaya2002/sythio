@@ -59,7 +59,7 @@ export default function Navbar() {
         <div className="hidden lg:flex items-center gap-3">
           <LanguageSelector />
           <Link
-            href="/pricing"
+            href="https://sythio-web.vercel.app/"
             className="h-9 px-5 inline-flex items-center justify-center rounded-full bg-foreground text-white text-sm font-medium hover:bg-accent-muted transition-colors duration-200"
           >
             {s("nav.getStarted")}
@@ -118,7 +118,7 @@ export default function Navbar() {
               ))}
               <div className="pt-2">
                 <Link
-                  href="/pricing"
+                  href="https://sythio-web.vercel.app/"
                   onClick={() => setMobileOpen(false)}
                   className="h-11 w-full inline-flex items-center justify-center rounded-full bg-foreground text-white text-sm font-medium hover:bg-accent-muted transition-colors"
                 >

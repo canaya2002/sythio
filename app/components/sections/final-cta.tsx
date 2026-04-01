@@ -7,7 +7,8 @@ import { TextReveal, SoundWave, FloatingBadge } from "../gsap-effects";
 import { useLanguage } from "../i18n/language-context";
 import type { Locale } from "../i18n/translations";
 import RotatingText from "../rotating-text";
-import Waitlist from "../waitlist";
+import Link from "next/link";
+import { MagneticHover } from "../gsap-effects";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -87,9 +88,25 @@ export default function FinalCTA() {
           <TextReveal tag="p" className="mt-8 text-lg md:text-xl text-muted max-w-xl mx-auto leading-relaxed">
             {s("cta.subtitle")}
           </TextReveal>
-          <div className="mt-14 max-w-md mx-auto">
-            <Waitlist variant="hero" />
+          <div className="mt-14 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <MagneticHover>
+              <Link
+                href="https://sythio-web.vercel.app/"
+                className="h-14 px-10 inline-flex items-center justify-center rounded-full bg-foreground text-white text-base font-medium hover:bg-accent-muted transition-all duration-300 shadow-[0_1px_2px_rgba(0,0,0,0.1),0_4px_12px_rgba(0,0,0,0.1)] hover:shadow-[0_2px_4px_rgba(0,0,0,0.1),0_12px_32px_rgba(0,0,0,0.15)] hover:-translate-y-0.5"
+              >
+                {s("common.startUsingSythio")}
+              </Link>
+            </MagneticHover>
+            <MagneticHover>
+              <Link
+                href="/product"
+                className="h-14 px-10 inline-flex items-center justify-center rounded-full border border-border text-foreground text-base font-medium hover:bg-foreground hover:text-white transition-all duration-300"
+              >
+                {s("common.exploreProduct")}
+              </Link>
+            </MagneticHover>
           </div>
+          <p className="mt-6 text-sm text-muted text-center">{s("common.freePlan")}</p>
         </div>
       </div>
     </section>
