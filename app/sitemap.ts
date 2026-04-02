@@ -100,9 +100,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const allPages = [...pages, ...blogPages];
 
+  /* Build a lookup of blog post dates for accurate lastModified */
+  const blogDateMap = new Map(posts.map((post) => [`/blog/${post.slug}`, post.date]));
+
   return allPages.map((p) => ({
     url: `${base}${p.path}`,
-    lastModified: new Date("2026-03-26"),
+    lastModified: new Date(blogDateMap.get(p.path) ?? "2026-03-26"),
     changeFrequency: p.frequency,
     priority: p.priority,
     alternates: {

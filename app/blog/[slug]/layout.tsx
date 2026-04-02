@@ -37,7 +37,10 @@ export async function generateMetadata({
       siteName: "Sythio",
       type: "article",
       locale: "en_US",
+      alternateLocale: ["es_ES", "fr_FR", "pt_BR", "it_IT"],
       publishedTime: post.date,
+      modifiedTime: post.date,
+      authors: ["Carlos Anaya Ruiz"],
       images: [
         {
           url: `${SITE_URL}/og-image.png`,
@@ -49,9 +52,22 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
+      site: "@sabordetiburon",
+      creator: "@sabordetiburon",
       title: `${post.title} | Sythio Blog`,
       description: post.description,
       images: [`${SITE_URL}/og-image.png`],
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+        "max-video-preview": -1,
+      },
     },
   };
 }

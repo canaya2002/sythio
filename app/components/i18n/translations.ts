@@ -51,6 +51,7 @@ export const t: Translations = {
     "hero.srOnly": "Speak once, get everything. Sythio transforms your audio into summaries, tasks, action plans, and structured outputs.",
     "hero.processingComplete": "Processing complete",
     "hero.outputsGenerated": "5 outputs generated",
+    "hero.audioAnalyzed": "Audio analyzed",
 
     // Problem
     "problem.label": "The problem",
@@ -648,6 +649,7 @@ export const t: Translations = {
     "hero.srOnly": "Habla una vez, obtén todo. Sythio transforma tu audio en resúmenes, tareas, planes de acción y resultados estructurados.",
     "hero.processingComplete": "Procesamiento completo",
     "hero.outputsGenerated": "5 resultados generados",
+    "hero.audioAnalyzed": "Audio analizado",
 
     "problem.label": "El problema",
     "problem.title": "Tus notas de voz no van a ningún lado.",
@@ -1226,6 +1228,7 @@ export const t: Translations = {
     "hero.srOnly": "Parlez une fois, obtenez tout. Sythio transforme votre audio en résumés, tâches, plans d'action et résultats structurés.",
     "hero.processingComplete": "Traitement terminé",
     "hero.outputsGenerated": "5 résultats générés",
+    "hero.audioAnalyzed": "Audio analysé",
 
     "problem.label": "Le problème",
     "problem.title": "Vos notes vocales ne mènent nulle part.",
@@ -1790,6 +1793,7 @@ export const t: Translations = {
     "hero.srOnly": "Fale uma vez, obtenha tudo. Sythio transforma seu áudio em resumos, tarefas, planos de ação e resultados estruturados.",
     "hero.processingComplete": "Processamento concluído",
     "hero.outputsGenerated": "5 resultados gerados",
+    "hero.audioAnalyzed": "Áudio analisado",
 
     "problem.label": "O problema",
     "problem.title": "Suas notas de voz não vão a lugar nenhum.",
@@ -2354,6 +2358,7 @@ export const t: Translations = {
     "hero.srOnly": "Parla una volta, ottieni tutto. Sythio trasforma il tuo audio in riepiloghi, attività, piani d'azione e risultati strutturati.",
     "hero.processingComplete": "Elaborazione completata",
     "hero.outputsGenerated": "5 risultati generati",
+    "hero.audioAnalyzed": "Audio analizzato",
 
     "problem.label": "Il problema",
     "problem.title": "Le tue note vocali non vanno da nessuna parte.",

@@ -29,15 +29,21 @@ export function proxy(request: NextRequest) {
     const url = request.nextUrl.clone();
     url.pathname = strippedPath;
 
-    const response = NextResponse.rewrite(url);
-    // Set locale cookie so client can read it
+    // Pass locale to server components via request headers
+    const requestHeaders = new Headers(request.headers);
+    requestHeaders.set("x-locale", matchedLocale);
+
+    const response = NextResponse.rewrite(url, {
+      request: { headers: requestHeaders },
+    });
+
+    // Set locale cookie so browser remembers the preference
     response.cookies.set(COOKIE_NAME, matchedLocale, {
       path: "/",
       maxAge: 60 * 60 * 24 * 365, // 1 year
       sameSite: "lax",
     });
-    // Set header for server components
-    response.headers.set("x-locale", matchedLocale);
+
     return response;
   }
 

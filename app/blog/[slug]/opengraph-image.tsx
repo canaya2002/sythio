@@ -1,4 +1,3 @@
-export const dynamic = "force-dynamic";
 import { ImageResponse } from "next/og";
 import { ogSize, ogContentType } from "../../lib/og-image";
 import { getPost, getCategoryColor } from "../lib/posts";

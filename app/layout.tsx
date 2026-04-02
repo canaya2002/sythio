@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Suspense } from "react";
-import { cookies } from "next/headers";
+import { cookies, headers } from "next/headers";
 import { Geist, Geist_Mono } from "next/font/google";
 import ClientProviders from "./components/client-providers";
 import AnalyticsProvider from "./components/analytics-provider";
@@ -111,6 +111,7 @@ export const metadata: Metadata = {
     siteName: "Sythio",
     url: "https://sythio.com",
     locale: "en_US",
+    alternateLocale: ["es_ES", "fr_FR", "pt_BR", "it_IT"],
     images: [
       {
         url: "https://sythio.com/og-image.png",
@@ -126,6 +127,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    site: "@sabordetiburon",
+    creator: "@sabordetiburon",
     title: "AI Voice Notes App | 9 Outputs from Audio",
     description:
       "Transform audio into summaries, tasks, action plans, and more.",
@@ -134,6 +137,13 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
 };
 
@@ -142,8 +152,12 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const cookieStore = await cookies();
-  const locale = cookieStore.get("NEXT_LOCALE")?.value || "en";
+  const [headerStore, cookieStore] = await Promise.all([headers(), cookies()]);
+  // Proxy sets x-locale on the request when rewriting locale-prefixed URLs
+  const locale =
+    headerStore.get("x-locale") ||
+    cookieStore.get("NEXT_LOCALE")?.value ||
+    "en";
 
   return (
     <html
@@ -179,7 +193,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <Suspense fallback={null}>
           <AnalyticsProvider />
         </Suspense>
-        <ClientProviders>{children}</ClientProviders>
+        <ClientProviders initialLocale={locale as "en" | "es" | "fr" | "pt" | "it"}>{children}</ClientProviders>
         <Analytics />
       </body>
     </html>

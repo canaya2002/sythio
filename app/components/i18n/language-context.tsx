@@ -47,13 +47,18 @@ const LanguageContext = createContext<LanguageContextType>({
   localePath: (path: string) => path,
 });
 
-export function LanguageProvider({ children }: { children: ReactNode }) {
+export function LanguageProvider({
+  children,
+  initialLocale = "en",
+}: {
+  children: ReactNode;
+  initialLocale?: Locale;
+}) {
   const pathname = usePathname();
   const router = useRouter();
 
   const [locale, setLocaleState] = useState<Locale>(() => {
-    // SSR: default to "en", client will sync in useEffect
-    return "en";
+    return initialLocale;
   });
 
   // Sync locale from URL path, cookie, or localStorage on mount

@@ -42,6 +42,7 @@ export function buildMetadata({
       siteName: SITE_NAME,
       type: "website",
       locale: "en_US",
+      alternateLocale: ["es_ES", "fr_FR", "pt_BR", "it_IT"],
       images: [
         {
           url: `${SITE_URL}/og-image.png`,
@@ -53,12 +54,26 @@ export function buildMetadata({
     },
     twitter: {
       card: "summary_large_image",
+      site: "@sabordetiburon",
+      creator: "@sabordetiburon",
       title: `${title} | ${SITE_NAME}`,
       description,
       images: [`${SITE_URL}/og-image.png`],
     },
     ...(noIndex
       ? { robots: { index: false, follow: false } }
-      : {}),
+      : {
+          robots: {
+            index: true,
+            follow: true,
+            googleBot: {
+              index: true,
+              follow: true,
+              "max-image-preview": "large" as const,
+              "max-snippet": -1,
+              "max-video-preview": -1,
+            },
+          },
+        }),
   };
 }

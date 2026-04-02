@@ -46,9 +46,15 @@ export function ArticleSchema({
       "@type": "WebPage",
       "@id": `${SITE_URL}/blog/${slug}`,
     },
-    image: `${SITE_URL}/og-image.png`,
+    image: {
+      "@type": "ImageObject",
+      url: `${SITE_URL}/blog/${slug}/opengraph-image`,
+      width: 1200,
+      height: 630,
+    },
     keywords: keywords.join(", "),
     inLanguage: "en",
+    articleSection: "Audio Intelligence",
     isPartOf: {
       "@type": "Blog",
       "@id": `${SITE_URL}/blog`,
