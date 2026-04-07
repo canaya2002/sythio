@@ -42,7 +42,7 @@ const content: Record<Locale, Record<string, string>> = {
     "row.multiSpeaker": "Multi-speaker audio", "row.multiSpeaker.sythio": "\u2713 Built for conversations", "row.multiSpeaker.competitor": "Single-speaker focused",
     "row.audioSources": "Audio sources", "row.audioSources.sythio": "\u2713 Any audio \u2014 meetings, lectures, calls", "row.audioSources.competitor": "Voice memos",
     "row.freePlan": "Free plan", "row.freePlan.sythio": "$0 \u2014 5 recordings/mo", "row.freePlan.competitor": "$0 \u2014 limited notes",
-    "row.proPlan": "Pro plan", "row.proPlan.sythio": "$12/mo", "row.proPlan.competitor": "$99/yr",
+    "row.proPlan": "Paid plan", "row.proPlan.sythio": "$12/mo", "row.proPlan.competitor": "$99/yr",
   },
   es: {
     label: "Comparaci\u00f3n", title: "Sythio vs AudioPen",
@@ -80,7 +80,7 @@ const content: Record<Locale, Record<string, string>> = {
     "row.multiSpeaker": "Audio multi-hablante", "row.multiSpeaker.sythio": "\u2713 Dise\u00f1ado para conversaciones", "row.multiSpeaker.competitor": "Enfocado en un solo hablante",
     "row.audioSources": "Fuentes de audio", "row.audioSources.sythio": "\u2713 Cualquier audio \u2014 reuniones, clases, llamadas", "row.audioSources.competitor": "Notas de voz",
     "row.freePlan": "Plan gratuito", "row.freePlan.sythio": "$0 \u2014 5 grabaciones/mes", "row.freePlan.competitor": "$0 \u2014 notas limitadas",
-    "row.proPlan": "Plan Pro", "row.proPlan.sythio": "$12/mes", "row.proPlan.competitor": "$99/a\u00f1o",
+    "row.proPlan": "Plan de pago", "row.proPlan.sythio": "$12/mes", "row.proPlan.competitor": "$99/a\u00f1o",
   },
   fr: {
     label: "Comparaison", title: "Sythio vs AudioPen",
@@ -118,7 +118,7 @@ const content: Record<Locale, Record<string, string>> = {
     "row.multiSpeaker": "Audio multi-intervenants", "row.multiSpeaker.sythio": "\u2713 Con\u00e7u pour les conversations", "row.multiSpeaker.competitor": "Un seul intervenant",
     "row.audioSources": "Sources audio", "row.audioSources.sythio": "\u2713 Tout audio \u2014 r\u00e9unions, cours, appels", "row.audioSources.competitor": "M\u00e9mos vocaux",
     "row.freePlan": "Plan gratuit", "row.freePlan.sythio": "$0 \u2014 5 enregistrements/mois", "row.freePlan.competitor": "$0 \u2014 notes limit\u00e9es",
-    "row.proPlan": "Plan Pro", "row.proPlan.sythio": "$12/mois", "row.proPlan.competitor": "$99/an",
+    "row.proPlan": "Plan de pago", "row.proPlan.sythio": "$12/mois", "row.proPlan.competitor": "$99/an",
   },
   pt: {
     label: "Compara\u00e7\u00e3o", title: "Sythio vs AudioPen",
@@ -156,7 +156,7 @@ const content: Record<Locale, Record<string, string>> = {
     "row.multiSpeaker": "\u00c1udio multi-falante", "row.multiSpeaker.sythio": "\u2713 Feito para conversas", "row.multiSpeaker.competitor": "Focado em um \u00fanico falante",
     "row.audioSources": "Fontes de \u00e1udio", "row.audioSources.sythio": "\u2713 Qualquer \u00e1udio \u2014 reuni\u00f5es, aulas, liga\u00e7\u00f5es", "row.audioSources.competitor": "Notas de voz",
     "row.freePlan": "Plano gratuito", "row.freePlan.sythio": "$0 \u2014 5 grava\u00e7\u00f5es/m\u00eas", "row.freePlan.competitor": "$0 \u2014 notas limitadas",
-    "row.proPlan": "Plano Pro", "row.proPlan.sythio": "$12/m\u00eas", "row.proPlan.competitor": "$99/ano",
+    "row.proPlan": "Plano pago", "row.proPlan.sythio": "$12/m\u00eas", "row.proPlan.competitor": "$99/ano",
   },
   it: {
     label: "Confronto", title: "Sythio vs AudioPen",
@@ -194,7 +194,7 @@ const content: Record<Locale, Record<string, string>> = {
     "row.multiSpeaker": "Audio multi-parlante", "row.multiSpeaker.sythio": "\u2713 Progettato per conversazioni", "row.multiSpeaker.competitor": "Focalizzato su un parlante",
     "row.audioSources": "Fonti audio", "row.audioSources.sythio": "\u2713 Qualsiasi audio \u2014 riunioni, lezioni, chiamate", "row.audioSources.competitor": "Memo vocali",
     "row.freePlan": "Piano gratuito", "row.freePlan.sythio": "$0 \u2014 5 registrazioni/mese", "row.freePlan.competitor": "$0 \u2014 note limitate",
-    "row.proPlan": "Piano Pro", "row.proPlan.sythio": "$12/mese", "row.proPlan.competitor": "$99/anno",
+    "row.proPlan": "Piano a pagamento", "row.proPlan.sythio": "$12/mese", "row.proPlan.competitor": "$99/anno",
   },
 };
 

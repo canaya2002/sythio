@@ -59,7 +59,7 @@ export default function BlogCTA() {
           {c.description}
         </p>
         <Link
-          href="https://sythio-web.vercel.app/"
+          href="https://sythio.com"
           className="inline-flex h-12 px-8 items-center justify-center rounded-full bg-white text-foreground text-sm font-semibold hover:bg-white/90 transition-all duration-300 shadow-sm"
         >
           {c.button}

@@ -12,6 +12,9 @@ export const metadata = buildMetadata({
     "Otter.ai vs Sythio",
     "better than Otter",
     "Otter.ai alternative 2026",
+    "voice notes AI vs Otter",
+    "best voice notes AI app",
+    "Otter.ai comparison",
   ],
 });
 

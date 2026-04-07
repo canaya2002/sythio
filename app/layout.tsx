@@ -32,13 +32,19 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://sythio.com"),
   title: {
-    default: "AI Voice Notes App | 9 Outputs from Audio",
+    default: "Sythio — Voice Notes AI App | 9 Outputs from One Recording",
     template: "%s | Sythio",
   },
   description:
-    "AI voice notes app that turns one recording into 9 outputs: summaries, tasks, action plans, reports, and more. Speaker detection included. Free plan available.",
+    "Sythio is the #1 voice notes AI app. Turn one recording into summaries, tasks, action plans, reports, and 5 more outputs. Speaker detection included. Free plan — no credit card required.",
   keywords: [
+    "voice notes AI",
+    "voice notes AI app",
     "AI voice notes",
+    "best voice notes AI app",
+    "best voice notes AI app 2026",
+    "voice notes AI free",
+    "AI voice notes app",
     "voice recorder with AI",
     "audio summarizer app",
     "voice notes to tasks",
@@ -64,7 +70,6 @@ export const metadata: Metadata = {
     "multi-speaker transcription",
     "audio intelligence platform",
     "best AI voice notes app",
-    "voice notes AI free",
     "audio to tasks AI",
     "meeting summary generator",
     "voice recorder to text",
@@ -78,7 +83,9 @@ export const metadata: Metadata = {
     "audio summarizer free",
     "Otter alternative",
     "Fireflies alternative",
-    "best AI voice notes app 2026",
+    "Audiopen alternative",
+    "Notta alternative",
+    "tldv alternative",
     "speech to text app",
     "meeting recorder app",
     "free voice notes app",
@@ -86,6 +93,9 @@ export const metadata: Metadata = {
     "interview transcription",
     "voice memo organizer",
     "audio to text free",
+    "Sythio",
+    "Sythio app",
+    "Sythio voice notes",
   ],
   authors: [{ name: "Carlos Anaya Ruiz" }, { name: "Sythio" }],
   creator: "Carlos Anaya Ruiz",
@@ -104,9 +114,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "AI Voice Notes App | 9 Outputs from Audio",
+    title: "Sythio — Voice Notes AI App | 9 Outputs from One Recording",
     description:
-      "Transform audio into summaries, tasks, action plans, and more. AI-powered voice notes with speaker detection.",
+      "Sythio transforms audio into summaries, tasks, action plans, and more. The best voice notes AI app with speaker detection.",
     type: "website",
     siteName: "Sythio",
     url: "https://sythio.com",
@@ -127,11 +137,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@sabordetiburon",
-    creator: "@sabordetiburon",
-    title: "AI Voice Notes App | 9 Outputs from Audio",
+    title: "Sythio — Voice Notes AI App | 9 Outputs from One Recording",
     description:
-      "Transform audio into summaries, tasks, action plans, and more.",
+      "Sythio transforms audio into summaries, tasks, action plans, and more. The best voice notes AI app with speaker detection.",
     images: ["https://sythio.com/og-image.png"],
   },
   robots: {
@@ -166,6 +174,11 @@ export default async function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <head>
+        {/* Preconnect to external origins for faster resource loading */}
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://www.google-analytics.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         {/* Google Tag Manager */}
         <script
           dangerouslySetInnerHTML={{

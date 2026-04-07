@@ -56,7 +56,7 @@ const content: Record<Locale, Record<string, string>> = {
       "Mediation sessions involve nuanced positions, concessions, and proposals from multiple parties. Sythio documents each party's stance with speaker attribution, captures settlement terms discussed, and produces a structured summary — essential for post-mediation follow-through.",
     pricingTitle: "Free for Legal Professionals to Start",
     pricingDesc:
-      "The free plan gives you 5 recordings per month — enough to test Sythio with your next consultation. No credit card required. When you need more, the Pro plan is $12/month for unlimited recordings and all 9 output formats.",
+      "The free plan gives you 5 recordings per month — enough to test Sythio with your next consultation. No credit card required. When you need more, the Premium plan is $12/month for unlimited recordings and all 9 output formats.",
     exploreTitle: "Explore More",
     relatedUseCases: "Use Cases",
     relatedFeatures: "All Features",

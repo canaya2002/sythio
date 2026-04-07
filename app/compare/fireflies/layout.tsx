@@ -12,6 +12,9 @@ export const metadata = buildMetadata({
     "Fireflies.ai vs Sythio",
     "better than Fireflies",
     "Fireflies.ai alternative 2026",
+    "voice notes AI vs Fireflies",
+    "best voice notes AI app",
+    "Fireflies.ai comparison",
   ],
 });
 

@@ -17,12 +17,14 @@ export function OrganizationSchema() {
     },
     image: `${SITE_URL}/og-image.png`,
     sameAs: [
-      "https://twitter.com/sabordetiburon",
-      "https://www.linkedin.com/company/sythio",
+      "https://www.instagram.com/sythio.ai/",
+      "https://www.linkedin.com/company/sythioai",
+      "https://www.facebook.com/sythio",
+      "https://www.tiktok.com/@sythio.ai",
       "https://github.com/sythio",
     ],
     description:
-      "Sythio transforms your audio into summaries, tasks, action plans, and structured outputs. AI-powered voice notes with speaker detection.",
+      "Sythio is the leading voice notes AI app that transforms audio into summaries, tasks, action plans, and structured outputs with speaker detection.",
     foundingDate: "2024-01-01",
     founder: {
       "@type": "Person",
@@ -71,7 +73,7 @@ export function WebSiteSchema() {
     name: "Sythio",
     url: SITE_URL,
     description:
-      "Turn voice into clarity, action, and structure. AI-powered audio intelligence.",
+      "Sythio — the #1 voice notes AI app. Turn voice into clarity, action, and structure with AI-powered audio intelligence.",
     publisher: { "@id": `${SITE_URL}/#organization` },
     inLanguage: ["en", "es", "fr", "pt", "it"],
     potentialAction: {
@@ -101,7 +103,7 @@ export function SoftwareAppSchema() {
     applicationCategory: "ProductivityApplication",
     operatingSystem: "Web, iOS, Android",
     description:
-      "AI voice notes app that transforms audio into summaries, tasks, action plans, and structured outputs with speaker detection.",
+      "Sythio is the best voice notes AI app — transforms audio into summaries, tasks, action plans, and 6 more structured outputs with speaker detection.",
     url: SITE_URL,
     author: { "@id": `${SITE_URL}/#organization` },
     offers: {
@@ -158,13 +160,8 @@ export function SoftwareAppSchema() {
       "Searchable audio library",
       "Export in PDF, text, and more",
     ],
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.9",
-      ratingCount: "312",
-      bestRating: "5",
-      worstRating: "1",
-    },
+    /* aggregateRating removed — only add when backed by verifiable third-party
+       reviews (e.g. App Store, Trustpilot, G2) to avoid Google manual penalty */
   };
 
   return (
@@ -231,7 +228,7 @@ export function ProductSchema() {
     "@type": "Product",
     "@id": `${SITE_URL}/#product`,
     name: "Sythio",
-    description: "AI-powered audio intelligence platform that transforms recordings into summaries, tasks, action plans, reports, and 5 more structured outputs with speaker detection.",
+    description: "Sythio — the best voice notes AI app. Transforms recordings into summaries, tasks, action plans, reports, and 5 more structured outputs with speaker detection.",
     url: `${SITE_URL}/product`,
     brand: { "@id": `${SITE_URL}/#organization` },
     image: `${SITE_URL}/og-image.png`,

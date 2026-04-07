@@ -43,7 +43,7 @@ const content: Record<Locale, Record<string, string>> = {
     "row.realtime": "Real-time transcription", "row.realtime.sythio": "\u2014", "row.realtime.competitor": "\u2713 Live captions",
     "row.audioFirst": "Audio-first design", "row.audioFirst.sythio": "\u2713 Any audio source", "row.audioFirst.competitor": "Meeting and recording focused",
     "row.freePlan": "Free plan", "row.freePlan.sythio": "$0 \u2014 5 recordings/mo", "row.freePlan.competitor": "$0 \u2014 limited minutes",
-    "row.proPlan": "Pro plan", "row.proPlan.sythio": "$12/mo", "row.proPlan.competitor": "$14.99/mo",
+    "row.proPlan": "Paid plan", "row.proPlan.sythio": "$12/mo", "row.proPlan.competitor": "$14.99/mo",
   },
   es: {
     label: "Comparaci\u00f3n", title: "Sythio vs Notta.ai",
@@ -82,7 +82,7 @@ const content: Record<Locale, Record<string, string>> = {
     "row.realtime": "Transcripci\u00f3n en tiempo real", "row.realtime.sythio": "\u2014", "row.realtime.competitor": "\u2713 Subt\u00edtulos en vivo",
     "row.audioFirst": "Dise\u00f1o audio-primero", "row.audioFirst.sythio": "\u2713 Cualquier fuente de audio", "row.audioFirst.competitor": "Enfocado en reuniones y grabaciones",
     "row.freePlan": "Plan gratuito", "row.freePlan.sythio": "$0 \u2014 5 grabaciones/mes", "row.freePlan.competitor": "$0 \u2014 minutos limitados",
-    "row.proPlan": "Plan Pro", "row.proPlan.sythio": "$12/mes", "row.proPlan.competitor": "$14.99/mes",
+    "row.proPlan": "Plan de pago", "row.proPlan.sythio": "$12/mes", "row.proPlan.competitor": "$14.99/mes",
   },
   fr: {
     label: "Comparaison", title: "Sythio vs Notta.ai",
@@ -121,7 +121,7 @@ const content: Record<Locale, Record<string, string>> = {
     "row.realtime": "Transcription en temps r\u00e9el", "row.realtime.sythio": "\u2014", "row.realtime.competitor": "\u2713 Sous-titres en direct",
     "row.audioFirst": "Conception audio-first", "row.audioFirst.sythio": "\u2713 Toute source audio", "row.audioFirst.competitor": "Centr\u00e9 sur les r\u00e9unions et enregistrements",
     "row.freePlan": "Plan gratuit", "row.freePlan.sythio": "$0 \u2014 5 enregistrements/mois", "row.freePlan.competitor": "$0 \u2014 minutes limit\u00e9es",
-    "row.proPlan": "Plan Pro", "row.proPlan.sythio": "$12/mois", "row.proPlan.competitor": "$14.99/mois",
+    "row.proPlan": "Plan de pago", "row.proPlan.sythio": "$12/mois", "row.proPlan.competitor": "$14.99/mois",
   },
   pt: {
     label: "Compara\u00e7\u00e3o", title: "Sythio vs Notta.ai",
@@ -160,7 +160,7 @@ const content: Record<Locale, Record<string, string>> = {
     "row.realtime": "Transcri\u00e7\u00e3o em tempo real", "row.realtime.sythio": "\u2014", "row.realtime.competitor": "\u2713 Legendas ao vivo",
     "row.audioFirst": "Design \u00e1udio-primeiro", "row.audioFirst.sythio": "\u2713 Qualquer fonte de \u00e1udio", "row.audioFirst.competitor": "Focado em reuni\u00f5es e grava\u00e7\u00f5es",
     "row.freePlan": "Plano gratuito", "row.freePlan.sythio": "$0 \u2014 5 grava\u00e7\u00f5es/m\u00eas", "row.freePlan.competitor": "$0 \u2014 minutos limitados",
-    "row.proPlan": "Plano Pro", "row.proPlan.sythio": "$12/m\u00eas", "row.proPlan.competitor": "$14.99/m\u00eas",
+    "row.proPlan": "Plano pago", "row.proPlan.sythio": "$12/m\u00eas", "row.proPlan.competitor": "$14.99/m\u00eas",
   },
   it: {
     label: "Confronto", title: "Sythio vs Notta.ai",
@@ -199,7 +199,7 @@ const content: Record<Locale, Record<string, string>> = {
     "row.realtime": "Trascrizione in tempo reale", "row.realtime.sythio": "\u2014", "row.realtime.competitor": "\u2713 Sottotitoli in diretta",
     "row.audioFirst": "Design audio-first", "row.audioFirst.sythio": "\u2713 Qualsiasi fonte audio", "row.audioFirst.competitor": "Focalizzato su riunioni e registrazioni",
     "row.freePlan": "Piano gratuito", "row.freePlan.sythio": "$0 \u2014 5 registrazioni/mese", "row.freePlan.competitor": "$0 \u2014 minuti limitati",
-    "row.proPlan": "Piano Pro", "row.proPlan.sythio": "$12/mese", "row.proPlan.competitor": "$14.99/mese",
+    "row.proPlan": "Piano a pagamento", "row.proPlan.sythio": "$12/mese", "row.proPlan.competitor": "$14.99/mese",
   },
 };
 

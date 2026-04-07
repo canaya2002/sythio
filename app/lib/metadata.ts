@@ -43,22 +43,15 @@ export function buildMetadata({
       type: "website",
       locale: "en_US",
       alternateLocale: ["es_ES", "fr_FR", "pt_BR", "it_IT"],
-      images: [
-        {
-          url: `${SITE_URL}/og-image.png`,
-          width: 1200,
-          height: 630,
-          alt: "Sythio — AI Voice Notes App",
-        },
-      ],
+      /* OG image omitted here so Next.js uses the dynamic opengraph-image.tsx
+         route handler in each directory. Fallback to /og-image.png is handled
+         by the root layout metadata. */
     },
     twitter: {
       card: "summary_large_image",
-      site: "@sabordetiburon",
-      creator: "@sabordetiburon",
       title: `${title} | ${SITE_NAME}`,
       description,
-      images: [`${SITE_URL}/og-image.png`],
+      /* Twitter image omitted — Next.js resolves from opengraph-image.tsx */
     },
     ...(noIndex
       ? { robots: { index: false, follow: false } }

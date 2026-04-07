@@ -2,17 +2,24 @@ import { buildMetadata } from "../../lib/metadata";
 import { BreadcrumbSchema, FAQSchema } from "../../components/json-ld";
 
 export const metadata = buildMetadata({
-  title: "AI Voice Notes | Output from Voice Memos",
+  title: "Voice Notes AI — Turn Voice Memos into Structured Output",
   description:
-    "Stop losing ideas to unplayed recordings. Sythio transforms voice notes into summaries, clean text, and tasks. Try free.",
+    "The best voice notes AI app. Stop losing ideas to unplayed recordings. Sythio transforms voice notes into summaries, clean text, tasks, ideas, and key points in seconds. Free plan available.",
   path: "/use-cases/voice-notes",
   keywords: [
+    "voice notes AI",
+    "voice notes AI app",
     "AI voice notes",
+    "best voice notes AI app",
     "smart voice memo app",
     "voice notes to text AI",
     "organize voice memos",
     "voice note summarizer",
     "voice to structured output",
+    "voice memo to tasks",
+    "voice memo organizer AI",
+    "voice notes app free",
+    "AI voice recorder",
   ],
 });
 

@@ -138,7 +138,7 @@ export default function UseCases() {
   }, []);
 
   return (
-    <section className="py-32 md:py-44 bg-white animated-gradient-bg-warm section-float-bg-warm">
+    <section className="py-32 md:py-44 animated-gradient-bg-warm section-float-bg-warm">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-24">
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-light mb-6 block">

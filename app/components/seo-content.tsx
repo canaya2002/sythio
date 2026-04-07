@@ -1,11 +1,8 @@
-"use client";
-
-/* ─── SEO content for crawlers ─── */
+/* ─── SEO content for crawlers (Server Component) ─── */
 /* This content is visually hidden but fully accessible to search engines */
-/* It provides semantic context that client-rendered sections cannot guarantee */
+/* Server-rendered to guarantee indexability by Google and all crawlers */
 
 import Link from "next/link";
-import { useLanguage } from "./i18n/language-context";
 
 type SEOContent = {
   h1: string;
@@ -311,8 +308,7 @@ const content: Record<string, SEOContent> = {
   },
 };
 
-export function HomeSEOContent() {
-  const { locale } = useLanguage();
+export function HomeSEOContent({ locale = "en" }: { locale?: string }) {
   const t = content[locale] || content.en;
 
   return (

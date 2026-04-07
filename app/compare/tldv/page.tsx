@@ -109,7 +109,7 @@ const content: Record<Locale, Record<string, string>> = {
     "row.freePlan": "Free plan",
     "row.freePlan.sythio": "$0 \u2014 5 recordings/mo",
     "row.freePlan.competitor": "$0 \u2014 limited recordings",
-    "row.proPlan": "Pro plan",
+    "row.proPlan": "Paid plan",
     "row.proPlan.sythio": "$12/mo",
     "row.proPlan.competitor": "$18/mo",
   },
@@ -182,7 +182,7 @@ const content: Record<Locale, Record<string, string>> = {
     "row.voiceNotes": "Notas de voz y lluvia de ideas", "row.voiceNotes.sythio": "\u2713 Dise\u00f1ado para cualquier audio", "row.voiceNotes.competitor": "\u2014",
     "row.lectures": "Clases y sesiones de estudio", "row.lectures.sythio": "\u2713 Con resultado de notas de estudio", "row.lectures.competitor": "\u2014",
     "row.freePlan": "Plan gratuito", "row.freePlan.sythio": "$0 \u2014 5 grabaciones/mes", "row.freePlan.competitor": "$0 \u2014 grabaciones limitadas",
-    "row.proPlan": "Plan Pro", "row.proPlan.sythio": "$12/mes", "row.proPlan.competitor": "$18/mes",
+    "row.proPlan": "Plan de pago", "row.proPlan.sythio": "$12/mes", "row.proPlan.competitor": "$18/mes",
   },
   fr: {
     label: "Comparaison",
@@ -253,7 +253,7 @@ const content: Record<Locale, Record<string, string>> = {
     "row.voiceNotes": "Notes vocales et brainstorming", "row.voiceNotes.sythio": "\u2713 Con\u00e7u pour tout audio", "row.voiceNotes.competitor": "\u2014",
     "row.lectures": "Cours et sessions d\u2019\u00e9tude", "row.lectures.sythio": "\u2713 Avec r\u00e9sultat notes d\u2019\u00e9tude", "row.lectures.competitor": "\u2014",
     "row.freePlan": "Plan gratuit", "row.freePlan.sythio": "$0 \u2014 5 enregistrements/mois", "row.freePlan.competitor": "$0 \u2014 enregistrements limit\u00e9s",
-    "row.proPlan": "Plan Pro", "row.proPlan.sythio": "$12/mois", "row.proPlan.competitor": "$18/mois",
+    "row.proPlan": "Plan de pago", "row.proPlan.sythio": "$12/mois", "row.proPlan.competitor": "$18/mois",
   },
   pt: {
     label: "Compara\u00e7\u00e3o",
@@ -324,7 +324,7 @@ const content: Record<Locale, Record<string, string>> = {
     "row.voiceNotes": "Notas de voz e brainstorming", "row.voiceNotes.sythio": "\u2713 Feito para qualquer \u00e1udio", "row.voiceNotes.competitor": "\u2014",
     "row.lectures": "Aulas e sess\u00f5es de estudo", "row.lectures.sythio": "\u2713 Com resultado de notas de estudo", "row.lectures.competitor": "\u2014",
     "row.freePlan": "Plano gratuito", "row.freePlan.sythio": "$0 \u2014 5 grava\u00e7\u00f5es/m\u00eas", "row.freePlan.competitor": "$0 \u2014 grava\u00e7\u00f5es limitadas",
-    "row.proPlan": "Plano Pro", "row.proPlan.sythio": "$12/m\u00eas", "row.proPlan.competitor": "$18/m\u00eas",
+    "row.proPlan": "Plano pago", "row.proPlan.sythio": "$12/m\u00eas", "row.proPlan.competitor": "$18/m\u00eas",
   },
   it: {
     label: "Confronto",
@@ -395,7 +395,7 @@ const content: Record<Locale, Record<string, string>> = {
     "row.voiceNotes": "Note vocali e brainstorming", "row.voiceNotes.sythio": "\u2713 Progettato per qualsiasi audio", "row.voiceNotes.competitor": "\u2014",
     "row.lectures": "Lezioni e sessioni di studio", "row.lectures.sythio": "\u2713 Con risultato note di studio", "row.lectures.competitor": "\u2014",
     "row.freePlan": "Piano gratuito", "row.freePlan.sythio": "$0 \u2014 5 registrazioni/mese", "row.freePlan.competitor": "$0 \u2014 registrazioni limitate",
-    "row.proPlan": "Piano Pro", "row.proPlan.sythio": "$12/mese", "row.proPlan.competitor": "$18/mese",
+    "row.proPlan": "Piano a pagamento", "row.proPlan.sythio": "$12/mese", "row.proPlan.competitor": "$18/mese",
   },
 };
 

@@ -41,22 +41,13 @@ export async function generateMetadata({
       publishedTime: post.date,
       modifiedTime: post.date,
       authors: ["Carlos Anaya Ruiz"],
-      images: [
-        {
-          url: `${SITE_URL}/og-image.png`,
-          width: 1200,
-          height: 630,
-          alt: post.title,
-        },
-      ],
+      /* OG image resolved from opengraph-image.tsx in blog/[slug]/ */
     },
     twitter: {
       card: "summary_large_image",
-      site: "@sabordetiburon",
-      creator: "@sabordetiburon",
       title: `${post.title} | Sythio Blog`,
       description: post.description,
-      images: [`${SITE_URL}/og-image.png`],
+      /* Twitter image resolved from opengraph-image.tsx in blog/[slug]/ */
     },
     robots: {
       index: true,

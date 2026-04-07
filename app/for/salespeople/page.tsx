@@ -56,7 +56,7 @@ const content: Record<Locale, Record<string, string>> = {
       "QBRs with existing clients are full of expansion signals, churn risks, and renewal context. Sythio structures the entire conversation into a summary with key points and action items — a reference you and your CSM can act on immediately.",
     pricingTitle: "Free for Sales Teams to Start",
     pricingDesc:
-      "The free plan gives you 5 recordings per month — enough to test Sythio with your next sales call. No credit card required. When you need more, the Pro plan is $12/month for unlimited recordings and all 9 output formats.",
+      "The free plan gives you 5 recordings per month — enough to test Sythio with your next sales call. No credit card required. When you need more, the Premium plan is $12/month for unlimited recordings and all 9 output formats.",
     exploreTitle: "Explore More",
     relatedUseCases: "Use Cases",
     relatedFeatures: "All Features",

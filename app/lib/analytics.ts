@@ -9,7 +9,6 @@
  * 5. Link GA4 and Search Console in GA4 Admin > Product Links
  */
 
-// TODO: Set this in .env.local → NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
 export const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ?? "";
 
 export const isAnalyticsEnabled = (): boolean => {

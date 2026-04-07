@@ -56,7 +56,7 @@ const content: Record<Locale, Record<string, string>> = {
       "Record your office hours conversations with professors or tutoring sessions. Sythio captures the explanations, worked examples, and advice — so you can focus on understanding in the moment and review the details later.",
     pricingTitle: "Free for Students to Start",
     pricingDesc:
-      "The free plan gives you 5 recordings per month — enough to test Sythio with your next lecture. No credit card required. When you need more, the Pro plan is $12/month for unlimited recordings and all 9 output formats.",
+      "The free plan gives you 5 recordings per month — enough to test Sythio with your next lecture. No credit card required. When you need more, the Premium plan is $12/month for unlimited recordings and all 9 output formats.",
     exploreTitle: "Explore More",
     relatedUseCases: "Use Cases",
     relatedFeatures: "All Features",

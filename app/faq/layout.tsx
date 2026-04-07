@@ -49,7 +49,7 @@ const faqItems = [
   {
     question: "Can Sythio handle long recordings?",
     answer:
-      "Yes. Sythio handles recordings from 30-second voice memos to multi-hour meetings. Pro and Premium plans include priority processing for faster results on longer files.",
+      "Yes. Sythio handles recordings from 30-second voice memos to multi-hour meetings. Premium and Enterprise plans include priority processing for faster results on longer files.",
   },
   {
     question: "What are the best use cases for Sythio?",
@@ -59,12 +59,12 @@ const faqItems = [
   {
     question: "Can I export and share my outputs?",
     answer:
-      "Yes. All outputs can be copied, exported as text, PDF, or Markdown, and shared directly. Pro and Premium plans unlock all export formats.",
+      "Yes. All outputs can be copied, exported as text, PDF, or Markdown, and shared directly. Premium and Enterprise plans unlock all export formats.",
   },
   {
     question: "How does pricing work?",
     answer:
-      "Sythio offers three plans: Free ($0/month) with 5 recordings, Pro ($12/month) with unlimited recordings and all features, and Premium ($29/month) with team workspace and API access. Start free with no credit card required.",
+      "Sythio offers three plans: Free ($0/month) with 5 recordings and 3 output formats, Premium ($12/month) with unlimited recordings and all 9 output formats, and Enterprise with custom pricing for teams including API access and dedicated support. Start free with no credit card required.",
   },
 ];
 

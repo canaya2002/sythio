@@ -2,11 +2,13 @@ import { buildMetadata } from "../lib/metadata";
 import { BreadcrumbSchema, ProductSchema, FAQSchema } from "../components/json-ld";
 
 export const metadata = buildMetadata({
-  title: "AI Voice Notes | One Recording, 9 Outputs",
+  title: "Voice Notes AI Product | One Recording, 9 Outputs",
   description:
-    "Record once, get 9 structured outputs: summaries, tasks, action plans, reports, and more. AI speaker detection included. Try Sythio free.",
+    "Sythio is the voice notes AI app that turns one recording into 9 structured outputs: summaries, tasks, action plans, reports, and more. Speaker detection included. Try free.",
   path: "/product",
   keywords: [
+    "voice notes AI",
+    "voice notes AI app",
     "AI voice notes app",
     "audio to structured output",
     "voice recorder with AI summaries",
@@ -16,6 +18,7 @@ export const metadata = buildMetadata({
     "voice to structure",
     "AI meeting notes tool",
     "best AI voice notes app",
+    "best voice notes AI app",
     "speech to text with AI",
     "audio intelligence app",
     "9 output formats audio",

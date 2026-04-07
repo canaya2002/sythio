@@ -1,3 +1,4 @@
+import { cookies, headers } from "next/headers";
 import Hero from "./components/sections/hero";
 import Problem from "./components/sections/problem";
 import HowItWorks from "./components/sections/how-it-works";
@@ -12,11 +13,17 @@ import ProductExperience from "./components/sections/product-experience";
 import FinalCTA from "./components/sections/final-cta";
 import { HomeSEOContent } from "./components/seo-content";
 
-export default function Home() {
+export default async function Home() {
+  const [headerStore, cookieStore] = await Promise.all([headers(), cookies()]);
+  const locale =
+    headerStore.get("x-locale") ||
+    cookieStore.get("NEXT_LOCALE")?.value ||
+    "en";
+
   return (
     <>
       {/* Server-rendered SEO content — visible to crawlers, hidden visually */}
-      <HomeSEOContent />
+      <HomeSEOContent locale={locale} />
       <Hero />
       <Problem />
       <HowItWorks />

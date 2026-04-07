@@ -41,8 +41,8 @@ export default function PricingLayout({
             answer: "Yes. You can upgrade, downgrade, or cancel your plan at any time. Changes take effect at the start of your next billing cycle.",
           },
           {
-            question: "Is there a free trial for Pro?",
-            answer: "The free tier lets you experience Sythio with 5 recordings per month. No trial needed — upgrade when you're ready.",
+            question: "Is there a free trial for Premium?",
+            answer: "The free tier lets you experience Sythio with 5 recordings per month and 3 output formats. No trial needed — upgrade to Premium when you're ready for unlimited recordings and all 9 outputs.",
           },
           {
             question: "What payment methods do you accept?",
@@ -50,7 +50,7 @@ export default function PricingLayout({
           },
           {
             question: "Do unused recordings roll over?",
-            answer: "On the free plan, unused recordings do not roll over. Pro and Premium plans have unlimited recordings.",
+            answer: "On the free plan, unused recordings do not roll over. Premium and Enterprise plans have unlimited recordings.",
           },
           {
             question: "What happens if I downgrade?",

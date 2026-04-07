@@ -56,7 +56,7 @@ const content: Record<Locale, Record<string, string>> = {
       "Interviews with stakeholders across the client organization are essential for discovery. Sythio captures each perspective accurately with speaker attribution — so you can compare viewpoints and identify patterns across conversations.",
     pricingTitle: "Free for Consultants to Start",
     pricingDesc:
-      "The free plan gives you 5 recordings per month — enough to test Sythio with your next client session. No credit card required. When you need more, the Pro plan is $12/month for unlimited recordings and all 9 output formats.",
+      "The free plan gives you 5 recordings per month — enough to test Sythio with your next client session. No credit card required. When you need more, the Premium plan is $12/month for unlimited recordings and all 9 output formats.",
     exploreTitle: "Explore More",
     relatedUseCases: "Use Cases",
     relatedFeatures: "All Features",
