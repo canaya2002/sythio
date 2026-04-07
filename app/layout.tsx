@@ -179,6 +179,11 @@ export default async function RootLayout({
         <link rel="preconnect" href="https://www.google-analytics.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+        {/* Knowledge Graph / Brand Entity hints — helps Google connect site with GMB */}
+        <meta name="application-name" content="Sythio" />
+        <meta name="author" content="Carlos Anaya Ruiz" />
+        <meta name="geo.region" content="MX" />
+        <meta name="geo.placename" content="Mexico" />
         {/* Google Tag Manager */}
         <script
           dangerouslySetInnerHTML={{

@@ -57,6 +57,13 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      /* www → non-www canonical redirect (matches GMB and all SEO signals) */
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.sythio.com" }],
+        destination: "https://sythio.com/:path*",
+        permanent: true,
+      },
       /* Trailing slash normalization */
       {
         source: "/:path+/",

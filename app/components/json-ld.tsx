@@ -5,9 +5,10 @@ const SITE_URL = "https://sythio.com";
 export function OrganizationSchema() {
   const data = {
     "@context": "https://schema.org",
-    "@type": "Organization",
+    "@type": ["Organization", "SoftwareApplication"],
     "@id": `${SITE_URL}/#organization`,
     name: "Sythio",
+    alternateName: "Sythio AI",
     url: SITE_URL,
     logo: {
       "@type": "ImageObject",
@@ -23,9 +24,10 @@ export function OrganizationSchema() {
       "https://www.tiktok.com/@sythio.ai",
       "https://github.com/sythio",
     ],
+    /* Description matches GMB profile for entity consistency */
     description:
-      "Sythio is the leading voice notes AI app that transforms audio into summaries, tasks, action plans, and structured outputs with speaker detection.",
-    foundingDate: "2024-01-01",
+      "Sythio is a premium voice notes AI tool that transforms a single audio recording into multiple useful outputs. Instead of stopping at transcription, Sythio helps you turn voice notes, meetings, and recordings into summaries, tasks, reports, and ready-to-use text.",
+    foundingDate: "2025-04-01",
     founder: {
       "@type": "Person",
       name: "Carlos Anaya Ruiz",
@@ -35,13 +37,30 @@ export function OrganizationSchema() {
       contactType: "customer support",
       email: "support@sythio.com",
       url: `${SITE_URL}/contact`,
-      availableLanguage: ["English", "Spanish", "French", "Portuguese", "Italian"],
+      availableLanguage: ["English", "Spanish", "French", "Portuguese", "Italian", "German"],
     },
-    areaServed: {
-      "@type": "Place",
-      name: "Worldwide",
+    areaServed: [
+      {
+        "@type": "Country",
+        name: "Mexico",
+      },
+      {
+        "@type": "Place",
+        name: "Worldwide",
+      },
+    ],
+    /* 24/7 availability matching GMB hours */
+    openingHoursSpecification: {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: [
+        "Monday", "Tuesday", "Wednesday", "Thursday",
+        "Friday", "Saturday", "Sunday",
+      ],
+      opens: "00:00",
+      closes: "23:59",
     },
     knowsAbout: [
+      "voice notes AI",
       "AI audio transcription",
       "speaker detection",
       "voice notes",
@@ -55,6 +74,7 @@ export function OrganizationSchema() {
       "executive report generation",
       "study notes from lectures",
     ],
+    knowsLanguage: ["en", "es", "fr", "pt", "it", "de"],
   };
 
   return (
