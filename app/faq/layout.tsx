@@ -64,7 +64,7 @@ const faqItems = [
   {
     question: "How does pricing work?",
     answer:
-      "Sythio offers three plans: Free ($0/month) with 5 recordings and 3 output formats, Premium ($12/month) with unlimited recordings and all 9 output formats, and Enterprise with custom pricing for teams including API access and dedicated support. Start free with no credit card required.",
+      "Sythio offers three plans: Free ($0/month) with 5 recordings and 3 output formats, Premium ($15/month) with unlimited recordings and all 9 output formats, and Enterprise with custom pricing for teams including API access and dedicated support. Start free with no credit card required.",
   },
 ];
 

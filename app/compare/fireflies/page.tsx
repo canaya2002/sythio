@@ -109,7 +109,7 @@ const content: Record<Locale, Record<string, string>> = {
     "row.freePlan.sythio": "$0 \u2014 5 recordings/mo",
     "row.freePlan.competitor": "$0 \u2014 limited credits",
     "row.proPlan": "Paid plan",
-    "row.proPlan.sythio": "$12/mo",
+    "row.proPlan.sythio": "$15/mo",
     "row.proPlan.competitor": "$18/mo",
   },
   es: {
@@ -215,7 +215,7 @@ const content: Record<Locale, Record<string, string>> = {
     "row.freePlan.sythio": "$0 \u2014 5 grabaciones/mes",
     "row.freePlan.competitor": "$0 \u2014 cr\u00e9ditos limitados",
     "row.proPlan": "Plan de pago",
-    "row.proPlan.sythio": "$12/mes",
+    "row.proPlan.sythio": "$15/mes",
     "row.proPlan.competitor": "$18/mes",
   },
   fr: {
@@ -321,7 +321,7 @@ const content: Record<Locale, Record<string, string>> = {
     "row.freePlan.sythio": "$0 \u2014 5 enregistrements/mois",
     "row.freePlan.competitor": "$0 \u2014 cr\u00e9dits limit\u00e9s",
     "row.proPlan": "Plan de pago",
-    "row.proPlan.sythio": "$12/mois",
+    "row.proPlan.sythio": "$15/mois",
     "row.proPlan.competitor": "$18/mois",
   },
   pt: {
@@ -427,7 +427,7 @@ const content: Record<Locale, Record<string, string>> = {
     "row.freePlan.sythio": "$0 \u2014 5 grava\u00e7\u00f5es/m\u00eas",
     "row.freePlan.competitor": "$0 \u2014 cr\u00e9ditos limitados",
     "row.proPlan": "Plano pago",
-    "row.proPlan.sythio": "$12/m\u00eas",
+    "row.proPlan.sythio": "$15/m\u00eas",
     "row.proPlan.competitor": "$18/m\u00eas",
   },
   it: {
@@ -533,7 +533,7 @@ const content: Record<Locale, Record<string, string>> = {
     "row.freePlan.sythio": "$0 \u2014 5 registrazioni/mese",
     "row.freePlan.competitor": "$0 \u2014 crediti limitati",
     "row.proPlan": "Piano a pagamento",
-    "row.proPlan.sythio": "$12/mese",
+    "row.proPlan.sythio": "$15/mese",
     "row.proPlan.competitor": "$18/mese",
   },
 };

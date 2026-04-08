@@ -29,7 +29,7 @@ export default function MeetingsLayout({ children }: { children: React.ReactNode
       <FAQSchema items={[
         { question: "How does Sythio generate meeting notes?", answer: "Sythio records or accepts uploaded meeting audio, then uses AI to analyze context, detect speakers, and generate structured outputs including summaries, tasks, action plans, and follow-up messages." },
         { question: "Can Sythio detect who said what in meetings?", answer: "Yes. Sythio's speaker detection automatically identifies different speakers and attributes statements, decisions, and action items to specific people." },
-        { question: "Is Sythio free for meeting notes?", answer: "Yes. Sythio offers a free plan with 5 recordings per month. Premium ($12/month) includes unlimited recordings and all 9 output formats." },
+        { question: "Is Sythio free for meeting notes?", answer: "Yes. Sythio offers a free plan with 5 recordings per month. Premium ($15/month) includes unlimited recordings and all 9 output formats." },
       ]} />
       {children}
     </>

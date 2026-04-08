@@ -18,6 +18,7 @@ export function OrganizationSchema() {
     },
     image: `${SITE_URL}/og-image.png`,
     sameAs: [
+      "https://sythio.app",
       "https://www.instagram.com/sythio.ai/",
       "https://www.linkedin.com/company/sythioai",
       "https://www.facebook.com/sythio",
@@ -125,12 +126,13 @@ export function SoftwareAppSchema() {
     description:
       "Sythio is the best voice notes AI app — transforms audio into summaries, tasks, action plans, and 6 more structured outputs with speaker detection.",
     url: SITE_URL,
+    installUrl: "https://sythio.app",
     author: { "@id": `${SITE_URL}/#organization` },
     offers: {
       "@type": "AggregateOffer",
       priceCurrency: "USD",
       lowPrice: "0",
-      highPrice: "12",
+      highPrice: "15",
       offerCount: "3",
       offers: [
         {
@@ -146,7 +148,7 @@ export function SoftwareAppSchema() {
         {
           "@type": "Offer",
           name: "Premium",
-          price: "12",
+          price: "15",
           priceCurrency: "USD",
           availability: "https://schema.org/InStock",
           url: `${SITE_URL}/pricing`,
@@ -257,7 +259,7 @@ export function ProductSchema() {
       "@type": "AggregateOffer",
       priceCurrency: "USD",
       lowPrice: "0",
-      highPrice: "12",
+      highPrice: "15",
       offerCount: "3",
       availability: "https://schema.org/InStock",
     },

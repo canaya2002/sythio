@@ -184,7 +184,9 @@ export default function PricingPage() {
               </ul>
               <MagneticHover strength={0.15}>
                 <Link
-                  href="https://sythio.com"
+                  href="https://sythio.app"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="block w-full text-center py-3.5 rounded-full text-sm font-medium bg-foreground text-white hover:bg-accent-muted transition-all duration-300 shadow-[0_1px_2px_rgba(0,0,0,0.05)]"
                 >
                   {s("common.getStartedFree")}
@@ -230,7 +232,9 @@ export default function PricingPage() {
               </ul>
               <MagneticHover strength={0.15}>
                 <Link
-                  href="https://sythio.com"
+                  href="https://sythio.app"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="block w-full text-center py-3.5 rounded-full text-sm font-medium bg-white text-foreground hover:bg-white/90 transition-all duration-300 shadow-sm"
                 >
                   {s("common.getPremium")}
@@ -270,7 +274,9 @@ export default function PricingPage() {
               </ul>
               <MagneticHover strength={0.15}>
                 <Link
-                  href="https://sythio.com"
+                  href="https://sythio.app"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="block w-full text-center py-3.5 rounded-full text-sm font-medium bg-foreground text-white hover:bg-accent-muted transition-all duration-300 shadow-[0_1px_2px_rgba(0,0,0,0.05)]"
                 >
                   {s("common.contactSales")}
@@ -287,7 +293,7 @@ export default function PricingPage() {
             className="text-center text-sm text-muted mt-12"
           >
             {s("pricing.allPlansNote")}{" "}
-            <Link href="https://sythio.com" className="underline underline-offset-4 hover:text-foreground transition-colors">
+            <Link href="/contact" className="underline underline-offset-4 hover:text-foreground transition-colors">
               {s("pricing.questionsContact")}
             </Link>
           </motion.p>
@@ -370,7 +376,9 @@ export default function PricingPage() {
             <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
               <MagneticHover>
                 <Link
-                  href="https://sythio.com"
+                  href="https://sythio.app"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="h-14 px-10 inline-flex items-center justify-center rounded-full bg-foreground text-white text-base font-medium hover:bg-accent-muted transition-all duration-300 shadow-[0_1px_2px_rgba(0,0,0,0.1),0_4px_12px_rgba(0,0,0,0.1)] hover:shadow-[0_2px_4px_rgba(0,0,0,0.1),0_12px_32px_rgba(0,0,0,0.15)] hover:-translate-y-0.5"
                 >
                   {s("common.startUsingSythio")}

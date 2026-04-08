@@ -48,7 +48,7 @@ export default function BestAIVoiceNotesApps() {
       <ul>
         <li><strong>Best for:</strong> Professionals who need more than a transcript — structured outputs, tasks, and action plans</li>
         <li><strong>Speaker detection:</strong> Yes, with task attribution</li>
-        <li><strong>Pricing:</strong> Free (5 recordings/month), Premium $12/month (unlimited)</li>
+        <li><strong>Pricing:</strong> Free (5 recordings/month), Premium $15/month (unlimited)</li>
         <li><strong>Standout feature:</strong> 9 output formats from a single recording</li>
       </ul>
 

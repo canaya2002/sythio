@@ -95,7 +95,7 @@ const content: Record<Locale, Record<string, string>> = {
     pricingDesc:
       "Sythio Enterprise pricing is based on team size, usage volume, and the features your organization needs. Every plan includes dedicated support and custom onboarding.",
     pricingCta: "Contact Sales",
-    pricingNote: "For teams of 10+. Smaller teams can start with Premium at $12/month per user.",
+    pricingNote: "For teams of 10+. Smaller teams can start with Premium at $15/month per user.",
 
     ctaTitle: "Ready to Deploy Sythio Across Your Organization?",
     ctaDesc:
@@ -185,7 +185,7 @@ const content: Record<Locale, Record<string, string>> = {
     pricingDesc:
       "Los precios de Sythio Enterprise se basan en el tamano del equipo, el volumen de uso y las funciones que tu organizacion necesita. Cada plan incluye soporte dedicado e incorporacion personalizada.",
     pricingCta: "Contactar Ventas",
-    pricingNote: "Para equipos de 10+. Equipos mas pequenos pueden empezar con Premium a $12/mes por usuario.",
+    pricingNote: "Para equipos de 10+. Equipos mas pequenos pueden empezar con Premium a $15/mes por usuario.",
 
     ctaTitle: "Listo para Desplegar Sythio en Tu Organizacion?",
     ctaDesc:
@@ -365,7 +365,7 @@ const content: Record<Locale, Record<string, string>> = {
     pricingDesc:
       "Os precos do Sythio Enterprise sao baseados no tamanho da equipe, volume de uso e os recursos que sua organizacao precisa. Cada plano inclui suporte dedicado e onboarding personalizado.",
     pricingCta: "Contatar Vendas",
-    pricingNote: "Para equipes de 10+. Equipes menores podem comecar com Premium a $12/mes por usuario.",
+    pricingNote: "Para equipes de 10+. Equipes menores podem comecar com Premium a $15/mes por usuario.",
 
     ctaTitle: "Pronto para Implantar o Sythio em Toda a Sua Organizacao?",
     ctaDesc:
@@ -455,7 +455,7 @@ const content: Record<Locale, Record<string, string>> = {
     pricingDesc:
       "I prezzi di Sythio Enterprise sono basati sulla dimensione del team, il volume di utilizzo e le funzionalita di cui la tua organizzazione ha bisogno. Ogni piano include supporto dedicato e onboarding personalizzato.",
     pricingCta: "Contatta le Vendite",
-    pricingNote: "Per team di 10+. Team piu piccoli possono iniziare con Premium a $12/mese per utente.",
+    pricingNote: "Per team di 10+. Team piu piccoli possono iniziare con Premium a $15/mese per utente.",
 
     ctaTitle: "Pronto a Distribuire Sythio in Tutta la Tua Organizzazione?",
     ctaDesc:

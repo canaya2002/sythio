@@ -56,7 +56,7 @@ const content: Record<Locale, Record<string, string>> = {
       "Interviews with stakeholders across the client organization are essential for discovery. Sythio captures each perspective accurately with speaker attribution — so you can compare viewpoints and identify patterns across conversations.",
     pricingTitle: "Free for Consultants to Start",
     pricingDesc:
-      "The free plan gives you 5 recordings per month — enough to test Sythio with your next client session. No credit card required. When you need more, the Premium plan is $12/month for unlimited recordings and all 9 output formats.",
+      "The free plan gives you 5 recordings per month — enough to test Sythio with your next client session. No credit card required. When you need more, the Premium plan is $15/month for unlimited recordings and all 9 output formats.",
     exploreTitle: "Explore More",
     relatedUseCases: "Use Cases",
     relatedFeatures: "All Features",
@@ -119,7 +119,7 @@ const content: Record<Locale, Record<string, string>> = {
       "Las entrevistas con interesados en la organización del cliente son esenciales para el descubrimiento. Sythio captura cada perspectiva con precisión con atribución de hablante — para que puedas comparar puntos de vista e identificar patrones entre conversaciones.",
     pricingTitle: "Gratis para que los Consultores Empiecen",
     pricingDesc:
-      "El plan gratuito te da 5 grabaciones al mes — suficiente para probar Sythio con tu próxima sesión con un cliente. Sin tarjeta de crédito. Cuando necesites más, el plan Pro es $12/mes para grabaciones ilimitadas y los 9 formatos de salida.",
+      "El plan gratuito te da 5 grabaciones al mes — suficiente para probar Sythio con tu próxima sesión con un cliente. Sin tarjeta de crédito. Cuando necesites más, el plan Pro es $15/mes para grabaciones ilimitadas y los 9 formatos de salida.",
     exploreTitle: "Explorar Más",
     relatedUseCases: "Casos de Uso",
     relatedFeatures: "Todas las Funciones",
@@ -245,7 +245,7 @@ const content: Record<Locale, Record<string, string>> = {
       "Entrevistas com stakeholders pela organização do cliente são essenciais para descoberta. Sythio captura cada perspectiva com precisão com atribuição de falante — para que você possa comparar pontos de vista e identificar padrões entre conversas.",
     pricingTitle: "Grátis para Consultores Começarem",
     pricingDesc:
-      "O plano gratuito oferece 5 gravações por mês — suficiente para testar o Sythio com sua próxima sessão com cliente. Sem cartão de crédito. Quando precisar de mais, o plano Pro custa $12/mês para gravações ilimitadas e todos os 9 formatos de saída.",
+      "O plano gratuito oferece 5 gravações por mês — suficiente para testar o Sythio com sua próxima sessão com cliente. Sem cartão de crédito. Quando precisar de mais, o plano Pro custa $15/mês para gravações ilimitadas e todos os 9 formatos de saída.",
     exploreTitle: "Explorar Mais",
     relatedUseCases: "Casos de Uso",
     relatedFeatures: "Todos os Recursos",
@@ -308,7 +308,7 @@ const content: Record<Locale, Record<string, string>> = {
       "Le interviste con gli stakeholder nell'organizzazione del cliente sono essenziali per la discovery. Sythio cattura ogni prospettiva con precisione con attribuzione del parlante — così puoi confrontare i punti di vista e identificare pattern tra le conversazioni.",
     pricingTitle: "Gratis per i Consulenti per Iniziare",
     pricingDesc:
-      "Il piano gratuito ti offre 5 registrazioni al mese — abbastanza per testare Sythio con la tua prossima sessione con un cliente. Senza carta di credito. Quando hai bisogno di più, il piano Pro costa $12/mese per registrazioni illimitate e tutti i 9 formati di output.",
+      "Il piano gratuito ti offre 5 registrazioni al mese — abbastanza per testare Sythio con la tua prossima sessione con un cliente. Senza carta di credito. Quando hai bisogno di più, il piano Pro costa $15/mese per registrazioni illimitate e tutti i 9 formati di output.",
     exploreTitle: "Esplora di Più",
     relatedUseCases: "Casi d'Uso",
     relatedFeatures: "Tutte le Funzionalità",

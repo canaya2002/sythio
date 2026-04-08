@@ -56,7 +56,7 @@ const content: Record<Locale, Record<string, string>> = {
       "Record your office hours conversations with professors or tutoring sessions. Sythio captures the explanations, worked examples, and advice — so you can focus on understanding in the moment and review the details later.",
     pricingTitle: "Free for Students to Start",
     pricingDesc:
-      "The free plan gives you 5 recordings per month — enough to test Sythio with your next lecture. No credit card required. When you need more, the Premium plan is $12/month for unlimited recordings and all 9 output formats.",
+      "The free plan gives you 5 recordings per month — enough to test Sythio with your next lecture. No credit card required. When you need more, the Premium plan is $15/month for unlimited recordings and all 9 output formats.",
     exploreTitle: "Explore More",
     relatedUseCases: "Use Cases",
     relatedFeatures: "All Features",
@@ -119,7 +119,7 @@ const content: Record<Locale, Record<string, string>> = {
       "Graba tus conversaciones en horas de oficina con profesores o sesiones de tutoría. Sythio captura las explicaciones, ejemplos resueltos y consejos — para que puedas concentrarte en entender en el momento y revisar los detalles después.",
     pricingTitle: "Gratis para que los Estudiantes Empiecen",
     pricingDesc:
-      "El plan gratuito te da 5 grabaciones al mes — suficiente para probar Sythio con tu próxima clase. Sin tarjeta de crédito. Cuando necesites más, el plan Pro es $12/mes para grabaciones ilimitadas y los 9 formatos de salida.",
+      "El plan gratuito te da 5 grabaciones al mes — suficiente para probar Sythio con tu próxima clase. Sin tarjeta de crédito. Cuando necesites más, el plan Pro es $15/mes para grabaciones ilimitadas y los 9 formatos de salida.",
     exploreTitle: "Explorar Más",
     relatedUseCases: "Casos de Uso",
     relatedFeatures: "Todas las Funciones",
@@ -245,7 +245,7 @@ const content: Record<Locale, Record<string, string>> = {
       "Grave suas conversas em horários de atendimento com professores ou sessões de tutoria. Sythio captura as explicações, exemplos resolvidos e conselhos — para que você possa focar em entender no momento e revisar os detalhes depois.",
     pricingTitle: "Grátis para Estudantes Começarem",
     pricingDesc:
-      "O plano gratuito oferece 5 gravações por mês — suficiente para testar o Sythio com sua próxima aula. Sem cartão de crédito. Quando precisar de mais, o plano Pro custa $12/mês para gravações ilimitadas e todos os 9 formatos de saída.",
+      "O plano gratuito oferece 5 gravações por mês — suficiente para testar o Sythio com sua próxima aula. Sem cartão de crédito. Quando precisar de mais, o plano Pro custa $15/mês para gravações ilimitadas e todos os 9 formatos de saída.",
     exploreTitle: "Explorar Mais",
     relatedUseCases: "Casos de Uso",
     relatedFeatures: "Todos os Recursos",
@@ -308,7 +308,7 @@ const content: Record<Locale, Record<string, string>> = {
       "Registra le tue conversazioni durante il ricevimento con i professori o le sessioni di tutoraggio. Sythio cattura le spiegazioni, gli esempi svolti e i consigli — così puoi concentrarti sulla comprensione nel momento e rivedere i dettagli dopo.",
     pricingTitle: "Gratis per gli Studenti per Iniziare",
     pricingDesc:
-      "Il piano gratuito ti offre 5 registrazioni al mese — abbastanza per testare Sythio con la tua prossima lezione. Senza carta di credito. Quando hai bisogno di più, il piano Pro costa $12/mese per registrazioni illimitate e tutti i 9 formati di output.",
+      "Il piano gratuito ti offre 5 registrazioni al mese — abbastanza per testare Sythio con la tua prossima lezione. Senza carta di credito. Quando hai bisogno di più, il piano Pro costa $15/mese per registrazioni illimitate e tutti i 9 formati di output.",
     exploreTitle: "Esplora di Più",
     relatedUseCases: "Casi d'Uso",
     relatedFeatures: "Tutte le Funzionalità",

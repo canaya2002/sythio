@@ -163,7 +163,7 @@ export default function TldvAlternativesPage() {
   const c = content[locale] || content.en;
 
   const alternatives = [
-    { rank: 1, name: "Sythio", tagline: c.sythioTagline, bestFor: c.sythioBestFor, pricing: "Free (5 recordings/mo) | Pro $12/mo", compareHref: "/product", highlighted: true, features: [c.sythioF1, c.sythioF2, c.sythioF3, c.sythioF4, c.sythioF5] },
+    { rank: 1, name: "Sythio", tagline: c.sythioTagline, bestFor: c.sythioBestFor, pricing: "Free (5 recordings/mo) | Pro $15/mo", compareHref: "/product", highlighted: true, features: [c.sythioF1, c.sythioF2, c.sythioF3, c.sythioF4, c.sythioF5] },
     { rank: 2, name: "Otter.ai", tagline: c.otterTagline, bestFor: c.otterBestFor, pricing: "Free (limited) | Pro $16.99/mo", compareHref: "/compare/otter", highlighted: false, features: [c.otterF1, c.otterF2, c.otterF3] },
     { rank: 3, name: "Fireflies.ai", tagline: c.firefliesTagline, bestFor: c.firefliesBestFor, pricing: "Free (limited) | Pro $18/mo", compareHref: "/compare/fireflies", highlighted: false, features: [c.firefliesF1, c.firefliesF2, c.firefliesF3] },
     { rank: 4, name: "Notta", tagline: c.nottaTagline, bestFor: c.nottaBestFor, pricing: "Free (limited) | Pro $14.99/mo", compareHref: null, highlighted: false, features: [c.nottaF1, c.nottaF2, c.nottaF3] },
@@ -179,7 +179,7 @@ export default function TldvAlternativesPage() {
     { feature: c["row.executiveReports"], sythio: "\u2713", otter: "\u2014", fireflies: "\u2014", notta: "\u2014", audiopen: "\u2014" },
     { feature: c["row.speakerDetection"], sythio: "\u2713", otter: "\u2713", fireflies: "\u2713", notta: "\u2713", audiopen: "\u2014" },
     { feature: c["row.freePlan"], sythio: "5 recordings/mo", otter: "Limited minutes", fireflies: "Limited minutes", notta: "Limited minutes", audiopen: "Limited notes" },
-    { feature: c["row.startingPrice"], sythio: "$12/mo", otter: "$16.99/mo", fireflies: "$18/mo", notta: "$14.99/mo", audiopen: "$99/year" },
+    { feature: c["row.startingPrice"], sythio: "$15/mo", otter: "$16.99/mo", fireflies: "$18/mo", notta: "$14.99/mo", audiopen: "$99/year" },
   ];
 
   return (

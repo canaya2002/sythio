@@ -100,7 +100,7 @@ const content: Record<Locale, Record<string, string>> = {
     "row.freePlan.sythio": "$0 \u2014 5 recordings/mo",
     "row.freePlan.otter": "$0 \u2014 limited minutes",
     "row.proPlan": "Paid plan",
-    "row.proPlan.sythio": "$12/mo",
+    "row.proPlan.sythio": "$15/mo",
     "row.proPlan.otter": "$16.99/mo",
   },
   es: {
@@ -196,7 +196,7 @@ const content: Record<Locale, Record<string, string>> = {
     "row.freePlan.sythio": "$0 \u2014 5 grabaciones/mes",
     "row.freePlan.otter": "$0 \u2014 minutos limitados",
     "row.proPlan": "Plan de pago",
-    "row.proPlan.sythio": "$12/mes",
+    "row.proPlan.sythio": "$15/mes",
     "row.proPlan.otter": "$16.99/mes",
   },
   fr: {
@@ -292,7 +292,7 @@ const content: Record<Locale, Record<string, string>> = {
     "row.freePlan.sythio": "$0 \u2014 5 enregistrements/mois",
     "row.freePlan.otter": "$0 \u2014 minutes limit\u00e9es",
     "row.proPlan": "Plan de pago",
-    "row.proPlan.sythio": "$12/mois",
+    "row.proPlan.sythio": "$15/mois",
     "row.proPlan.otter": "$16.99/mois",
   },
   pt: {
@@ -388,7 +388,7 @@ const content: Record<Locale, Record<string, string>> = {
     "row.freePlan.sythio": "$0 \u2014 5 grava\u00e7\u00f5es/m\u00eas",
     "row.freePlan.otter": "$0 \u2014 minutos limitados",
     "row.proPlan": "Plano pago",
-    "row.proPlan.sythio": "$12/m\u00eas",
+    "row.proPlan.sythio": "$15/m\u00eas",
     "row.proPlan.otter": "$16.99/m\u00eas",
   },
   it: {
@@ -484,7 +484,7 @@ const content: Record<Locale, Record<string, string>> = {
     "row.freePlan.sythio": "$0 \u2014 5 registrazioni/mese",
     "row.freePlan.otter": "$0 \u2014 minuti limitati",
     "row.proPlan": "Piano a pagamento",
-    "row.proPlan.sythio": "$12/mese",
+    "row.proPlan.sythio": "$15/mese",
     "row.proPlan.otter": "$16.99/mese",
   },
 };

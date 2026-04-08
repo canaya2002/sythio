@@ -56,7 +56,7 @@ const content: Record<Locale, Record<string, string>> = {
       "QBRs with existing clients are full of expansion signals, churn risks, and renewal context. Sythio structures the entire conversation into a summary with key points and action items — a reference you and your CSM can act on immediately.",
     pricingTitle: "Free for Sales Teams to Start",
     pricingDesc:
-      "The free plan gives you 5 recordings per month — enough to test Sythio with your next sales call. No credit card required. When you need more, the Premium plan is $12/month for unlimited recordings and all 9 output formats.",
+      "The free plan gives you 5 recordings per month — enough to test Sythio with your next sales call. No credit card required. When you need more, the Premium plan is $15/month for unlimited recordings and all 9 output formats.",
     exploreTitle: "Explore More",
     relatedUseCases: "Use Cases",
     relatedFeatures: "All Features",
@@ -119,7 +119,7 @@ const content: Record<Locale, Record<string, string>> = {
       "Las QBRs con clientes existentes están llenas de señales de expansión, riesgos de abandono y contexto de renovación. Sythio estructura toda la conversación en un resumen con puntos clave y elementos de acción — una referencia sobre la que tú y tu CSM pueden actuar inmediatamente.",
     pricingTitle: "Gratis para que los Equipos de Ventas Empiecen",
     pricingDesc:
-      "El plan gratuito te da 5 grabaciones al mes — suficiente para probar Sythio con tu próxima llamada de ventas. Sin tarjeta de crédito. Cuando necesites más, el plan Pro es $12/mes para grabaciones ilimitadas y los 9 formatos de salida.",
+      "El plan gratuito te da 5 grabaciones al mes — suficiente para probar Sythio con tu próxima llamada de ventas. Sin tarjeta de crédito. Cuando necesites más, el plan Pro es $15/mes para grabaciones ilimitadas y los 9 formatos de salida.",
     exploreTitle: "Explorar Más",
     relatedUseCases: "Casos de Uso",
     relatedFeatures: "Todas las Funciones",
@@ -245,7 +245,7 @@ const content: Record<Locale, Record<string, string>> = {
       "QBRs com clientes existentes estão cheias de sinais de expansão, riscos de churn e contexto de renovação. Sythio estrutura toda a conversa em um resumo com pontos-chave e itens de ação — uma referência na qual você e seu CSM podem agir imediatamente.",
     pricingTitle: "Grátis para Equipes de Vendas Começarem",
     pricingDesc:
-      "O plano gratuito oferece 5 gravações por mês — suficiente para testar o Sythio com sua próxima ligação de vendas. Sem cartão de crédito. Quando precisar de mais, o plano Pro custa $12/mês para gravações ilimitadas e todos os 9 formatos de saída.",
+      "O plano gratuito oferece 5 gravações por mês — suficiente para testar o Sythio com sua próxima ligação de vendas. Sem cartão de crédito. Quando precisar de mais, o plano Pro custa $15/mês para gravações ilimitadas e todos os 9 formatos de saída.",
     exploreTitle: "Explorar Mais",
     relatedUseCases: "Casos de Uso",
     relatedFeatures: "Todos os Recursos",
@@ -308,7 +308,7 @@ const content: Record<Locale, Record<string, string>> = {
       "Le QBR con clienti esistenti sono piene di segnali di espansione, rischi di churn e contesto di rinnovo. Sythio struttura l'intera conversazione in un riassunto con punti chiave e azioni — un riferimento su cui tu e il tuo CSM potete agire immediatamente.",
     pricingTitle: "Gratis per i Team di Vendita per Iniziare",
     pricingDesc:
-      "Il piano gratuito ti offre 5 registrazioni al mese — abbastanza per testare Sythio con la tua prossima chiamata commerciale. Senza carta di credito. Quando hai bisogno di più, il piano Pro costa $12/mese per registrazioni illimitate e tutti i 9 formati di output.",
+      "Il piano gratuito ti offre 5 registrazioni al mese — abbastanza per testare Sythio con la tua prossima chiamata commerciale. Senza carta di credito. Quando hai bisogno di più, il piano Pro costa $15/mese per registrazioni illimitate e tutti i 9 formati di output.",
     exploreTitle: "Esplora di Più",
     relatedUseCases: "Casi d'Uso",
     relatedFeatures: "Tutte le Funzionalità",

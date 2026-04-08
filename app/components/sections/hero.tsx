@@ -174,7 +174,9 @@ export default function Hero() {
           >
             <MagneticHover>
               <Link
-                href="https://sythio.com"
+                href="https://sythio.app"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="h-14 px-10 inline-flex items-center justify-center rounded-full bg-foreground text-white text-base font-medium hover:bg-accent-muted transition-all duration-300 shadow-[0_1px_2px_rgba(0,0,0,0.1),0_4px_12px_rgba(0,0,0,0.1)] hover:shadow-[0_2px_4px_rgba(0,0,0,0.1),0_12px_32px_rgba(0,0,0,0.15)] hover:-translate-y-0.5"
               >
                 {s("hero.cta1")}

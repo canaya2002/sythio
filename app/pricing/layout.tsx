@@ -2,9 +2,9 @@ import { buildMetadata } from "../lib/metadata";
 import { BreadcrumbSchema, FAQSchema } from "../components/json-ld";
 
 export const metadata = buildMetadata({
-  title: "Pricing — Free, Premium $12/mo, Enterprise",
+  title: "Pricing — Free, Premium $15/mo, Enterprise",
   description:
-    "Sythio pricing: Free with 5 recordings/month. Premium at $12/month for unlimited recordings and all 9 formats. Enterprise with custom pricing for teams. No credit card required.",
+    "Sythio pricing: Free with 5 recordings/month. Premium at $15/month for unlimited recordings and all 9 formats. Enterprise with custom pricing for teams. No credit card required.",
   path: "/pricing",
   keywords: [
     "Sythio pricing",
