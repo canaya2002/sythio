@@ -564,13 +564,13 @@ export default function MultipleOutcomes() {
     <section className="py-32 md:py-44 bg-white section-float-bg-warm">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-24">
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-light mb-6 block">
+          <span className="text-[11px] font-semibold uppercase tracking-[0.15em] text-muted-light mb-5 block">
             {t.sectionLabel}
           </span>
-          <TextReveal tag="h2" className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
+          <TextReveal tag="h2" className="text-4xl sm:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.025em] text-foreground">
             {t.headingPrefix}<RotatingText words={t.rotatingWords} className="text-zinc-400" />{t.headingSuffix}
           </TextReveal>
-          <TextReveal tag="p" className="mt-6 text-lg md:text-xl text-muted max-w-xl mx-auto leading-relaxed">
+          <TextReveal tag="p" className="mt-5 text-lg md:text-xl text-muted max-w-xl mx-auto leading-relaxed">
             {t.subtitle}
           </TextReveal>
         </div>

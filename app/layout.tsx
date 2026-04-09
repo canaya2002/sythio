@@ -26,7 +26,10 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
-  themeColor: "#fafafa",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#fafafa" },
+    { media: "(prefers-color-scheme: dark)", color: "#09090b" },
+  ],
 };
 
 export const metadata: Metadata = {
@@ -137,6 +140,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    site: "@sythioai",
+    creator: "@sythioai",
     title: "Sythio — Voice Notes AI App | 9 Outputs from One Recording",
     description:
       "Sythio transforms audio into summaries, tasks, action plans, and more. The best voice notes AI app with speaker detection.",
@@ -152,6 +157,15 @@ export const metadata: Metadata = {
       "max-snippet": -1,
       "max-video-preview": -1,
     },
+  },
+  other: {
+    "apple-itunes-app": "app-id=sythio",
+    "google-play-app": "app-id=com.sythio.app",
+    "msapplication-TileColor": "#09090b",
+    "mobile-web-app-capable": "yes",
+    "apple-mobile-web-app-capable": "yes",
+    "apple-mobile-web-app-status-bar-style": "black-translucent",
+    "apple-mobile-web-app-title": "Sythio",
   },
 };
 
@@ -177,13 +191,22 @@ export default async function RootLayout({
         {/* Preconnect to external origins for faster resource loading */}
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://www.google-analytics.com" />
+        <link rel="preconnect" href="https://vitals.vercel-insights.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+        <link rel="dns-prefetch" href="https://vitals.vercel-insights.com" />
         {/* Knowledge Graph / Brand Entity hints — helps Google connect site with GMB */}
         <meta name="application-name" content="Sythio" />
         <meta name="author" content="Carlos Anaya Ruiz" />
         <meta name="geo.region" content="MX" />
         <meta name="geo.placename" content="Mexico" />
+        {/* Bing / Yandex / Pinterest verification — replace with actual tokens */}
+        {/* <meta name="google-site-verification" content="YOUR_TOKEN" /> */}
+        {/* <meta name="msvalidate.01" content="YOUR_TOKEN" /> */}
+        {/* <meta name="yandex-verification" content="YOUR_TOKEN" /> */}
+        {/* <meta name="p:domain_verify" content="YOUR_TOKEN" /> */}
+        {/* Crawler hints for rich snippets */}
+        <meta name="format-detection" content="telephone=no" />
         {/* Google Tag Manager */}
         <script
           dangerouslySetInnerHTML={{

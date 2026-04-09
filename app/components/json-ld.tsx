@@ -5,7 +5,7 @@ const SITE_URL = "https://sythio.com";
 export function OrganizationSchema() {
   const data = {
     "@context": "https://schema.org",
-    "@type": ["Organization", "SoftwareApplication"],
+    "@type": "Organization",
     "@id": `${SITE_URL}/#organization`,
     name: "Sythio",
     alternateName: "Sythio AI",
@@ -24,6 +24,7 @@ export function OrganizationSchema() {
       "https://www.facebook.com/sythio",
       "https://www.tiktok.com/@sythio.ai",
       "https://github.com/sythio",
+      "https://x.com/sythioai",
     ],
     /* Description matches GMB profile for entity consistency */
     description:
@@ -76,6 +77,7 @@ export function OrganizationSchema() {
       "study notes from lectures",
     ],
     knowsLanguage: ["en", "es", "fr", "pt", "it", "de"],
+    slogan: "Turn voice into clarity, action, and structure",
   };
 
   return (
@@ -97,14 +99,22 @@ export function WebSiteSchema() {
       "Sythio — the #1 voice notes AI app. Turn voice into clarity, action, and structure with AI-powered audio intelligence.",
     publisher: { "@id": `${SITE_URL}/#organization` },
     inLanguage: ["en", "es", "fr", "pt", "it"],
-    potentialAction: {
-      "@type": "SearchAction",
-      target: {
-        "@type": "EntryPoint",
-        urlTemplate: `${SITE_URL}/faq?q={search_term_string}`,
+    potentialAction: [
+      {
+        "@type": "SearchAction",
+        target: {
+          "@type": "EntryPoint",
+          urlTemplate: `${SITE_URL}/faq?q={search_term_string}`,
+        },
+        "query-input": "required name=search_term_string",
       },
-      "query-input": "required name=search_term_string",
-    },
+      {
+        "@type": "ReadAction",
+        target: `${SITE_URL}/blog`,
+      },
+    ],
+    copyrightHolder: { "@id": `${SITE_URL}/#organization` },
+    copyrightYear: 2025,
   };
 
   return (
@@ -122,12 +132,16 @@ export function SoftwareAppSchema() {
     "@id": `${SITE_URL}/#app`,
     name: "Sythio",
     applicationCategory: "ProductivityApplication",
+    applicationSubCategory: "Voice Notes",
     operatingSystem: "Web, iOS, Android",
     description:
       "Sythio is the best voice notes AI app — transforms audio into summaries, tasks, action plans, and 6 more structured outputs with speaker detection.",
     url: SITE_URL,
     installUrl: "https://sythio.app",
+    downloadUrl: "https://sythio.app",
     author: { "@id": `${SITE_URL}/#organization` },
+    softwareVersion: "2.0",
+    datePublished: "2025-04-01",
     offers: {
       "@type": "AggregateOffer",
       priceCurrency: "USD",
@@ -177,11 +191,17 @@ export function SoftwareAppSchema() {
       "Auto-draft follow-up messages",
       "Study notes from lectures",
       "Idea capture and organization",
-      "Multi-language support",
+      "Content outline generation",
+      "Multi-language support (90+ languages)",
       "9 structured output formats",
       "Searchable audio library",
-      "Export in PDF, text, and more",
+      "Export in PDF, Excel, Word, SRT",
+      "Public share links",
+      "Team workspaces and channels",
+      "AI chat with your notes",
+      "Global task inbox",
     ],
+    screenshot: `${SITE_URL}/og-image.png`,
     /* aggregateRating removed — only add when backed by verifiable third-party
        reviews (e.g. App Store, Trustpilot, G2) to avoid Google manual penalty */
   };
@@ -195,7 +215,7 @@ export function SoftwareAppSchema() {
 }
 
 export function FAQSchema({
-  items, 
+  items,
 }: {
   items: { question: string; answer: string }[];
 }) {
@@ -277,22 +297,29 @@ export function HowToSchema({
   name,
   description,
   steps,
+  totalTime,
 }: {
   name: string;
   description: string;
   steps: { name: string; text: string }[];
+  totalTime?: string;
 }) {
   const data = {
     "@context": "https://schema.org",
     "@type": "HowTo",
     name,
     description,
+    ...(totalTime ? { totalTime } : {}),
     step: steps.map((step, index) => ({
       "@type": "HowToStep",
       position: index + 1,
       name: step.name,
       text: step.text,
     })),
+    tool: {
+      "@type": "HowToTool",
+      name: "Sythio",
+    },
   };
 
   return (
@@ -303,3 +330,37 @@ export function HowToSchema({
   );
 }
 
+export function VideoObjectSchema({
+  name,
+  description,
+  thumbnailUrl,
+  uploadDate,
+  duration,
+  contentUrl,
+}: {
+  name: string;
+  description: string;
+  thumbnailUrl: string;
+  uploadDate: string;
+  duration?: string;
+  contentUrl?: string;
+}) {
+  const data = {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    name,
+    description,
+    thumbnailUrl,
+    uploadDate,
+    ...(duration ? { duration } : {}),
+    ...(contentUrl ? { contentUrl } : {}),
+    publisher: { "@id": `${SITE_URL}/#organization` },
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
+  );
+}

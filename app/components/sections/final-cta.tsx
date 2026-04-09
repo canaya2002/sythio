@@ -55,7 +55,7 @@ export default function FinalCTA() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-32 md:py-48 bg-white relative overflow-hidden section-float-bg-rose">
+    <section ref={sectionRef} className="py-36 md:py-52 bg-white relative overflow-hidden section-float-bg-rose">
       <div className="cta-orb absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-r from-indigo-50/60 via-violet-50/40 to-transparent rounded-full blur-3xl pointer-events-none" />
       <div className="cta-orb absolute top-1/2 right-1/4 -translate-y-1/2 w-[400px] h-[400px] bg-gradient-to-l from-purple-50/50 via-pink-50/20 to-transparent rounded-full blur-3xl pointer-events-none" />
       <div className="cta-orb absolute bottom-1/4 left-1/2 -translate-x-1/2 w-[350px] h-[350px] bg-gradient-to-t from-blue-50/40 via-indigo-50/20 to-transparent rounded-full blur-3xl pointer-events-none" />
@@ -79,10 +79,10 @@ export default function FinalCTA() {
         </FloatingBadge>
 
         <div className="text-center max-w-4xl mx-auto">
-          <TextReveal tag="h2" className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground leading-[1.1]">
+          <TextReveal tag="h2" className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-[-0.025em] text-foreground leading-[1.08]">
             {s("cta.title1")}
           </TextReveal>
-          <TextReveal tag="h2" className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] mt-2 bg-gradient-to-r from-foreground via-zinc-500 to-zinc-400 bg-clip-text text-transparent">
+          <TextReveal tag="h2" className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-[-0.025em] leading-[1.08] mt-2 bg-gradient-to-r from-foreground via-zinc-500 to-zinc-400 bg-clip-text text-transparent">
             {c.title2Prefix}<RotatingText words={c.rotatingWords} className="text-zinc-400" />
           </TextReveal>
           <TextReveal tag="p" className="mt-8 text-lg md:text-xl text-muted max-w-xl mx-auto leading-relaxed">

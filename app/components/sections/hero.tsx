@@ -35,7 +35,7 @@ function IPhoneAppScreen() {
           <span className="text-xs font-bold text-white">CA</span>
         </div>
       </div>
-      <div className="bg-white rounded-2xl border border-border-light p-4 mb-4 shadow-sm">
+      <div className="bg-white rounded-2xl border border-border-light p-4 mb-4 shadow-[0_1px_3px_rgba(0,0,0,0.04)]">
         <div className="flex items-center gap-3 mb-3">
           <div className="w-10 h-10 rounded-xl bg-indigo-50 flex items-center justify-center">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6366f1" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -66,7 +66,7 @@ function IPhoneAppScreen() {
           </div>
         ))}
       </div>
-      <div className="bg-white rounded-2xl border border-border-light p-4 mb-4 shadow-sm">
+      <div className="bg-white rounded-2xl border border-border-light p-4 mb-4 shadow-[0_1px_3px_rgba(0,0,0,0.04)]">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-xl bg-violet-50 flex items-center justify-center">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -79,7 +79,7 @@ function IPhoneAppScreen() {
           </div>
         </div>
       </div>
-      <div className="bg-white rounded-2xl border border-border-light p-4 shadow-sm">
+      <div className="bg-white rounded-2xl border border-border-light p-4 shadow-[0_1px_3px_rgba(0,0,0,0.04)]">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-xl bg-emerald-50 flex items-center justify-center">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#059669" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -106,37 +106,35 @@ export default function Hero() {
   const { s } = useLanguage();
 
   useEffect(() => {
-    // Hero entrance animations via GSAP context
     const ctx = gsap.context(() => {}, heroRef);
     return () => ctx.revert();
   }, []);
 
   return (
-    <section ref={heroRef} className="relative pt-28 pb-20 md:pt-36 md:pb-28 hero-animated-bg">
+    <section ref={heroRef} className="relative pt-32 pb-24 md:pt-40 md:pb-32 hero-animated-bg">
       <div className="hero-orb hero-orb-1" />
       <div className="hero-orb hero-orb-2" />
       <div className="hero-orb hero-orb-3" />
-      <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/60 to-background pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/50 to-background pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-6">
-        <div className="text-center max-w-4xl mx-auto mb-20">
+        <div className="text-center max-w-4xl mx-auto mb-24">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.5 }}
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-foreground/5 border border-border-light mb-10">
+            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-foreground/[0.04] border border-border-light mb-10">
               <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-              <span className="text-xs font-medium text-muted">{s("hero.badge")}</span>
+              <span className="text-xs font-medium text-muted tracking-wide">{s("hero.badge")}</span>
             </div>
           </motion.div>
 
-          {/* Server-rendered H1 for SEO — rotating text is visual enhancement */}
           <motion.h1
-            initial={{ opacity: 0, y: 32 }}
+            initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.05] tracking-tight text-foreground"
+            transition={{ duration: 0.7, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
+            className="text-[2.75rem] sm:text-6xl md:text-7xl lg:text-[5.25rem] font-bold leading-[1.04] tracking-[-0.025em] text-foreground"
           >
             <RotatingText
               words={[s("hero.rotate.speak"), s("hero.rotate.record"), s("hero.rotate.capture"), s("hero.rotate.share")]}
@@ -152,32 +150,31 @@ export default function Hero() {
               {s("hero.title2")}
             </span>
           </motion.h1>
-          {/* Hidden server-rendered text for crawlers */}
           <span className="sr-only">
             {s("hero.srOnly")}
           </span>
 
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="mt-8 text-lg md:text-xl text-muted leading-relaxed max-w-2xl mx-auto"
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="mt-7 text-lg md:text-xl text-muted leading-relaxed max-w-2xl mx-auto"
           >
             {s("hero.subtitle")}
           </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.45 }}
-            className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4"
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3.5"
           >
             <MagneticHover>
               <Link
                 href="https://sythio.app"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="h-14 px-10 inline-flex items-center justify-center rounded-full bg-foreground text-white text-base font-medium hover:bg-accent-muted transition-all duration-300 shadow-[0_1px_2px_rgba(0,0,0,0.1),0_4px_12px_rgba(0,0,0,0.1)] hover:shadow-[0_2px_4px_rgba(0,0,0,0.1),0_12px_32px_rgba(0,0,0,0.15)] hover:-translate-y-0.5"
+                className="h-[52px] px-8 inline-flex items-center justify-center rounded-full bg-foreground text-white text-[15px] font-medium hover:bg-accent-muted transition-all duration-300 shadow-[0_1px_2px_rgba(0,0,0,0.1),0_4px_12px_rgba(0,0,0,0.1)] hover:shadow-[0_2px_4px_rgba(0,0,0,0.1),0_12px_32px_rgba(0,0,0,0.15)] hover:-translate-y-0.5 active:translate-y-0"
               >
                 {s("hero.cta1")}
               </Link>
@@ -185,7 +182,7 @@ export default function Hero() {
             <MagneticHover>
               <Link
                 href="/product"
-                className="h-14 px-10 inline-flex items-center justify-center rounded-full border border-border text-foreground text-base font-medium hover:bg-foreground hover:text-white transition-all duration-300"
+                className="h-[52px] px-8 inline-flex items-center justify-center rounded-full border border-border text-foreground text-[15px] font-medium hover:bg-foreground hover:text-white hover:border-foreground transition-all duration-300"
               >
                 {s("hero.cta2")}
               </Link>
@@ -194,8 +191,8 @@ export default function Hero() {
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.4, delay: 0.6 }}
-            className="mt-5 text-center text-sm text-muted"
+            transition={{ duration: 0.4, delay: 0.55 }}
+            className="mt-5 text-center text-[13px] text-muted-light"
           >
             {s("common.freePlan")}
           </motion.p>
@@ -203,9 +200,9 @@ export default function Hero() {
 
         <div className="relative max-w-6xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, y: 60, scale: 0.9 }}
+            initial={{ opacity: 0, y: 50, scale: 0.92 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 1, delay: 0.5 }}
+            transition={{ duration: 0.9, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
             className="hero-macbook"
           >
               <MacBookFrame>
@@ -216,9 +213,9 @@ export default function Hero() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 80, scale: 0.85 }}
+            initial={{ opacity: 0, x: 60, scale: 0.88 }}
             animate={{ opacity: 1, x: 0, scale: 1 }}
-            transition={{ duration: 0.9, delay: 0.8 }}
+            transition={{ duration: 0.8, delay: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
             className="hero-iphone absolute -right-2 md:right-8 lg:right-16 top-4 md:top-8 z-10 hidden md:block"
           >
               <IPhoneFrame>
@@ -227,13 +224,13 @@ export default function Hero() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 1.5, duration: 0.6 }}
-            className="absolute -bottom-4 left-8 md:left-16 bg-white rounded-xl border border-border-light shadow-xl p-4 z-10"
+            initial={{ opacity: 0, scale: 0.85, y: 16 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ delay: 1.4, duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+            className="absolute -bottom-3 left-8 md:left-16 bg-white rounded-2xl border border-border-light shadow-[0_4px_16px_rgba(0,0,0,0.06)] p-4 z-10"
           >
             <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-lg bg-foreground flex items-center justify-center">
+              <div className="w-9 h-9 rounded-xl bg-foreground flex items-center justify-center">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z" />
                   <path d="M19 10v2a7 7 0 01-14 0v-2" />
@@ -246,15 +243,14 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* Sound wave floating badge */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.8, duration: 0.6 }}
-            className="absolute -bottom-4 right-8 md:right-16 lg:right-28 bg-white rounded-xl border border-border-light shadow-xl px-4 py-3 z-10 hidden md:block float-y-slow"
+            transition={{ delay: 1.6, duration: 0.5 }}
+            className="absolute -bottom-3 right-8 md:right-16 lg:right-28 bg-white rounded-2xl border border-border-light shadow-[0_4px_16px_rgba(0,0,0,0.06)] px-4 py-3 z-10 hidden md:block float-y-slow"
           >
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-lg bg-indigo-50 flex items-center justify-center">
+              <div className="w-8 h-8 rounded-xl bg-indigo-50 flex items-center justify-center">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6366f1" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M9 18V5l12-2v13" /><circle cx="6" cy="18" r="3" /><circle cx="18" cy="16" r="3" />
                 </svg>

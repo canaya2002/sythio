@@ -122,13 +122,13 @@ export default function HowItWorks() {
     <section className="py-32 md:py-44 bg-background animated-gradient-bg section-float-bg-blue">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-24">
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-light mb-6 block">
+          <span className="text-[11px] font-semibold uppercase tracking-[0.15em] text-muted-light mb-5 block">
             {c.label}
           </span>
-          <TextReveal tag="h2" className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
+          <TextReveal tag="h2" className="text-4xl sm:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.025em] text-foreground">
             {c.headingPrefix}<RotatingText words={c.rotatingWords} className="text-zinc-400" />
           </TextReveal>
-          <TextReveal tag="p" className="mt-6 text-lg md:text-xl text-muted max-w-lg mx-auto leading-relaxed">
+          <TextReveal tag="p" className="mt-5 text-lg md:text-xl text-muted max-w-lg mx-auto leading-relaxed">
             {c.subtitle}
           </TextReveal>
         </div>
@@ -153,22 +153,21 @@ export default function HowItWorks() {
         <GsapStagger className="grid md:grid-cols-3 gap-8" stagger={0.15}>
           {steps.map((step) => (
             <ScrollScale key={step.number}>
-              <div className="group relative p-10 rounded-3xl bg-white border border-border-light hover:border-border hover:shadow-[0_4px_16px_rgba(0,0,0,0.04),0_16px_48px_rgba(0,0,0,0.06)] transition-all duration-500">
-                {/* Hover glow */}
-                <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-indigo-50/0 via-violet-50/0 to-purple-50/0 group-hover:from-indigo-50/30 group-hover:via-violet-50/20 group-hover:to-purple-50/10 transition-all duration-500" />
+              <div className="group relative p-9 rounded-2xl bg-white border border-border-light hover:border-border/80 hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)] transition-all duration-500 ease-out">
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-indigo-50/0 via-violet-50/0 to-purple-50/0 group-hover:from-indigo-50/30 group-hover:via-violet-50/20 group-hover:to-purple-50/10 transition-all duration-500" />
                 <div className="relative">
-                  <div className="flex items-center justify-between mb-8">
-                    <div className="w-14 h-14 rounded-2xl bg-background border border-border-light flex items-center justify-center text-muted group-hover:text-foreground group-hover:border-border group-hover:shadow-sm transition-all duration-300">
+                  <div className="flex items-center justify-between mb-7">
+                    <div className="w-13 h-13 rounded-2xl bg-background border border-border-light flex items-center justify-center text-muted group-hover:text-foreground group-hover:border-border group-hover:bg-white group-hover:shadow-sm transition-all duration-300">
                       {step.icon}
                     </div>
-                    <span className="text-sm font-mono font-semibold text-muted-light tracking-wider">
+                    <span className="text-xs font-mono font-semibold text-muted-light/60 tracking-widest">
                       {step.number}
                     </span>
                   </div>
-                  <h3 className="text-xl font-semibold text-foreground mb-3">
+                  <h3 className="text-lg font-semibold text-foreground mb-2.5 tracking-[-0.01em]">
                     {step.title}
                   </h3>
-                  <p className="text-base text-muted leading-relaxed">
+                  <p className="text-[15px] text-muted leading-relaxed">
                     {step.description}
                   </p>
                 </div>

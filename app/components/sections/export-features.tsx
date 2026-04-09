@@ -267,13 +267,13 @@ export default function ExportFeatures() {
     <section className="py-32 md:py-44 bg-white section-float-bg-green">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-24">
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-light mb-6 block">
+          <span className="text-[11px] font-semibold uppercase tracking-[0.15em] text-muted-light mb-5 block">
             {t.sectionLabel}
           </span>
-          <TextReveal tag="h2" className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
+          <TextReveal tag="h2" className="text-4xl sm:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.025em] text-foreground">
             {t.heading}<RotatingText words={t.rotatingWords} className="text-zinc-400" />
           </TextReveal>
-          <TextReveal tag="p" className="mt-6 text-lg md:text-xl text-muted max-w-xl mx-auto leading-relaxed">
+          <TextReveal tag="p" className="mt-5 text-lg md:text-xl text-muted max-w-xl mx-auto leading-relaxed">
             {t.subtitle}
           </TextReveal>
         </div>
@@ -282,7 +282,7 @@ export default function ExportFeatures() {
         <GsapStagger className="grid grid-cols-2 md:grid-cols-4 gap-5 mb-12" stagger={0.08}>
           {t.formats.map((format) => (
             <ScrollScale key={format.title}>
-              <div className="group relative p-6 rounded-2xl bg-background border border-border-light hover:border-border hover:shadow-[0_4px_16px_rgba(0,0,0,0.04),0_16px_48px_rgba(0,0,0,0.06)] transition-all duration-500 text-center">
+              <div className="group relative p-6 rounded-2xl bg-background border border-border-light hover:border-border/80 hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)] transition-all duration-500 ease-out text-center">
                 <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${format.gradient} flex items-center justify-center mx-auto mb-4 group-hover:scale-110 group-hover:shadow-lg transition-all duration-300`}>
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
                     <path d={format.icon} />
@@ -299,7 +299,7 @@ export default function ExportFeatures() {
         <GsapStagger className="grid md:grid-cols-3 gap-6" stagger={0.1}>
           {t.extras.map((extra) => (
             <ScrollScale key={extra.title}>
-              <div className="group flex gap-4 p-6 rounded-2xl bg-background border border-border-light hover:border-border hover:shadow-[0_4px_16px_rgba(0,0,0,0.04)] transition-all duration-500">
+              <div className="group flex gap-4 p-6 rounded-2xl bg-background border border-border-light hover:border-border/80 hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)] transition-all duration-500 ease-out">
                 <div className="w-10 h-10 rounded-xl bg-foreground/5 border border-border-light flex items-center justify-center shrink-0 group-hover:bg-foreground group-hover:border-foreground transition-all duration-300">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="text-foreground group-hover:text-white transition-colors duration-300">
                     <path d={extra.icon} />

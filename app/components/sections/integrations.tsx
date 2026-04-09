@@ -201,13 +201,13 @@ export default function Integrations() {
     <section className="py-32 md:py-44 bg-background overflow-hidden animated-gradient-bg-cool section-float-bg-blue">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-24">
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-light mb-6 block">
+          <span className="text-[11px] font-semibold uppercase tracking-[0.15em] text-muted-light mb-5 block">
             {t.sectionLabel}
           </span>
-          <TextReveal tag="h2" className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
+          <TextReveal tag="h2" className="text-4xl sm:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.025em] text-foreground">
             {t.heading}<RotatingText words={t.rotatingWords} className="text-zinc-400" />
           </TextReveal>
-          <TextReveal tag="p" className="mt-6 text-lg md:text-xl text-muted max-w-xl mx-auto leading-relaxed">
+          <TextReveal tag="p" className="mt-5 text-lg md:text-xl text-muted max-w-xl mx-auto leading-relaxed">
             {t.subtitle}
           </TextReveal>
         </div>
@@ -215,7 +215,7 @@ export default function Integrations() {
         <GsapStagger className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6" stagger={0.1}>
           {t.cards.map((card) => (
             <ScrollScale key={card.title}>
-              <div className="group relative p-8 rounded-2xl bg-white border border-border-light hover:border-border hover:shadow-[0_4px_16px_rgba(0,0,0,0.04),0_16px_48px_rgba(0,0,0,0.06)] transition-all duration-500">
+              <div className="group relative p-7 rounded-2xl bg-white border border-border-light hover:border-border/80 hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)] transition-all duration-500 ease-out">
                 <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 bg-gradient-to-br from-indigo-50/20 via-violet-50/10 to-transparent transition-opacity duration-500" />
                 <div className="relative">
                   <div className={`w-12 h-12 rounded-xl ${card.bgColor} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>

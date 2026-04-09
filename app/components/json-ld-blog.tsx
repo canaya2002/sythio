@@ -9,6 +9,8 @@ export function ArticleSchema({
   datePublished,
   dateModified,
   keywords,
+  wordCount,
+  articleSection,
 }: {
   title: string;
   description: string;
@@ -16,6 +18,8 @@ export function ArticleSchema({
   datePublished: string;
   dateModified?: string;
   keywords: string[];
+  wordCount?: number;
+  articleSection?: string;
 }) {
   const data = {
     "@context": "https://schema.org",
@@ -52,14 +56,27 @@ export function ArticleSchema({
       width: 1200,
       height: 630,
     },
+    thumbnailUrl: `${SITE_URL}/blog/${slug}/opengraph-image`,
     keywords: keywords.join(", "),
     inLanguage: "en",
-    articleSection: "Audio Intelligence",
+    articleSection: articleSection ?? "Audio Intelligence",
+    ...(wordCount ? { wordCount } : {}),
+    isAccessibleForFree: true,
     isPartOf: {
       "@type": "Blog",
       "@id": `${SITE_URL}/blog`,
       name: "Sythio Blog",
       url: `${SITE_URL}/blog`,
+    },
+    /* speakable for voice search — Google uses this to identify
+       sections of the article suitable for TTS / voice assistants */
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: [".blog-content h2", ".blog-content > p:first-child"],
+    },
+    potentialAction: {
+      "@type": "ReadAction",
+      target: `${SITE_URL}/blog/${slug}`,
     },
   };
 

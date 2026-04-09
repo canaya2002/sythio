@@ -141,13 +141,13 @@ export default function UseCases() {
     <section className="py-32 md:py-44 animated-gradient-bg-warm section-float-bg-warm">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-24">
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-light mb-6 block">
+          <span className="text-[11px] font-semibold uppercase tracking-[0.15em] text-muted-light mb-5 block">
             {c.sectionLabel}
           </span>
-          <TextReveal tag="h2" className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
+          <TextReveal tag="h2" className="text-4xl sm:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.025em] text-foreground">
             {c.heading}<RotatingText words={c.rotatingWords} className="text-zinc-400" />
           </TextReveal>
-          <TextReveal tag="p" className="mt-6 text-lg md:text-xl text-muted max-w-xl mx-auto leading-relaxed">
+          <TextReveal tag="p" className="mt-5 text-lg md:text-xl text-muted max-w-xl mx-auto leading-relaxed">
             {c.subtitle}
           </TextReveal>
         </div>
@@ -167,7 +167,7 @@ export default function UseCases() {
           {c.cases.map((useCase, i) => (
             <div
               key={useCase.title}
-              className="usecase-card group relative p-8 rounded-3xl bg-background border border-border-light hover:border-border hover:shadow-[0_4px_16px_rgba(0,0,0,0.04),0_16px_48px_rgba(0,0,0,0.06)] transition-all duration-500 overflow-hidden"
+              className="usecase-card group relative p-8 rounded-2xl bg-background border border-border-light hover:border-border/80 hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)] transition-all duration-500 ease-out overflow-hidden"
             >
               {/* Color gradient on hover */}
               <div className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${gradients[i]} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />

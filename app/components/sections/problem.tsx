@@ -132,10 +132,10 @@ export default function Problem() {
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-28 items-center">
           {/* Text */}
           <div>
-            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-light mb-6 block">
+            <span className="text-[11px] font-semibold uppercase tracking-[0.15em] text-muted-light mb-5 block">
               {c.sectionLabel}
             </span>
-            <TextReveal tag="h2" className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-[1.1]">
+            <TextReveal tag="h2" className="text-4xl sm:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.025em] text-foreground leading-[1.1]">
               {c.heading}<RotatingText words={c.rotatingWords} className="text-zinc-400" />
             </TextReveal>
             <TextReveal tag="p" className="mt-7 text-lg md:text-xl text-muted leading-relaxed max-w-lg">
@@ -162,7 +162,7 @@ export default function Problem() {
                 </div>
               </FloatingBadge>
               {/* Before */}
-              <div className="relative p-7 rounded-2xl bg-background border border-border-light hover:shadow-lg transition-shadow duration-500">
+              <div className="relative p-7 rounded-2xl bg-background border border-border-light hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)] transition-all duration-500 ease-out">
                 <div className="flex items-center gap-3 mb-5">
                   <div className="w-10 h-10 rounded-xl bg-red-50 flex items-center justify-center">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ef4444" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -183,7 +183,7 @@ export default function Problem() {
               </div>
 
               {/* After */}
-              <div className="relative p-7 rounded-2xl bg-foreground text-white border border-zinc-700 hover:shadow-2xl transition-shadow duration-500">
+              <div className="relative p-7 rounded-2xl bg-foreground text-white border border-zinc-700 hover:shadow-[0_12px_40px_rgba(0,0,0,0.25)] transition-all duration-500 ease-out">
                 <div className="flex items-center gap-3 mb-5">
                   <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#34d399" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

@@ -19,17 +19,22 @@ const securityHeaders = [
   },
   {
     key: "Referrer-Policy",
-    value: "origin-when-cross-origin",
+    value: "strict-origin-when-cross-origin",
   },
   {
     key: "Permissions-Policy",
-    value: "camera=(), microphone=(self), geolocation=()",
+    value: "camera=(), microphone=(self), geolocation=(), interest-cohort=()",
+  },
+  {
+    key: "X-XSS-Protection",
+    value: "1; mode=block",
   },
 ];
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
   trailingSlash: false,
+  compress: true,
   experimental: {
     workerThreads: false,
     cpus: 4,
@@ -50,6 +55,16 @@ const nextConfig: NextConfig = {
           {
             key: "Cache-Control",
             value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+      /* Sitemap and robots should not be cached too long */
+      {
+        source: "/(sitemap\\.xml|robots\\.txt)",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=3600, s-maxage=86400, stale-while-revalidate=86400",
           },
         ],
       },

@@ -179,10 +179,10 @@ export default function ProductExperience() {
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-28 items-center mb-28">
           {/* Text */}
           <div>
-            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-light mb-6 block">
+            <span className="text-[11px] font-semibold uppercase tracking-[0.15em] text-muted-light mb-5 block">
               {c.sectionLabel}
             </span>
-            <TextReveal tag="h2" className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-[1.1]">
+            <TextReveal tag="h2" className="text-4xl sm:text-5xl lg:text-[3.5rem] font-bold tracking-[-0.025em] text-foreground leading-[1.1]">
               {c.heading}<RotatingText words={c.rotatingWords} className="text-zinc-400" />
             </TextReveal>
             <TextReveal tag="p" className="mt-7 text-lg md:text-xl text-muted leading-relaxed max-w-lg">

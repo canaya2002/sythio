@@ -351,6 +351,9 @@ export function HomeSEOContent({ locale = "en" }: { locale?: string }) {
         <li><Link href="/for/students">{t.whoStudentsLabel}</Link> — {t.whoStudents}</li>
         <li><Link href="/for/founders">{t.whoFoundersLabel}</Link> — {t.whoFounders}</li>
         <li><Link href="/for/project-managers">{t.whoPMsLabel}</Link> — {t.whoPMs}</li>
+        <li><Link href="/for/salespeople">Salespeople</Link> — Document client interactions and follow up faster</li>
+        <li><Link href="/for/consultants">Consultants</Link> — Structured documentation from every engagement</li>
+        <li><Link href="/for/lawyers">Lawyers</Link> — Detailed records of depositions, hearings, and calls</li>
       </ul>
 
       <h2>{t.pricingTitle}</h2>
@@ -363,7 +366,34 @@ export function HomeSEOContent({ locale = "en" }: { locale?: string }) {
         <li><Link href="/compare/otter">Sythio vs Otter.ai</Link></li>
         <li><Link href="/compare/fireflies">Sythio vs Fireflies.ai</Link></li>
         <li><Link href="/compare/tldv">Sythio vs tl;dv</Link></li>
+        <li><Link href="/compare/audiopen">Sythio vs AudioPen</Link></li>
+        <li><Link href="/compare/notta">Sythio vs Notta</Link></li>
       </ul>
+
+      <h2>Audio Transformation</h2>
+      <ul>
+        <li><Link href="/audio-to-transcript">Audio to Transcript</Link> — Accurate transcription with speaker detection</li>
+        <li><Link href="/audio-to-summary">Audio to Summary</Link> — Concise overviews from recordings</li>
+        <li><Link href="/audio-to-tasks">Audio to Tasks</Link> — Extract action items automatically</li>
+        <li><Link href="/audio-to-action-plan">Audio to Action Plan</Link> — Step-by-step plans from conversations</li>
+        <li><Link href="/audio-to-report">Audio to Report</Link> — Executive-ready documents</li>
+        <li><Link href="/audio-to-study-notes">Audio to Study Notes</Link> — Study material from lectures</li>
+        <li><Link href="/audio-to-clean-text">Audio to Clean Text</Link> — Polished, readable text</li>
+        <li><Link href="/audio-to-key-points">Audio to Key Points</Link> — Essential information extracted</li>
+        <li><Link href="/audio-to-ideas">Audio to Ideas</Link> — Categorized brainstorming output</li>
+        <li><Link href="/audio-to-messages">Audio to Messages</Link> — Ready-to-send follow-ups</li>
+      </ul>
+
+      <nav aria-label="Additional resources">
+        <ul>
+          <li><Link href="/blog">Sythio Blog</Link></li>
+          <li><Link href="/enterprise">Enterprise</Link></li>
+          <li><Link href="/integrations">Integrations</Link></li>
+          <li><Link href="/security">Security</Link></li>
+          <li><Link href="/glossary">Glossary</Link></li>
+          <li><Link href="/case-studies">Case Studies</Link></li>
+        </ul>
+      </nav>
     </div>
   );
 }

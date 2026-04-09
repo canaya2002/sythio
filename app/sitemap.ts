@@ -105,23 +105,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   /* Stagger lastModified dates by category so Google sees varied freshness */
   const categoryDates: Record<string, string> = {
-    "/product": "2026-04-05",
-    "/features": "2026-04-04",
-    "/pricing": "2026-04-03",
-    "/use-cases": "2026-04-04",
-    "/compare": "2026-03-28",
-    "/for/": "2026-03-30",
-    "/audio-to-": "2026-04-02",
-    "/alternatives": "2026-03-28",
-    "/blog": "2026-04-06",
-    "/faq": "2026-04-01",
-    "/about": "2026-03-15",
-    "/contact": "2026-03-15",
-    "/glossary": "2026-03-20",
-    "/security": "2026-03-20",
-    "/integrations": "2026-04-01",
-    "/enterprise": "2026-04-01",
-    "/case-studies": "2026-03-28",
+    "/product": "2026-04-08",
+    "/features": "2026-04-07",
+    "/pricing": "2026-04-06",
+    "/use-cases": "2026-04-07",
+    "/compare": "2026-04-04",
+    "/for/": "2026-04-05",
+    "/audio-to-": "2026-04-06",
+    "/alternatives": "2026-04-03",
+    "/blog": "2026-04-08",
+    "/faq": "2026-04-05",
+    "/about": "2026-03-28",
+    "/contact": "2026-03-28",
+    "/glossary": "2026-04-01",
+    "/security": "2026-04-02",
+    "/integrations": "2026-04-05",
+    "/enterprise": "2026-04-05",
+    "/case-studies": "2026-04-03",
   };
 
   function getLastModified(path: string): Date {
@@ -129,13 +129,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const blogDate = blogDateMap.get(path);
     if (blogDate) return new Date(blogDate);
     /* Homepage gets the freshest date */
-    if (path === "") return new Date("2026-04-07");
+    if (path === "") return new Date("2026-04-08");
     /* Match category prefix */
     for (const [prefix, date] of Object.entries(categoryDates)) {
       if (path.startsWith(prefix)) return new Date(date);
     }
     /* Fallback for legal/misc pages */
-    return new Date("2026-03-15");
+    return new Date("2026-03-28");
   }
 
   return allPages.map((p) => ({
