@@ -1,5 +1,5 @@
 import { buildMetadata } from "../lib/metadata";
-import { BreadcrumbSchema, FAQSchema } from "../components/json-ld";
+import { BreadcrumbSchema, FAQSchema, HowToSchema } from "../components/json-ld";
 
 export const metadata = buildMetadata({
   title: "Audio to Report | AI Executive Reports",
@@ -24,6 +24,16 @@ export default function AudioToReportLayout({ children }: { children: React.Reac
         items={[
           { name: "Home", href: "/" },
           { name: "Audio to Report", href: "/audio-to-report" },
+        ]}
+      />
+      <HowToSchema
+        name="How to generate an executive report from audio with Sythio"
+        description="Transform any recording into a polished executive report in three steps."
+        totalTime="PT1M"
+        steps={[
+          { name: "Record or upload audio", text: "Record a meeting, client call, or presentation in Sythio, or upload an existing audio file." },
+          { name: "AI generates your report", text: "Sythio analyzes the recording and produces a professional report with key findings, discussion highlights, recommendations, and next steps." },
+          { name: "Get your executive report", text: "Receive a stakeholder-ready report. Export as PDF or text to share with leadership, clients, or your team." },
         ]}
       />
       <FAQSchema items={[

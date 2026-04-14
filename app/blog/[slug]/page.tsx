@@ -107,6 +107,8 @@ export default async function BlogPostPage({
         slug={post.slug}
         datePublished={post.date}
         keywords={post.keywords}
+        readingTime={post.readingTime}
+        articleSection={post.category}
       />
 
       {/* ── Article Header ── */}

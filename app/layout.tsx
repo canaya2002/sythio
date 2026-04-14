@@ -8,6 +8,7 @@ import {
   OrganizationSchema,
   WebSiteSchema,
   SoftwareAppSchema,
+  MobileAppSchema,
 } from "./components/json-ld";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
@@ -41,6 +42,7 @@ export const metadata: Metadata = {
   description:
     "Sythio is the #1 voice notes AI app. Turn one recording into summaries, tasks, action plans, reports, and 5 more outputs. Speaker detection included. Free plan — no credit card required.",
   keywords: [
+    /* ─── Core brand & product ─── */
     "voice notes AI",
     "voice notes AI app",
     "AI voice notes",
@@ -99,6 +101,67 @@ export const metadata: Metadata = {
     "Sythio",
     "Sythio app",
     "Sythio voice notes",
+    /* ─── Voice notes long-tail & intent ─── */
+    "voice note app for iPhone",
+    "voice note app for Android",
+    "voice memo to summary",
+    "voice memo to text AI",
+    "voice note transcription app",
+    "record voice notes and get summary",
+    "best app to organize voice memos",
+    "AI app for voice recordings",
+    "turn voice memo into action items",
+    "voice diary app with AI",
+    "voice journal app",
+    "voice notes for productivity",
+    "voice notes for students",
+    "voice notes for meetings",
+    "voice notes for founders",
+    "voice notes for project managers",
+    "voice notes for sales",
+    /* ─── Voice search & conversational queries ─── */
+    "how to summarize voice notes",
+    "how to transcribe voice memos",
+    "app that turns voice into notes",
+    "app that summarizes recordings",
+    "what is the best voice notes app",
+    "how to organize voice recordings",
+    "how to get tasks from a meeting recording",
+    "how to take notes from audio",
+    /* ─── Audio transformation ─── */
+    "audio to study notes",
+    "audio to key points",
+    "audio to ideas",
+    "audio to messages",
+    "audio to clean transcript",
+    "recording to summary AI",
+    "recording to action items",
+    "recording to report",
+    "speech to summary",
+    "speech to action plan",
+    "speech to tasks",
+    /* ─── Competitor & alternative queries ─── */
+    "best Otter alternative 2026",
+    "best Fireflies alternative 2026",
+    "Otter.ai alternative free",
+    "Fireflies.ai alternative free",
+    "better than Otter",
+    "better than Fireflies",
+    "AudioPen alternative free",
+    "Rev alternative AI",
+    "Whisper alternative app",
+    /* ─── Use-case specific ─── */
+    "lecture recording to notes",
+    "client call summary AI",
+    "brainstorming session recorder",
+    "podcast show notes generator",
+    "interview summary AI",
+    "sales call summary",
+    "therapy session notes AI",
+    "deposition transcription AI",
+    "voice note to email",
+    "voice note to report",
+    "voice memo to study notes",
   ],
   authors: [{ name: "Carlos Anaya Ruiz" }, { name: "Sythio" }],
   creator: "Carlos Anaya Ruiz",
@@ -135,8 +198,16 @@ export const metadata: Metadata = {
     ],
   },
   icons: {
-    icon: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/android-chrome-192x192.png", sizes: "192x192", type: "image/png" },
+      { url: "/android-chrome-512x512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -162,6 +233,7 @@ export const metadata: Metadata = {
     "apple-itunes-app": "app-id=sythio",
     "google-play-app": "app-id=com.sythio.app",
     "msapplication-TileColor": "#09090b",
+    "msapplication-TileImage": "/android-chrome-192x192.png",
     "mobile-web-app-capable": "yes",
     "apple-mobile-web-app-capable": "yes",
     "apple-mobile-web-app-status-bar-style": "black-translucent",
@@ -188,6 +260,8 @@ export default async function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <head>
+        {/* RSS Feed for blog — helps Google News, Feedly, and AI crawlers discover content */}
+        <link rel="alternate" type="application/rss+xml" title="Sythio Blog" href="https://sythio.com/feed.xml" />
         {/* Preconnect to external origins for faster resource loading */}
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://www.google-analytics.com" />
@@ -231,6 +305,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <OrganizationSchema />
         <WebSiteSchema />
         <SoftwareAppSchema />
+        <MobileAppSchema />
         <Suspense fallback={null}>
           <AnalyticsProvider />
         </Suspense>

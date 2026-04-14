@@ -1,5 +1,5 @@
 import { buildMetadata } from "../lib/metadata";
-import { BreadcrumbSchema, FAQSchema } from "../components/json-ld";
+import { BreadcrumbSchema, FAQSchema, PricingSchema } from "../components/json-ld";
 
 export const metadata = buildMetadata({
   title: "Pricing — Free, Premium $15/mo, Enterprise",
@@ -34,6 +34,7 @@ export default function PricingLayout({
           { name: "Pricing", href: "/pricing" },
         ]}
       />
+      <PricingSchema />
       <FAQSchema
         items={[
           {

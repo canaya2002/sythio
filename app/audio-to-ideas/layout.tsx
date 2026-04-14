@@ -1,5 +1,5 @@
 import { buildMetadata } from "../lib/metadata";
-import { BreadcrumbSchema, FAQSchema } from "../components/json-ld";
+import { BreadcrumbSchema, FAQSchema, HowToSchema } from "../components/json-ld";
 
 export const metadata = buildMetadata({
   title: "Audio to Ideas | Organize Brainstorms",
@@ -24,6 +24,16 @@ export default function AudioToIdeasLayout({ children }: { children: React.React
         items={[
           { name: "Home", href: "/" },
           { name: "Audio to Ideas", href: "/audio-to-ideas" },
+        ]}
+      />
+      <HowToSchema
+        name="How to organize ideas from audio with Sythio"
+        description="Capture and organize brainstorming ideas from any recording in three steps."
+        totalTime="PT1M"
+        steps={[
+          { name: "Record or upload audio", text: "Record a brainstorming session, voice memo, or group discussion in Sythio, or upload an existing recording." },
+          { name: "AI captures and groups ideas", text: "Sythio identifies distinct ideas and concepts, groups related ones by theme, and highlights which received the most emphasis." },
+          { name: "Get your organized ideas", text: "Receive a structured list of ideas organized by theme and ranked by potential. Export or share with collaborators." },
         ]}
       />
       <FAQSchema items={[

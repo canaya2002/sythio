@@ -12,6 +12,7 @@ import UseCases from "./components/sections/use-cases";
 import ProductExperience from "./components/sections/product-experience";
 import FinalCTA from "./components/sections/final-cta";
 import { HomeSEOContent } from "./components/seo-content";
+import { SpeakablePageSchema } from "./components/json-ld";
 
 export default async function Home() {
   const [headerStore, cookieStore] = await Promise.all([headers(), cookies()]);
@@ -24,6 +25,12 @@ export default async function Home() {
     <>
       {/* Server-rendered SEO content — visible to crawlers, hidden visually */}
       <HomeSEOContent locale={locale} />
+      <SpeakablePageSchema
+        url="/"
+        name="Sythio — Voice Notes AI App | 9 Outputs from One Recording"
+        description="Sythio is the #1 voice notes AI app. Turn one recording into summaries, tasks, action plans, reports, and 5 more outputs. Speaker detection included."
+        speakableSelectors={["h1", "[data-speakable]", ".sr-only h1", ".sr-only > p:first-of-type"]}
+      />
       <Hero />
       <Problem />
       <HowItWorks />

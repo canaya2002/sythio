@@ -58,9 +58,9 @@ const nextConfig: NextConfig = {
           },
         ],
       },
-      /* Sitemap and robots should not be cached too long */
+      /* Sitemap, robots, and RSS feed — moderate caching */
       {
-        source: "/(sitemap\\.xml|robots\\.txt)",
+        source: "/(sitemap\\.xml|robots\\.txt|feed\\.xml)",
         headers: [
           {
             key: "Cache-Control",

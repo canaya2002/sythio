@@ -1,5 +1,5 @@
 import { buildMetadata } from "../lib/metadata";
-import { BreadcrumbSchema } from "../components/json-ld";
+import { BreadcrumbSchema, ItemListSchema } from "../components/json-ld";
 
 export const metadata = buildMetadata({
   title: "Use Cases | AI Notes for Meetings & More",
@@ -27,6 +27,19 @@ export default function UseCasesLayout({
         items={[
           { name: "Home", href: "/" },
           { name: "Use Cases", href: "/use-cases" },
+        ]}
+      />
+      <ItemListSchema
+        name="Sythio Use Cases"
+        description="How professionals use Sythio to transform meetings, voice notes, lectures, and calls into structured output."
+        items={[
+          { name: "Meeting Notes", url: "/use-cases/meetings", position: 1 },
+          { name: "Voice Notes", url: "/use-cases/voice-notes", position: 2 },
+          { name: "Brainstorming Sessions", url: "/use-cases/brainstorming", position: 3 },
+          { name: "Lectures", url: "/use-cases/lectures", position: 4 },
+          { name: "Client Calls", url: "/use-cases/client-calls", position: 5 },
+          { name: "Podcasts", url: "/use-cases/podcasts", position: 6 },
+          { name: "Interviews", url: "/use-cases/interviews", position: 7 },
         ]}
       />
       {children}

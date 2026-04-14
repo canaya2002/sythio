@@ -1,5 +1,5 @@
 import { buildMetadata } from "../lib/metadata";
-import { BreadcrumbSchema, FAQSchema } from "../components/json-ld";
+import { BreadcrumbSchema, FAQSchema, HowToSchema } from "../components/json-ld";
 
 export const metadata = buildMetadata({
   title: "Audio to Clean Text | AI Transcription",
@@ -25,6 +25,16 @@ export default function AudioToCleanTextLayout({ children }: { children: React.R
         items={[
           { name: "Home", href: "/" },
           { name: "Audio to Clean Text", href: "/audio-to-clean-text" },
+        ]}
+      />
+      <HowToSchema
+        name="How to convert audio to clean text with Sythio"
+        description="Turn any recording into polished, readable text without filler words in three steps."
+        totalTime="PT1M"
+        steps={[
+          { name: "Record or upload audio", text: "Record a voice memo, interview, or meeting in Sythio, or upload an existing audio file in any format." },
+          { name: "AI cleans your transcript", text: "Sythio transcribes the audio, removes filler words, corrects grammar, and restructures sentences into natural, readable prose." },
+          { name: "Get your clean text", text: "Receive polished, publish-ready text that preserves the original meaning. Use it for emails, documents, blog posts, or reports." },
         ]}
       />
       <FAQSchema items={[

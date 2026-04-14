@@ -105,23 +105,26 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   /* Stagger lastModified dates by category so Google sees varied freshness */
   const categoryDates: Record<string, string> = {
-    "/product": "2026-04-08",
-    "/features": "2026-04-07",
-    "/pricing": "2026-04-06",
-    "/use-cases": "2026-04-07",
-    "/compare": "2026-04-04",
-    "/for/": "2026-04-05",
-    "/audio-to-": "2026-04-06",
-    "/alternatives": "2026-04-03",
-    "/blog": "2026-04-08",
-    "/faq": "2026-04-05",
-    "/about": "2026-03-28",
-    "/contact": "2026-03-28",
-    "/glossary": "2026-04-01",
-    "/security": "2026-04-02",
-    "/integrations": "2026-04-05",
-    "/enterprise": "2026-04-05",
-    "/case-studies": "2026-04-03",
+    "/product": "2026-04-13",
+    "/features": "2026-04-12",
+    "/pricing": "2026-04-11",
+    "/use-cases": "2026-04-12",
+    "/compare": "2026-04-10",
+    "/for/": "2026-04-11",
+    "/audio-to-": "2026-04-11",
+    "/alternatives": "2026-04-09",
+    "/blog": "2026-04-13",
+    "/faq": "2026-04-10",
+    "/about": "2026-04-06",
+    "/contact": "2026-04-06",
+    "/glossary": "2026-04-08",
+    "/security": "2026-04-09",
+    "/integrations": "2026-04-10",
+    "/enterprise": "2026-04-10",
+    "/case-studies": "2026-04-09",
+    "/privacy-policy": "2026-04-01",
+    "/terms": "2026-04-01",
+    "/cookie-policy": "2026-04-01",
   };
 
   function getLastModified(path: string): Date {
@@ -129,13 +132,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const blogDate = blogDateMap.get(path);
     if (blogDate) return new Date(blogDate);
     /* Homepage gets the freshest date */
-    if (path === "") return new Date("2026-04-08");
+    if (path === "") return new Date("2026-04-13");
     /* Match category prefix */
     for (const [prefix, date] of Object.entries(categoryDates)) {
       if (path.startsWith(prefix)) return new Date(date);
     }
     /* Fallback for legal/misc pages */
-    return new Date("2026-03-28");
+    return new Date("2026-04-01");
   }
 
   return allPages.map((p) => ({

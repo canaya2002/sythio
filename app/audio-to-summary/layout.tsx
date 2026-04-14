@@ -1,5 +1,5 @@
 import { buildMetadata } from "../lib/metadata";
-import { BreadcrumbSchema, FAQSchema } from "../components/json-ld";
+import { BreadcrumbSchema, FAQSchema, HowToSchema } from "../components/json-ld";
 
 export const metadata = buildMetadata({
   title: "Audio to Summary | AI Audio Summaries",
@@ -23,6 +23,16 @@ export default function AudioToSummaryLayout({ children }: { children: React.Rea
         items={[
           { name: "Home", href: "/" },
           { name: "Audio to Summary", href: "/audio-to-summary" },
+        ]}
+      />
+      <HowToSchema
+        name="How to convert audio to summary with Sythio"
+        description="Turn any audio recording into a concise AI-generated summary in three steps."
+        totalTime="PT1M"
+        steps={[
+          { name: "Record or upload audio", text: "Record a meeting, voice note, lecture, or call directly in Sythio, or upload an existing audio file in any common format." },
+          { name: "AI processes your recording", text: "Sythio analyzes the audio, detects speakers, understands context, and extracts the most important information in seconds." },
+          { name: "Get your summary", text: "Receive a concise, structured summary with key decisions, ideas, and next steps. Export as PDF, text, or copy to clipboard." },
         ]}
       />
       <FAQSchema items={[

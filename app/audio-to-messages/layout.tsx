@@ -1,5 +1,5 @@
 import { buildMetadata } from "../lib/metadata";
-import { BreadcrumbSchema, FAQSchema } from "../components/json-ld";
+import { BreadcrumbSchema, FAQSchema, HowToSchema } from "../components/json-ld";
 
 export const metadata = buildMetadata({
   title: "Audio to Messages | AI Follow-Up Drafts",
@@ -24,6 +24,16 @@ export default function AudioToMessagesLayout({ children }: { children: React.Re
         items={[
           { name: "Home", href: "/" },
           { name: "Audio to Messages", href: "/audio-to-messages" },
+        ]}
+      />
+      <HowToSchema
+        name="How to generate follow-up messages from audio with Sythio"
+        description="Turn any recording into ready-to-send follow-up emails and messages in three steps."
+        totalTime="PT1M"
+        steps={[
+          { name: "Record or upload audio", text: "Record a meeting, client call, or discussion in Sythio, or upload an existing audio file." },
+          { name: "AI drafts your messages", text: "Sythio analyzes the conversation, identifies decisions and action items, and drafts professional follow-up messages with the right context." },
+          { name: "Get your follow-up drafts", text: "Receive polished, ready-to-send messages with key decisions and next steps. Review, customize, and send." },
         ]}
       />
       <FAQSchema items={[

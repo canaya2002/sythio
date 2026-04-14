@@ -384,6 +384,37 @@ export function HomeSEOContent({ locale = "en" }: { locale?: string }) {
         <li><Link href="/audio-to-messages">Audio to Messages</Link> — Ready-to-send follow-ups</li>
       </ul>
 
+      <h2>Voice Notes for Every Professional</h2>
+      <p>
+        Sythio is the voice notes AI app trusted by students, founders, project managers, salespeople, consultants, and lawyers.
+        Whether you record quick voice memos on your phone, capture hour-long meetings, or document client calls,
+        Sythio transforms every recording into organized, actionable output.
+      </p>
+      <ul>
+        <li>Voice notes to summary — get the gist of any recording in seconds</li>
+        <li>Voice notes to tasks — automatically extract action items with owners</li>
+        <li>Voice notes to clean text — polished prose without filler words</li>
+        <li>Voice notes to study notes — organized material from lectures</li>
+        <li>Voice notes to report — executive-ready documents from any call</li>
+        <li>Voice notes to email — auto-draft follow-up messages</li>
+        <li>Voice notes to action plan — step-by-step plans from conversations</li>
+        <li>Voice notes to key points — essential takeaways extracted</li>
+        <li>Voice notes to ideas — brainstorming output, grouped by theme</li>
+      </ul>
+
+      <h2>Why Sythio Is the Best Voice Notes AI App</h2>
+      <p>
+        Most voice recording apps stop at transcription. Sythio goes further: 9 structured outputs from every recording,
+        automatic speaker detection, and a searchable library of all your audio. No other app transforms voice into action like Sythio.
+      </p>
+
+      <h2>Alternatives &amp; Comparisons</h2>
+      <ul>
+        <li><Link href="/alternatives/otter">Alternative to Otter.ai</Link> — Multi-output vs transcription only</li>
+        <li><Link href="/alternatives/fireflies">Alternative to Fireflies.ai</Link> — Audio intelligence vs meeting bot</li>
+        <li><Link href="/alternatives/tldv">Alternative to tl;dv</Link> — Audio transformation vs video recording</li>
+      </ul>
+
       <nav aria-label="Additional resources">
         <ul>
           <li><Link href="/blog">Sythio Blog</Link></li>
@@ -392,6 +423,12 @@ export function HomeSEOContent({ locale = "en" }: { locale?: string }) {
           <li><Link href="/security">Security</Link></li>
           <li><Link href="/glossary">Glossary</Link></li>
           <li><Link href="/case-studies">Case Studies</Link></li>
+          <li><Link href="/use-cases/podcasts">Podcasts</Link></li>
+          <li><Link href="/use-cases/interviews">Interviews</Link></li>
+          <li><Link href="/for/salespeople">For Salespeople</Link></li>
+          <li><Link href="/for/consultants">For Consultants</Link></li>
+          <li><Link href="/for/lawyers">For Lawyers</Link></li>
+          <li><Link href="/product">Product Overview</Link></li>
         </ul>
       </nav>
     </div>

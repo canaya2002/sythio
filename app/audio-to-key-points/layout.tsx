@@ -1,5 +1,5 @@
 import { buildMetadata } from "../lib/metadata";
-import { BreadcrumbSchema, FAQSchema } from "../components/json-ld";
+import { BreadcrumbSchema, FAQSchema, HowToSchema } from "../components/json-ld";
 
 export const metadata = buildMetadata({
   title: "Audio to Key Points | Extract from Audio",
@@ -24,6 +24,16 @@ export default function AudioToKeyPointsLayout({ children }: { children: React.R
         items={[
           { name: "Home", href: "/" },
           { name: "Audio to Key Points", href: "/audio-to-key-points" },
+        ]}
+      />
+      <HowToSchema
+        name="How to extract key points from audio with Sythio"
+        description="Pull the most important takeaways from any recording in three steps."
+        totalTime="PT1M"
+        steps={[
+          { name: "Record or upload audio", text: "Record a meeting, call, or voice note in Sythio, or upload an existing recording in any common audio format." },
+          { name: "AI identifies key points", text: "Sythio analyzes context, emphasis, and content significance to identify the most important decisions, data points, and takeaways." },
+          { name: "Get your key points", text: "Receive a ranked, concise list of the essential information from your recording. Export or share instantly." },
         ]}
       />
       <FAQSchema items={[

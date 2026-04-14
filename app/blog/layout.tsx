@@ -1,5 +1,6 @@
 import { buildMetadata } from "../lib/metadata";
 import { BreadcrumbSchema } from "../components/json-ld";
+import { BlogListSchema } from "../components/json-ld-blog";
 import { posts } from "./lib/posts";
 
 export const metadata = buildMetadata({
@@ -57,6 +58,7 @@ export default function BlogLayout({
         ]}
       />
       <BlogItemListSchema />
+      <BlogListSchema posts={posts} />
       {children}
     </>
   );

@@ -1,7 +1,26 @@
 import type { MetadataRoute } from "next";
 
 export default function robots(): MetadataRoute.Robots {
-  const contentPaths = ["/blog/", "/features/", "/use-cases/", "/compare/", "/for/", "/glossary/", "/audio-to-", "/alternatives/"];
+  const contentPaths = [
+    "/",
+    "/blog/",
+    "/features/",
+    "/use-cases/",
+    "/compare/",
+    "/for/",
+    "/glossary/",
+    "/audio-to-",
+    "/alternatives/",
+    "/product",
+    "/pricing",
+    "/faq",
+    "/about",
+    "/enterprise",
+    "/integrations",
+    "/case-studies",
+    "/security",
+    "/feed.xml",
+  ];
 
   /* AI crawlers that should see content pages for AI search visibility */
   const aiCrawlers = [
@@ -19,6 +38,9 @@ export default function robots(): MetadataRoute.Robots {
     "Amazonbot",
     "YouBot",
     "OAI-SearchBot",
+    "Diffbot",
+    "ImagesiftBot",
+    "omgili",
   ];
 
   return {

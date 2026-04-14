@@ -1,5 +1,5 @@
 import { buildMetadata } from "../lib/metadata";
-import { BreadcrumbSchema, FAQSchema } from "../components/json-ld";
+import { BreadcrumbSchema, FAQSchema, HowToSchema } from "../components/json-ld";
 
 export const metadata = buildMetadata({
   title: "Audio to Action Plan | Plans from Audio",
@@ -22,6 +22,16 @@ export default function AudioToActionPlanLayout({ children }: { children: React.
         items={[
           { name: "Home", href: "/" },
           { name: "Audio to Action Plan", href: "/audio-to-action-plan" },
+        ]}
+      />
+      <HowToSchema
+        name="How to create an action plan from audio with Sythio"
+        description="Transform any conversation into a structured step-by-step action plan in three steps."
+        totalTime="PT1M"
+        steps={[
+          { name: "Record or upload audio", text: "Record a strategy meeting, planning session, or voice note in Sythio, or upload an existing recording." },
+          { name: "AI builds your plan", text: "Sythio analyzes goals, decisions, and commitments discussed, then organizes them into phases with priorities and owners." },
+          { name: "Get your action plan", text: "Receive a structured action plan with clear steps, responsibilities, and priorities. Refine, export, or share with your team." },
         ]}
       />
       <FAQSchema items={[

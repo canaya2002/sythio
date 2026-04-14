@@ -1,5 +1,5 @@
 import { buildMetadata } from "../lib/metadata";
-import { BreadcrumbSchema, FAQSchema } from "../components/json-ld";
+import { BreadcrumbSchema, FAQSchema, HowToSchema } from "../components/json-ld";
 
 export const metadata = buildMetadata({
   title: "Audio to Tasks | Extract Action Items",
@@ -23,6 +23,16 @@ export default function AudioToTasksLayout({ children }: { children: React.React
         items={[
           { name: "Home", href: "/" },
           { name: "Audio to Tasks", href: "/audio-to-tasks" },
+        ]}
+      />
+      <HowToSchema
+        name="How to extract tasks from audio with Sythio"
+        description="Convert any recording into a task list with owners and action items in three steps."
+        totalTime="PT1M"
+        steps={[
+          { name: "Record or upload audio", text: "Record a meeting, standup, or planning session in Sythio, or upload an existing audio file." },
+          { name: "AI identifies action items", text: "Sythio analyzes the conversation, detects speakers, and identifies every commitment, assignment, and action item discussed." },
+          { name: "Get your task list", text: "Receive a structured task list with each item attributed to the person responsible. Export or share with your team." },
         ]}
       />
       <FAQSchema items={[
