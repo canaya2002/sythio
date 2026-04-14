@@ -3,6 +3,19 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useLanguage } from "./i18n/language-context";
+import { trackFooterClick } from "../lib/vercel-events";
+
+function FooterLink({ href, children }: { href: string; children: React.ReactNode }) {
+  return (
+    <Link
+      href={href}
+      onClick={() => trackFooterClick(href)}
+      className="text-[13px] text-muted hover:text-foreground transition-colors duration-200"
+    >
+      {children}
+    </Link>
+  );
+}
 
 export default function Footer() {
   const { s } = useLanguage();
@@ -36,24 +49,12 @@ export default function Footer() {
               {s("footer.product")}
             </h4>
             <div className="flex flex-col gap-3">
-              <Link href="/product" className="text-[13px] text-muted hover:text-foreground transition-colors duration-200">
-                {s("nav.product")}
-              </Link>
-              <Link href="/features" className="text-[13px] text-muted hover:text-foreground transition-colors duration-200">
-                {s("footer.features")}
-              </Link>
-              <Link href="/pricing" className="text-[13px] text-muted hover:text-foreground transition-colors duration-200">
-                {s("footer.pricing")}
-              </Link>
-              <Link href="/integrations" className="text-[13px] text-muted hover:text-foreground transition-colors duration-200">
-                Integrations
-              </Link>
-              <Link href="/enterprise" className="text-[13px] text-muted hover:text-foreground transition-colors duration-200">
-                Enterprise
-              </Link>
-              <Link href="/security" className="text-[13px] text-muted hover:text-foreground transition-colors duration-200">
-                Security
-              </Link>
+              <FooterLink href="/product">{s("nav.product")}</FooterLink>
+              <FooterLink href="/features">{s("footer.features")}</FooterLink>
+              <FooterLink href="/pricing">{s("footer.pricing")}</FooterLink>
+              <FooterLink href="/integrations">Integrations</FooterLink>
+              <FooterLink href="/enterprise">Enterprise</FooterLink>
+              <FooterLink href="/security">Security</FooterLink>
             </div>
           </div>
 
@@ -63,27 +64,13 @@ export default function Footer() {
               {s("footer.useCases")}
             </h4>
             <div className="flex flex-col gap-3">
-              <Link href="/use-cases/voice-notes" className="text-[13px] text-muted hover:text-foreground transition-colors duration-200">
-                Voice Notes
-              </Link>
-              <Link href="/use-cases/meetings" className="text-[13px] text-muted hover:text-foreground transition-colors duration-200">
-                Meetings
-              </Link>
-              <Link href="/use-cases/lectures" className="text-[13px] text-muted hover:text-foreground transition-colors duration-200">
-                Lectures
-              </Link>
-              <Link href="/use-cases/brainstorming" className="text-[13px] text-muted hover:text-foreground transition-colors duration-200">
-                Brainstorming
-              </Link>
-              <Link href="/use-cases/client-calls" className="text-[13px] text-muted hover:text-foreground transition-colors duration-200">
-                Client Calls
-              </Link>
-              <Link href="/use-cases/podcasts" className="text-[13px] text-muted hover:text-foreground transition-colors duration-200">
-                Podcasts
-              </Link>
-              <Link href="/use-cases/interviews" className="text-[13px] text-muted hover:text-foreground transition-colors duration-200">
-                Interviews
-              </Link>
+              <FooterLink href="/use-cases/voice-notes">Voice Notes</FooterLink>
+              <FooterLink href="/use-cases/meetings">Meetings</FooterLink>
+              <FooterLink href="/use-cases/lectures">Lectures</FooterLink>
+              <FooterLink href="/use-cases/brainstorming">Brainstorming</FooterLink>
+              <FooterLink href="/use-cases/client-calls">Client Calls</FooterLink>
+              <FooterLink href="/use-cases/podcasts">Podcasts</FooterLink>
+              <FooterLink href="/use-cases/interviews">Interviews</FooterLink>
             </div>
           </div>
 
@@ -93,27 +80,13 @@ export default function Footer() {
               Resources
             </h4>
             <div className="flex flex-col gap-3">
-              <Link href="/blog" className="text-[13px] text-muted hover:text-foreground transition-colors duration-200">
-                {s("nav.blog")}
-              </Link>
-              <Link href="/compare" className="text-[13px] text-muted hover:text-foreground transition-colors duration-200">
-                Compare
-              </Link>
-              <Link href="/compare/otter" className="text-[13px] text-muted hover:text-foreground transition-colors duration-200">
-                Sythio vs Otter
-              </Link>
-              <Link href="/compare/fireflies" className="text-[13px] text-muted hover:text-foreground transition-colors duration-200">
-                Sythio vs Fireflies
-              </Link>
-              <Link href="/glossary" className="text-[13px] text-muted hover:text-foreground transition-colors duration-200">
-                Glossary
-              </Link>
-              <Link href="/case-studies" className="text-[13px] text-muted hover:text-foreground transition-colors duration-200">
-                Case Studies
-              </Link>
-              <Link href="/faq" className="text-[13px] text-muted hover:text-foreground transition-colors duration-200">
-                {s("footer.faq")}
-              </Link>
+              <FooterLink href="/blog">{s("nav.blog")}</FooterLink>
+              <FooterLink href="/compare">Compare</FooterLink>
+              <FooterLink href="/compare/otter">Sythio vs Otter</FooterLink>
+              <FooterLink href="/compare/fireflies">Sythio vs Fireflies</FooterLink>
+              <FooterLink href="/glossary">Glossary</FooterLink>
+              <FooterLink href="/case-studies">Case Studies</FooterLink>
+              <FooterLink href="/faq">{s("footer.faq")}</FooterLink>
             </div>
           </div>
 
@@ -123,21 +96,11 @@ export default function Footer() {
               {s("footer.company")}
             </h4>
             <div className="flex flex-col gap-3">
-              <Link href="/about" className="text-[13px] text-muted hover:text-foreground transition-colors duration-200">
-                {s("footer.about")}
-              </Link>
-              <Link href="/contact" className="text-[13px] text-muted hover:text-foreground transition-colors duration-200">
-                {s("footer.contact")}
-              </Link>
-              <Link href="/privacy-policy" className="text-[13px] text-muted hover:text-foreground transition-colors duration-200">
-                {s("footer.privacy")}
-              </Link>
-              <Link href="/terms" className="text-[13px] text-muted hover:text-foreground transition-colors duration-200">
-                {s("footer.terms")}
-              </Link>
-              <Link href="/cookie-policy" className="text-[13px] text-muted hover:text-foreground transition-colors duration-200">
-                {s("footer.cookies")}
-              </Link>
+              <FooterLink href="/about">{s("footer.about")}</FooterLink>
+              <FooterLink href="/contact">{s("footer.contact")}</FooterLink>
+              <FooterLink href="/privacy-policy">{s("footer.privacy")}</FooterLink>
+              <FooterLink href="/terms">{s("footer.terms")}</FooterLink>
+              <FooterLink href="/cookie-policy">{s("footer.cookies")}</FooterLink>
             </div>
           </div>
         </div>

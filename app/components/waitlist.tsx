@@ -4,6 +4,7 @@ import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "./i18n/language-context";
 import type { Locale } from "./i18n/translations";
+import { trackWaitlistSignup } from "../lib/vercel-events";
 
 const content: Record<Locale, {
   successTitle: string;
@@ -112,6 +113,7 @@ export default function Waitlist({ variant = "hero", className = "" }: WaitlistP
     /* ── Replace with your real endpoint (Mailchimp, ConvertKit, custom API) ── */
     await new Promise((r) => setTimeout(r, 1200));
     setState("success");
+    trackWaitlistSignup(variant);
   }
 
   if (state === "success") {

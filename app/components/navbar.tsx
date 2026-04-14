@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "./i18n/language-context";
 import LanguageSelector from "./i18n/language-selector";
+import { trackCTAClick, trackNavClick } from "../lib/vercel-events";
 
 const navLinks = [
   { key: "nav.product", href: "/product" },
@@ -63,6 +64,7 @@ export default function Navbar() {
             <Link
               key={link.href}
               href={link.href}
+              onClick={() => trackNavClick(link.href)}
               className="text-[13px] font-medium text-muted hover:text-foreground px-3.5 py-2 rounded-lg hover:bg-foreground/[0.04] transition-all duration-200"
             >
               {s(link.key)}
@@ -76,6 +78,7 @@ export default function Navbar() {
             href="https://sythio.app"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackCTAClick("get_started", "navbar")}
             className="h-9 px-5 inline-flex items-center justify-center rounded-full bg-foreground text-white text-[13px] font-medium hover:bg-accent-muted transition-all duration-200 shadow-[0_1px_2px_rgba(0,0,0,0.1)] hover:shadow-[0_2px_8px_rgba(0,0,0,0.15)] hover:-translate-y-[1px] active:translate-y-0"
           >
             {s("nav.getStarted")}
@@ -131,7 +134,7 @@ export default function Navbar() {
                 >
                   <Link
                     href={link.href}
-                    onClick={() => setMobileOpen(false)}
+                    onClick={() => { trackNavClick(link.href); setMobileOpen(false); }}
                     className="text-[15px] font-medium text-muted hover:text-foreground transition-colors py-2.5 px-3 rounded-lg hover:bg-foreground/[0.04] block"
                   >
                     {s(link.key)}
@@ -143,7 +146,7 @@ export default function Navbar() {
                   href="https://sythio.app"
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={() => setMobileOpen(false)}
+                  onClick={() => { trackCTAClick("get_started", "navbar_mobile"); setMobileOpen(false); }}
                   className="h-11 w-full inline-flex items-center justify-center rounded-full bg-foreground text-white text-sm font-medium hover:bg-accent-muted transition-all duration-200"
                 >
                   {s("nav.getStarted")}

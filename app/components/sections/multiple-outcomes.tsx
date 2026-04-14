@@ -15,6 +15,7 @@ import {
 } from "../mockups";
 import RotatingText from "../rotating-text";
 import { useLanguage } from "../i18n/language-context";
+import { trackOutputModeSelect } from "../../lib/vercel-events";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -557,7 +558,9 @@ export default function MultipleOutcomes() {
   }, []);
 
   const handleCardClick = (index: number) => {
-    setActiveIndex((prev) => (prev === index ? null : index));
+    const willOpen = activeIndex !== index;
+    setActiveIndex(willOpen ? index : null);
+    if (willOpen) trackOutputModeSelect(outcomes[index].title);
   };
 
   return (

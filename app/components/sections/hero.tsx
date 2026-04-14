@@ -10,6 +10,7 @@ import { useLanguage } from "../i18n/language-context";
 import RotatingText from "../rotating-text";
 import Link from "next/link";
 import { MagneticHover } from "../gsap-effects";
+import { trackCTAClick, trackExploreProduct } from "../../lib/vercel-events";
 
 function IPhoneAppScreen() {
   const { locale } = useLanguage();
@@ -174,6 +175,7 @@ export default function Hero() {
                 href="https://sythio.app"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackCTAClick("start_using_sythio", "hero")}
                 className="h-[52px] px-8 inline-flex items-center justify-center rounded-full bg-foreground text-white text-[15px] font-medium hover:bg-accent-muted transition-all duration-300 shadow-[0_1px_2px_rgba(0,0,0,0.1),0_4px_12px_rgba(0,0,0,0.1)] hover:shadow-[0_2px_4px_rgba(0,0,0,0.1),0_12px_32px_rgba(0,0,0,0.15)] hover:-translate-y-0.5 active:translate-y-0"
               >
                 {s("hero.cta1")}
@@ -182,6 +184,7 @@ export default function Hero() {
             <MagneticHover>
               <Link
                 href="/product"
+                onClick={() => trackExploreProduct("hero")}
                 className="h-[52px] px-8 inline-flex items-center justify-center rounded-full border border-border text-foreground text-[15px] font-medium hover:bg-foreground hover:text-white hover:border-foreground transition-all duration-300"
               >
                 {s("hero.cta2")}

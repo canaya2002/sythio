@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "./i18n/language-context";
 import type { Locale } from "./i18n/translations";
+import { trackVideoSkip, trackVideoComplete } from "../lib/vercel-events";
 
 const VIDEO_SRC = "/video/intro_sythio.mp4";
 
@@ -43,6 +44,7 @@ export default function VideoIntro() {
     if (!video || !visible) return;
 
     function handleEnded() {
+      trackVideoComplete();
       setFadeOut(true);
       setTimeout(() => setVisible(false), 800);
     }
@@ -52,6 +54,7 @@ export default function VideoIntro() {
   }, [visible]);
 
   function handleSkip() {
+    trackVideoSkip();
     setFadeOut(true);
     setTimeout(() => setVisible(false), 600);
   }

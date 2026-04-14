@@ -13,6 +13,7 @@ import {
   PageReveal,
   TiltCard,
 } from "../components/gsap-effects";
+import { trackContactSubmit } from "../lib/vercel-events";
 
 /* ─── Contact Category Cards ─── */
 const categories = [
@@ -79,6 +80,7 @@ function ContactForm() {
     setTimeout(() => {
       setSending(false);
       setSent(true);
+      trackContactSubmit();
     }, 1200);
   }
 

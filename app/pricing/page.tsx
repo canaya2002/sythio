@@ -12,6 +12,12 @@ import {
   MagneticHover,
   PageReveal,
 } from "../components/gsap-effects";
+import {
+  trackPricingPlanClick,
+  trackCTAClick,
+  trackExploreProduct,
+  trackFAQExpand,
+} from "../lib/vercel-events";
 
 /* ─── Checkmark Icon ─── */
 function Check({ className = "text-emerald-500" }: { className?: string }) {
@@ -97,6 +103,12 @@ function FAQItem({
 export default function PricingPage() {
   const { s } = useLanguage();
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
+
+  function handleFAQToggle(index: number, question: string) {
+    const willOpen = openFAQ !== index;
+    setOpenFAQ(willOpen ? index : null);
+    if (willOpen) trackFAQExpand(question, "pricing");
+  }
 
   const faqs = [
     { q: s("pricing.faq.q1"), a: s("pricing.faq.a1") },
@@ -187,6 +199,7 @@ export default function PricingPage() {
                   href="https://sythio.app"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackPricingPlanClick("free")}
                   className="block w-full text-center py-3.5 rounded-full text-sm font-medium bg-foreground text-white hover:bg-accent-muted transition-all duration-300 shadow-[0_1px_2px_rgba(0,0,0,0.05)]"
                 >
                   {s("common.getStartedFree")}
@@ -235,6 +248,7 @@ export default function PricingPage() {
                   href="https://sythio.app"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackPricingPlanClick("premium")}
                   className="block w-full text-center py-3.5 rounded-full text-sm font-medium bg-white text-foreground hover:bg-white/90 transition-all duration-300 shadow-sm"
                 >
                   {s("common.getPremium")}
@@ -277,6 +291,7 @@ export default function PricingPage() {
                   href="https://sythio.app"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackPricingPlanClick("enterprise")}
                   className="block w-full text-center py-3.5 rounded-full text-sm font-medium bg-foreground text-white hover:bg-accent-muted transition-all duration-300 shadow-[0_1px_2px_rgba(0,0,0,0.05)]"
                 >
                   {s("common.contactSales")}
@@ -348,7 +363,7 @@ export default function PricingPage() {
                   question={faq.q}
                   answer={faq.a}
                   isOpen={openFAQ === i}
-                  onToggle={() => setOpenFAQ(openFAQ === i ? null : i)}
+                  onToggle={() => handleFAQToggle(i, faq.q)}
                 />
               ))}
             </div>
@@ -379,6 +394,7 @@ export default function PricingPage() {
                   href="https://sythio.app"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackCTAClick("start_using_sythio", "pricing_bottom_cta")}
                   className="h-14 px-10 inline-flex items-center justify-center rounded-full bg-foreground text-white text-base font-medium hover:bg-accent-muted transition-all duration-300 shadow-[0_1px_2px_rgba(0,0,0,0.1),0_4px_12px_rgba(0,0,0,0.1)] hover:shadow-[0_2px_4px_rgba(0,0,0,0.1),0_12px_32px_rgba(0,0,0,0.15)] hover:-translate-y-0.5"
                 >
                   {s("common.startUsingSythio")}
@@ -387,6 +403,7 @@ export default function PricingPage() {
               <MagneticHover>
                 <Link
                   href="/product"
+                  onClick={() => trackExploreProduct("pricing_bottom_cta")}
                   className="h-14 px-10 inline-flex items-center justify-center rounded-full border border-border text-foreground text-base font-medium hover:bg-foreground hover:text-white transition-all duration-300"
                 >
                   {s("common.exploreProduct")}

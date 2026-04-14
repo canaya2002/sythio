@@ -11,6 +11,7 @@ import {
   MobileAppSchema,
 } from "./components/json-ld";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -311,6 +312,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </Suspense>
         <ClientProviders initialLocale={locale as "en" | "es" | "fr" | "pt" | "it"}>{children}</ClientProviders>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

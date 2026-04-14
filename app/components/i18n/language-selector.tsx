@@ -5,6 +5,7 @@ import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "./language-context";
 import { type Locale, localeNames, localeFlags } from "./translations";
+import { trackLanguageChange } from "../../lib/vercel-events";
 
 const locales: Locale[] = ["en", "es", "fr", "pt", "it"];
 
@@ -135,10 +136,11 @@ export default function LanguageSelector() {
   const handleClose = useCallback(() => setOpen(false), []);
   const handleSelect = useCallback(
     (l: Locale) => {
+      if (l !== locale) trackLanguageChange(locale, l);
       setLocale(l);
       setOpen(false);
     },
-    [setLocale]
+    [setLocale, locale]
   );
 
   return (

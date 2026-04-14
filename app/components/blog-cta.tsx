@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useLanguage } from "./i18n/language-context";
+import { trackBlogCTAClick } from "../lib/vercel-events";
 
 const content: Record<string, {
   heading: string;
@@ -62,6 +63,7 @@ export default function BlogCTA() {
           href="https://sythio.app"
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => trackBlogCTAClick()}
           className="inline-flex h-12 px-8 items-center justify-center rounded-full bg-white text-foreground text-sm font-semibold hover:bg-white/90 transition-all duration-300 shadow-sm"
         >
           {c.button}
