@@ -170,8 +170,8 @@ export default function Collaboration() {
   const t = content[locale] ?? content.en;
 
   return (
-    <section className="py-32 md:py-44 bg-background section-float-bg-warm">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="py-32 md:py-44 mesh-gradient-warm section-float-bg-warm relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 relative">
         <div className="text-center mb-24">
           <span className="text-[11px] font-semibold uppercase tracking-[0.15em] text-muted-light mb-5 block">
             {t.sectionLabel}
@@ -187,10 +187,9 @@ export default function Collaboration() {
         <GsapStagger className="grid md:grid-cols-3 gap-6 mb-16" stagger={0.1}>
           {t.features.map((feature) => (
             <ScrollScale key={feature.title}>
-              <div className="group relative p-7 rounded-2xl bg-background border border-border-light hover:border-border/80 hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)] transition-all duration-500 ease-out">
-                <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 bg-gradient-to-br from-amber-50/20 via-orange-50/10 to-transparent transition-opacity duration-500" />
+              <div className="group glass-card spotlight iridescent-ring relative p-7 rounded-2xl">
                 <div className="relative">
-                  <div className="w-12 h-12 rounded-xl bg-foreground/5 border border-border-light flex items-center justify-center mb-6 group-hover:bg-foreground group-hover:border-foreground transition-all duration-300">
+                  <div className="w-12 h-12 rounded-xl bg-white/85 border border-white/80 backdrop-blur flex items-center justify-center mb-6 group-hover:bg-foreground group-hover:border-foreground transition-all duration-300 shadow-[0_4px_14px_rgba(245,158,11,0.10)]">
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="text-foreground group-hover:text-white transition-colors duration-300">
                       <path d={feature.icon} />
                     </svg>
@@ -205,20 +204,22 @@ export default function Collaboration() {
 
         {/* Roles strip */}
         <ScrollScale>
-          <div className="rounded-2xl border border-border-light bg-background p-8 md:p-10">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-light mb-6">{t.rolesLabel}</p>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              {t.roles.map((role, i) => (
-                <div key={role.name} className="flex items-start gap-3">
-                  <div className="mt-1 w-6 h-6 rounded-full bg-foreground flex items-center justify-center shrink-0">
-                    <span className="text-[10px] font-bold text-white">{i + 1}</span>
+          <div className="glass-card rounded-2xl p-8 md:p-10 relative">
+            <div className="relative">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-light mb-6">{t.rolesLabel}</p>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                {t.roles.map((role, i) => (
+                  <div key={role.name} className="flex items-start gap-3">
+                    <div className="mt-1 w-7 h-7 rounded-full bg-gradient-to-br from-foreground to-zinc-700 flex items-center justify-center shrink-0 shadow-[0_4px_12px_rgba(0,0,0,0.18)]">
+                      <span className="text-[10px] font-bold text-white">{i + 1}</span>
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-foreground">{role.name}</p>
+                      <p className="text-xs text-muted leading-relaxed mt-0.5">{role.description}</p>
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-sm font-semibold text-foreground">{role.name}</p>
-                    <p className="text-xs text-muted leading-relaxed mt-0.5">{role.description}</p>
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </ScrollScale>

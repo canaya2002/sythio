@@ -151,20 +151,20 @@ export default function Problem() {
             <div className="space-y-5 relative">
               {/* Floating sound wave badge */}
               <FloatingBadge delay={0.6} className="absolute -right-6 -top-6 z-10 hidden lg:block float-y-medium">
-                <div className="bg-white rounded-xl border border-border-light shadow-lg px-3 py-2">
-                  <div className="flex items-center gap-2">
-                    <div className="w-6 h-6 rounded-md bg-red-50 flex items-center justify-center">
+                <div className="glass-card rounded-xl px-3 py-2">
+                  <div className="flex items-center gap-2 relative">
+                    <div className="w-6 h-6 rounded-md bg-red-50 border border-red-100 flex items-center justify-center">
                       <div className="w-2 h-2 rounded-full bg-red-400 animate-pulse" />
                     </div>
                     <span className="text-[10px] font-semibold text-muted">Recording...</span>
                   </div>
-                  <SoundWave bars={20} className="mt-1.5" color="#f87171" />
+                  <SoundWave bars={20} className="mt-1.5 relative" color="#f87171" />
                 </div>
               </FloatingBadge>
               {/* Before */}
-              <div className="relative p-7 rounded-2xl bg-background border border-border-light hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)] transition-all duration-500 ease-out">
-                <div className="flex items-center gap-3 mb-5">
-                  <div className="w-10 h-10 rounded-xl bg-red-50 flex items-center justify-center">
+              <div className="glass-card spotlight rounded-2xl p-7">
+                <div className="flex items-center gap-3 mb-5 relative">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-red-50 to-rose-50 border border-red-100/70 flex items-center justify-center">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ef4444" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <circle cx="12" cy="12" r="10" />
                       <path d="M15 9l-6 6M9 9l6 6" />
@@ -172,34 +172,39 @@ export default function Problem() {
                   </div>
                   <span className="text-base font-semibold text-foreground">{c.withoutTitle}</span>
                 </div>
-                <GsapStagger stagger={0.08}>
-                  {c.withoutItems.map((item, i) => (
-                    <div key={i} className="flex items-center gap-3 py-1.5 text-sm text-muted">
-                      <span className="w-1.5 h-1.5 rounded-full bg-red-300 shrink-0" />
-                      {item}
-                    </div>
-                  ))}
-                </GsapStagger>
+                <div className="relative">
+                  <GsapStagger stagger={0.08}>
+                    {c.withoutItems.map((item, i) => (
+                      <div key={i} className="flex items-center gap-3 py-1.5 text-sm text-muted">
+                        <span className="w-1.5 h-1.5 rounded-full bg-red-300 shrink-0" />
+                        {item}
+                      </div>
+                    ))}
+                  </GsapStagger>
+                </div>
               </div>
 
-              {/* After */}
-              <div className="relative p-7 rounded-2xl bg-foreground text-white border border-zinc-700 hover:shadow-[0_12px_40px_rgba(0,0,0,0.25)] transition-all duration-500 ease-out">
-                <div className="flex items-center gap-3 mb-5">
-                  <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#34d399" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              {/* After — premium dark glass */}
+              <div className="glass-card-dark relative rounded-2xl p-7 text-white">
+                <div className="flex items-center gap-3 mb-5 relative">
+                  <div className="w-10 h-10 rounded-xl bg-white/10 border border-white/10 flex items-center justify-center backdrop-blur-sm">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#34d399" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M20 6L9 17l-5-5" />
                     </svg>
                   </div>
                   <span className="text-base font-semibold text-white">{c.withTitle}</span>
+                  <span className="ml-auto px-2 py-0.5 rounded-full bg-emerald-400/15 border border-emerald-400/25 text-[10px] font-medium text-emerald-300">Sythio</span>
                 </div>
-                <GsapStagger stagger={0.08}>
-                  {c.withItems.map((item, i) => (
-                    <div key={i} className="flex items-center gap-3 py-1.5 text-sm text-zinc-300">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0" />
-                      {item}
-                    </div>
-                  ))}
-                </GsapStagger>
+                <div className="relative">
+                  <GsapStagger stagger={0.08}>
+                    {c.withItems.map((item, i) => (
+                      <div key={i} className="flex items-center gap-3 py-1.5 text-sm text-zinc-200">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0 shadow-[0_0_12px_rgba(52,211,153,0.6)]" />
+                        {item}
+                      </div>
+                    ))}
+                  </GsapStagger>
+                </div>
               </div>
             </div>
           </ScrollSlide>

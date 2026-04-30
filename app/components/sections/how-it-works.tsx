@@ -119,8 +119,8 @@ export default function HowItWorks() {
   ];
 
   return (
-    <section className="py-32 md:py-44 bg-background animated-gradient-bg section-float-bg-blue">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="py-32 md:py-44 mesh-gradient-cool section-float-bg-blue relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 relative">
         <div className="text-center mb-24">
           <span className="text-[11px] font-semibold uppercase tracking-[0.15em] text-muted-light mb-5 block">
             {c.label}
@@ -136,8 +136,8 @@ export default function HowItWorks() {
         <div className="relative">
           {/* Floating waveform decoration between steps */}
           <FloatingBadge delay={0.3} className="absolute -top-10 right-8 z-10 hidden lg:block float-y-slow">
-            <div className="bg-white rounded-xl border border-border-light shadow-lg px-4 py-2.5 flex items-center gap-3">
-              <div className="w-7 h-7 rounded-lg bg-violet-50 flex items-center justify-center">
+            <div className="glass-card rounded-xl px-4 py-2.5 flex items-center gap-3 relative">
+              <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-violet-50 to-violet-100 border border-violet-100 flex items-center justify-center">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
@@ -150,19 +150,24 @@ export default function HowItWorks() {
           </FloatingBadge>
         </div>
 
-        <GsapStagger className="grid md:grid-cols-3 gap-8" stagger={0.15}>
-          {steps.map((step) => (
+        <GsapStagger className="grid md:grid-cols-3 gap-8 relative" stagger={0.15}>
+          {/* Connector hairline between steps (desktop only) */}
+          <div aria-hidden="true" className="hidden md:block absolute top-[88px] left-[16%] right-[16%] hairline-x" />
+
+          {steps.map((step, i) => (
             <ScrollScale key={step.number}>
-              <div className="group relative p-9 rounded-2xl bg-white border border-border-light hover:border-border/80 hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)] transition-all duration-500 ease-out">
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-indigo-50/0 via-violet-50/0 to-purple-50/0 group-hover:from-indigo-50/30 group-hover:via-violet-50/20 group-hover:to-purple-50/10 transition-all duration-500" />
+              <div className="group glass-card spotlight iridescent-ring relative p-9 rounded-2xl">
                 <div className="relative">
                   <div className="flex items-center justify-between mb-7">
-                    <div className="w-13 h-13 rounded-2xl bg-background border border-border-light flex items-center justify-center text-muted group-hover:text-foreground group-hover:border-border group-hover:bg-white group-hover:shadow-sm transition-all duration-300">
+                    <div className="relative w-[52px] h-[52px] rounded-2xl bg-white/85 backdrop-blur border border-white/70 flex items-center justify-center text-foreground/80 group-hover:text-foreground group-hover:shadow-[0_8px_24px_rgba(99,102,241,0.18)] transition-all duration-300">
                       {step.icon}
                     </div>
-                    <span className="text-xs font-mono font-semibold text-muted-light/60 tracking-widest">
-                      {step.number}
-                    </span>
+                    <div className="flex items-baseline gap-2">
+                      <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-muted-light">Step</span>
+                      <span className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-foreground to-zinc-400 tracking-tight">
+                        {step.number}
+                      </span>
+                    </div>
                   </div>
                   <h3 className="text-lg font-semibold text-foreground mb-2.5 tracking-[-0.01em]">
                     {step.title}
@@ -170,6 +175,11 @@ export default function HowItWorks() {
                   <p className="text-[15px] text-muted leading-relaxed">
                     {step.description}
                   </p>
+                  {i < steps.length - 1 && (
+                    <div aria-hidden="true" className="hidden md:flex absolute top-[26px] -right-4 w-8 h-px items-center justify-end">
+                      <span className="w-1.5 h-1.5 rounded-full bg-indigo-300/70 shadow-[0_0_8px_rgba(99,102,241,0.5)]" />
+                    </div>
+                  )}
                 </div>
               </div>
             </ScrollScale>

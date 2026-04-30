@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
+import { defaultLocale, isValidLocale, ogLocaleMap, type Locale } from "./i18n-config";
 
 const SITE_URL = "https://sythio.com";
 const SITE_NAME = "Sythio";
@@ -16,7 +18,21 @@ type BuildMetadataOptions = {
   publishedTime?: string;
   /** Modified date for articles */
   modifiedTime?: string;
+  /**
+   * The locale that should be reflected in the canonical URL.
+   * When omitted, the helper assumes the default locale (English).
+   * Use `seoMetadata` instead to derive this automatically from request headers.
+   */
+  locale?: Locale;
 };
+
+/** Build the absolute URL of the page in a given locale. */
+function urlForLocale(path: string, locale: Locale): string {
+  if (locale === defaultLocale) return `${SITE_URL}${path}`;
+  /* root path becomes /<locale>, sub-paths become /<locale>/<path> */
+  if (path === "" || path === "/") return `${SITE_URL}/${locale}`;
+  return `${SITE_URL}/${locale}${path}`;
+}
 
 export function buildMetadata({
   title,
@@ -27,32 +43,35 @@ export function buildMetadata({
   ogType = "website",
   publishedTime,
   modifiedTime,
+  locale = defaultLocale,
 }: BuildMetadataOptions): Metadata {
-  const url = `${SITE_URL}${path}`;
+  /* The canonical reflects the locale actually being served — critical so each
+     localized variant declares itself, not the English version. */
+  const canonical = urlForLocale(path, locale);
 
   return {
     title,
     description,
     ...(keywords && keywords.length > 0 ? { keywords } : {}),
     alternates: {
-      canonical: url,
+      canonical,
       languages: {
-        "en": `${SITE_URL}${path}`,
-        "es": `${SITE_URL}/es${path}`,
-        "fr": `${SITE_URL}/fr${path}`,
-        "pt": `${SITE_URL}/pt${path}`,
-        "it": `${SITE_URL}/it${path}`,
-        "x-default": `${SITE_URL}${path}`,
+        "en": urlForLocale(path, "en"),
+        "es": urlForLocale(path, "es"),
+        "fr": urlForLocale(path, "fr"),
+        "pt": urlForLocale(path, "pt"),
+        "it": urlForLocale(path, "it"),
+        "x-default": urlForLocale(path, "en"),
       },
     },
     openGraph: {
       title: `${title} | ${SITE_NAME}`,
       description,
-      url,
+      url: canonical,
       siteName: SITE_NAME,
       type: ogType,
-      locale: "en_US",
-      alternateLocale: ["es_ES", "fr_FR", "pt_BR", "it_IT"],
+      locale: ogLocaleMap[locale],
+      alternateLocale: Object.values(ogLocaleMap).filter((l) => l !== ogLocaleMap[locale]),
       ...(publishedTime ? { publishedTime } : {}),
       ...(modifiedTime ? { modifiedTime } : {}),
       /* OG image omitted here so Next.js uses the dynamic opengraph-image.tsx
@@ -82,5 +101,26 @@ export function buildMetadata({
             },
           },
         }),
+  };
+}
+
+/**
+ * Returns a `generateMetadata` async function that reads the runtime locale from
+ * the `x-locale` request header (set by the proxy when handling /es, /fr, …).
+ *
+ * Each layout should use this so that the canonical URL is locale-correct:
+ *
+ *   export const generateMetadata = seoMetadata({
+ *     title: "...",
+ *     description: "...",
+ *     path: "/faq",
+ *   });
+ */
+export function seoMetadata(opts: Omit<BuildMetadataOptions, "locale">) {
+  return async function generateMetadata(): Promise<Metadata> {
+    const headerStore = await headers();
+    const headerLocale = headerStore.get("x-locale") || defaultLocale;
+    const locale: Locale = isValidLocale(headerLocale) ? headerLocale : defaultLocale;
+    return buildMetadata({ ...opts, locale });
   };
 }

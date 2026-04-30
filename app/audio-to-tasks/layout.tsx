@@ -1,7 +1,7 @@
-import { buildMetadata } from "../lib/metadata";
+import { seoMetadata } from "../lib/metadata";
 import { BreadcrumbSchema, FAQSchema } from "../components/json-ld";
 
-export const metadata = buildMetadata({
+export const generateMetadata = seoMetadata({
   title: "Audio to Tasks | Extract Action Items",
   description:
     "Convert recordings into actionable task lists. Sythio identifies commitments, assigns owners via speaker detection, and builds checklists. Try free.",

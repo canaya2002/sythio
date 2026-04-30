@@ -1,7 +1,7 @@
-import { buildMetadata } from "../../lib/metadata";
+import { seoMetadata } from "../../lib/metadata";
 import { BreadcrumbSchema, FAQSchema } from "../../components/json-ld";
 
-export const metadata = buildMetadata({
+export const generateMetadata = seoMetadata({
   title: "AI for PMs | Meeting Notes & Action Items",
   description:
     "PMs live in meetings. Sythio turns every conversation into structured notes, task lists, and action plans — automatically.",

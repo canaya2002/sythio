@@ -1,8 +1,7 @@
-import { buildMetadata } from "../../lib/metadata";
+import { seoMetadata } from "../../lib/metadata";
 import { BreadcrumbSchema, FAQSchema } from "../../components/json-ld";
-import type { Metadata } from "next";
 
-export const metadata: Metadata = buildMetadata({
+export const generateMetadata = seoMetadata({
   title: "AI Interview Notes | Transcripts & Summaries",
   description: "Transcribe and summarize interviews automatically. Sythio detects speakers and extracts key insights. Try free.",
   path: "/use-cases/interviews",

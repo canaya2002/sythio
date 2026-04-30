@@ -1,7 +1,7 @@
-import { buildMetadata } from "../lib/metadata";
+import { seoMetadata } from "../lib/metadata";
 import { BreadcrumbSchema } from "../components/json-ld";
 
-export const metadata = buildMetadata({
+export const generateMetadata = seoMetadata({
   title: "Voice Notes AI Features | 9 Output Formats from Audio",
   description:
     "Explore all Sythio voice notes AI features: summaries, tasks, action plans, speaker detection, reports, study notes, key points, ideas, and clean text from one recording.",

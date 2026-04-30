@@ -1,7 +1,7 @@
-import { buildMetadata } from "../../lib/metadata";
+import { seoMetadata } from "../../lib/metadata";
 import { BreadcrumbSchema, FAQSchema } from "../../components/json-ld";
 
-export const metadata = buildMetadata({
+export const generateMetadata = seoMetadata({
   title: "Sythio vs Fireflies.ai | Full Comparison",
   description:
     "Fireflies records and transcribes meetings. Sythio transforms audio into 9 structured outputs. Compare features and pricing.",

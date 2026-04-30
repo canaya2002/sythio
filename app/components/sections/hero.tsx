@@ -112,30 +112,25 @@ export default function Hero() {
 
   return (
     <section ref={heroRef} className="relative pt-32 pb-24 md:pt-40 md:pb-32 hero-animated-bg">
-      <div className="hero-orb hero-orb-1" />
-      <div className="hero-orb hero-orb-2" />
-      <div className="hero-orb hero-orb-3" />
-      <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/50 to-background pointer-events-none" />
+      <div className="hero-orb hero-orb-1" aria-hidden="true" />
+      <div className="hero-orb hero-orb-2" aria-hidden="true" />
+      <div className="hero-orb hero-orb-3" aria-hidden="true" />
+      {/* Faint grid behind everything — premium designer feel */}
+      <div className="absolute inset-0 grid-bg opacity-[0.6] pointer-events-none" aria-hidden="true" />
+      <div className="absolute inset-0 bg-gradient-to-b from-white/85 via-white/55 to-background pointer-events-none" aria-hidden="true" />
 
       <div className="relative max-w-7xl mx-auto px-6">
         <div className="text-center max-w-4xl mx-auto mb-24">
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-foreground/[0.04] border border-border-light mb-10">
-              <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-              <span className="text-xs font-medium text-muted tracking-wide">{s("hero.badge")}</span>
-            </div>
-          </motion.div>
+          <div className="reveal-on-mount inline-flex items-center gap-2.5 px-4 py-2 rounded-full glass mb-10" style={{ ['--reveal-delay' as string]: '0s' }}>
+            <span className="relative flex h-1.5 w-1.5">
+              <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-70 animate-ping" />
+              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-500" />
+            </span>
+            <span className="text-xs font-medium text-muted tracking-wide">{s("hero.badge")}</span>
+          </div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 28 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
-            className="text-[2.75rem] sm:text-6xl md:text-7xl lg:text-[5.25rem] font-bold leading-[1.04] tracking-[-0.025em] text-foreground"
-          >
+          {/* LCP-friendly h1 — rendered immediately, no opacity gate */}
+          <h1 className="reveal-on-mount text-[2.75rem] sm:text-6xl md:text-7xl lg:text-[5.25rem] font-bold leading-[1.04] tracking-[-0.025em] text-foreground" style={{ ['--reveal-delay' as string]: '0.05s' }}>
             <RotatingText
               words={[s("hero.rotate.speak"), s("hero.rotate.record"), s("hero.rotate.capture"), s("hero.rotate.share")]}
               interval={2200}
@@ -146,56 +141,44 @@ export default function Hero() {
               className="text-zinc-400"
             />
             <br />
-            <span className="bg-gradient-to-r from-foreground via-zinc-500 to-zinc-400 bg-clip-text text-transparent">
+            <span className="gradient-text">
               {s("hero.title2")}
             </span>
-          </motion.h1>
+          </h1>
           <span className="sr-only">
             {s("hero.srOnly")}
           </span>
 
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="mt-7 text-lg md:text-xl text-muted leading-relaxed max-w-2xl mx-auto"
-          >
+          <p className="reveal-on-mount mt-7 text-lg md:text-xl text-muted leading-relaxed max-w-2xl mx-auto" style={{ ['--reveal-delay' as string]: '0.18s' }}>
             {s("hero.subtitle")}
-          </motion.p>
+          </p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3.5"
-          >
+          <div className="reveal-on-mount mt-10 flex flex-col sm:flex-row items-center justify-center gap-3.5" style={{ ['--reveal-delay' as string]: '0.28s' }}>
             <MagneticHover>
               <Link
                 href="https://sythio.app"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="h-[52px] px-8 inline-flex items-center justify-center rounded-full bg-foreground text-white text-[15px] font-medium hover:bg-accent-muted transition-all duration-300 shadow-[0_1px_2px_rgba(0,0,0,0.1),0_4px_12px_rgba(0,0,0,0.1)] hover:shadow-[0_2px_4px_rgba(0,0,0,0.1),0_12px_32px_rgba(0,0,0,0.15)] hover:-translate-y-0.5 active:translate-y-0"
+                className="btn-primary-premium group h-[52px] px-8 inline-flex items-center justify-center rounded-full text-[15px] font-medium"
               >
                 {s("hero.cta1")}
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-2 transition-transform duration-300 group-hover:translate-x-0.5">
+                  <path d="M5 12h14M13 5l7 7-7 7" />
+                </svg>
               </Link>
             </MagneticHover>
             <MagneticHover>
               <Link
                 href="/product"
-                className="h-[52px] px-8 inline-flex items-center justify-center rounded-full border border-border text-foreground text-[15px] font-medium hover:bg-foreground hover:text-white hover:border-foreground transition-all duration-300"
+                className="btn-glass h-[52px] px-8 inline-flex items-center justify-center rounded-full text-foreground text-[15px] font-medium"
               >
                 {s("hero.cta2")}
               </Link>
             </MagneticHover>
-          </motion.div>
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.4, delay: 0.55 }}
-            className="mt-5 text-center text-[13px] text-muted-light"
-          >
+          </div>
+          <p className="reveal-on-mount mt-5 text-center text-[13px] text-muted-light" style={{ ['--reveal-delay' as string]: '0.4s' }}>
             {s("common.freePlan")}
-          </motion.p>
+          </p>
         </div>
 
         <div className="relative max-w-6xl mx-auto">
@@ -227,10 +210,10 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.85, y: 16 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ delay: 1.4, duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
-            className="absolute -bottom-3 left-8 md:left-16 bg-white rounded-2xl border border-border-light shadow-[0_4px_16px_rgba(0,0,0,0.06)] p-4 z-10"
+            className="absolute -bottom-3 left-8 md:left-16 glass-card rounded-2xl p-4 z-10 float-y-medium"
           >
-            <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-xl bg-foreground flex items-center justify-center">
+            <div className="flex items-center gap-3 relative">
+              <div className="w-9 h-9 rounded-xl bg-foreground flex items-center justify-center shadow-[0_4px_12px_rgba(99,102,241,0.35)] glow-ring">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z" />
                   <path d="M19 10v2a7 7 0 01-14 0v-2" />
@@ -247,10 +230,10 @@ export default function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.6, duration: 0.5 }}
-            className="absolute -bottom-3 right-8 md:right-16 lg:right-28 bg-white rounded-2xl border border-border-light shadow-[0_4px_16px_rgba(0,0,0,0.06)] px-4 py-3 z-10 hidden md:block float-y-slow"
+            className="absolute -bottom-3 right-8 md:right-16 lg:right-28 glass-card rounded-2xl px-4 py-3 z-10 hidden md:block float-y-slow"
           >
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-xl bg-indigo-50 flex items-center justify-center">
+            <div className="flex items-center gap-3 relative">
+              <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-indigo-50 to-violet-100 border border-indigo-100 flex items-center justify-center">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6366f1" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M9 18V5l12-2v13" /><circle cx="6" cy="18" r="3" /><circle cx="18" cy="16" r="3" />
                 </svg>

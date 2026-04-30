@@ -1,7 +1,7 @@
-import { buildMetadata } from "../lib/metadata";
+import { seoMetadata } from "../lib/metadata";
 import { BreadcrumbSchema, FAQSchema } from "../components/json-ld";
 
-export const metadata = buildMetadata({
+export const generateMetadata = seoMetadata({
   title: "About Us | Beyond Transcription",
   description:
     "Audio deserves transformation, not just transcription. Learn how Sythio turns every spoken word into clarity, structure, and action.",

@@ -1,7 +1,7 @@
-import { buildMetadata } from "../lib/metadata";
+import { seoMetadata } from "../lib/metadata";
 import { BreadcrumbSchema, FAQSchema } from "../components/json-ld";
 
-export const metadata = buildMetadata({
+export const generateMetadata = seoMetadata({
   title: "Audio Intelligence Glossary | Key Terms",
   description:
     "Audio intelligence glossary: transcription, speaker diarization, voice activity detection, and 20+ key concepts in audio AI explained.",

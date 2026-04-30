@@ -1,9 +1,7 @@
 import type { MetadataRoute } from "next";
 
 export default function robots(): MetadataRoute.Robots {
-  const contentPaths = ["/blog/", "/features/", "/use-cases/", "/compare/", "/for/", "/glossary/", "/audio-to-", "/alternatives/"];
-
-  /* AI crawlers that should see content pages for AI search visibility */
+  /* AI crawlers that should see the whole indexable surface for AI search. */
   const aiCrawlers = [
     "GPTBot",
     "Google-Extended",
@@ -12,6 +10,7 @@ export default function robots(): MetadataRoute.Robots {
     "PerplexityBot",
     "Bytespider",
     "Applebot",
+    "Applebot-Extended",
     "anthropic-ai",
     "cohere-ai",
     "Meta-ExternalAgent",
@@ -19,6 +18,23 @@ export default function robots(): MetadataRoute.Robots {
     "Amazonbot",
     "YouBot",
     "OAI-SearchBot",
+    "DuckAssistBot",
+    "MistralAI-User",
+    "PanguBot",
+    "Diffbot",
+  ];
+
+  /* Disallowed everywhere — internal infra and known thin/duplicate paths. */
+  const baseDisallow = [
+    "/api/",
+    "/_next/",
+    "/private/",
+    /* Block tracking / referral parameter variants from being treated as
+       distinct URLs. Googlebot honors `?` wildcards in disallow patterns. */
+    "/*?utm_*",
+    "/*?ref=*",
+    "/*?gclid=*",
+    "/*?fbclid=*",
   ];
 
   return {
@@ -26,13 +42,13 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/api/", "/_next/", "/private/"],
+        disallow: baseDisallow,
       },
-      /* AI Crawlers — allow content pages for AI search visibility */
+      /* AI Crawlers — same as Googlebot scope */
       ...aiCrawlers.map((bot) => ({
         userAgent: bot,
-        allow: contentPaths,
-        disallow: ["/api/", "/_next/", "/private/"],
+        allow: "/",
+        disallow: baseDisallow,
       })),
     ],
     sitemap: "https://sythio.com/sitemap.xml",

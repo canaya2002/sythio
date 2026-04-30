@@ -1,7 +1,7 @@
-import { buildMetadata } from "../../lib/metadata";
+import { seoMetadata } from "../../lib/metadata";
 import { BreadcrumbSchema, FAQSchema } from "../../components/json-ld";
 
-export const metadata = buildMetadata({
+export const generateMetadata = seoMetadata({
   title: "AI Client Call Notes & Follow-Ups",
   description:
     "Never lose client context. Sythio turns client calls into structured summaries, action items, and follow-up messages. Try free.",

@@ -1,8 +1,7 @@
-import { buildMetadata } from "../lib/metadata";
+import { seoMetadata } from "../lib/metadata";
 import { BreadcrumbSchema, FAQSchema } from "../components/json-ld";
-import type { Metadata } from "next";
 
-export const metadata: Metadata = buildMetadata({
+export const generateMetadata = seoMetadata({
   title: "Audio to Transcript | Fast AI Speech to Text",
   description: "Convert audio to text with AI. Fast, accurate transcription with speaker detection. Then go beyond — get summaries, tasks, and more.",
   path: "/audio-to-transcript",

@@ -1,7 +1,7 @@
-import { buildMetadata } from "../lib/metadata";
+import { seoMetadata } from "../lib/metadata";
 import { BreadcrumbSchema, ProductSchema, FAQSchema } from "../components/json-ld";
 
-export const metadata = buildMetadata({
+export const generateMetadata = seoMetadata({
   title: "Voice Notes AI Product | One Recording, 9 Outputs",
   description:
     "Sythio is the voice notes AI app that turns one recording into 9 structured outputs: summaries, tasks, action plans, reports, and more. Speaker detection included. Try free.",

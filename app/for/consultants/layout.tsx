@@ -1,7 +1,7 @@
-import { buildMetadata } from "../../lib/metadata";
+import { seoMetadata } from "../../lib/metadata";
 import { BreadcrumbSchema, FAQSchema } from "../../components/json-ld";
 
-export const metadata = buildMetadata({
+export const generateMetadata = seoMetadata({
   title: "AI for Consultants | Reports & Plans",
   description:
     "Stop spending billable hours on documentation. Sythio turns client meetings into executive reports and action plans automatically.",

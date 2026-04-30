@@ -1,7 +1,6 @@
-import { buildMetadata } from "../lib/metadata";
-import type { Metadata } from "next";
+import { seoMetadata } from "../lib/metadata";
 
-export const metadata: Metadata = buildMetadata({
+export const generateMetadata = seoMetadata({
   title: "Best Meeting & Voice Tool Alternatives",
   description: "Looking for a better alternative to Otter, Fireflies, or tl;dv? Sythio delivers 9 structured outputs from any audio, not just transcription.",
   path: "/alternatives",

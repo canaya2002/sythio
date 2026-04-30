@@ -1,7 +1,7 @@
-import { buildMetadata } from "../../lib/metadata";
+import { seoMetadata } from "../../lib/metadata";
 import { BreadcrumbSchema, FAQSchema } from "../../components/json-ld";
 
-export const metadata = buildMetadata({
+export const generateMetadata = seoMetadata({
   title: "Sythio vs AudioPen | Full Comparison",
   description:
     "AudioPen converts voice to text notes. Sythio delivers 9 structured outputs from one recording. Compare features and pricing.",

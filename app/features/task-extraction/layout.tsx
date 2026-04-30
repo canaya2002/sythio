@@ -1,7 +1,7 @@
-import { buildMetadata } from "../../lib/metadata";
+import { seoMetadata } from "../../lib/metadata";
 import { BreadcrumbSchema, HowToSchema, FAQSchema } from "../../components/json-ld";
 
-export const metadata = buildMetadata({
+export const generateMetadata = seoMetadata({
   title: "AI Task Extraction | Action Items",
   description:
     "Never lose an action item. Sythio extracts tasks with owners, deadlines, and context from any conversation. Audio to checklist in seconds.",

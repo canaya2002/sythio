@@ -1,7 +1,7 @@
-import { buildMetadata } from "../../lib/metadata";
+import { seoMetadata } from "../../lib/metadata";
 import { BreadcrumbSchema, FAQSchema } from "../../components/json-ld";
 
-export const metadata = buildMetadata({
+export const generateMetadata = seoMetadata({
   title: "Sythio vs Notta.ai — Outputs vs Transcription",
   description:
     "Sythio delivers 9 outputs from one recording; Notta stops at transcription. Compare features, pricing, and results. Try Sythio free.",

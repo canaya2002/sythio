@@ -1,7 +1,7 @@
-import { buildMetadata } from "../../lib/metadata";
+import { seoMetadata } from "../../lib/metadata";
 import { BreadcrumbSchema, FAQSchema } from "../../components/json-ld";
 
-export const metadata = buildMetadata({
+export const generateMetadata = seoMetadata({
   title: "Best Fireflies.ai Alternatives (2026)",
   description:
     "Compare the best Fireflies.ai alternatives in 2026: Sythio, Otter.ai, tl;dv, Notta, and AudioPen. Find the right fit for your workflow.",

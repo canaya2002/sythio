@@ -217,7 +217,8 @@ export default function SpeakerDetection() {
           <ScrollSlide direction="left" distance={100}>
             <div className="relative flex justify-center">
               {/* Background glow */}
-              <div className="absolute -inset-8 bg-gradient-to-br from-violet-100/40 via-indigo-50/30 to-transparent rounded-full blur-3xl" />
+              <div aria-hidden="true" className="absolute -inset-12 bg-gradient-to-br from-violet-200/40 via-indigo-100/30 to-pink-100/20 rounded-full blur-3xl" />
+              <div aria-hidden="true" className="absolute -inset-4 rounded-[3.5rem] bg-gradient-to-br from-white/0 via-white/30 to-white/0 pointer-events-none" />
 
               {/* iPhone */}
               <ParallaxFloat speed={0.1}>
@@ -233,19 +234,22 @@ export default function SpeakerDetection() {
 
               {/* Floating stat card */}
               <FloatingBadge delay={0.4} className="absolute -left-4 bottom-20 md:left-0 float-y-slow">
-                <div className="bg-white rounded-xl border border-border-light shadow-xl px-4 py-3">
+                <div className="glass-card rounded-xl px-4 py-3 relative">
                   <p className="text-[10px] text-muted-light font-semibold uppercase tracking-wider mb-1">{t.accuracy}</p>
                   <p className="text-2xl font-bold text-foreground tracking-tight">{t.accuracyValue}</p>
-                  <p className="text-[10px] text-emerald-600 font-medium">{t.speakerIdentification}</p>
+                  <p className="text-[10px] text-emerald-600 font-medium flex items-center gap-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.6)]" />
+                    {t.speakerIdentification}
+                  </p>
                 </div>
               </FloatingBadge>
 
               {/* Sound wave decoration */}
               <FloatingBadge delay={0.7} className="absolute -left-4 top-10 md:-left-2 z-10 hidden lg:block float-y-medium">
-                <div className="bg-white rounded-lg border border-border-light shadow-lg px-3 py-2">
-                  <div className="flex items-center gap-2">
-                    <div className="w-5 h-5 rounded-full bg-indigo-100 flex items-center justify-center">
-                      <div className="w-1.5 h-1.5 rounded-full bg-indigo-500" />
+                <div className="glass-card rounded-lg px-3 py-2">
+                  <div className="flex items-center gap-2 relative">
+                    <div className="w-5 h-5 rounded-full bg-gradient-to-br from-indigo-100 to-violet-100 border border-indigo-200/70 flex items-center justify-center">
+                      <div className="w-1.5 h-1.5 rounded-full bg-indigo-500 shadow-[0_0_6px_rgba(99,102,241,0.7)]" />
                     </div>
                     <SoundWave bars={12} className="" color="#6366f1" />
                   </div>

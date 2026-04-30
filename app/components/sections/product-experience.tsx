@@ -191,8 +191,8 @@ export default function ProductExperience() {
 
             <div className="mt-14 grid grid-cols-2 gap-8">
               {c.stats.map((stat) => (
-                <div key={stat.label}>
-                  <div className="text-3xl md:text-4xl font-bold text-foreground tracking-tight">
+                <div key={stat.label} className="relative pl-4 border-l border-border-light/80">
+                  <div className="text-3xl md:text-4xl font-bold gradient-text tracking-tight">
                     <AnimatedCounter
                       value={stat.value}
                       suffix={stat.suffix}
@@ -210,14 +210,16 @@ export default function ProductExperience() {
           {/* iPhone visual */}
           <ScrollSlide direction="right" distance={80}>
             <div className="flex justify-center relative">
+                {/* Soft halo behind device */}
+                <div aria-hidden="true" className="absolute -inset-8 bg-gradient-to-br from-emerald-100/40 via-teal-50/30 to-transparent rounded-full blur-3xl" />
                 <IPhoneFrame>
                   <MobileOutputScreen c={c} />
                 </IPhoneFrame>
                 {/* Floating output badge */}
                 <FloatingBadge delay={0.5} className="absolute -left-4 top-16 z-10 hidden lg:block float-y-medium">
-                  <div className="bg-white rounded-xl border border-border-light shadow-lg px-3 py-2">
+                  <div className="glass-card rounded-xl px-3 py-2 relative">
                     <div className="flex items-center gap-2">
-                      <div className="w-6 h-6 rounded-md bg-emerald-50 flex items-center justify-center">
+                      <div className="w-6 h-6 rounded-md bg-emerald-50 border border-emerald-100 flex items-center justify-center">
                         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#059669" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6L9 17l-5-5" /></svg>
                       </div>
                       <span className="text-[10px] font-semibold text-foreground">9 outputs ready</span>
@@ -226,7 +228,7 @@ export default function ProductExperience() {
                 </FloatingBadge>
                 {/* Floating wave */}
                 <FloatingBadge delay={0.8} className="absolute -right-4 bottom-24 z-10 hidden lg:block float-y-slow">
-                  <div className="bg-white rounded-lg border border-border-light shadow-lg px-3 py-2">
+                  <div className="glass-card rounded-lg px-3 py-2 relative">
                     <SoundWave bars={10} color="#0a0a0a" />
                   </div>
                 </FloatingBadge>

@@ -1,7 +1,7 @@
-import { buildMetadata } from "../lib/metadata";
+import { seoMetadata } from "../lib/metadata";
 import { BreadcrumbSchema, FAQSchema } from "../components/json-ld";
 
-export const metadata = buildMetadata({
+export const generateMetadata = seoMetadata({
   title: "Audio to Action Plan | Plans from Audio",
   description:
     "Transform conversations into step-by-step action plans. Sythio creates organized plans with phases, owners, and priorities. Try free.",

@@ -1,7 +1,7 @@
-import { buildMetadata } from "../../lib/metadata";
+import { seoMetadata } from "../../lib/metadata";
 import { BreadcrumbSchema, HowToSchema, FAQSchema } from "../../components/json-ld";
 
-export const metadata = buildMetadata({
+export const generateMetadata = seoMetadata({
   title: "AI Study Notes from Lectures & Audio",
   description:
     "Turn lectures and recordings into organized notes with key concepts, definitions, and takeaways. Sythio helps you learn faster. Try free.",

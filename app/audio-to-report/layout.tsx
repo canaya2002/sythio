@@ -1,7 +1,7 @@
-import { buildMetadata } from "../lib/metadata";
+import { seoMetadata } from "../lib/metadata";
 import { BreadcrumbSchema, FAQSchema } from "../components/json-ld";
 
-export const metadata = buildMetadata({
+export const generateMetadata = seoMetadata({
   title: "Audio to Report | AI Executive Reports",
   description:
     "Transform any recording into a polished executive report with key findings, recommendations, and next steps. Try Sythio free — no credit card required.",

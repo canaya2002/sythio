@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Suspense } from "react";
 import { cookies, headers } from "next/headers";
+import Script from "next/script";
 import { Geist, Geist_Mono } from "next/font/google";
 import ClientProviders from "./components/client-providers";
 import AnalyticsProvider from "./components/analytics-provider";
@@ -15,11 +16,17 @@ import "./globals.css";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  display: "swap",
+  preload: true,
+  fallback: ["system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "sans-serif"],
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  display: "swap",
+  preload: false,
+  fallback: ["ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
 });
 
 export const viewport: Viewport = {
@@ -32,6 +39,9 @@ export const viewport: Viewport = {
   ],
 };
 
+/* Root metadata — non-localized fields only.
+   Per-page localized canonical/openGraph/title/description come from each
+   route's `generateMetadata` (via app/lib/metadata.ts → seoMetadata). */
 export const metadata: Metadata = {
   metadataBase: new URL("https://sythio.com"),
   title: {
@@ -105,29 +115,20 @@ export const metadata: Metadata = {
   publisher: "Sythio",
   category: "Productivity",
   applicationName: "Sythio",
-  alternates: {
-    canonical: "https://sythio.com",
-    languages: {
-      "en": "https://sythio.com",
-      "es": "https://sythio.com/es",
-      "fr": "https://sythio.com/fr",
-      "pt": "https://sythio.com/pt",
-      "it": "https://sythio.com/it",
-      "x-default": "https://sythio.com",
-    },
-  },
+  /* Canonical / hreflang are set per-page (see app/page.tsx generateMetadata
+     and each route's generateMetadata). The root no longer hard-codes them
+     so static layouts and per-page overrides take precedence cleanly. */
   openGraph: {
     title: "Sythio — Voice Notes AI App | 9 Outputs from One Recording",
     description:
       "Sythio transforms audio into summaries, tasks, action plans, and more. The best voice notes AI app with speaker detection.",
     type: "website",
     siteName: "Sythio",
-    url: "https://sythio.com",
     locale: "en_US",
     alternateLocale: ["es_ES", "fr_FR", "pt_BR", "it_IT"],
     images: [
       {
-        url: "https://sythio.com/og-image.png",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "Sythio — AI Voice Notes App",
@@ -145,7 +146,7 @@ export const metadata: Metadata = {
     title: "Sythio — Voice Notes AI App | 9 Outputs from One Recording",
     description:
       "Sythio transforms audio into summaries, tasks, action plans, and more. The best voice notes AI app with speaker detection.",
-    images: ["https://sythio.com/og-image.png"],
+    images: ["/og-image.png"],
   },
   robots: {
     index: true,
@@ -195,6 +196,8 @@ export default async function RootLayout({
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         <link rel="dns-prefetch" href="https://vitals.vercel-insights.com" />
+        {/* Preload the logo — used in the navbar (above-the-fold) */}
+        <link rel="preload" as="image" href="/logo.png" type="image/png" />
         {/* Knowledge Graph / Brand Entity hints — helps Google connect site with GMB */}
         <meta name="application-name" content="Sythio" />
         <meta name="author" content="Carlos Anaya Ruiz" />
@@ -207,18 +210,16 @@ export default async function RootLayout({
         {/* <meta name="p:domain_verify" content="YOUR_TOKEN" /> */}
         {/* Crawler hints for rich snippets */}
         <meta name="format-detection" content="telephone=no" />
-        {/* Google Tag Manager */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      </head>
+      <body className="min-h-full flex flex-col bg-background text-foreground">
+        {/* Google Tag Manager — afterInteractive so it doesn't block LCP */}
+        <Script id="gtm-base" strategy="afterInteractive">
+          {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-TL52VWSG');`,
-          }}
-        />
-      </head>
-      <body className="min-h-full flex flex-col bg-background text-foreground">
+})(window,document,'script','dataLayer','GTM-TL52VWSG');`}
+        </Script>
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe

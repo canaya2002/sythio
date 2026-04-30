@@ -1,8 +1,7 @@
-import { buildMetadata } from "../lib/metadata";
+import { seoMetadata } from "../lib/metadata";
 import { BreadcrumbSchema, FAQSchema } from "../components/json-ld";
-import type { Metadata } from "next";
 
-export const metadata: Metadata = buildMetadata({
+export const generateMetadata = seoMetadata({
   title: "Integrations — Connect Sythio to Your Workflow",
   description: "Export Sythio outputs to Notion, Slack, Google Docs, and more. Connect your audio intelligence to the tools you already use.",
   path: "/integrations",

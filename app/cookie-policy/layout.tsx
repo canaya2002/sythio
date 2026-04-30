@@ -1,7 +1,7 @@
-import { buildMetadata } from "../lib/metadata";
+import { seoMetadata } from "../lib/metadata";
 import { BreadcrumbSchema } from "../components/json-ld";
 
-export const metadata = buildMetadata({
+export const generateMetadata = seoMetadata({
   title: "Cookie Policy",
   description:
     "Understand how Sythio uses cookies and similar technologies. Learn about the types of cookies we use and how to manage your preferences.",

@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { posts } from "./blog/lib/posts";
+import { alternateLocales } from "./lib/i18n-config";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://sythio.com";
@@ -138,20 +139,46 @@ export default function sitemap(): MetadataRoute.Sitemap {
     return new Date("2026-03-28");
   }
 
-  return allPages.map((p) => ({
-    url: `${base}${p.path}`,
-    lastModified: getLastModified(p.path),
-    changeFrequency: p.frequency,
-    priority: p.priority,
-    alternates: {
-      languages: {
-        "en": `${base}${p.path}`,
-        "es": `${base}/es${p.path}`,
-        "fr": `${base}/fr${p.path}`,
-        "pt": `${base}/pt${p.path}`,
-        "it": `${base}/it${p.path}`,
-        "x-default": `${base}${p.path}`,
-      },
-    },
-  }));
+  /* Emit one entry per locale so each locale is independently crawled and
+     each page declares the full hreflang map of its siblings.
+     This — combined with per-page locale-aware canonicals — resolves GSC's
+     "Página alternativa con etiqueta canónica adecuada" warnings. */
+  const entries: MetadataRoute.Sitemap = [];
+
+  for (const p of allPages) {
+    const lastModified = getLastModified(p.path);
+
+    /* Build the hreflang map once per logical page */
+    const languages: Record<string, string> = {
+      en: `${base}${p.path}`,
+      "x-default": `${base}${p.path}`,
+    };
+    for (const locale of alternateLocales) {
+      languages[locale] = `${base}/${locale}${p.path}`;
+    }
+
+    /* English (default) entry */
+    entries.push({
+      url: `${base}${p.path}`,
+      lastModified,
+      changeFrequency: p.frequency,
+      priority: p.priority,
+      alternates: { languages },
+    });
+
+    /* Each non-default locale gets its own URL too — gives Google a direct
+       crawl target for /es, /fr, /pt, /it variants. */
+    for (const locale of alternateLocales) {
+      entries.push({
+        url: `${base}/${locale}${p.path}`,
+        lastModified,
+        changeFrequency: p.frequency,
+        /* Slightly lower priority than the canonical English version */
+        priority: Math.max(0.1, p.priority - 0.1),
+        alternates: { languages },
+      });
+    }
+  }
+
+  return entries;
 }

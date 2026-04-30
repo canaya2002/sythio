@@ -1,7 +1,7 @@
-import { buildMetadata } from "../../lib/metadata";
+import { seoMetadata } from "../../lib/metadata";
 import { BreadcrumbSchema, FAQSchema } from "../../components/json-ld";
 
-export const metadata = buildMetadata({
+export const generateMetadata = seoMetadata({
   title: "AI for Lawyers | Case Notes & Transcripts",
   description:
     "Stop transcribing consultations manually. Sythio turns legal conversations into structured case notes, key points, and clean records.",

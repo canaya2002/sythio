@@ -1,8 +1,8 @@
-import { buildMetadata } from "../lib/metadata";
+import { seoMetadata } from "../lib/metadata";
 import { BreadcrumbSchema } from "../components/json-ld";
 import { posts } from "./lib/posts";
 
-export const metadata = buildMetadata({
+export const generateMetadata = seoMetadata({
   title: "Voice Notes AI Blog | Guides, Comparisons & Tips",
   description:
     "Expert guides on voice notes AI, audio intelligence, speaker detection, and meeting productivity. Compare tools, learn workflows, and master AI audio processing.",

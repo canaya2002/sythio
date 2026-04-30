@@ -1,7 +1,7 @@
-import { buildMetadata } from "../../lib/metadata";
+import { seoMetadata } from "../../lib/metadata";
 import { BreadcrumbSchema, HowToSchema, FAQSchema } from "../../components/json-ld";
 
-export const metadata = buildMetadata({
+export const generateMetadata = seoMetadata({
   title: "Idea Capture from Audio | AI Organizer",
   description:
     "Capture every idea from brainstorms and voice memos. Sythio groups ideas by theme, ranks by potential, and makes them actionable.",

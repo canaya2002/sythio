@@ -1,7 +1,7 @@
-import { buildMetadata } from "../../lib/metadata";
+import { seoMetadata } from "../../lib/metadata";
 import { BreadcrumbSchema, FAQSchema } from "../../components/json-ld";
 
-export const metadata = buildMetadata({
+export const generateMetadata = seoMetadata({
   title: "AI for Sales | Call Summaries & Follow-Ups",
   description:
     "Stop losing deals to forgotten follow-ups. Sythio turns sales calls into summaries, action items, and follow-up drafts automatically.",

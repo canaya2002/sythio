@@ -1,7 +1,7 @@
-import { buildMetadata } from "../../lib/metadata";
+import { seoMetadata } from "../../lib/metadata";
 import { BreadcrumbSchema, FAQSchema } from "../../components/json-ld";
 
-export const metadata = buildMetadata({
+export const generateMetadata = seoMetadata({
   title: "Sythio for Founders — Capture Every Decision",
   description:
     "Founders move fast. Sythio turns meetings and voice notes into summaries, action plans, and tasks — so nothing falls through the cracks.",

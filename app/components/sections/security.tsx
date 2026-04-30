@@ -208,8 +208,10 @@ export default function Security() {
   const t = content[locale] ?? content.en;
 
   return (
-    <section className="py-32 md:py-44 bg-background overflow-hidden animated-gradient-bg section-float-bg">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="py-32 md:py-44 mesh-gradient section-float-bg relative overflow-hidden">
+      {/* Subtle grid backdrop — gives the security section a "vault" feel */}
+      <div aria-hidden="true" className="absolute inset-0 grid-bg opacity-50 pointer-events-none" />
+      <div className="max-w-7xl mx-auto px-6 relative">
         <div className="text-center mb-24">
           <span className="text-[11px] font-semibold uppercase tracking-[0.15em] text-muted-light mb-5 block">
             {t.sectionLabel}
@@ -225,10 +227,9 @@ export default function Security() {
         <GsapStagger className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" stagger={0.08}>
           {t.features.map((feature) => (
             <ScrollScale key={feature.title}>
-              <div className="group relative p-7 rounded-2xl bg-white border border-border-light hover:border-border/80 hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)] transition-all duration-500 ease-out">
-                <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 bg-gradient-to-br from-indigo-50/20 via-violet-50/10 to-transparent transition-opacity duration-500" />
+              <div className="group glass-card spotlight iridescent-ring relative p-7 rounded-2xl">
                 <div className="relative">
-                  <div className="w-12 h-12 rounded-xl bg-foreground/5 border border-border-light flex items-center justify-center mb-6 group-hover:bg-foreground group-hover:border-foreground transition-all duration-300">
+                  <div className="w-12 h-12 rounded-xl bg-white/85 border border-white/70 backdrop-blur flex items-center justify-center mb-6 group-hover:bg-foreground group-hover:border-foreground transition-all duration-300 shadow-[0_4px_14px_rgba(99,102,241,0.10)]">
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="text-foreground group-hover:text-white transition-colors duration-300">
                       <path d={feature.icon} />
                     </svg>

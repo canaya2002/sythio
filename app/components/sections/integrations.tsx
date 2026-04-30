@@ -198,8 +198,8 @@ export default function Integrations() {
   const t = content[locale] ?? content.en;
 
   return (
-    <section className="py-32 md:py-44 bg-background overflow-hidden animated-gradient-bg-cool section-float-bg-blue">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="py-32 md:py-44 mesh-gradient-cool section-float-bg-blue relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 relative">
         <div className="text-center mb-24">
           <span className="text-[11px] font-semibold uppercase tracking-[0.15em] text-muted-light mb-5 block">
             {t.sectionLabel}
@@ -215,10 +215,9 @@ export default function Integrations() {
         <GsapStagger className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6" stagger={0.1}>
           {t.cards.map((card) => (
             <ScrollScale key={card.title}>
-              <div className="group relative p-7 rounded-2xl bg-white border border-border-light hover:border-border/80 hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)] transition-all duration-500 ease-out">
-                <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 bg-gradient-to-br from-indigo-50/20 via-violet-50/10 to-transparent transition-opacity duration-500" />
+              <div className="group glass-card spotlight iridescent-ring relative p-7 rounded-2xl">
                 <div className="relative">
-                  <div className={`w-12 h-12 rounded-xl ${card.bgColor} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                  <div className={`w-12 h-12 rounded-xl ${card.bgColor} border border-white/70 backdrop-blur-sm flex items-center justify-center mb-6 group-hover:scale-110 group-hover:shadow-[0_8px_24px_rgba(99,102,241,0.18)] transition-all duration-300`}>
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={card.color} strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
                       <path d={card.icon} />
                     </svg>

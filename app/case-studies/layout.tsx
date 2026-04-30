@@ -1,8 +1,7 @@
-import { buildMetadata } from "../lib/metadata";
+import { seoMetadata } from "../lib/metadata";
 import { BreadcrumbSchema } from "../components/json-ld";
-import type { Metadata } from "next";
 
-export const metadata: Metadata = buildMetadata({
+export const generateMetadata = seoMetadata({
   title: "Case Studies | AI Audio in Action",
   description: "See how founders, consultants, sales teams, and students use Sythio to save hours and never lose important audio. Real results.",
   path: "/case-studies",

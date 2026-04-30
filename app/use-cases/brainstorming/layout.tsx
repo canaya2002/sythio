@@ -1,7 +1,7 @@
-import { buildMetadata } from "../../lib/metadata";
+import { seoMetadata } from "../../lib/metadata";
 import { BreadcrumbSchema, FAQSchema } from "../../components/json-ld";
 
-export const metadata = buildMetadata({
+export const generateMetadata = seoMetadata({
   title: "AI Brainstorming Capture | Organize Ideas",
   description:
     "Brainstorm freely, get organized output. Sythio captures brainstorming sessions and transforms them into categorized ideas, action plans, and clear next steps.",

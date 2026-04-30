@@ -1,7 +1,7 @@
-import { buildMetadata } from "../lib/metadata";
+import { seoMetadata } from "../lib/metadata";
 import { BreadcrumbSchema } from "../components/json-ld";
 
-export const metadata = buildMetadata({
+export const generateMetadata = seoMetadata({
   title: "Terms of Service",
   description:
     "Read the terms and conditions governing your use of Sythio. Covers subscriptions, acceptable use, AI-generated outputs, intellectual property, and more.",

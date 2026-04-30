@@ -1,7 +1,7 @@
-import { buildMetadata } from "../lib/metadata";
+import { seoMetadata } from "../lib/metadata";
 import { BreadcrumbSchema, FAQSchema } from "../components/json-ld";
 
-export const metadata = buildMetadata({
+export const generateMetadata = seoMetadata({
   title: "Audio to Messages | AI Follow-Up Drafts",
   description:
     "Turn recordings into ready-to-send follow-up emails and messages with AI. Sythio drafts professional messages with context and action items. Try free.",

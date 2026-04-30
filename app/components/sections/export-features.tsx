@@ -264,8 +264,8 @@ export default function ExportFeatures() {
   const t = content[locale] ?? content.en;
 
   return (
-    <section className="py-32 md:py-44 bg-white section-float-bg-green">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="py-32 md:py-44 bg-white section-float-bg-green relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 relative">
         <div className="text-center mb-24">
           <span className="text-[11px] font-semibold uppercase tracking-[0.15em] text-muted-light mb-5 block">
             {t.sectionLabel}
@@ -282,14 +282,16 @@ export default function ExportFeatures() {
         <GsapStagger className="grid grid-cols-2 md:grid-cols-4 gap-5 mb-12" stagger={0.08}>
           {t.formats.map((format) => (
             <ScrollScale key={format.title}>
-              <div className="group relative p-6 rounded-2xl bg-background border border-border-light hover:border-border/80 hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)] transition-all duration-500 ease-out text-center">
-                <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${format.gradient} flex items-center justify-center mx-auto mb-4 group-hover:scale-110 group-hover:shadow-lg transition-all duration-300`}>
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-                    <path d={format.icon} />
-                  </svg>
+              <div className="group glass-card spotlight iridescent-ring relative p-6 rounded-2xl text-center">
+                <div className="relative">
+                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${format.gradient} flex items-center justify-center mx-auto mb-4 group-hover:scale-110 group-hover:shadow-[0_10px_28px_rgba(24,24,27,0.18)] transition-all duration-300`}>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+                      <path d={format.icon} />
+                    </svg>
+                  </div>
+                  <h3 className="text-base font-semibold text-foreground mb-1.5">{format.title}</h3>
+                  <p className="text-sm text-muted leading-relaxed">{format.description}</p>
                 </div>
-                <h3 className="text-base font-semibold text-foreground mb-1.5">{format.title}</h3>
-                <p className="text-sm text-muted leading-relaxed">{format.description}</p>
               </div>
             </ScrollScale>
           ))}
@@ -299,13 +301,13 @@ export default function ExportFeatures() {
         <GsapStagger className="grid md:grid-cols-3 gap-6" stagger={0.1}>
           {t.extras.map((extra) => (
             <ScrollScale key={extra.title}>
-              <div className="group flex gap-4 p-6 rounded-2xl bg-background border border-border-light hover:border-border/80 hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)] transition-all duration-500 ease-out">
-                <div className="w-10 h-10 rounded-xl bg-foreground/5 border border-border-light flex items-center justify-center shrink-0 group-hover:bg-foreground group-hover:border-foreground transition-all duration-300">
+              <div className="group glass-card relative flex gap-4 p-6 rounded-2xl">
+                <div className="relative w-10 h-10 rounded-xl bg-white/85 border border-white/70 backdrop-blur-sm flex items-center justify-center shrink-0 group-hover:bg-foreground group-hover:border-foreground transition-all duration-300">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="text-foreground group-hover:text-white transition-colors duration-300">
                     <path d={extra.icon} />
                   </svg>
                 </div>
-                <div>
+                <div className="relative">
                   <h4 className="text-base font-semibold text-foreground mb-1">{extra.title}</h4>
                   <p className="text-sm text-muted leading-relaxed">{extra.description}</p>
                 </div>

@@ -1,7 +1,7 @@
-import { buildMetadata } from "../../lib/metadata";
+import { seoMetadata } from "../../lib/metadata";
 import { BreadcrumbSchema, HowToSchema, FAQSchema } from "../../components/json-ld";
 
-export const metadata = buildMetadata({
+export const generateMetadata = seoMetadata({
   title: "Clean Text from Audio | Polished Output",
   description:
     "Turn messy audio into polished, readable text. Sythio removes filler words, corrects grammar, and delivers text you can publish or share.",

@@ -1,7 +1,7 @@
-import { buildMetadata } from "../lib/metadata";
+import { seoMetadata } from "../lib/metadata";
 import { BreadcrumbSchema, FAQSchema } from "../components/json-ld";
 
-export const metadata = buildMetadata({
+export const generateMetadata = seoMetadata({
   title: "FAQ | AI Voice Notes Questions Answered",
   description:
     "Answers to common questions about Sythio: how it works, speaker detection, output formats, audio privacy, pricing, supported formats, and more.",

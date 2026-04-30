@@ -1,7 +1,7 @@
-import { buildMetadata } from "../../lib/metadata";
+import { seoMetadata } from "../../lib/metadata";
 import { BreadcrumbSchema, FAQSchema } from "../../components/json-ld";
 
-export const metadata = buildMetadata({
+export const generateMetadata = seoMetadata({
   title: "Best Otter.ai Alternatives in 2026",
   description:
     "Compare the best Otter.ai alternatives in 2026: Sythio, Fireflies, tl;dv, Notta, and AudioPen. Find the right fit for your workflow.",

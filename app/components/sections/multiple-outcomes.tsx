@@ -577,53 +577,59 @@ export default function MultipleOutcomes() {
 
         {/* Central audio indicator */}
         <ScrollScale className="flex justify-center mb-16">
-          <div className="relative inline-flex items-center gap-4 px-8 py-4 rounded-full bg-foreground text-white shadow-[0_4px_16px_rgba(0,0,0,0.2)]">
-            <div className="w-3.5 h-3.5 rounded-full bg-red-400 animate-pulse" />
-            <span className="text-base font-medium">{t.yourRecording}</span>
-            <span className="text-sm text-zinc-400 font-mono">3:42</span>
-            {/* Connecting lines */}
-            <div className="absolute -bottom-8 left-1/2 w-px h-8 bg-gradient-to-b from-zinc-400 to-transparent" />
+          <div className="relative inline-flex items-center gap-4 px-8 py-4 rounded-full glass-card-dark text-white">
+            <span className="relative flex h-3.5 w-3.5">
+              <span className="absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-60 animate-ping" />
+              <span className="relative inline-flex h-3.5 w-3.5 rounded-full bg-red-400 shadow-[0_0_12px_rgba(248,113,113,0.7)]" />
+            </span>
+            <span className="text-base font-medium relative">{t.yourRecording}</span>
+            <span className="text-sm text-zinc-400 font-mono relative">3:42</span>
+            {/* Connecting line */}
+            <div aria-hidden="true" className="absolute -bottom-8 left-1/2 w-px h-8 bg-gradient-to-b from-zinc-400/70 to-transparent" />
           </div>
         </ScrollScale>
 
         {/* Cards grid */}
         <div ref={cardsRef} className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5">
-          {outcomes.map((outcome, index) => (
-            <div
-              key={index}
-              onClick={() => handleCardClick(index)}
-              className={`outcome-card group relative p-6 rounded-2xl border transition-all duration-500 cursor-pointer ${
-                activeIndex === index
-                  ? "bg-foreground/[0.03] border-foreground/20 shadow-[0_4px_16px_rgba(0,0,0,0.06),0_16px_48px_rgba(0,0,0,0.08)]"
-                  : "bg-background border-border-light hover:border-border hover:shadow-[0_4px_16px_rgba(0,0,0,0.04),0_16px_48px_rgba(0,0,0,0.06)]"
-              }`}
-            >
-              {/* Hover glow */}
-              <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 bg-gradient-to-br from-indigo-50/20 via-violet-50/10 to-transparent transition-opacity duration-500" />
-              <div className="relative">
-                <div
-                  className={`w-10 h-10 rounded-xl bg-gradient-to-br ${outcome.gradient} flex items-center justify-center mb-5 group-hover:scale-110 group-hover:shadow-lg transition-all duration-300`}
-                >
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-                    <path d={outcome.icon} />
-                  </svg>
+          {outcomes.map((outcome, index) => {
+            const isActive = activeIndex === index;
+            return (
+              <button
+                type="button"
+                key={index}
+                onClick={() => handleCardClick(index)}
+                aria-pressed={isActive}
+                className={`outcome-card group relative p-6 rounded-2xl text-left transition-all duration-500 cursor-pointer iridescent-ring ${
+                  isActive
+                    ? "glass-card-dark text-white is-active"
+                    : "glass-card spotlight"
+                }`}
+              >
+                <div className="relative">
+                  <div
+                    className={`w-10 h-10 rounded-xl bg-gradient-to-br ${outcome.gradient} flex items-center justify-center mb-5 group-hover:scale-110 group-hover:shadow-[0_8px_22px_rgba(24,24,27,0.25)] transition-all duration-300`}
+                  >
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+                      <path d={outcome.icon} />
+                    </svg>
+                  </div>
+                  <h3 className={`text-base font-semibold mb-1.5 ${isActive ? "text-white" : "text-foreground"}`}>
+                    {outcome.title}
+                  </h3>
+                  <p className={`text-sm leading-relaxed ${isActive ? "text-zinc-300" : "text-muted"}`}>
+                    {outcome.desc}
+                  </p>
+                  {/* Active indicator */}
+                  {isActive && (
+                    <motion.div
+                      layoutId="active-dot"
+                      className="absolute top-1 right-1 w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_10px_rgba(52,211,153,0.7)]"
+                    />
+                  )}
                 </div>
-                <h3 className="text-base font-semibold text-foreground mb-1.5">
-                  {outcome.title}
-                </h3>
-                <p className="text-sm text-muted leading-relaxed">
-                  {outcome.desc}
-                </p>
-                {/* Active indicator */}
-                {activeIndex === index && (
-                  <motion.div
-                    layoutId="active-dot"
-                    className="absolute top-4 right-4 w-2 h-2 rounded-full bg-foreground"
-                  />
-                )}
-              </div>
-            </div>
-          ))}
+              </button>
+            );
+          })}
         </div>
 
         {/* Expanded panel */}
@@ -637,7 +643,7 @@ export default function MultipleOutcomes() {
               transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
               className="overflow-hidden"
             >
-              <div className="rounded-3xl border border-border-light bg-background p-8 md:p-12">
+              <div className="glass-card rounded-2xl p-8 md:p-12 relative">
                 <div className="flex items-start justify-between mb-8">
                   <div className="flex items-center gap-4">
                     <div

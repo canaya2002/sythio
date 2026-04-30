@@ -1,7 +1,7 @@
-import { buildMetadata } from "../lib/metadata";
+import { seoMetadata } from "../lib/metadata";
 import { BreadcrumbSchema } from "../components/json-ld";
 
-export const metadata = buildMetadata({
+export const generateMetadata = seoMetadata({
   title: "Contact Us | Support & Partnerships",
   description:
     "Contact the Sythio team for support, partnerships, or press inquiries. We typically respond within 24 hours.",

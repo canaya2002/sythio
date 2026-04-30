@@ -1,8 +1,7 @@
-import { buildMetadata } from "../lib/metadata";
+import { seoMetadata } from "../lib/metadata";
 import { BreadcrumbSchema, FAQSchema } from "../components/json-ld";
-import type { Metadata } from "next";
 
-export const metadata: Metadata = buildMetadata({
+export const generateMetadata = seoMetadata({
   title: "Enterprise AI Audio Intelligence for Teams",
   description: "Team workspaces, API access, SSO, custom templates, and dedicated support. Deploy Sythio across your organization. Contact sales.",
   path: "/enterprise",

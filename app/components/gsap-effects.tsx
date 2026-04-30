@@ -8,6 +8,12 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
+/* Skip heavy GSAP animations for users who opted into reduced motion */
+function prefersReducedMotion(): boolean {
+  if (typeof window === "undefined") return false;
+  return window.matchMedia?.("(prefers-reduced-motion: reduce)").matches ?? false;
+}
+
 /* ─── Magnetic hover effect ─── */
 export function MagneticHover({
   children,
@@ -31,6 +37,8 @@ export function MagneticHover({
     function clamp(val: number, max: number) {
       return Math.max(-max, Math.min(max, val));
     }
+
+    if (prefersReducedMotion()) return;
 
     function onMove(e: MouseEvent) {
       if (rafId) return;
@@ -81,6 +89,7 @@ export function TextReveal({
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+    if (prefersReducedMotion()) return;
 
     gsap.fromTo(
       el,
@@ -156,6 +165,7 @@ export function ScrollScale({
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+    if (prefersReducedMotion()) return;
 
     gsap.fromTo(
       el,
@@ -198,6 +208,7 @@ export function ScrollSlide({
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+    if (prefersReducedMotion()) return;
 
     const xFrom = direction === "left" ? -distance : distance;
 
@@ -242,6 +253,7 @@ export function GsapStagger({
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+    if (prefersReducedMotion()) return;
 
     const targets = el.querySelectorAll(selector);
 
@@ -432,27 +444,33 @@ export function FloatingBadge({
     const el = ref.current;
     if (!el) return;
 
-    gsap.fromTo(
-      el,
-      { opacity: 0, y: 20, scale: 0.9 },
-      {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        duration: 0.7,
-        ease: "power2.out",
-        delay,
-        scrollTrigger: {
-          trigger: el,
-          start: "top 90%",
-          once: true,
-        },
-      }
-    );
+    if (prefersReducedMotion()) {
+      gsap.set(el, { opacity: 1, y: 0, scale: 1 });
+      return;
+    }
+
+    /* Set invisible state synchronously on mount to prevent flicker when GSAP scroll-trigger fires */
+    gsap.set(el, { opacity: 0, y: 20, scale: 0.9 });
+    gsap.to(el, {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      duration: 0.7,
+      ease: "power2.out",
+      delay,
+      scrollTrigger: {
+        trigger: el,
+        start: "top 90%",
+        once: true,
+      },
+    });
   }, [delay]);
 
+  /* Render visible at SSR — improves no-JS experience and prevents permanently-invisible
+     content if GSAP fails. The on-mount useEffect immediately hides it before the user can
+     notice on most devices. */
   return (
-    <div ref={ref} className={className} style={{ opacity: 0 }}>
+    <div ref={ref} className={className}>
       {children}
     </div>
   );
@@ -472,15 +490,17 @@ export function PageReveal({
     const el = ref.current;
     if (!el) return;
 
-    gsap.fromTo(
-      el,
-      { opacity: 0, y: 30 },
-      { opacity: 1, y: 0, duration: 0.8, ease: "power2.out", delay: 0.1 }
-    );
+    if (prefersReducedMotion()) {
+      gsap.set(el, { opacity: 1, y: 0 });
+      return;
+    }
+
+    gsap.set(el, { opacity: 0, y: 30 });
+    gsap.to(el, { opacity: 1, y: 0, duration: 0.8, ease: "power2.out", delay: 0.1 });
   }, []);
 
   return (
-    <div ref={ref} className={className} style={{ opacity: 0 }}>
+    <div ref={ref} className={className}>
       {children}
     </div>
   );

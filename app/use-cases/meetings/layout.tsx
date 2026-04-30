@@ -1,7 +1,7 @@
-import { buildMetadata } from "../../lib/metadata";
+import { seoMetadata } from "../../lib/metadata";
 import { BreadcrumbSchema, FAQSchema } from "../../components/json-ld";
 
-export const metadata = buildMetadata({
+export const generateMetadata = seoMetadata({
   title: "AI Meeting Notes | Tasks & Action Items",
   description:
     "Turn meetings into structured output. Sythio generates summaries, tasks, and action plans from recordings with speaker detection. Try free.",

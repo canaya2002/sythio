@@ -1,7 +1,7 @@
-import { buildMetadata } from "../../lib/metadata";
+import { seoMetadata } from "../../lib/metadata";
 import { BreadcrumbSchema, HowToSchema, FAQSchema } from "../../components/json-ld";
 
-export const metadata = buildMetadata({
+export const generateMetadata = seoMetadata({
   title: "Key Points from Audio | AI Takeaways",
   description:
     "Extract the most important points from any recording. Sythio identifies key decisions, insights, and takeaways so you never miss what matters most.",

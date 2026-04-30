@@ -1,7 +1,7 @@
-import { buildMetadata } from "../lib/metadata";
+import { seoMetadata } from "../lib/metadata";
 import { BreadcrumbSchema } from "../components/json-ld";
 
-export const metadata = buildMetadata({
+export const generateMetadata = seoMetadata({
   title: "Compare Sythio — Best Voice Notes AI vs Otter, Fireflies & More",
   description:
     "See how Sythio, the best voice notes AI app, compares to Otter, Fireflies, tl;dv, Audiopen, and Notta. 9 structured outputs vs basic transcription.",

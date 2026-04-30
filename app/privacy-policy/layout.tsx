@@ -1,7 +1,7 @@
-import { buildMetadata } from "../lib/metadata";
+import { seoMetadata } from "../lib/metadata";
 import { BreadcrumbSchema } from "../components/json-ld";
 
-export const metadata = buildMetadata({
+export const generateMetadata = seoMetadata({
   title: "Privacy Policy",
   description:
     "Learn how Sythio collects, uses, and protects your personal information. Our privacy policy covers audio data, transcripts, cookies, and your rights.",

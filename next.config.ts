@@ -38,6 +38,8 @@ const nextConfig: NextConfig = {
   experimental: {
     workerThreads: false,
     cpus: 4,
+    /* Tree-shake the heavy animation libraries used across sections */
+    optimizePackageImports: ["framer-motion", "gsap"],
   },
   images: {
     formats: ["image/avif", "image/webp"],
@@ -72,7 +74,20 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
-      /* Trailing slash normalization */
+      /* ─── Canonical host: force non-www ─── */
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.sythio.com" }],
+        destination: "https://sythio.com/:path*",
+        permanent: true,
+      },
+      /* ─── Default locale prefix: /en/x → /x ─── */
+      {
+        source: "/en/:path*",
+        destination: "/:path*",
+        permanent: true,
+      },
+      /* ─── Trailing slash normalization (after host normalization) ─── */
       {
         source: "/:path+/",
         destination: "/:path+",

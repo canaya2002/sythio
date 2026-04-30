@@ -1,7 +1,6 @@
-import { buildMetadata } from "../lib/metadata";
-import type { Metadata } from "next";
+import { seoMetadata } from "../lib/metadata";
 
-export const metadata: Metadata = buildMetadata({
+export const generateMetadata = seoMetadata({
   title: "AI Audio for Every Professional Role",
   description: "Whether you're a student, founder, consultant, or lawyer — Sythio transforms your audio into structured output tailored to your work.",
   path: "/for",

@@ -1,7 +1,7 @@
-import { buildMetadata } from "../../lib/metadata";
+import { seoMetadata } from "../../lib/metadata";
 import { BreadcrumbSchema, HowToSchema, FAQSchema } from "../../components/json-ld";
 
-export const metadata = buildMetadata({
+export const generateMetadata = seoMetadata({
   title: "AI Speaker Detection | Who Said What",
   description:
     "Sythio automatically identifies speakers in your recordings. See who said what, assign tasks, and create speaker-aware summaries.",

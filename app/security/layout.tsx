@@ -1,8 +1,7 @@
-import { buildMetadata } from "../lib/metadata";
+import { seoMetadata } from "../lib/metadata";
 import { BreadcrumbSchema, FAQSchema } from "../components/json-ld";
-import type { Metadata } from "next";
 
-export const metadata: Metadata = buildMetadata({
+export const generateMetadata = seoMetadata({
   title: "Security & Privacy | Audio Data Protection",
   description: "End-to-end encryption, SOC 2 compliance, GDPR-ready. Your audio data is secure with Sythio. Delete anytime. Try free.",
   path: "/security",

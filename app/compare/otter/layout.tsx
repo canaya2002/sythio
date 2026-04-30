@@ -1,7 +1,7 @@
-import { buildMetadata } from "../../lib/metadata";
+import { seoMetadata } from "../../lib/metadata";
 import { BreadcrumbSchema, FAQSchema } from "../../components/json-ld";
 
-export const metadata = buildMetadata({
+export const generateMetadata = seoMetadata({
   title: "Sythio vs Otter.ai | Full Comparison",
   description:
     "Compare Sythio and Otter.ai. Otter focuses on transcription. Sythio transforms audio into 9 structured outputs: summaries, tasks, action plans, reports, and more.",
